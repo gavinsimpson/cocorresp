@@ -1,0 +1,64 @@
+Cocorresp Change Log
+
+Version 0.1-6
+
+   * Removed Encoding: UTF-8 from package DESCRIPTION file.
+   
+   * Fixed a bug in print method for fitted.predcoca
+   
+   * Added scaleLin and mcLin to internal functions.
+   
+   * Updated Version: field in DESCRIPTION to match new
+     requirements in R 2.6.0.
+
+Version 0.1-5
+
+   * Added 'stats' and 'graphics' to Depends field.
+
+Version 0.1-4
+
+   * Completely rewrote plot.predcoca() and plot.symcoca()
+     from the ground up. These methods are far more
+     flexible and modular than before and most options are 
+     user-configurable. Methods default to a 1x2 display
+     showing both biplots, setting 'oneFig = FALSE' overides
+     this behaviour and each biplot is plotted in turn on
+     the active device. New argument 'ask' controls whether
+     the user is prompted to display the next plot or not
+     like plot.lm() does. 'ask' tries to work out whether 
+     prompting is required (it is not if the user has already 
+     set up a 1x2 or greater plotting region). This feature is
+     based on code in plot.lm().
+  
+     Still need to work out the most intuitive way of 
+     handlings set of graphical parameters for the 
+     predictor and response for total customisation.
+  
+   * Minor documentation fix
+
+Version 0.1-3
+
+	* scores.symcoca() incorrectly returned the wrong site
+	scores for matrix X. Reported by S. Juggins.
+	
+	* corAxis.symcoca() incorrectly called scores with 
+	argument ''extract'' instead of ''display''. Reported 
+	by S. Juggins.
+	
+	* Added flush.console() calls to crossval() and
+	permutest.coca() to make sure the progress is
+	printed to the console in Mac OSx and Windows. Suggested
+	by S. Juggins.
+	
+	* Added argument n.axes to permutest.coca to control the
+	number of axes tested. Defaults to x$n.axes to maintain
+	backwards compatibility. Suggested by S. Juggins.
+	
+	* Minor typos in documentation fixed, and removed 
+	\dQuote{} from within \code{} chunks as it was not being
+	processed as I expected.
+
+Version 0.1-2
+
+	* First Public Release
+	

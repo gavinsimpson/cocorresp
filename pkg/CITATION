@@ -1,0 +1,14 @@
+citHeader("To cite package 'cocorresp' in publications use:")
+
+citEntry(entry="Manual",
+	title ="cocorresp: Co-correspondence analysis ordination methods",
+	author = personList(as.person("G. L. Simpson")),
+	year = 2005,
+	note = paste("R package version", packageDescription("cocorresp")$Version),
+	textVersion =
+	paste("Simpson, G.L. (2005). ", 
+	"cocorresp: Co-correspondence analysis ordination methods",
+	packageDescription("cocorresp")$Version, 
+ 	".", sep="")
+)
+ 

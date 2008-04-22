@@ -1,0 +1,29 @@
+beetles                 Carabid beetles and vascular plants in Dutch
+                        roadside verges
+bryophyte               Bryophytes and vascular plants in Carpathian
+                        spring meadows
+coca                    Fit Co-Correspondence Analysis Ordination
+                        Models
+cocorresp-package       Co-correspondence analysis ordination methods
+                        for community ecology
+coinertia               Co-inertia analysis
+coinertiaI              Coinertia analysis with identity matrices
+corAxis                 Correlation between ordination axes
+crossval                Cross-validation for predictive
+                        Co-Correspondence Analysis models
+fitted.symcoca          Fitted values of a Symmetric Co-Correpsondence
+                        analysis model.
+mcChi                   Standardised chi-square residuals
+pasteCall               Pretty printing of R language calls
+permutest.coca          Permutation test for predictive
+                        co-correspondence analysis models
+plot.predcoca           Biplots for predictive co-correspondence
+                        analysis
+plot.symcoca            Biplots for symmetric co-correspondence
+                        analysis
+rescale                 Rescales Co-CA species scores
+resid.symcoca           Extract Model Residuals
+scaleChi                Standardised chi-square residuals
+scores.predcoca         Get Species or Site Scores from an Ordination
+simpls                  Modified version of Sijmen de Jong's SIMPLS
+summary.predcoca        Summarizing Co-CA Model Fits
