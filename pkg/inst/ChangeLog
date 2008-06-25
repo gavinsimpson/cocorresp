@@ -1,5 +1,14 @@
 Cocorresp Change Log
 
+Version 0.1-7 (opened June 25th 2008)
+
+	* permutest.coca: Correct markup for S3 method now
+	that permutest is generic in vegan.
+
+	* pasteCall: This function was added to vegan as a
+	helper. As cocorresp depends on vegan there is no
+	need for it in cocorresp.
+	
 Version 0.1-6
 
    * Removed Encoding: UTF-8 from package DESCRIPTION file.

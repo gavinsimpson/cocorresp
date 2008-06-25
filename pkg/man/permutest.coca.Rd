@@ -12,7 +12,7 @@
   assess the significance of each CoCA ordination axes.
 }
 \usage{
-permutest.coca(x, R0 = NULL, permutations = 99,
+\method{permutest}{coca}(x, R0 = NULL, permutations = 99,
                n.axes = x$n.axes, verbose = TRUE, \ldots)
 
 %\method{print}{permutest.coca}(x, digits = max(3, getOption("digits") - 3), \ldots)
