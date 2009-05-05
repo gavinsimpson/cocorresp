@@ -1,5 +1,9 @@
 Cocorresp Change Log
 
+Version 0.1-8
+
+	* CITATION: updated citation file to match CRAN requirements.
+	
 Version 0.1-7 (opened June 25th 2008)
 
 	* permutest.coca: Correct markup for S3 method now
