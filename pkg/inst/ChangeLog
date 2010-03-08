@@ -1,9 +1,16 @@
 Cocorresp Change Log
 
+Version 0.1-9
+
+	* CITATION: Updated citation file.
+
+	* DESCRIPTION: Updated to latest version - updates were
+	missed from previous version.
+
 Version 0.1-8
 
 	* CITATION: updated citation file to match CRAN requirements.
-	
+
 Version 0.1-7 (opened June 25th 2008)
 
 	* permutest.coca: Correct markup for S3 method now
@@ -12,7 +19,7 @@ Version 0.1-7 (opened June 25th 2008)
 	* pasteCall: This function was added to vegan as a
 	helper. As cocorresp depends on vegan there is no
 	need for it in cocorresp.
-	
+
 Version 0.1-6
 
    * Removed Encoding: UTF-8 from package DESCRIPTION file.
