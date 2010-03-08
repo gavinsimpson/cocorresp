@@ -5,12 +5,11 @@ citHeader("To cite package 'cocorresp' in publications use:")
 citEntry(entry="Manual",
 	title ="cocorresp: Co-correspondence analysis ordination methods",
 	author = personList(as.person("G. L. Simpson")),
-	year = 2005,
+	year = 2009,
 	note = paste("R package version", meta$Version),
+   	url = "http://cran.r-project.org/package=cocorresp",
 	textVersion =
-	paste("Simpson, G.L. (2005). ", 
-	"cocorresp: Co-correspondence analysis ordination methods",
-	meta$Version, 
- 	".", sep="")
+	paste("Simpson, G.L. (2009).", 
+	"cocorresp: Co-correspondence analysis ordination methods. (R package version ",
+	meta$Version, ").", " (http://cran.r-project.org/package=analogue).", sep="")
 )
- 
