@@ -15,7 +15,7 @@ function(x, choices = c(1, 2), display = c("sites", "species"),
                  X = x$scores$species$X[, choices, drop = FALSE])
         }
     }
-    retval$site <- if ("sites" %in% take)
+    retval$sites <- if ("sites" %in% take)
         list(Y = x$scores$site$Y[, choices, drop = FALSE],
              X = x$scores$site$X[, choices, drop = FALSE])
     retval$loadings <- if ("loadings" %in% take)
@@ -23,10 +23,6 @@ function(x, choices = c(1, 2), display = c("sites", "species"),
              X = x$loadings$X[ choices, drop = FALSE])
     retval$xmatrix <- if ("xmatrix" %in% take)
         x$X[, choices, drop = FALSE]
-    ## if only one type of scores, return as a single list, not
-    ## a nested one
-    if (length(retval) == 1)
-        retval <- retval[[1]]
     ##class(retval) <- "scores.symcoca"
     return(retval)
 }

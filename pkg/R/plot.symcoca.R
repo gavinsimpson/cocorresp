@@ -43,25 +43,25 @@
     type <- match.arg(type)
     plt.dat <- scores(x, choices = choices, scaling = scaling,
                       display = display)
-    if (is.null(plt.dat$species) && is.null(plt.dat$site))
-        plt.dat <- list(default = plt.dat)
+    ##if (is.null(plt.dat$species) && is.null(plt.dat$sites))
+    ##    plt.dat <- list(default = plt.dat)
     if("species" %in% display) {
         if("sites" %in% display) {
-            ranx1 <- range(plt.dat$species$Y[,1], plt.dat$site$Y[,1])
-            rany1 <- range(plt.dat$species$Y[,2], plt.dat$site$Y[,2])
-            ranx2 <- range(plt.dat$species$X[,1], plt.dat$site$X[,1])
-            rany2 <- range(plt.dat$species$X[,2], plt.dat$site$X[,2])
+            ranx1 <- range(plt.dat$species$Y[,1], plt.dat$sites$Y[,1])
+            rany1 <- range(plt.dat$species$Y[,2], plt.dat$sites$Y[,2])
+            ranx2 <- range(plt.dat$species$X[,1], plt.dat$sites$X[,1])
+            rany2 <- range(plt.dat$species$X[,2], plt.dat$sites$X[,2])
         } else {
-            ranx1 <- range(plt.dat$default$Y[,1])
-            rany1 <- range(plt.dat$default$Y[,2])
-            ranx2 <- range(plt.dat$default$X[,1])
-            rany2 <- range(plt.dat$default$X[,2])
+            ranx1 <- range(plt.dat$species$Y[,1])
+            rany1 <- range(plt.dat$species$Y[,2])
+            ranx2 <- range(plt.dat$species$X[,1])
+            rany2 <- range(plt.dat$species$X[,2])
         }
     } else {
-        ranx1 <- range(plt.dat$default$Y[,1])
-        rany1 <- range(plt.dat$default$Y[,2])
-        ranx2 <- range(plt.dat$default$X[,1])
-        rany2 <- range(plt.dat$default$X[,2])
+        ranx1 <- range(plt.dat$sites$Y[,1])
+        rany1 <- range(plt.dat$sites$Y[,2])
+        ranx2 <- range(plt.dat$sites$X[,1])
+        rany2 <- range(plt.dat$sites$X[,2])
     }
     if(missing(ylab))
         ylabs <- substitute("Axis " * arg1 * " " * (lambda[arg1] == arg2),
@@ -77,12 +77,12 @@
     }
     plot.new()
     plot.window(xlim = ranx1, ylim = rany1, asp = 1, ...)
-    if(!is.null(plt.dat$site))
+    if(!is.null(plt.dat$sites))
         if(type == "text")
-            text(plt.dat$site$Y, rownames(plt.dat$site$Y),
+            text(plt.dat$sites$Y, rownames(plt.dat$sites$Y),
                  cex = cex[1], col = col[1])
         else if (type == "points")
-            points(plt.dat$site$X1, cex = cex[1], pch = pch[1],
+            points(plt.dat$sites$X1, cex = cex[1], pch = pch[1],
                    col = col[1])
     if(!is.null(plt.dat$species))
         if(type == "text")
@@ -107,12 +107,12 @@
         title(main = main1, sub = sub, ylab = ylabs, xlab = xlabs)
     plot.new()
     plot.window(xlim = ranx2, ylim = rany2, asp = 1, ...)
-    if(!is.null(plt.dat$site))
+    if(!is.null(plt.dat$sites))
         if(type == "text")
-            text(plt.dat$site$X, rownames(plt.dat$site$X),
+            text(plt.dat$sites$X, rownames(plt.dat$sites$X),
                  cex = cex[1], col = col[1])
         else if(type == "points")
-            points(plt.dat$site$X, cex = cex[1], pch = pch[1],
+            points(plt.dat$sites$X, cex = cex[1], pch = pch[1],
                    col = col[1])
     if(!is.null(plt.dat$species))
         if(type == "text")
