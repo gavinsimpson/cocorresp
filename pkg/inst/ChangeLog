@@ -11,6 +11,11 @@ Version 0.2-0
 	components are named consistently `X` and `Y` rather than `U1`,
 	`U2` etc.
 
+	* plot.symcoca: Plot method changed to plot only one of the
+	response or predictor results. Now also returns an object of
+	class "ordiplot" which should be able to be used with all of
+	Vegan's ordiplot code.
+
 Version 0.1-9
 
 	* CITATION: Updated citation file.
