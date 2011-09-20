@@ -21,18 +21,18 @@ quarter root of the eigenvalue for axis i."))
       }
       cat("\nSpecies scores for", x$namY, "are weighted averages of site scores for", x$namX, "\n")
       cat("\nSpecies Scores: ", x$namY, "\n")
-      print(x$cocaScores$species$U1, digits = digits, ..., print.gap = 2)
+      print(x$cocaScores$species$Y, digits = digits, ..., print.gap = 2)
       cat("\nSpecies scores for", x$namX, "are weighted averages of site scores for", x$namY, "\n")
       cat("\nSpecies Scores: ", x$namX, "\n")
-      print(x$cocaScores$species$U2, digits = digits, ..., print.gap = 2)
+      print(x$cocaScores$species$X, digits = digits, ..., print.gap = 2)
     }
     if (!is.null(x$cocaScores$site)) {
       cat("\nSite scores for", x$namY, "are weighted averages of species scores for", x$namX, "\n")
       cat("\nSite Scores: ", x$namY, "\n")
-      print(x$cocaScores$site$X1, digits = digits, ..., print.gap = 2)
+      print(x$cocaScores$site$Y, digits = digits, ..., print.gap = 2)
       cat("\nSite scores for", x$namX, "are weighted averages of species scores for", x$namY, "\n")
       cat("\nSite Scores: ", x$namX, "\n")
-      print(x$cocaScores$site$X2, digits = digits, ..., print.gap = 2)
+      print(x$cocaScores$site$X, digits = digits, ..., print.gap = 2)
     }
     if (!is.null(x$cocaScores$loadings)) {
       cat("\nLoadings for", x$namY, "are coefficients of weighted regression of", x$namY, "on the X-matrix\n")
