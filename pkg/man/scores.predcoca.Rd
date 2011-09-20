@@ -10,18 +10,21 @@
 \usage{
 
 \method{scores}{predcoca}(x, choices = c(1, 2),
-       display = c("site","species"), \ldots)
+       display = c("sites","species"), \ldots)
 
 \method{scores}{symcoca}(x, choices = c(1, 2),
-       display = c("site","species"), scaling = 1, \ldots)
+       display = c("sites","species"), scaling = 1, \ldots)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{x}{ an ordination result}
-  \item{display}{ partial match to access scores for \dQuote{sites} or \dQuote{species}.}
-  \item{choices}{ the ordination axes to return.}
-  \item{scaling}{ whether the species scores should be rescaled to the
-    quarter root of the eigenvalues using \code{\link{rescale.symcoca}}.}
+  \item{display}{ partial match to access scores for \dQuote{sites}
+    \dQuote{species}, \dQuote{loadings} or \dQuote{xmatrix}. The latter
+    two are only available for \code{\link{symcoca}}.}
+  \item{choices}{numeric; the ordination axes to return.}
+  \item{scaling}{numeric; whether the species scores should be rescaled
+    to the quarter root of the eigenvalues using
+    \code{\link{rescale.symcoca}}.}
   \item{\ldots}{arguments to be passed to other methods.}
 }
 \details{
@@ -29,18 +32,21 @@
   co-correspondence analysis ordination results.
 }
 \value{
-  A list with two components containing matrices of the requested
-  scores:
-  \item{species }{A list with two components, \code{U1} and \code{U2},
+  A list with one or more components containing matrices of the
+  requested scores:
+  
+  \item{species }{A list with two components, \code{Y} and \code{X},
     containing the species scores for the response matrix \code{Y} and
     the predictor matrix \code{X} respectively.}
-  \item{sites }{A list with two components, \code{X1} and \code{X2},
+  \item{sites }{A list with two components, \code{Y} and \code{X},
     containing the site scores for the response matrix \code{Y} and
     the predictor matrix \code{X} respectively.}
-  ...
+  \item{loadings }{A list with two components, \code{Y} and \code{X}
+    containing the loadings for the response and predictor matrix. For
+    \code{\link{symcoca}} only.}
+  \item{xmatrix }{The X matrix. For \code{\link{symcoca}} only.}
 }
 \references{
-  
   ter Braak, C.J.F and Schaffers, A.P. (2004) Co-Correspondence
   Analysis: a new ordination method to relate two community
   compositions. \emph{Ecology} \bold{85(3)}, 834--846
@@ -68,3 +74,4 @@ bp.pred <- coca(beetles ~ ., data = plants)
 scores(bp.pred)
 }
 \keyword{multivariate}
+\keyword{methods}

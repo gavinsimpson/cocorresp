@@ -7,7 +7,7 @@
 }
 \usage{
 \method{plot}{symcoca}(x, choices = c(1:2),
-     display = c("species", "site"), scaling = FALSE,
+     display = c("species", "sites"), scaling = FALSE,
      oneFig = TRUE, type = c("points", "text", "none"),
      ask = prod(par("mfcol")) < 2 && dev.interactive(),
      cex = c(0.7, 0.7), pch = c(par("pch"), 3),
