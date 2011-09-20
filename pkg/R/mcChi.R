@@ -1,4 +1,4 @@
-"mcChi" <-
+`mcChi` <-
 function(Y, R0, eps = 0.000001)
   {
     rsum <- rowSums(Y)
@@ -16,7 +16,7 @@ function(Y, R0, eps = 0.000001)
     return(retval)
   }
 
-"mcLin" <-
+`mcLin` <-
 function(X, R0, eps = 0.000000001)
   {
     ## calculates the weighted autoscaled Xs and the weighted mean
@@ -31,5 +31,4 @@ function(X, R0, eps = 0.000000001)
     rXs <- diag(sqrt(Wn)) %*% rXs
     retval <- list(rXs = rXs, mean = Wmeans, sd = sd)
     class(retval) <- "mcLin"
-    
 }

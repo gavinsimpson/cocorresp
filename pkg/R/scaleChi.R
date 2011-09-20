@@ -1,4 +1,4 @@
-"scaleChi" <-
+`scaleChi` <-
 function(Y, Kn, R0, eps = 0.000001)
   {
     R <- as.matrix(rowSums(Y))
@@ -9,7 +9,7 @@ function(Y, Kn, R0, eps = 0.000001)
     return(Yr)
   }
 
-"scaleLin" <-
+`scaleLin` <-
 function(X, mean, sd, r, eps = 0.00000001)
   {
     ## [Xs] = scale_lin(X, mean, sd, r)
