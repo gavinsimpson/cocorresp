@@ -6,6 +6,11 @@ Version 0.2-0
 	package vegan's namespace. Hence we now depend on vegan version
 	1.17-12 or greater.
 
+	* scores.symcoca: Now always returns a nested list even if only
+	a single type of scores is requested. Individual scores
+	components are named consistently `X` and `Y` rather than `U1`,
+	`U2` etc.
+
 Version 0.1-9
 
 	* CITATION: Updated citation file.
