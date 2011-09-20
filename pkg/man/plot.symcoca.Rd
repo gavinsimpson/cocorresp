@@ -6,54 +6,48 @@
   symmetric co-correspondence analysis.
 }
 \usage{
-\method{plot}{symcoca}(x, choices = c(1:2),
-     display = c("species", "sites"), scaling = FALSE,
-     oneFig = TRUE, type = c("points", "text", "none"),
-     ask = prod(par("mfcol")) < 2 && dev.interactive(),
-     cex = c(0.7, 0.7), pch = c(par("pch"), 3),
-     col = c("black", "red"), ylab, xlab, main, sub = "",
-     axes = TRUE, ann = par("ann"), \ldots)
+\method{plot}{symcoca}(x,
+    which = c("response", "predictor"),
+    choices = 1:2,
+    display = c("species", "sites"),
+    scaling = FALSE,
+    type,
+    xlim = NULL,
+    ylim = NULL,
+    main = "",
+    sub = "",
+    ylab, xlab,
+    ann = par("ann"),
+    axes = TRUE,
+    \ldots)
 }
 
 \arguments{
   \item{x}{ an object of class \code{"symcoca"}, the result of
     a call to \code{\link{symcoca}}.}
+  \item{which}{character; should the response or predictor scores be
+    plotted.}
   \item{choices}{ a vector of length 2 indicating which predictive CoCA
     axes to plot.}
   \item{display}{ which sets of scores are drawn. See
     \code{\link{scores.symcoca}}.}
   \item{scaling}{ logical, whether scaling should be applied. See
     \code{\link{scores.symcoca}}.}
-  \item{oneFig}{ if \code{TRUE}, biplots for the response and predictor
-    are plotted on the same figure using \code{par(mfrow = c(1,2))}. If
-    \code{FALSE} each biplot is plotted in turn on the active
-    device. The first plot will be overwritten unless \code{ask = TRUE},
-    see below.}
   \item{type}{ one of \code{"points"}, \code{"text"}, or
     \code{"none"}. Determines how the site and species scores are
-    displayed. If \code{type = "points"}, scores are plotted as points
-    using plotting characters given in argument \code{pch}. If
-    \code{type = "text"}, then the row names of the scores matrices are
-    plotted. If \code{type = "none"}, then the scores are not plotted.}
-  \item{ask}{logical, if \code{TRUE}, the user is \emph{ask}ed before
-    each plot, see \code{\link{par}}.}
-  \item{cex}{ a vector of length 2, containing the character expansion
-    factors to use for the samples (sites) and the species.}
-  \item{col}{ a vector of length 2, containing the colours used to draw
-    the samples (sites) and the species markers.}
-  \item{pch}{ a vector of length 2, containing the plotting character to
-    use for the samples (sites) and the species.}
-  \item{xlab, ylab}{ labels for the x and y axes, defaults to
-    \dQuote{Axis X (lamda\_X = Y)}, where \sQuote{X} is the CoCa axis
-    plotted and \sQuote{Y} is the Eigenvalue for axis \sQuote{X}.}
-  \item{main}{ a main title for the plot, defaults to the names given in
-  \code{x\$nam.dat}. User supplied values currently ignored.}
-  \item{sub}{a sub title for the plots. Currently the same sub title is
-    applied to each biplot.}
-  \item{axes}{ a logical value indicating whether both axes should be drawn
-    on the plot.}
+    displayed. If \code{type = "points"}, scores are plotted as
+    points. If \code{type = "text"}, then the row names of the scores
+    matrices are plotted. If \code{type = "none"}, then the scores are
+    not plotted.}
+  \item{xlim, ylim}{limits for the x and y axes. If non supplied,
+    suitable limits will be determined from the data.}
+  \item{xlab, ylab}{ labels for the x and y axes. If non supplied
+    suitable labels are formed from the result object.}
+  \item{main, sub}{ the main and sub titles for the plot.}
   \item{ann}{ logical, if TRUE plots are annotated and not if FALSE,
     currently ignored.}
+  \item{axes}{ a logical value indicating whether both axes should be drawn
+    on the plot.}
   \item{\dots}{ other graphical parameters as in 'par' may also be passed as
     arguments.}
 }
@@ -87,5 +81,12 @@ bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
 ## draw the biplots
 
 plot(bp.sym)
+
+## plot of both
+layout(matrix(1:2, ncol = 2))
+plot(bp.sym, which = "response", main = "Beetles")
+plot(bp.sym, which = "predict", main = "Plants")
+layout(1)
 }
 \keyword{hplot}
+\keyword{methods}
