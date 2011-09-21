@@ -14,10 +14,10 @@ Version 0.2-0
 	components are named consistently `X` and `Y` rather than `U1`,
 	`U2` etc.
 
-	* plot.symcoca: Plot method changed to plot only one of the
-	response or predictor results. Now also returns an object of
-	class "ordiplot" which should be able to be used with all of
-	Vegan's ordiplot code.
+	* plot.symcoca, plot.predcoca: Plot method changed to plot
+	only one of the	response or predictor results. Now also returns
+	an object of class "ordiplot" which should be able to be used
+	with all of Vegan's ordiplot code.
 
 	* predcoca.eigen, predcoca.simpls, symcoca: These are now non-
 	visible and not exported. Original intention was that the user
