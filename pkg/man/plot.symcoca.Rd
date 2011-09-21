@@ -60,11 +60,6 @@
 
 \author{Gavin L. Simpson.}
 
-\note{This is an improved plot method for \code{symcoca} objects, that
-  is far more configurable. More intuitive handling of user supplied
-  values for \code{main}, \code{xlab}, \code{ylab} and \code{sub} will
-  be provided in the next version.}
-
 \seealso{\code{\link{coca}}, \code{\link{plot.default}}}
 
 \examples{
@@ -80,6 +75,7 @@ data(plants)
 bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
 ## draw the biplots
 
+## draw a biplot of the response
 plot(bp.sym)
 
 ## plot of both
