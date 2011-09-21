@@ -2,9 +2,6 @@
 \alias{coca}
 \alias{coca.formula}
 \alias{coca.default}
-\alias{predcoca.simpls}
-\alias{predcoca.eigen}
-\alias{symcoca}
 \alias{print.predcoca}
 \alias{print.symcoca}
 \concept{ordination}
@@ -14,33 +11,20 @@
   \code{coca} is used to fit Co-Correspondence Analysis (CoCA)
   models. It can fit predictive or symmetric models to two community
   data matrices containing species abundance data.
-  \code{predcoca.simpls}, \code{predcoca.eigen} and \code{symcoca}
-  perform the actual model fitting.
 }
 \usage{
 coca(y, \ldots)
 
 \method{coca}{default}(y, x, method = c("predictive", "symmetric"),
-    reg.method = c("simpls", "eigen"), weights = NULL,
-    n.axes = NULL, symmetric = FALSE, \ldots)
+     reg.method = c("simpls", "eigen"), weights = NULL,
+     n.axes = NULL, symmetric = FALSE, \ldots)
 
 \method{coca}{formula}(formula, data, method = c("predictive", "symmetric"),
-    reg.method = c("simpls", "eigen"), weights = NULL,
-    n.axes = NULL, symmetric = FALSE, \ldots)
-
-predcoca.eigen(y, x, R0 = NULL, n.axes = NULL, nam.dat = NULL)
-
-predcoca.simpls(y, x, R0 = NULL, n.axes = NULL, nam.dat = NULL)
-
-symcoca(y, x, n.axes = NULL, R0 = NULL,
-        symmetric = FALSE, nam.dat = NULL)
-
-%\method{print}{predcoca}(x, digits = max(3, getOption("digits") - 3), \dots)
-
-%\method{print}{symcoca}(x, digits = max(3, getOption("digits") - 3), \dots)
+     reg.method = c("simpls", "eigen"), weights = NULL,
+     n.axes = NULL, symmetric = FALSE, \ldots)
 
 }
-%- maybe also 'usage' for other objects documented here.
+
 \arguments{
   \item{y}{a data frame containing the response community data matrix.}
 
@@ -64,7 +48,7 @@ symcoca(y, x, n.axes = NULL, R0 = NULL,
     should be fitted using the SIMPLS algorithm or via an eigen
     analysis.}
 
-  \item{weights, R0}{a vector of length \code{nrow(y)} of user supplied
+  \item{weights}{a vector of length \code{nrow(y)} of user supplied
     weights for \eqn{R_0}. If \code{weights = NULL} (default) then the
     weights are determined from \code{y} (default) or \code{x} and \code{y}
     (\code{symmetric = TRUE} only).}
@@ -81,18 +65,10 @@ symcoca(y, x, n.axes = NULL, R0 = NULL,
     unless user defined weights are provided via argument
     \code{weights}. Ignored if \code{method} is \code{"predictive"}.}
 
-  \item{nam.dat}{an optional list with elements \code{namY} and \code{namX}
-    containing the names of \code{y} and \code{x} respectively. Used to
-    label printed output. If missing the names of are deduced from
-    \code{y} and \code{x}.}
-
   \item{\dots}{additional arguments to be passed to lower level methods.}
 }
 \details{
-  \code{coca} is the main user-callable function. \code{predcoca.simpls},
-  \code{predcoca.eigen} and \code{symcoca} perform the actual model
-  fitting but are not meant to be called by the user as \code{coca}
-  pre-processes the input data before calling these functions.
+  \code{coca} is the main user-callable function.
 
   A typical model has the form \code{response ~ terms} where
   \code{response} is the (numeric) response data frame and \code{terms}

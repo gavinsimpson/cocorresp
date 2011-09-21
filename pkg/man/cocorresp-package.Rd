@@ -17,7 +17,7 @@ Co-correspondence analysis ordination methods for community ecology
 \tabular{ll}{
 Package: \tab cocorresp\cr
 Type: \tab Package\cr
-Version: \tab 0.1-3\cr
+Version: \tab 0.2-0\cr
 Date: \tab 2005-11-30\cr
 Depends: \tab vegan\cr
 License: \tab GPL Version 2\cr

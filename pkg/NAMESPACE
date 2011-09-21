@@ -8,9 +8,7 @@ import(stats)
 import(graphics)
 
 ## Exports
-export(coca, coinertia, corAxis, crossval, symcoca, predcoca.simpls,
-       predcoca.eigen, rescale, symcoca,
-       mcChi, mcLin, scaleChi, scaleLin)
+export(coca, coinertia, corAxis, crossval, rescale)
 
 ### S3 Methods
 ##

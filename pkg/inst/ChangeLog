@@ -6,6 +6,9 @@ Version 0.2-0
 	package vegan's namespace. Hence we now depend on vegan version
 	1.17-12 or greater.
 
+	* coca: now returns an object with class "coca" as well as a
+	class from the fitting function ("predcoca" or "symcoca").
+
 	* scores.symcoca: Now always returns a nested list even if only
 	a single type of scores is requested. Individual scores
 	components are named consistently `X` and `Y` rather than `U1`,
@@ -15,6 +18,10 @@ Version 0.2-0
 	response or predictor results. Now also returns an object of
 	class "ordiplot" which should be able to be used with all of
 	Vegan's ordiplot code.
+
+	* predcoca.eigen, predcoca.simpls, symcoca: These are now non-
+	visible and not exported. Original intention was that the user
+	would not call these functions.
 
 Version 0.1-9
 

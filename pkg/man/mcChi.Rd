@@ -44,14 +44,14 @@ mcChi(Y, R0, eps = 1e-06)
   This function is not intended for casual use by users.
 }
 
-\examples{
-data(beetles)
-## log transform the bettle data
-beetles <- as.matrix(log(beetles + 1))
-## row sums for R0
-rsum <- rowSums(beetles)
-## calculate chi-square residuals
-res <- mcChi(beetles, rsum)
-res$Ychi
-}
+% \examples{
+% data(beetles)
+% ## log transform the bettle data
+% beetles <- as.matrix(log(beetles + 1))
+% ## row sums for R0
+% rsum <- rowSums(beetles)
+% ## calculate chi-square residuals
+% res <- mcChi(beetles, rsum)
+% res$Ychi
+%}
 \keyword{multivariate}
