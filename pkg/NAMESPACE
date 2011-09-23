@@ -1,7 +1,7 @@
 ## Imports
 ##
 ## vegan
-importFrom(vegan, scores, pasteCall, permutest)
+importFrom(vegan, scores, pasteCall, permutest, envfit, eigenvals)
 ## stats
 import(stats)
 ## graphics
@@ -17,6 +17,8 @@ S3method(coca, default)
 S3method(coca, formula)
 S3method(corAxis, default)
 S3method(corAxis, symcoca)
+S3method(eigenvals, coca)
+S3method(envfit, coca)
 S3method(fitted, symcoca)
 S3method(permutest, coca)
 S3method(rescale, default)
