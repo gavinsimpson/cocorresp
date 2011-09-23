@@ -1,14 +1,12 @@
-"predcoca.simpls" <-
-function(y, x, R0 = NULL, n.axes = NULL, nam.dat = NULL)
-  {
-    if(is.null(nam.dat))
-      {
+`predcoca.simpls` <- function(y, x, R0 = NULL, n.axes = NULL,
+                              nam.dat = NULL) {
+    if(is.null(nam.dat)) {
         namY <- deparse(substitute(y))
         namX <- deparse(substitute(x))
-      } else {
+    } else {
         namY <- nam.dat$namY
         namX <- nam.dat$namX
-      }
+    }
     nam.dat = list(namY = namY, namX = namX)
     site.names1 <- rownames(y)
     site.names2 <- rownames(x)
@@ -24,21 +22,19 @@ function(y, x, R0 = NULL, n.axes = NULL, nam.dat = NULL)
     Xcsum <- colSums(x)
     Xtot <- sum(Xrsum)
     if (is.null(R0))
-      R0 <- Yrsum
+        R0 <- Yrsum
     p <- ncol(y)
     q <- ncol(x)
     n.row <- nrow(y)
     max.axes <- min(p, q, n.row, nrow(x)) - 1
-    if(is.null(n.axes))
-      {
+    if(is.null(n.axes)) {
         n.axes <- max.axes
-      } else {
-        if(n.axes > max.axes)
-          {
+    } else {
+        if(n.axes > max.axes) {
             n.axes <- max.axes
             warning("n.axes greater than min(n,p,q)-1, reset to min(n,p,q)-1")
-          }
-      }
+        }
+    }
     R0.scaled <- R0 / sum(R0)
     Ycsum.scaled <- Ycsum / Ytot
     Xcsum.scaled <- Xcsum / Xtot
@@ -65,17 +61,17 @@ function(y, x, R0 = NULL, n.axes = NULL, nam.dat = NULL)
     colnames(Yhat1) <- colnames(Yhat) <- spp.names1
     retval <- list(nam.dat = nam.dat, call = match.call(), method = "simpls",
                    scores = list(species = list(Y = U1, X = U2),
-                     site = list(Y = X1, X = X2)),
+                   site = list(Y = X1, X = X2)),
                    loadings = list(Y = loadings1, X = loadings2),
                    fitted = list(Yhat = Yhat, Yhat1 = Yhat1),
                    varianceExp = list(Xblock = pls.res$Xvar,
-                     Yblock = pls.res$Yvar),
+                   Yblock = pls.res$Yvar),
                    totalVar = list(Xblock = pls.res$Xtotvar,
-                     Yblock = pls.res$Ytotvar),
+                   Yblock = pls.res$Ytotvar),
                    lambda = NULL, n.axes = n.axes,
                    Ychi = list(Ychi1 = Ychi1$Ychi, Ychi2 = Ychi2$Ychi),
                    R0 = R0)
-    class(retval) <- "predcoca"
-    return(retval)
-  }
+    class(retval) <- c("predcoca", "coca")
+    retval
+}
 

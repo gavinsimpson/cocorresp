@@ -135,7 +135,7 @@ function (y, x, R0 = NULL, n.axes = NULL, nam.dat = NULL)
                    R0 = R0, Ychi = list(Ychi1 = Ychi1, Ychi2 = Ychi2),
                    call = match.call(), loadings = NULL, fitted = NULL,
                    varianceExp = NULL, totalVar = NULL)
-    class(retval) <- "predcoca"
-    return(retval)
+    class(retval) <- c("predcoca", "coca")
+    retval
   }
 
