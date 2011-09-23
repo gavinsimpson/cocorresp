@@ -1,6 +1,7 @@
 \name{beetles}
 \alias{beetles}
 \alias{plants}
+\alias{verges}
 \docType{data}
 \title{Carabid beetles and vascular plants in Dutch roadside verges}
 \description{
@@ -12,6 +13,8 @@
 data(beetles)
 
 data(plants)
+
+data(verges)
 }
 \details{
   This is the complete dataset of Raemakers et al (2001). ter Braak and
