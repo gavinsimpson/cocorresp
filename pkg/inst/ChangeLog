@@ -23,6 +23,12 @@ Version 0.2-0
 	visible and not exported. Original intention was that the user
 	would not call these functions.
 
+	* envfit.coca: a method for the vegan envfit() function for
+	vector and factor fitting external data to Co-CA fits.
+
+	* eigenvals.coca: a method for the vegan eigenvals() function,
+	which extracts Eigenvalues from Co-CA models.
+
 Version 0.1-9
 
 	* CITATION: Updated citation file.
