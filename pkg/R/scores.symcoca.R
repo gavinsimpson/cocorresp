@@ -1,6 +1,6 @@
-"scores.symcoca" <-
-function(x, choices = c(1, 2), display = c("sites", "species"),
-         scaling = 1, ...) {
+`scores.symcoca` <- function(x, choices = c(1, 2),
+                             display = c("sites", "species"),
+                             scaling = 1, ...) {
     if (!inherits(x, "symcoca"))
         stop("x must be of class \"symcoca\"")
     opts <- c("species", "sites", "loadings", "xmatrix")
@@ -24,5 +24,6 @@ function(x, choices = c(1, 2), display = c("sites", "species"),
     retval$xmatrix <- if ("xmatrix" %in% take)
         x$X[, choices, drop = FALSE]
     ##class(retval) <- "scores.symcoca"
-    return(retval)
+    ##return(retval)
+    retval
 }
