@@ -59,8 +59,8 @@
         eigy <- round(x$lambda[choices[2]], 4)
         ylab <- bquote(.(ylab) ~~ (lambda[.(choices[2])] == .(eigy)))
     }
-    opar <- par(no.readonly=TRUE)
-    on.exit(par(opar))
+    #opar <- par(no.readonly=TRUE)
+    #on.exit(par(opar))
     ## plotting
     plot.new()
     plot.window(xlim, ylim, ...)
