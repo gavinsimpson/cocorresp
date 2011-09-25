@@ -23,7 +23,5 @@
              X = x$loadings$X[ choices, drop = FALSE])
     retval$xmatrix <- if ("xmatrix" %in% take)
         x$X[, choices, drop = FALSE]
-    ##class(retval) <- "scores.symcoca"
-    ##return(retval)
     retval
 }
