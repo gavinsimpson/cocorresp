@@ -62,8 +62,8 @@
             ylab <- bquote(.(ylab))
         }
     }
-    opar <- par(no.readonly=TRUE)
-    on.exit(par(opar))
+    #opar <- par(no.readonly=TRUE)
+    #on.exit(par(opar))
     ## plotting
     plot.new()
     plot.window(xlim, ylim, ...)
