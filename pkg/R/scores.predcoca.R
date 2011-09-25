@@ -9,9 +9,9 @@
     retval$species <- if ("species" %in% take)
         list(Y = x$scores$species$Y[, choices, drop = FALSE],
              X = x$scores$species$X[, choices, drop = FALSE])
-    retval$site <- if ("sites" %in% take)
+    retval$sites <- if ("sites" %in% take)
         list(Y = x$scores$site$Y[, choices, drop = FALSE],
              X = x$scores$site$X[, choices, drop = FALSE])
-    class(retval) <- "scores.predcoca"
+    ##class(retval) <- "scores.predcoca"
     retval
 }
