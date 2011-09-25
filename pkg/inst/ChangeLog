@@ -14,6 +14,11 @@ Version 0.2-0
 	components are named consistently `X` and `Y` rather than `U1`,
 	`U2` etc.
 
+	* scores.predcoca: Now always returns a nested list even if only
+	a single type of scores is requested. Individual scores
+	components are named consistently `X` and `Y` rather than `U1`,
+	`U2` etc.
+
 	* plot.symcoca, plot.predcoca: Plot method changed to plot
 	only one of the	response or predictor results. Now also returns
 	an object of class "ordiplot" which should be able to be used
@@ -28,6 +33,9 @@ Version 0.2-0
 
 	* eigenvals.coca: a method for the vegan eigenvals() function,
 	which extracts Eigenvalues from Co-CA models.
+
+	* points.coca: a points method for all types of Co-CA fitted by
+	coca().
 
 Version 0.1-9
 
