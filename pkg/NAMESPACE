@@ -30,6 +30,7 @@ S3method(scores, predcoca)
 ## plotting methods
 S3method(plot, predcoca)
 S3method(plot, symcoca)
+S3method(points, coca)
 
 ## print methods
 S3method(print, coinertia)
