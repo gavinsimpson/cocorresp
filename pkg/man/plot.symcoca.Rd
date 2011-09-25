@@ -81,7 +81,7 @@ plot(bp.sym)
 ## plot of both
 layout(matrix(1:2, ncol = 2))
 plot(bp.sym, which = "response", main = "Beetles")
-plot(bp.sym, which = "predict", main = "Plants")
+plot(bp.sym, which = "predictor", main = "Plants")
 layout(1)
 }
 \keyword{hplot}

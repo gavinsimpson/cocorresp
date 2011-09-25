@@ -77,7 +77,7 @@ plot(bp.pred)
 ## plot of both
 layout(matrix(1:2, ncol = 2))
 plot(bp.pred, which = "response", main = "Beetles")
-plot(bp.pred, which = "predict", main = "Plants")
+plot(bp.pred, which = "predictor", main = "Plants")
 layout(1)
 }
 \keyword{hplot}
