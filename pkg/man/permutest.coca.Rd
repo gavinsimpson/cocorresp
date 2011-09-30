@@ -118,14 +118,15 @@ crossval(beetles, plants)
 ## so 2 axes are sufficient
 
 ## permutation test to assess significant PLS components - takes a while
-bp.perm <- permutest.coca(bp.pred, permutations = 99)
+bp.perm <- permutest(bp.pred, permutations = 99)
 bp.perm
 summary(bp.perm)
 
 ## permutation test, this time only testing the first 2 axes
-bp.perm <- permutest.coca(bp.pred, permutations = 99, n.axes = 2)
+bp.perm <- permutest(bp.pred, permutations = 99, n.axes = 2)
 bp.perm
 summary(bp.perm)
 }
+
 }
 \keyword{multivariate}

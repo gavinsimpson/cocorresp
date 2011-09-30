@@ -63,7 +63,8 @@
         class(retval) <- "residualMatrix"
         return(retval)
     }
-    if(class(x) != "predcoca") stop("x must be of class 'predcoca'")
+    if(!inherits(x, "predcoca"))
+        stop("x must be of class 'predcoca'")
     if(is.null(R0)) {
         .R0 <- x$R0
     } else {

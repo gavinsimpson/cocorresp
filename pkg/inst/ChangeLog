@@ -37,6 +37,9 @@ Version 0.2-0
 	* points.coca: a points method for all types of Co-CA fitted by
 	coca().
 
+	* coinertia: this is now a fully user-visible function. The old
+	function is now named fitCoinertia().
+
 Version 0.1-9
 
 	* CITATION: Updated citation file.

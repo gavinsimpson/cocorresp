@@ -14,7 +14,7 @@ function(X, Y, fast = TRUE)
       retval <- list(weights = list(X = svdA$u, Y = t(svdA$vt)),
                      scores = list(X = Ksi, Y = Psi),
                      lambda = L, call = match.call())
-      class(retval) <- c("coinertiaI", "coinertia")
+      class(retval) <- c("coinertiaI", "fitCoinertia")
       return(retval)
     }
   }

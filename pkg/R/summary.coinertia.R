@@ -1,7 +1,7 @@
-"summary.coinertia" <-
+"summary.fitCoinertia" <-
 function(object, ...)
   {
-    class(object) <- "summary.coinertia"
+    class(object) <- "summary.fitCoinertia"
     return(object)
   }
 

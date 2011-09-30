@@ -1,4 +1,4 @@
-"print.coinertia" <-
+"print.fitCoinertia" <-
 function(x, axes = c(1:min(6, x$n.axes)),
          digits = max(3, getOption("digits") - 3), ...)
   {

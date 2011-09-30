@@ -52,7 +52,7 @@
     colnames(Q2) <- spp.names2
     rownames(Q1) <- site.names1
     rownames(Q2) <- site.names2
-    res.coin <- coinertia(Q1, .csum1, Q2, .csum2, .R0, n.axes = n.axes)
+    res.coin <- fitCoinertia(Q1, .csum1, Q2, .csum2, .R0, n.axes = n.axes)
     X <- (res.coin$scores$site$Y + res.coin$scores$site$X) / 2
     load1 <- Conj(t(Q1)) %*% diag(.R0) %*% X %*% solve(Conj(t(X)) %*% diag(.R0) %*% X)
     load2 <- Conj(t(Q2)) %*% diag(.R0) %*% X %*% solve(Conj(t(X)) %*% diag(.R0) %*% X)

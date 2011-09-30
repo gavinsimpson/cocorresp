@@ -1,4 +1,4 @@
-"print.summary.coinertia" <-
+"print.summary.fitCoinertia" <-
 function(x, digits = max(3, getOption("digits") - 3), ...)
   {
     cat("\nCoinertia analysis of the triplets (Q_1,K_1,R_0) and (Q_2,K_2,R_0)\n\n")
