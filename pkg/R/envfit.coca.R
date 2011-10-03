@@ -14,9 +14,6 @@
     ## should the scores be rescaled - only for species though
     if(is.logical(scaling))
         scaling <- ifelse(scaling, 2, 1)
-    ## need two and only two axes to plot
-    if(length(choices) != 2)
-        stop("Exactly two axes should be specified in `choices`")
     X <- scores(ord, display = "sites", choices = choices,
                 scaling = scaling)
     ## then extract the response or predictor scores
