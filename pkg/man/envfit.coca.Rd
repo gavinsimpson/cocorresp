@@ -11,7 +11,7 @@
 }
 \usage{
 \method{envfit}{coca}(ord, env, which = c("response", "predictor"),
-       choices = c(1, 2), scaling = FALSE, w = NULL, na.rm = FALSE,
+       choices = c(1, 2), scaling = FALSE, w, na.rm = FALSE,
        strata, permutations = 999, ...)
 }
 \arguments{
@@ -50,12 +50,12 @@
   \code{\link{envfit}} for the main computations, which was written by
   Jari Oksanen.
 }
-\section{Warning}{
-  This function is experimental. The vectors fitted are unweighted
-  whereas to be consistent with the \code{\link{cca}} method of
-  \code{\link{envfit}} they should be weighted. I just need to work out
-  the correct sets of weights to use.
-}
+% \section{Warning}{
+%   This function is experimental. The vectors fitted are unweighted
+%   whereas to be consistent with the \code{\link{cca}} method of
+%   \code{\link{envfit}} they should be weighted. I just need to work out
+%   the correct sets of weights to use.
+% }
 \seealso{
   \code{\link{coca}} for fitting models. \code{\link{envfit}} for
   details of the generic function and the computations performed.

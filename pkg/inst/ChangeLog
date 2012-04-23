@@ -1,5 +1,13 @@
 Cocorresp Change Log
 
+Version 0.2-1
+
+	* envfit.coca: now does weighted correlations in common with
+	`envfit.default` for weighted ordinations.
+
+	* weights: new methods for objects of classes "symcoca" and
+	"predcoca".
+
 Version 0.2-0
 
 	* NAMESPACE: cocorresp now has a namespace and imports from

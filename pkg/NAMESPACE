@@ -28,6 +28,8 @@ S3method(rescale, symcoca)
 S3method(resid, symcoca)
 S3method(scores, symcoca)
 S3method(scores, predcoca)
+S3method(weights, symcoca)
+S3method(weights, predcoca)
 
 ## plotting methods
 S3method(plot, predcoca)

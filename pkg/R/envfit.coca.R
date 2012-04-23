@@ -2,10 +2,14 @@
                           which = c("response", "predictor"),
                           choices = c(1,2),
                           scaling = FALSE,
-                          w = NULL,
+                          w,
                           na.rm = FALSE,
                           strata,
                           permutations = 999, ...) {
+    ## get weights
+    if(missing(w)) {
+        w <- weights(ord)
+    }
     vectors <- factors <- seed <- NULL
     ## what are we plotting, response or predictor?
     which <- match.arg(which)

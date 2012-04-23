@@ -68,7 +68,7 @@
     res.inK2 <- .csum2 %*% diag(Conj(t(Q2r)) %*% diag(.R0) %*% Q2r)
     res.inertia <- list(Y = res.inK1, X = res.inK2)
     retval <- list(scores = res.coin$scores,
-                   lambda = res.coin$lambda,#coinertia = res.coin,
+                   lambda = res.coin$lambda, #coinertia = res.coin,
                    X = X,
                    loadings = list(Y = load1, X = load2),
                    residuals = list(Y = Q1r, X = Q2r),
@@ -78,8 +78,8 @@
                    colsum = list(csum1 = csum1, csum2 = csum2),
                    nam.dat = list(namY = namY, namX = namX),
                    n.axes = n.axes,
+                   weights = .R0,
                    call = match.call())
     class(retval) <- c("symcoca","coca")
     retval
 }
-
