@@ -8,6 +8,9 @@ Version 0.2-1
 	* weights: new methods for objects of classes "symcoca" and
 	"predcoca".
 
+	* Tests: The package Examples are now checked against known
+	good runs as part of new package checks in `./tests/`.
+
 Version 0.2-0
 
 	* NAMESPACE: cocorresp now has a namespace and imports from
