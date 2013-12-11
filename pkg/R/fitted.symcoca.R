@@ -13,8 +13,9 @@ function(object, ...)
     Yhat2 <- exp2 * (1 + (object$scores$site$X %*% t(object$scores$species$X)))
     rownames(Yhat1) <- rownames(Yhat2) <- rownames(object$scores$site$Y)
     retval <- list(Yhat1 = Yhat1, Yhat2 = Yhat2,
-                   nam.dat = c(object$nam.dat$namY, object$nam.at$namX))
+                   nam.dat = c(object$nam.dat$namY, object$nam.dat$namX))
+    names(retval$nam.dat) <- c("namY","namX")
     class(retval) <- "fitted.symcoca"
-    return(retval)
+    retval
   }
 
