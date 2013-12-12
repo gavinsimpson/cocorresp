@@ -92,7 +92,9 @@ bp.pred <- coca(beetles ~ ., data = plants)
 ## parsimonious model
 
 ## Leave-one-out crossvalidation - this takes a while
+\dontrun{
 crossval(beetles, plants)
+}
 ## so 2 axes are sufficient
 \testonly{options(od)}
 }

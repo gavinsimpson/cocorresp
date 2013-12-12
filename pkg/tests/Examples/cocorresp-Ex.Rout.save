@@ -495,59 +495,8 @@ Warning in coca.formula(beetles ~ ., data = plants) :
 > ## should retain only the useful PLS components for a parsimonious model
 > 
 > ## Leave-one-out crossvalidation - this takes a while
-> crossval(beetles, plants)
-Warning in crossval(beetles, plants) :
-  some species contain no data and were removed from data matrix y
-
-Warning in crossval(beetles, plants) :
-  some species contain no data and were removed from data matrix x
-
-LOO - Site: 1 - Complete
-LOO - Site: 2 - Complete
-LOO - Site: 3 - Complete
-LOO - Site: 4 - Complete
-LOO - Site: 5 - Complete
-LOO - Site: 6 - Complete
-LOO - Site: 7 - Complete
-LOO - Site: 8 - Complete
-LOO - Site: 9 - Complete
-LOO - Site: 10 - Complete
-LOO - Site: 11 - Complete
-LOO - Site: 12 - Complete
-LOO - Site: 13 - Complete
-LOO - Site: 14 - Complete
-LOO - Site: 15 - Complete
-LOO - Site: 16 - Complete
-LOO - Site: 17 - Complete
-LOO - Site: 18 - Complete
-LOO - Site: 19 - Complete
-LOO - Site: 20 - Complete
-LOO - Site: 21 - Complete
-LOO - Site: 22 - Complete
-LOO - Site: 23 - Complete
-LOO - Site: 24 - Complete
-LOO - Site: 25 - Complete
-LOO - Site: 26 - Complete
-LOO - Site: 27 - Complete
-LOO - Site: 28 - Complete
-LOO - Site: 29 - Complete
-LOO - Site: 30 - Complete
-
-Cross-validation for Predictive Co-Correspondence Analysis
-
-Call: crossval(y = beetles, x = plants)
-
-Cross-validatory %fit of plants to beetles:
-
- COCA 1   COCA 2   COCA 3   COCA 4   COCA 5   COCA 6   COCA 7   COCA 8  
-    5.1      7.8      7.0      6.9      7.7      8.5      8.7      6.8  
- COCA 9  COCA 10  COCA 11  COCA 12  COCA 13  COCA 14  COCA 15  COCA 16  
-    6.5      6.7      5.8      3.5      2.7      2.0      2.5     -0.1  
-COCA 17  COCA 18  COCA 19  COCA 20  COCA 21  COCA 22  COCA 23  COCA 24  
-   -2.1     -2.9     -2.9     -3.5     -4.2     -4.3     -4.8     -5.7  
-COCA 25  COCA 26  COCA 27  COCA 28  COCA 29  
-   -8.1    -24.6    -29.2    -37.9    -40.3  
 > ## Not run: 
+> ##D crossval(beetles, plants)
 > ##D ## so 2 axes are sufficient
 > ##D ## permutation test to assess significant PLS components - takes a while
 > ##D bp.perm <- permutest(bp.pred, permutations = 99)
@@ -1388,58 +1337,9 @@ Warning in coca.formula(beetles ~ ., data = plants) :
 > ## parsimonious model
 > 
 > ## Leave-one-out crossvalidation - this takes a while
-> crossval(beetles, plants)
-Warning in crossval(beetles, plants) :
-  some species contain no data and were removed from data matrix y
-
-Warning in crossval(beetles, plants) :
-  some species contain no data and were removed from data matrix x
-
-LOO - Site: 1 - Complete
-LOO - Site: 2 - Complete
-LOO - Site: 3 - Complete
-LOO - Site: 4 - Complete
-LOO - Site: 5 - Complete
-LOO - Site: 6 - Complete
-LOO - Site: 7 - Complete
-LOO - Site: 8 - Complete
-LOO - Site: 9 - Complete
-LOO - Site: 10 - Complete
-LOO - Site: 11 - Complete
-LOO - Site: 12 - Complete
-LOO - Site: 13 - Complete
-LOO - Site: 14 - Complete
-LOO - Site: 15 - Complete
-LOO - Site: 16 - Complete
-LOO - Site: 17 - Complete
-LOO - Site: 18 - Complete
-LOO - Site: 19 - Complete
-LOO - Site: 20 - Complete
-LOO - Site: 21 - Complete
-LOO - Site: 22 - Complete
-LOO - Site: 23 - Complete
-LOO - Site: 24 - Complete
-LOO - Site: 25 - Complete
-LOO - Site: 26 - Complete
-LOO - Site: 27 - Complete
-LOO - Site: 28 - Complete
-LOO - Site: 29 - Complete
-LOO - Site: 30 - Complete
-
-Cross-validation for Predictive Co-Correspondence Analysis
-
-Call: crossval(y = beetles, x = plants)
-
-Cross-validatory %fit of plants to beetles:
-
- COCA 1   COCA 2   COCA 3   COCA 4   COCA 5   COCA 6   COCA 7   COCA 8  
-    5.1      7.8      7.0      6.9      7.7      8.5      8.7      6.8  
- COCA 9  COCA 10  COCA 11  COCA 12  COCA 13  COCA 14  COCA 15  COCA 16  
-    6.5      6.7      5.8      3.5      2.7      2.0      2.5     -0.1  
-COCA 17  COCA 18  COCA 19  COCA 20  COCA 21  COCA 22  COCA 23  COCA 24  
-   -2.1     -2.9     -2.9     -3.5     -4.2     -4.3     -4.8     -5.7  
-COCA 25  COCA 26  COCA 27  COCA 28  COCA 29  
-   -8.1    -24.6    -29.2    -37.9    -40.3  
+> ## Not run: 
+> ##D crossval(beetles, plants)
+> ## End(Not run)
 > ## so 2 axes are sufficient
 > ## Don't show: 
 > options(od)
@@ -6904,7 +6804,7 @@ Warning in coca.formula(beetles ~ ., data = plants, method = "symmetric") :
 > ###
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  29.685 0.242 30.178 0 0 
+Time elapsed:  6.7 0.115 6.877 0 0 
 > grDevices::dev.off()
 null device 
           1 
