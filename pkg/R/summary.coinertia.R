@@ -2,6 +2,6 @@
 function(object, ...)
   {
     class(object) <- "summary.fitCoinertia"
-    return(object)
+    object
   }
 
