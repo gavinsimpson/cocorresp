@@ -1,6 +1,6 @@
 "summary.symcoca" <-
 function(object, axes = c(1:min(6, object$n.axes)),
-         display = c("species", "site"),
+         display = c("species", "sites"),
          scaling = 1, ...)
   {
     cocaScores <- scores(object, choices = axes,
