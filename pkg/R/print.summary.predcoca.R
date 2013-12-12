@@ -25,17 +25,17 @@ function(x, digits = max(3, getOption("digits") - 3), ...)
       cat("\n")
       writeLines(strwrap("Species scores are the regression weights for Y1 and Y2"))
       cat("\nSpecies scores:", x$namY, "\n")
-      print(x$cocaScores$species$U1, digits = digits, ..., print.gap = 2)
+      print(x$cocaScores$species$Y, digits = digits, ..., print.gap = 2)
       cat("\nSpecies scores:", x$namX, "\n")
-      print(x$cocaScores$species$U2, digits = digits, ..., print.gap = 2)
+      print(x$cocaScores$species$X, digits = digits, ..., print.gap = 2)
     }
     if (!is.null(x$cocaScores$site)) {
       cat("\n")
       writeLines(strwrap("Site scores are weighted averages of the species scores"))
       cat("\nSite scores:", x$namY, "\n")
-      print(x$cocaScores$site$X1, digits = digits, ..., print.gap = 2)
+      print(x$cocaScores$site$Y, digits = digits, ..., print.gap = 2)
       cat("\nSite scores:", x$namX, "\n")
-      print(x$cocaScores$site$X2, digits = digits, ..., print.gap = 2)
+      print(x$cocaScores$site$X, digits = digits, ..., print.gap = 2)
     }
     if(!is.null(x$loadings)) {
       cat("\n")
@@ -43,7 +43,7 @@ function(x, digits = max(3, getOption("digits") - 3), ...)
       cat("\n")
       writeLines(strwrap("\nLoadings Y: coefficients of weighted regression of
 Y on site scores for X"))
-      print(x$loadings$X, digits = digits, ..., print.gap = 2)
+      print(x$loadings$Y, digits = digits, ..., print.gap = 2)
       cat("\n")
       writeLines(strwrap("\nLoadings X: coefficients of weighted regression of
 X on site scores for X"))
