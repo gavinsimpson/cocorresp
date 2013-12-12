@@ -12,10 +12,10 @@
 }
 \usage{
 \method{summary}{predcoca}(object, axes = c(1:min(6, object$n.axes)),
-         display = c("species", "site"), \ldots)
+         display = c("species", "sites"), \ldots)
 
 \method{summary}{symcoca}(object, axes = c(1:min(6, object$n.axes)),
-        display = c("species", "site"), scaling = 1, \ldots)
+        display = c("species", "sites"), scaling = 1, \ldots)
 
 }
 %- maybe also 'usage' for other objects documented here.
@@ -23,7 +23,7 @@
   \item{object}{an object of class \code{"predcoca"} or
     \code{"symcoca"}. Generally the result of a call to \code{\link{coca}}.}
   \item{axes}{the number of CoCA axes to return in the result set.}
-  \item{display}{one or both of \code{"species"} and/or \code{"site"}}
+  \item{display}{one or both of \code{"species"} and/or \code{"sites"}}
   \item{scaling}{for objects of class \code{"symcoca"} only, the scaling
     to be applied to the results. One of \code{"1"} or \code{"2"}. See
     below for details of scalings used.}
@@ -59,19 +59,25 @@
 \seealso{The model fitting function \code{\link{coca}}}
 
 \examples{
-\dontshow{example("coca", echo = FALSE)}
-## continue the example from coca(.)
-## summary for symmetric CoCA
-bp.summ <- summary(bp.sym, axes = 1:4)
-bp.summ
+\testonly{od <- options(digits = 4)}
+## symmetric CoCA
+data(beetles)
+data(plants)
+
+## log transform the bettle data
+beetles <- log(beetles + 1)
+
+## fit the model
+bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
+summary(bp.sym, axes = 1:4)
 
 ## Different scaling
-bp.summ <- summary(bp.sym, axes = 1:4, scaling = 2)
-bp.summ
+summary(bp.sym, axes = 1:4, scaling = 2)
 
-## summary for predictive CoCA
-bp.summ <- summary(bp.pred, axes = 1:2)
-bp.summ
+## Predictive CoCA
+bp.pred <- coca(beetles ~ ., data = plants)
+summary(bp.pred, axes = 1:2)
+\testonly{options(od)}
 }
 
 \keyword{multivariate}

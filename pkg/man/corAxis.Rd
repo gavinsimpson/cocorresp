@@ -40,6 +40,7 @@ corAxis(x, ...)
   \code{\link{cor}}, for the main analysis function.
 }
 \examples{
+\testonly{od <- options(digits = 4)}
 ## load some data
 data(beetles)
 data(plants)
@@ -52,5 +53,6 @@ beetles.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
 
 ## correlations between axes
 corAxis(beetles.sym)
+\testonly{options(od)}
 }
 \keyword{univar}

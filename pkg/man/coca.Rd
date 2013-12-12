@@ -170,6 +170,7 @@ coca(y, \ldots)
   summary methods.}
 
 \examples{
+\testonly{od <- options(digits = 4)}
 ## symmetric CoCA
 data(beetles)
 ## log transform the bettle data
@@ -184,14 +185,14 @@ plot(bp.sym)
 ## predictive CoCA using SIMPLS and formula interface
 bp.pred <- coca(beetles ~ ., data = plants)
 ## should retain only the useful PLS components for a parsimonious model
-\dontrun{
+
 ## Leave-one-out crossvalidation - this takes a while
 crossval(beetles, plants)
+\dontrun{
 ## so 2 axes are sufficient
 ## permutation test to assess significant PLS components - takes a while
-bp.perm <- permutest.coca(bp.pred, permutations = 99)
+bp.perm <- permutest(bp.pred, permutations = 99)
 bp.perm
-summary(bp.perm)
 }
 ## agrees with the Leave-one-out cross-validation
 ## refit the model with only 2 PLS components
@@ -217,6 +218,7 @@ carp.pred <- coca(y = bryophyte, x = vascular,
 carp.pred
 ## plot
 plot(carp.pred)
+\testonly{options(od)}
 }
 \keyword{multivariate}
 \keyword{regression}

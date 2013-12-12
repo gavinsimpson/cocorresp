@@ -59,19 +59,25 @@
   \code{\link[vegan]{scores}}, for further details on the method.
 }
 \examples{
+\testonly{od <- options(digits = 4)}
 ## load some data
 data(beetles)
 data(plants)
+
 ## log transform the bettle data
 beetles <- log(beetles + 1)
+
 ## fit the model, a symmetric CoCA
 bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
+
 ## extract the scores
 scores(bp.sym)
 
 ## predictive CoCA using SIMPLS and formula interface
 bp.pred <- coca(beetles ~ ., data = plants)
 scores(bp.pred)
+
+\testonly{options(od)}
 }
 \keyword{multivariate}
 \keyword{methods}

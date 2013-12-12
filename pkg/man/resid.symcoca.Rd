@@ -21,10 +21,12 @@
 \author{Gavin L. Simpson}
 \seealso{\code{\link{symcoca}}}
 \examples{
-  data(bryophyte)
-  data(vascular)
-  bryo.sym <- coca(bryophyte ~ ., data = vascular,
-                   method = "symmetric")
-  resid(bryo.sym)
+\testonly{od <- options(digits = 4)}
+data(bryophyte)
+data(vascular)
+bryo.sym <- coca(bryophyte ~ ., data = vascular,
+                 method = "symmetric")
+resid(bryo.sym)
+\testonly{options(od)}
 }
 \keyword{multivariate}

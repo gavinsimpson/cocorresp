@@ -36,10 +36,11 @@ rescale(object, \ldots)
   R port by Gavin L. Simpson.}
 \seealso{\code{\link{symcoca}}}
 \examples{
-  data(bryophyte)
-  data(vascular)
-  bryo.sym <- coca(bryophyte ~ ., data = vascular,
-                   method = "symmetric")
-  rescale(bryo.sym, axes = 1:2)
+\testonly{od <- options(digits = 4)}
+data(bryophyte)
+data(vascular)
+bryo.sym <- coca(bryophyte ~ ., data = vascular, method = "symmetric")
+rescale(bryo.sym, axes = 1:2)
+\testonly{options(od)}
 }
 \keyword{multivariate}

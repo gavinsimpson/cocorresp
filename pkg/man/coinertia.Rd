@@ -66,9 +66,11 @@ coinertia(y, ...)
 }
 
 \examples{
+\testonly{od <- options(digits = 4)}
 data(beetles, plants)
 coin <- coinertia(beetles, plants)
 coin
+\testonly{options(od)}
 }
 
 \keyword{multivariate}
