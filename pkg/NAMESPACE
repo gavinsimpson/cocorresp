@@ -45,10 +45,11 @@ S3method(print, permutest.coca)
 S3method(print, predcoca)
 S3method(print, summary.fitCoinertia)
 S3method(print, summary.symcoca)
+S3method(print, summary.permutest.coca)
 S3method(print, summary.predcoca)
 S3method(print, symcoca)
 
-## print methods
+## summary methods
 S3method(summary, fitCoinertia)
 S3method(summary, symcoca)
 S3method(summary, predcoca)
