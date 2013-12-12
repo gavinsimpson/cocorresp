@@ -65,15 +65,13 @@
 \examples{
 ## symmetric CoCA
 data(beetles)
+data(plants)
 
 ## log transform the bettle data
 beetles <- log(beetles + 1)
 
-data(plants)
-
 ## fit the model
 bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
-## draw the biplots
 
 ## draw a biplot of the response
 plot(bp.sym)

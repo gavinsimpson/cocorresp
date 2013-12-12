@@ -69,14 +69,14 @@ beetles <- log(beetles + 1)
 
 ## fit the model
 bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
-summary(bp.sym, axes = 1:4)
+\donttest{summary(bp.sym, axes = 1:4)}
 
 ## Different scaling
-summary(bp.sym, axes = 1:4, scaling = 2)
+\donttest{summary(bp.sym, axes = 1:4, scaling = 2)}
 
 ## Predictive CoCA
 bp.pred <- coca(beetles ~ ., data = plants)
-summary(bp.pred, axes = 1:2)
+\donttest{summary(bp.pred, axes = 1:2)}
 \testonly{options(od)}
 }
 

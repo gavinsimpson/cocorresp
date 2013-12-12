@@ -103,11 +103,13 @@
   co-correspondence analysis.
 }
 \examples{
+\testonly{od <- options(digits = 4)}
 ## load some data
 data(beetles)
+data(plants)
+
 ## log transform the bettle data
 beetles <- log(beetles + 1)
-data(plants)
 ## predictive CoCA using SIMPLS and formula interface
 bp.pred <- coca(beetles ~ ., data = plants)
 
@@ -121,12 +123,11 @@ crossval(beetles, plants)
 bp.perm <- permutest(bp.pred, permutations = 99)
 bp.perm
 summary(bp.perm)
+}
 
 ## permutation test, this time only testing the first 2 axes
 bp.perm <- permutest(bp.pred, permutations = 99, n.axes = 2)
 bp.perm
-summary(bp.perm)
-}
-
+\testonly{options(od)}
 }
 \keyword{multivariate}

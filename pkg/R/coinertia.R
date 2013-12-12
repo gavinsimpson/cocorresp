@@ -92,7 +92,7 @@
 
 `print.coinertia` <- function(x, digits = max(3, getOption("digits") - 3),
                               ...) {
-    writeLines("\nSymmetric Co-Correspondence Analysis\n")
+    writeLines("\nCoinertia Analysis\n")
     writeLines(strwrap(pasteCall(x$call)))
     cat("\nEigenvalues:\n")
     print(round(eigenvals(x), digits), ..., print.gap = 3)

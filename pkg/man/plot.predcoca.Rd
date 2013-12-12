@@ -62,11 +62,10 @@
 \examples{
 ## predictive CoCA
 data(beetles)
+data(plants)
 
 ## log transform the bettle data
 beetles <- log(beetles + 1)
-
-data(plants)
 
 ## predictive CoCA using SIMPLS and formula interface
 bp.pred <- coca(beetles ~ ., data = plants)

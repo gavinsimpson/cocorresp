@@ -54,7 +54,7 @@ coca(y, \ldots)
     (\code{symmetric = TRUE} only).}
 
   \item{n.axes}{the number of CoCA axes to extract. If missing (default)
-    the \code{n.axes} is \eqn{min(ncol(y), ncol(x), nrow(y), nrow(x)) -
+    the \code{n.axes} is \deqn{min(ncol(y), ncol(x), nrow(y), nrow(x)) -
       1}.}
 
   \item{symmetric}{if \code{method} is \code{"symmetric"} then
@@ -170,7 +170,9 @@ coca(y, \ldots)
   summary methods.}
 
 \examples{
-\testonly{od <- options(digits = 4)}
+\testonly{
+od <- options(digits = 4)
+}
 ## symmetric CoCA
 data(beetles)
 ## log transform the bettle data
@@ -179,7 +181,7 @@ data(plants)
 ## fit the model
 bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
 bp.sym
-summary(bp.sym)
+\donttest{summary(bp.sym)}
 plot(bp.sym)
 
 ## predictive CoCA using SIMPLS and formula interface
@@ -187,18 +189,19 @@ bp.pred <- coca(beetles ~ ., data = plants)
 ## should retain only the useful PLS components for a parsimonious model
 
 ## Leave-one-out crossvalidation - this takes a while
+
 \dontrun{
 crossval(beetles, plants)
 ## so 2 axes are sufficient
 ## permutation test to assess significant PLS components - takes a while
 bp.perm <- permutest(bp.pred, permutations = 99)
-bp.perm
-}
+bp.perm}
+
 ## agrees with the Leave-one-out cross-validation
 ## refit the model with only 2 PLS components
 bp.pred <- coca(beetles ~ ., data = plants, n.axes = 2)
 bp.pred
-summary(bp.pred)
+\donttest{summary(bp.pred)}
 plot(bp.pred)
 
 ## predictive CoCA using Eigen-analysis
@@ -206,11 +209,11 @@ data(bryophyte)
 data(vascular)
 carp.pred <- coca(y = bryophyte, x = vascular, reg.method = "eigen")
 carp.pred
+
 ## determine important PLS components - takes a while
 \dontrun{
 crossval(bryophyte, vascular)
-(carp.perm <- permutest.coca(carp.pred, permutations = 99))
-}
+(carp.perm <- permutest.coca(carp.pred, permutations = 99))}
 
 ## 2 components again, refit
 carp.pred <- coca(y = bryophyte, x = vascular,

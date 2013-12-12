@@ -45,14 +45,16 @@
 \examples{
 ## symmetric CoCA
 data(beetles)
+data(plants)
+
 ## log transform the bettle data
 beetles <- log(beetles + 1)
-data(plants)
+
 ## fit the model
 bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
-bp.sym
+
 ## fitted values
 bp.fit <- fitted(bp.sym)
-bp.fit
+\donttest{bp.fit}
 }
 \keyword{multivariate}

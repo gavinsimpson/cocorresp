@@ -24,9 +24,8 @@
 \testonly{od <- options(digits = 4)}
 data(bryophyte)
 data(vascular)
-bryo.sym <- coca(bryophyte ~ ., data = vascular,
-                 method = "symmetric")
-resid(bryo.sym)
+bryo.sym <- coca(bryophyte ~ ., data = vascular, method = "symmetric")
+eps <- resid(bryo.sym)
 \testonly{options(od)}
 }
 \keyword{multivariate}
