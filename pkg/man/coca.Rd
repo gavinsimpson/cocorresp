@@ -187,8 +187,8 @@ bp.pred <- coca(beetles ~ ., data = plants)
 ## should retain only the useful PLS components for a parsimonious model
 
 ## Leave-one-out crossvalidation - this takes a while
-crossval(beetles, plants)
 \dontrun{
+crossval(beetles, plants)
 ## so 2 axes are sufficient
 ## permutation test to assess significant PLS components - takes a while
 bp.perm <- permutest(bp.pred, permutations = 99)
