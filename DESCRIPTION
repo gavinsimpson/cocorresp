@@ -1,8 +1,8 @@
 Package: cocorresp
 Type: Package
 Title: Co-correspondence analysis methods
-Version: 0.2-1
-Date: 2011-Sep-20
+Version: 0.2-2
+Date: 2014-Sep-13
 Depends: stats, graphics, vegan (>= 1.17-12)
 Author: Original Matlab routines by C.J.F. ter Braak and A.P. Schaffers. R port by Gavin L. Simpson.
   Function simpls based on simpls.fit (package pls) by Ron Wehrens and Bjorn-Helge Mevik.
@@ -12,5 +12,5 @@ Description: Fits predictive and symmetric co-correspondence analysis (CoCA) mod
   between the weighted averaged species scores of one community and the weighted averaged species
   scores of another community. CoCA attempts to find patterns that are common to both communitities.
 License: GPL-2
-URL: http://cocorresp.r-forge.r-project.org
-BugReports: https://r-forge.r-project.org/tracker/?atid=737&group_id=181&func=browse
+URL: https://github.com/gavinsimpson/cocorresp
+BugReports: https://github.com/gavinsimpson/cocorresp/issues
