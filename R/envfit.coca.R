@@ -4,7 +4,7 @@
                           scaling = FALSE,
                           w,
                           na.rm = FALSE,
-                          strata,
+                          strata = NULL,
                           permutations = 999, ...) {
     ## get weights
     if(missing(w)) {

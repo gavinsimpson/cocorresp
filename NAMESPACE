@@ -1,7 +1,8 @@
 ## Imports
 ##
 ## vegan
-importFrom(vegan, scores, pasteCall, permutest, envfit, eigenvals)
+importFrom(vegan, scores, pasteCall, permutest, envfit, vectorfit,
+           factorfit, eigenvals)
 ## stats
 import(stats)
 ## graphics

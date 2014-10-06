@@ -12,7 +12,7 @@
 \usage{
 \method{envfit}{coca}(ord, env, which = c("response", "predictor"),
        choices = c(1, 2), scaling = FALSE, w, na.rm = FALSE,
-       strata, permutations = 999, ...)
+       strata = NULL, permutations = 999, ...)
 }
 \arguments{
   \item{ord}{a Co-CA ordination object, the result of a call to
