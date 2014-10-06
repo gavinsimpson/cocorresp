@@ -34,7 +34,7 @@ function(y, x, n.axes = min(dim(x), dim(y)) - 1, centre = TRUE,
     press0 <-  0
     xChi <- mcChi(x, R0)
     yChi <- mcChi(y, R0)
-    for (i in 1:dimx[1]) {
+    for (i in seq_len(dimx[1])) {
         if(verbose) {
             cat("LOO - Site:", i)
             flush.console()
@@ -47,13 +47,13 @@ function(y, x, n.axes = min(dim(x), dim(y)) - 1, centre = TRUE,
         caly <- yChi.loo$Ychi
         press0 <- press0 + sum(testy^2)
         simpls.Xblock <- simpls(calx, caly, n.axes, stripped = TRUE)
-        for (j in 1:n.axes) {
+        for (j in seq_len(n.axes)) {
             ypred <- testx %*% simpls.Xblock$coefficients[, , j]
             row.inds <- ((i-1) * dimy[2]+1):(i * dimy[2])
             press[row.inds, j] <- t(ypred - testy)^2
         }
-        for (i in 1:dimy[2])
-            cumpress[i, ] <- colSums(press[seq(i, (dimx[1] * dimy[2]),
+        for (k in seq_len(dimy[2]))
+            cumpress[k, ] <- colSums(press[seq(k, (dimx[1] * dimy[2]),
                                                by = dimy[2]) ,])
         if(verbose) {
             cat(" - Complete\n")
