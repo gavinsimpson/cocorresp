@@ -1,5 +1,16 @@
 Cocorresp Change Log
 
+Version 0.2-2
+
+	Development is now done on Github:
+	https://github.com/gavinsimpson/cocorresp
+
+	* envfit.coca: fixed to work with new vegan permutation
+	interface in `envfit.default`. Reported & fixed by Jari Oksanen
+
+	* NAMESPACE: import `factorfit` and `vectorfit` as we use these
+	directly. Reported & fixed by Jari Oksanen
+
 Version 0.2-1
 
 	* envfit.coca: now does weighted correlations in common with
