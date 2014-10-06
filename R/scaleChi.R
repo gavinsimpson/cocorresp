@@ -6,7 +6,7 @@ function(Y, Kn, R0, eps = 0.000001)
     Keps <- Kn * (Kn > eps) + eps * (Kn < eps)
     Yr <- diag(1 / R) %*% Y %*% diag(1 / Keps) - 1
     Yr <- diag(sqrt(R0)) %*% Yr %*% diag(sqrt(Kn))
-    return(Yr)
+    Yr
   }
 
 `scaleLin` <-
@@ -19,5 +19,5 @@ function(X, mean, sd, r, eps = 0.00000001)
     X <- sweep(X, 2, sd + eps, "/")
     r <- as.matrix(r)
     Xs <- diag(sqrt(r)) %*% X
-    return(Xs)
+    Xs
 }

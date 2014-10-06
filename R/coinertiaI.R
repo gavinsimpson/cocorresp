@@ -2,10 +2,9 @@
 function(X, Y, fast = TRUE)
   {
     A <- t(X) %*% Y
-    if (fast) {
+    retval <- if (fast) {
       svdA <- La.svd(A, nu = 0)
       Psi <- Y %*% t(svdA$vt)
-      return(Psi)
     } else {
       svdA <- La.svd(A)
       Ksi <- X %*% svdA$u
@@ -15,7 +14,7 @@ function(X, Y, fast = TRUE)
                      scores = list(X = Ksi, Y = Psi),
                      lambda = L, call = match.call())
       class(retval) <- c("coinertiaI", "fitCoinertia")
-      return(retval)
     }
+    return(retval)
   }
 

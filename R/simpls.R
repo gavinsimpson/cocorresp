@@ -72,7 +72,7 @@ function(X, Y, ncomp, stripped = FALSE, ...)
       Ypred[,,a] <- X %*% B[,,a]
     }
   }
-  if (stripped) {
+  retval <- if (stripped) {
     ## Return as quickly as possible
     list(coefficients = B, Xmeans = Xmeans, Ymeans = Ymeans,
          Xvar = colSums(PP^2), Xtotvar = sum(X^2),
@@ -104,5 +104,6 @@ function(X, Y, ncomp, stripped = FALSE, ...)
          Xvar = colSums(PP^2), Xtotvar = sum(X^2),
          Yvar = colSums(QQ^2), Ytotvar = sum(Y^2))
   }
+  retval
 }
 

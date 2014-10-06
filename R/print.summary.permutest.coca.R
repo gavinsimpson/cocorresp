@@ -16,5 +16,6 @@ function(x, digits = max(3, getOption("digits") - 3), ...)
     #print(x$Ychi1)
     #cat("\n\nChi-square residual matrix for Y2:\n")
     #print(x$Ychi2)
+    invisible(x)
   }
 

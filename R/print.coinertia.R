@@ -6,4 +6,5 @@ function(x, axes = c(1:min(6, x$n.axes)),
     writeLines(strwrap(pasteCall(x$call)))
     cat("\nEigenvalues:\n")
     print(round(x$lambda, digits = digits), ..., print.gap = 3)
+    invisible(x)
   }

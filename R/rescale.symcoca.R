@@ -7,6 +7,6 @@
     X.scale <- object$scores$species$X[, axes, drop = FALSE] %*% lambda4
     colnames(Y.scale) <- colnames(X.scale) <- col.nam
     retval <- list(Y = Y.scale, X = X.scale)
-    return(retval)
+    retval
 }
 

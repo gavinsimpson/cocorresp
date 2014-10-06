@@ -73,6 +73,6 @@ function(y, x, n.axes = min(dim(x), dim(y)) - 1, centre = TRUE,
                    nam.dat = list(namY = namY, namX = namX))#,
                    #simpls.Xblock, simpls.Yblock)
     class(retval) <- "crossval"
-    return(retval)
+    retval
   }
 

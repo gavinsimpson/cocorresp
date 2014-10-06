@@ -13,5 +13,6 @@ function(x, digits = max(3, getOption("digits") - 3), ...)
     print(x$X1, digits = digits, ..., print.gap = 2)
     cat("\nX-matrix 2:\n")
     print(x$X2, digits = digits, ..., print.gap = 2)
+    invisible(x)
   }
 

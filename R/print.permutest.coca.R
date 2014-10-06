@@ -13,5 +13,6 @@ function(x, digits = max(3, getOption("digits") - 3), ...)
     cat("\nPermutation test results:\n\n")
     printCoefmat(t(ptest.stats), digits = digits, na.print = "")
     cat("\n")
+    invisible(x)
   }
 

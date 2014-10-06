@@ -49,5 +49,6 @@ quarter root of the eigenvalue for axis i."))
       print(x$cocaScores$xmatrix, digits = digits, ..., print.gap = 2)
     }
     cat("\n")
+    invisible(x)
   }
 

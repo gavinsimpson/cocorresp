@@ -7,5 +7,6 @@ function(x, digits = min(3, getOption("digits") - 3), ...)
     cat(sprintf("\nCross-validatory %%fit of %s to %s:\n\n", x$nam.dat$namX,
                 x$nam.dat$namY))
     print(round(x$CVfit, digits), print.gap = 2)
+    invisible(x)
   }
 

@@ -26,5 +26,6 @@ function(x, digits = max(3, getOption("digits") - 3), ...)
     cat("\nX-block: variance explained in", x$nam.dat$namX,
         "(predictor) \n", sep = " ")
     print(round(Xvar.mat, digits), ..., print.gap = 2)
+    invisible(x)
   }
 

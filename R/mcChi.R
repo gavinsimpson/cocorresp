@@ -13,7 +13,7 @@ function(Y, R0, eps = 0.000001)
     colnames(Ychi) <- colnames(Y)
     retval <- list(Ychi = Ychi, Kn = Kn)
     class(retval) <- "mcChi"
-    return(retval)
+    retval
   }
 
 `mcLin` <-
@@ -31,4 +31,5 @@ function(X, R0, eps = 0.000000001)
     rXs <- diag(sqrt(Wn)) %*% rXs
     retval <- list(rXs = rXs, mean = Wmeans, sd = sd)
     class(retval) <- "mcLin"
+    retval
 }

@@ -62,6 +62,6 @@
         retval <- symcoca(y, x, n.axes = n.axes, R0 = weights,
                           symmetric = symmetric, nam.dat)
       }
-    return(retval)
+    retval
   }
 

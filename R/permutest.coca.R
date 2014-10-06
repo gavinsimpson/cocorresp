@@ -117,6 +117,6 @@
                    ##Ychi1 = Ychi1, Ychi2 = Ychi2, stati.Ax1 = stati.Ax1
                    call = match.call())
     class(retval) <- "permutest.coca"
-    return(retval)
+    retval
 }
 

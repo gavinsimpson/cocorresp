@@ -49,5 +49,6 @@ Y on site scores for X"))
 X on site scores for X"))
       print(x$loadings$X, digits = digits, ..., print.gap = 2)
     }
+    invisible(x)
   }
 

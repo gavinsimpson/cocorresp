@@ -24,6 +24,6 @@
                    site = list(Y = X1, X = X2)),
                    lambda = lambda, n.axes = n.axes, call = match.call())
     class(retval) <- "fitCoinertia"
-    return(retval)
+    retval
 }
 

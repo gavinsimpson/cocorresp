@@ -10,6 +10,6 @@ function(object, axes = c(1:min(6, object$n.axes)),
                    call = object$call, namY = object$nam.dat$namY,
                    namX = object$nam.dat$namX, scaling = scaling)
     class(retval) <- "summary.symcoca"
-    return(retval)
+    retval
   }
 
