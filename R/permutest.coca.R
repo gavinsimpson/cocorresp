@@ -1,5 +1,7 @@
 "permutest.coca" <- function(x, R0 = NULL, permutations = 99,
-                             n.axes = x$n.axes, verbose = TRUE, ...) {
+                             n.axes = x$n.axes,
+                             parallel = getOption("mc.cores"),
+                             verbose = TRUE, ...) {
     permtest <- function(Y, X1, X0 = NULL, permutations, step) {
         Y.dim <- dim(Y)
         X1.dim <- dim(X1)
@@ -30,6 +32,53 @@
         retval <- list(pval = pval, stat = stati[1], stati = stati)
         class(retval) <- "permtest"
         return(retval)
+    }
+    parallelPermTest <- function(idx) {
+        if (!is.matrix(idx)) {
+            dim(idx) <- c(1, length(idx))
+        }
+
+        ## constants
+        Y1dim <- dim(Ychi1)
+        Y2dim <- dim(Ychi2)
+        R <- nrow(idx)              # number of permutations in this subset
+
+        ## outputs
+        stati <- matrix(ncol = n.axes, nrow = R)
+        inertia <- fitax <- numeric(length = j)
+
+        ## loop over number of axes n.axes
+        for (j in seq_len(n.axes)) {
+            if (j == 1) {
+                X0 <- NULL
+            }
+            E <- Ychi1 - mu
+            SS0 <- sum(sum(E^2))
+
+            ## loop over permutations
+            for (i in seq_len(R)) {
+                stati[i, j] <- teststat(Y = E, X0 = X0, X1 = Ychi2, step = j)
+            }
+            Psi <- coinertiaI(X = Ychi1, Y = Ychi2, fast = TRUE)[, 1, drop = FALSE]
+            res.mat1 <- residualMatrix(Ychi1, Psi)
+            Ychi1 <- res.mat1$Yr
+            if(j == 1) {
+                total.inertia1 <- res.mat1$inertia$total
+            }
+            res.mat2 <- residualMatrix(Ychi2, Psi)
+            Ychi2 <- res.mat2$Yr
+            if(j == 1) {
+                total.inertia1 <- res.mat1$inertia$total
+                X0 <- cbind(NULL, Psi)
+            } else {
+                X0 <- cbind(X0, Psi)
+            }
+            inertia[j] <- res.mat1$inertia$total
+            fitax[j] <- res.mat1$inertia$fitted
+        }
+
+        ## return
+        list(stati = stati, inertia = inertia, fitax = fitax)
     }
     teststat <- function(Y, X0, X1, step) {
         Psi <- coinertiaI(X = Y, Y = X1, fast = TRUE)
