@@ -12,6 +12,10 @@ build: #docs
 
 check: build
 	cd ..;\
+	R CMD check cocorresp_$(PKGVERS).tar.gz
+
+time-examples: build
+	cd ..;\
 	R CMD check --timings cocorresp_$(PKGVERS).tar.gz
 
 check-cran: build
