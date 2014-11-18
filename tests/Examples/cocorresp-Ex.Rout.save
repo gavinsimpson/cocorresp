@@ -1,6 +1,6 @@
 
-R version 3.0.2 Patched (2013-10-07 r64035) -- "Frisbee Sailing"
-Copyright (C) 2013 The R Foundation for Statistical Computing
+R version 3.1.1 Patched (2014-08-21 r66455) -- "Sock it to Me"
+Copyright (C) 2014 The R Foundation for Statistical Computing
 Platform: x86_64-unknown-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -24,7 +24,7 @@ Type 'q()' to quit R.
 Loading required package: vegan
 Loading required package: permute
 Loading required package: lattice
-This is vegan 2.0-10
+This is vegan 2.2-0
 > 
 > base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
 > cleanEx()
@@ -405,7 +405,8 @@ HourSun   -0.87694 -0.48060 0.0889  0.337
 Warmth35  -0.98677  0.16213 0.0383  0.624    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-P values based on 999 permutations.
+Permutation: free
+Number of permutations: 999
 
 
 > 
@@ -495,14 +496,14 @@ Warning in coca.formula(beetles ~ ., data = plants) :
 > ## End(Not run)
 > 
 > ## permutation test, this time only testing the first 2 axes
-> bp.perm <- permutest(bp.pred, permutations = 99, n.axes = 2)
+> bp.perm <- permutest(bp.pred, permutations = 75, n.axes = 2)
 Permutations for axis: 1 - completed
 Permutations for axis: 2 - completed
 > bp.perm
 
 Permutation test for predictive co-correspondence analysis:
 
-Call: permutest.coca(x = bp.pred, permutations = 99, n.axes = 2)
+Call: permutest.coca(x = bp.pred, permutations = 75, n.axes = 2)
 
 Permutation test results:
 
@@ -510,6 +511,7 @@ Permutation test results:
 COCA 1  0.1146  3.9883  0.4102 10.2843    0.01
 COCA 2  0.0966  3.5782  0.3153  7.9068    0.01
 
+> 
 > ## Don't show: 
 > options(od)
 > ## End Don't show
@@ -833,7 +835,7 @@ Warning in coca.formula(beetles ~ ., data = plants, method = "symmetric") :
 > ###
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  8.518 0.053 8.96 0 0 
+Time elapsed:  19.659 0.196 19.968 0 0 
 > grDevices::dev.off()
 null device 
           1 
