@@ -126,8 +126,9 @@ summary(bp.perm)
 }
 
 ## permutation test, this time only testing the first 2 axes
-bp.perm <- permutest(bp.pred, permutations = 99, n.axes = 2)
+bp.perm <- permutest(bp.pred, permutations = 75, n.axes = 2)
 bp.perm
+
 \testonly{options(od)}
 }
 \keyword{multivariate}
