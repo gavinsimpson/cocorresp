@@ -835,7 +835,7 @@ Warning in coca.formula(beetles ~ ., data = plants, method = "symmetric") :
 > ###
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  19.659 0.196 19.968 0 0 
+Time elapsed:  21.587 0.359 22.124 0 0 
 > grDevices::dev.off()
 null device 
           1 
