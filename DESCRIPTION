@@ -1,7 +1,7 @@
 Package: cocorresp
 Type: Package
 Title: Co-correspondence Analysis Methods
-Version: 0.2-2
+Version: 0.2-3
 Date: 2014-Nov-18
 Depends: stats, graphics, vegan (>= 2.2-0)
 Author: Original Matlab routines by C.J.F. ter Braak and A.P. Schaffers. R port by Gavin L. Simpson.
@@ -10,7 +10,7 @@ Maintainer: Gavin L. Simpson <ucfagls@gmail.com>
 Description: Fits predictive and symmetric co-correspondence analysis (CoCA) models to relate one data matrix
   to another data matrix. More specifically, CoCA maximises the weighted covariance 
   between the weighted averaged species scores of one community and the weighted averaged species
-  scores of another community. CoCA attempts to find patterns that are common to both communitities.
+  scores of another community. CoCA attempts to find patterns that are common to both communities.
 License: GPL-2
 URL: https://github.com/gavinsimpson/cocorresp
 BugReports: https://github.com/gavinsimpson/cocorresp/issues
