@@ -1,5 +1,13 @@
 Cocorresp Change Log
 
+Version 0.2-3
+
+	* Corrected a typo in the package DESCRIPTION.  Reported by
+	Prof. Ripley.
+
+	* Switched to title case in DESCRIPTION Title field.  Reported by
+	Uwe Ligges.
+
 Version 0.2-2
 
 	Development is now done on Github:
