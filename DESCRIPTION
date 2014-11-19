@@ -1,7 +1,7 @@
 Package: cocorresp
 Type: Package
 Title: Co-correspondence Analysis Methods
-Version: 0.2-2
+Version: 0.3-0
 Date: 2014-Nov-18
 Depends: stats, graphics, vegan (>= 2.2-0)
 Author: Original Matlab routines by C.J.F. ter Braak and A.P. Schaffers. R port by Gavin L. Simpson.
