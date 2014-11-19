@@ -1,6 +1,6 @@
 Package: cocorresp
 Type: Package
-Title: Co-correspondence analysis methods
+Title: Co-correspondence Analysis Methods
 Version: 0.2-2
 Date: 2014-Nov-18
 Depends: stats, graphics, vegan (>= 2.2-0)
