@@ -10,7 +10,7 @@ Maintainer: Gavin L. Simpson <ucfagls@gmail.com>
 Description: Fits predictive and symmetric co-correspondence analysis (CoCA) models to relate one data matrix
   to another data matrix. More specifically, CoCA maximises the weighted covariance 
   between the weighted averaged species scores of one community and the weighted averaged species
-  scores of another community. CoCA attempts to find patterns that are common to both communitities.
+  scores of another community. CoCA attempts to find patterns that are common to both communities.
 License: GPL-2
 URL: https://github.com/gavinsimpson/cocorresp
 BugReports: https://github.com/gavinsimpson/cocorresp/issues
