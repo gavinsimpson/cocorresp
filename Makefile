@@ -22,6 +22,10 @@ check-cran: build
 	cd ..;\
 	R CMD check --as-cran cocorresp_$(PKGVERS).tar.gz
 
+check-devel-cran: build
+	cd ..;\
+	R-devel CMD check --as-cran cocorresp_$(PKGVERS).tar.gz
+
 install: build
 	cd ..;\
 	R CMD INSTALL cocorresp_$(PKGVERS).tar.gz
