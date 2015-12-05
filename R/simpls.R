@@ -5,7 +5,7 @@ function(X, Y, ncomp, stripped = FALSE, ...)
   ## analysis
   ##
   ## Based on simpls.fit function from package pls
-  ## written by Ron Wehrens and Bjørn-Helge Mevik
+  ## written by Ron Wehrens and Bjoern-Helge Mevik
   ## Alterations:
   ##  1) Don't centre the input matrices X and Y
   ##  2) Don't centre the scores
