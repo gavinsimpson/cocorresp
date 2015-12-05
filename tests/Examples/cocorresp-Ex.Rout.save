@@ -1,7 +1,7 @@
 
-R version 3.1.1 Patched (2014-08-21 r66455) -- "Sock it to Me"
-Copyright (C) 2014 The R Foundation for Statistical Computing
-Platform: x86_64-unknown-linux-gnu (64-bit)
+R version 3.2.2 Patched (2015-11-26 r69705) -- "Fire Safety"
+Copyright (C) 2015 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
@@ -24,7 +24,7 @@ Type 'q()' to quit R.
 Loading required package: vegan
 Loading required package: permute
 Loading required package: lattice
-This is vegan 2.2-0
+This is vegan 2.3-2
 > 
 > base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
 > cleanEx()
@@ -78,7 +78,7 @@ This is vegan 2.2-0
 > 
 > ## Don't show: 
 > od <- options(digits = 4)
-> ## End Don't show
+> ## End(Don't show)
 > ## symmetric CoCA
 > data(beetles)
 > ## log transform the bettle data
@@ -213,7 +213,7 @@ COCA 1  COCA 2
 > plot(carp.pred)
 > ## Don't show: 
 > options(od)
-> ## End Don't show
+> ## End(Don't show)
 > 
 > 
 > 
@@ -232,7 +232,7 @@ COCA 1  COCA 2
 > 
 > ## Don't show: 
 > od <- options(digits = 4)
-> ## End Don't show
+> ## End(Don't show)
 > data(beetles, plants)
 > coin <- coinertia(beetles, plants)
 Warning in coinertia.default(beetles, plants) :
@@ -258,7 +258,7 @@ COIN 25   COIN 26   COIN 27   COIN 28   COIN 29
   0.001     0.001     0.001     0.000     0.000   
 > ## Don't show: 
 > options(od)
-> ## End Don't show
+> ## End(Don't show)
 > 
 > 
 > 
@@ -277,7 +277,7 @@ COIN 25   COIN 26   COIN 27   COIN 28   COIN 29
 > 
 > ## Don't show: 
 > od <- options(digits = 4)
-> ## End Don't show
+> ## End(Don't show)
 > ## load some data
 > data(beetles)
 > data(plants)
@@ -300,7 +300,7 @@ COCA 1 COCA 2 COCA 3 COCA 4 COCA 5 COCA 6
 0.9451 0.9264 0.8066 0.9309 0.8515 0.8989 
 > ## Don't show: 
 > options(od)
-> ## End Don't show
+> ## End(Don't show)
 > 
 > 
 > 
@@ -321,7 +321,7 @@ COCA 1 COCA 2 COCA 3 COCA 4 COCA 5 COCA 6
 > 
 > ## Don't show: 
 > od <- options(digits = 4)
-> ## End Don't show
+> ## End(Don't show)
 > ## load the data sets
 > data(beetles)
 > data(plants)
@@ -347,7 +347,7 @@ Warning in coca.formula(beetles ~ ., data = plants) :
 > ## so 2 axes are sufficient
 > ## Don't show: 
 > options(od)
-> ## End Don't show
+> ## End(Don't show)
 > 
 > 
 > 
@@ -467,7 +467,7 @@ Warning in coca.formula(beetles ~ ., data = plants, method = "symmetric") :
 > 
 > ## Don't show: 
 > od <- options(digits = 4)
-> ## End Don't show
+> ## End(Don't show)
 > ## load some data
 > data(beetles)
 > data(plants)
@@ -514,7 +514,7 @@ COCA 2  0.0966  3.5782  0.3153  7.9068    0.01
 > 
 > ## Don't show: 
 > options(od)
-> ## End Don't show
+> ## End(Don't show)
 > 
 > 
 > 
@@ -649,7 +649,7 @@ Warning in coca.formula(beetles ~ ., data = plants, method = "symmetric") :
 > 
 > ## Don't show: 
 > od <- options(digits = 4)
-> ## End Don't show
+> ## End(Don't show)
 > data(bryophyte)
 > data(vascular)
 > 
@@ -657,7 +657,7 @@ Warning in coca.formula(beetles ~ ., data = plants, method = "symmetric") :
 > 
 > ## Don't show: 
 > options(od)
-> ## End Don't show
+> ## End(Don't show)
 > 
 > 
 > 
@@ -676,14 +676,14 @@ Warning in coca.formula(beetles ~ ., data = plants, method = "symmetric") :
 > 
 > ## Don't show: 
 > od <- options(digits = 4)
-> ## End Don't show
+> ## End(Don't show)
 > data(bryophyte)
 > data(vascular)
 > bryo.sym <- coca(bryophyte ~ ., data = vascular, method = "symmetric")
 > eps <- resid(bryo.sym)
 > ## Don't show: 
 > options(od)
-> ## End Don't show
+> ## End(Don't show)
 > 
 > 
 > 
@@ -702,7 +702,7 @@ Warning in coca.formula(beetles ~ ., data = plants, method = "symmetric") :
 > 
 > ## Don't show: 
 > od <- options(digits = 4)
-> ## End Don't show
+> ## End(Don't show)
 > ## load some data
 > data(beetles)
 > data(plants)
@@ -734,7 +734,7 @@ Warning in coca.formula(beetles ~ ., data = plants) :
 > 
 > ## Don't show: 
 > options(od)
-> ## End Don't show
+> ## End(Don't show)
 > 
 > 
 > 
@@ -754,7 +754,7 @@ Warning in coca.formula(beetles ~ ., data = plants) :
 > 
 > ## Don't show: 
 > od <- options(digits = 4)
-> ## End Don't show
+> ## End(Don't show)
 > ## symmetric CoCA
 > data(beetles)
 > data(plants)
@@ -783,7 +783,7 @@ Warning in coca.formula(beetles ~ ., data = plants) :
 
 > ## Don't show: 
 > options(od)
-> ## End Don't show
+> ## End(Don't show)
 > 
 > 
 > 
@@ -802,7 +802,7 @@ Warning in coca.formula(beetles ~ ., data = plants) :
 > 
 > ## Don't show: 
 > od <- options(digits = 4)
-> ## End Don't show
+> ## End(Don't show)
 > ## symmetric CoCA
 > data(beetles)
 > data(plants)
@@ -827,7 +827,7 @@ Warning in coca.formula(beetles ~ ., data = plants, method = "symmetric") :
 [25] 0.044300 0.047454 0.033503 0.034276 0.002230 0.011013
 > ## Don't show: 
 > options(od)
-> ## End Don't show
+> ## End(Don't show)
 > 
 > 
 > 
@@ -835,7 +835,7 @@ Warning in coca.formula(beetles ~ ., data = plants, method = "symmetric") :
 > ###
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  21.587 0.359 22.124 0 0 
+Time elapsed:  13.296 0.056 13.347 0 0 
 > grDevices::dev.off()
 null device 
           1 
