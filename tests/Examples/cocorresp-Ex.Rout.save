@@ -229,11 +229,9 @@ COCA 1  COCA 2
 > ## End(Don't show)
 > data(beetles, plants)
 > coin <- coinertia(beetles, plants)
-Warning in coinertia.default(beetles, plants) :
-  some species contain no data and were removed from data matrix y
+some species contain no data and were removed from data matrix y
 
-Warning in coinertia.default(beetles, plants) :
-  some species contain no data and were removed from data matrix x
+some species contain no data and were removed from data matrix x
 
 > coin
 
@@ -803,7 +801,7 @@ some species contain no data and were removed from data matrix x
 > ###
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  13.232 0.058 13.288 0 0 
+Time elapsed:  14.324 0.071 14.391 0 0 
 > grDevices::dev.off()
 null device 
           1 
