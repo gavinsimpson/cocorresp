@@ -1,6 +1,5 @@
-"crossval" <-
-function(y, x, n.axes = min(dim(x), dim(y)) - 1, centre = TRUE,
-         verbose = TRUE) {
+`crossval` <- function(y, x, n.axes = min(dim(x), dim(y)) - 1, centre = TRUE,
+                       verbose = TRUE) {
     ## Y1 = X or predictor matrix
     ## Y2 = Y or the response matrix
     ## This is consistent with predcoca, and probably better to use
@@ -12,13 +11,13 @@ function(y, x, n.axes = min(dim(x), dim(y)) - 1, centre = TRUE,
         stop("all row sums must be >0 in data matrix y")
     if(any((csum <- colSums(y)) <= 0 )) {
         y <- y[, csum > 0, drop = FALSE]
-        warning("some species contain no data and were removed from data matrix y\n")
+        message("some species contain no data and were removed from data matrix y\n")
     }
     if(any(rowSums(x) <= 0 ))
         stop("all row sums must be >0 in data matrix x")
     if(any((csum <- colSums(x)) <= 0 )) {
         x <- x[, csum > 0, drop = FALSE]
-        warning("some species contain no data and were removed from data matrix x\n")
+        message("some species contain no data and were removed from data matrix x\n")
     }
     x <- as.matrix(x)
     y <- as.matrix(y)
@@ -72,7 +71,6 @@ function(y, x, n.axes = min(dim(x), dim(y)) - 1, centre = TRUE,
                    call = match.call(),
                    nam.dat = list(namY = namY, namX = namX))#,
                    #simpls.Xblock, simpls.Yblock)
-    class(retval) <- "crossval"
+    class(retval) <- c("crossval", "list")
     retval
-  }
-
+}
