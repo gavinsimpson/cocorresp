@@ -240,14 +240,14 @@ Coinertia Analysis
 Call: coinertia.default(y = beetles, x = plants)
 
 Eigenvalues:
- COIN 1    COIN 2    COIN 3    COIN 4    COIN 5    COIN 6    COIN 7    COIN 8   
-  0.591     0.316     0.203     0.104     0.067     0.061     0.053     0.044   
- COIN 9   COIN 10   COIN 11   COIN 12   COIN 13   COIN 14   COIN 15   COIN 16   
-  0.035     0.023     0.022     0.014     0.013     0.011     0.010     0.008   
-COIN 17   COIN 18   COIN 19   COIN 20   COIN 21   COIN 22   COIN 23   COIN 24   
-  0.007     0.005     0.004     0.003     0.003     0.002     0.002     0.002   
-COIN 25   COIN 26   COIN 27   COIN 28   COIN 29   
-  0.001     0.001     0.001     0.000     0.000   
+ COIN1    COIN2    COIN3    COIN4    COIN5    COIN6    COIN7    COIN8   
+ 0.591    0.316    0.203    0.104    0.067    0.061    0.053    0.044   
+ COIN9   COIN10   COIN11   COIN12   COIN13   COIN14   COIN15   COIN16   
+ 0.035    0.023    0.022    0.014    0.013    0.011    0.010    0.008   
+COIN17   COIN18   COIN19   COIN20   COIN21   COIN22   COIN23   COIN24   
+ 0.007    0.005    0.004    0.003    0.003    0.002    0.002    0.002   
+COIN25   COIN26   COIN27   COIN28   COIN29   
+ 0.001    0.001    0.001    0.000    0.000   
 > ## Don't show: 
 > options(od)
 > ## End(Don't show)
@@ -397,7 +397,7 @@ Number of permutations: 999
 
 > 
 > ## plot the response matrix and the fitted vectors
-> plot(bp.sym)
+> plot(bp.sym, which = "response")
 > plot(sol)
 > 
 > 
@@ -801,7 +801,7 @@ some species contain no data and were removed from data matrix x
 > ###
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  14.324 0.071 14.391 0 0 
+Time elapsed:  13.136 0.06 13.192 0 0 
 > grDevices::dev.off()
 null device 
           1 
