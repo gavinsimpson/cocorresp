@@ -41,13 +41,13 @@
       stop("all row sums must be >0 in data matrix y")
     if(any((csum <- colSums(y)) <= 0 )) {
       y <- y[, csum > 0, drop = FALSE]
-      warning("some species contain no data and were removed from data matrix y\n")
+      message("some species contain no data and were removed from data matrix y\n")
     }
     if(any(rowSums(x) <= 0 ))
       stop("all row sums must be >0 in data matrix x")
     if(any((csum <- colSums(x)) <= 0 )) {
       x <- x[, csum > 0, drop = FALSE]
-      warning("some species contain no data and were removed from data matrix x\n")
+      message("some species contain no data and were removed from data matrix x\n")
     }
     method <- match.arg(method)
     if(method == "predictive")
