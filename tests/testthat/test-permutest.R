@@ -16,7 +16,7 @@ test_that("permutest() works", {
     bp.perm <- permutest(bp.pred, permutations = 499)
     expect_is(bp.perm, "permutest.coca")
     expect_named(bp.perm, c("pval","permstat","total.inertia","inertia",
-                            "fitax","pcent.fit","n.axes", call))
+                            "fitax","pcent.fit","n.axes", "call"))
     expect_output(print(bp.perm),
                   regexp = "Permutation test for predictive co-correspondence analysis:")
 })
