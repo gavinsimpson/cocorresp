@@ -1,6 +1,5 @@
-"print.symcoca" <-
-function(x, digits = max(3, getOption("digits") - 3), ...)
-  {
+`print.symcoca` <- function(x, digits = max(3, getOption("digits") - 3),
+                            ...) {
     cat("\nSymmetric Co-Correspondence Analysis\n\n")
     writeLines(strwrap(pasteCall(x$call)))
     cat("\nEigenvalues:\n")
@@ -15,5 +14,4 @@ function(x, digits = max(3, getOption("digits") - 3), ...)
     printCoefmat(inert, digits = digits, na.print = "")
     cat("\n")
     invisible(x)
-  }
-
+}
