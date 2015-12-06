@@ -213,7 +213,7 @@ carp.pred
 ## determine important PLS components - takes a while
 \dontrun{
 crossval(bryophyte, vascular)
-(carp.perm <- permutest.coca(carp.pred, permutations = 99))}
+(carp.perm <- permutest(carp.pred, permutations = 99))}
 
 ## 2 components again, refit
 carp.pred <- coca(y = bryophyte, x = vascular,
