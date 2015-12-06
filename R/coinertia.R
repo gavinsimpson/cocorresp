@@ -35,22 +35,26 @@
     nry <- nrow(x)
     ncy <- ncol(y)
     ncx <- ncol(x)
-    if(nrx != nry) stop("Number of rows in y and x is not equal")
+    if (nrx != nry) {
+        stop("Number of rows in y and x is not equal")
+    }
     max.axes <- min(ncy, ncx, nry, nrx) - 1
-    if(is.null(n.axes)) {
+    if (is.null(n.axes)) {
         n.axes <- max.axes
     } else {
-        if(n.axes > max.axes) {
+        if (n.axes > max.axes) {
             n.axes <- max.axes
             warning("n.axes greater than min(n,p,q)-1,\nreset to min(n,p,q)-1")
         }
     }
     Axes <- seq_len(n.axes)
-    ax.names <- paste("COIN", Axes, sep = " ")
-    if(is.null(weights)) {
-        if (symmetric)
+    ax.names <- paste("COIN", Axes, sep = "")
+    if (is.null(weights)) {
+        if (symmetric) {
             weights <- (rsumy + rsumx) / 2
-        else weights <- rsumy
+        } else {
+            weights <- rsumy
+        }
     }
     .R0 <- weights / sum(weights)
     .csy <- csumy / toty
