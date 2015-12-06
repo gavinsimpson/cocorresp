@@ -67,6 +67,8 @@
     ## plotting
     plot.new()
     plot.window(xlim, ylim, ...)
+    abline(h = 0, lty = "dashed", col = "grey")
+    abline(v = 0, lty = "dashed", col = "grey")
     if(!is.null(scrs$species)) {
         if(type == "text") {
             text(scrs$species, rownames(scrs$species), col = "red",

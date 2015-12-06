@@ -64,21 +64,23 @@
     ## plotting
     plot.new()
     plot.window(xlim, ylim, ...)
-    if(!is.null(scrs$species)) {
-        if(type == "text") {
+    abline(h = 0, lty = "dashed", col = "grey")
+    abline(v = 0, lty = "dashed", col = "grey")
+    if (!is.null(scrs$species)) {
+        if (type == "text") {
             text(scrs$species, rownames(scrs$species), col = "red",
                  cex = 0.7, ...)
         }
-        if(type == "points"){
+        if (type == "points"){
             points(scrs$species, col = "red", pch = 3, cex = 0.7, ...)
         }
     }
-    if(!is.null(scrs$sites)) {
-        if(type == "text") {
+    if (!is.null(scrs$sites)) {
+        if (type == "text") {
             text(scrs$sites, rownames(scrs$sites), col = "black",
                  cex = 0.7, ...)
         }
-        if(type == "points"){
+        if (type == "points"){
             points(scrs$sites, col = "black", pch = 1, cex = 0.7, ...)
         }
     }
@@ -87,8 +89,9 @@
         axis(2)
         box()
     }
-    if(ann)
+    if (ann) {
         title(main = main, sub = sub, xlab = xlab, ylab = ylab, ...)
+    }
     class(scrs) <- "ordiplot"
     invisible(scrs)
 }
