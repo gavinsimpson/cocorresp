@@ -5,6 +5,7 @@ Version: 0.3-0
 Date: 2015-12-05
 Depends: vegan (>= 2.2-0)
 Imports: stats, graphics, utils, grDevices
+Suggests: testthat
 Author: Original Matlab routines by C.J.F. ter Braak and A.P. Schaffers. R port by Gavin L. Simpson.
   Function simpls based on simpls.fit (package pls) by Ron Wehrens and Bjorn-Helge Mevik.
 Maintainer: Gavin L. Simpson <ucfagls@gmail.com>
