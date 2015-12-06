@@ -36,4 +36,15 @@ test_that("coca() works & returns correct object", {
                       "loadings", "fitted", "varianceExp",
                       "totalVar"))
     expect_is(m$scores, "list")
+
+    ## formula and SIMPLS
+    expect_silent(m2 <- coca(bryophyte ~ ., data = vascular,
+                             reg.method = "simpls"))
+    expect_is(m2, "coca")
+    expect_is(m2, "predcoca")
+    expect_is(m2, "list")
+    expect_named(m2, c("nam.dat", "call", "method", "scores", "loadings", "fitted",
+                       "varianceExp", "totalVar", "lambda", "n.axes", "Ychi",
+                       "R0"))
+    expect_is(m2$scores, "list")
 })
