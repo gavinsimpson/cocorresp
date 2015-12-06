@@ -9,11 +9,11 @@
   eigenvalues.
 }
 \usage{
-rescale(object, \ldots)
+rescale(object, \dots)
 
-\method{rescale}{default}(object, \ldots)
+\method{rescale}{default}(object, \dots)
 
-\method{rescale}{symcoca}(object, axes = c(1:object$n.axes), \ldots)
+\method{rescale}{symcoca}(object, axes = seq_len(object$n.axes), \dots)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
