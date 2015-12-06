@@ -8,10 +8,12 @@ context("Testing envfit()")
 data(beetles, plants, verges)
 beetles <- log(beetles + 1)            # log transform the bettle data
 
-## fit the model
-bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
 
 test_that("envfit() method works for symmetric CoCA", {
+    ## fit the model
+    expect_message(bp.sym <- coca(beetles ~ ., data = plants,
+                                  method = "symmetric"),
+                   regexp = "some species")
     ## fit vectors for the environmental data
     sol <- envfit(bp.sym, verges, which = "response")
     expect_output(print(sol), regexp = "VECTORS")
