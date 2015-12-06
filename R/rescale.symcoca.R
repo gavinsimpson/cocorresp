@@ -1,4 +1,4 @@
-"rescale.symcoca" <- function(object, axes = c(1:object$n.axes), ...) {
+`rescale.symcoca` <- function(object, axes = seq_len(object$n.axes), ...) {
     col.nam <- colnames(object$scores$species$Y)[axes]
     lambda4 <- diag(sqrt(sqrt(object$lambda[axes])),
                     nrow = length(axes),
