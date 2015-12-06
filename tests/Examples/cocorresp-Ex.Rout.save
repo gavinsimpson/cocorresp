@@ -86,11 +86,9 @@ This is vegan 2.3-2
 > data(plants)
 > ## fit the model
 > bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
-Warning in coca.formula(beetles ~ ., data = plants, method = "symmetric") :
-  some species contain no data and were removed from data matrix y
+some species contain no data and were removed from data matrix y
 
-Warning in coca.formula(beetles ~ ., data = plants, method = "symmetric") :
-  some species contain no data and were removed from data matrix x
+some species contain no data and were removed from data matrix x
 
 > bp.sym
 
@@ -119,11 +117,9 @@ Residual:   0.0175   0.02
 > 
 > ## predictive CoCA using SIMPLS and formula interface
 > bp.pred <- coca(beetles ~ ., data = plants)
-Warning in coca.formula(beetles ~ ., data = plants) :
-  some species contain no data and were removed from data matrix y
+some species contain no data and were removed from data matrix y
 
-Warning in coca.formula(beetles ~ ., data = plants) :
-  some species contain no data and were removed from data matrix x
+some species contain no data and were removed from data matrix x
 
 > ## should retain only the useful PLS components for a parsimonious model
 > 
@@ -140,11 +136,9 @@ Warning in coca.formula(beetles ~ ., data = plants) :
 > ## agrees with the Leave-one-out cross-validation
 > ## refit the model with only 2 PLS components
 > bp.pred <- coca(beetles ~ ., data = plants, n.axes = 2)
-Warning in coca.formula(beetles ~ ., data = plants, n.axes = 2) :
-  some species contain no data and were removed from data matrix y
+some species contain no data and were removed from data matrix y
 
-Warning in coca.formula(beetles ~ ., data = plants, n.axes = 2) :
-  some species contain no data and were removed from data matrix x
+some species contain no data and were removed from data matrix x
 
 > bp.pred
 
@@ -192,7 +186,7 @@ COCA 25  COCA 26  COCA 27  COCA 28  COCA 29
 > ## determine important PLS components - takes a while
 > ## Not run: 
 > ##D crossval(bryophyte, vascular)
-> ##D (carp.perm <- permutest.coca(carp.pred, permutations = 99))
+> ##D (carp.perm <- permutest(carp.pred, permutations = 99))
 > ## End(Not run)
 > 
 > ## 2 components again, refit
@@ -287,11 +281,9 @@ COIN 25   COIN 26   COIN 27   COIN 28   COIN 29
 > 
 > ## symmetric Co-CA model
 > beetles.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
-Warning in coca.formula(beetles ~ ., data = plants, method = "symmetric") :
-  some species contain no data and were removed from data matrix y
+some species contain no data and were removed from data matrix y
 
-Warning in coca.formula(beetles ~ ., data = plants, method = "symmetric") :
-  some species contain no data and were removed from data matrix x
+some species contain no data and were removed from data matrix x
 
 > 
 > ## correlations between axes
@@ -331,11 +323,9 @@ COCA 1 COCA 2 COCA 3 COCA 4 COCA 5 COCA 6
 > 
 > ## predictive CoCA using SIMPLS and formula interface
 > bp.pred <- coca(beetles ~ ., data = plants)
-Warning in coca.formula(beetles ~ ., data = plants) :
-  some species contain no data and were removed from data matrix y
+some species contain no data and were removed from data matrix y
 
-Warning in coca.formula(beetles ~ ., data = plants) :
-  some species contain no data and were removed from data matrix x
+some species contain no data and were removed from data matrix x
 
 > ## should retain only the useful PLS components for a
 > ## parsimonious model
@@ -373,11 +363,9 @@ Warning in coca.formula(beetles ~ ., data = plants) :
 > 
 > ## fit the model
 > bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
-Warning in coca.formula(beetles ~ ., data = plants, method = "symmetric") :
-  some species contain no data and were removed from data matrix y
+some species contain no data and were removed from data matrix y
 
-Warning in coca.formula(beetles ~ ., data = plants, method = "symmetric") :
-  some species contain no data and were removed from data matrix x
+some species contain no data and were removed from data matrix x
 
 > 
 > ## load the environmental data
@@ -438,11 +426,9 @@ Number of permutations: 999
 > 
 > ## fit the model
 > bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
-Warning in coca.formula(beetles ~ ., data = plants, method = "symmetric") :
-  some species contain no data and were removed from data matrix y
+some species contain no data and were removed from data matrix y
 
-Warning in coca.formula(beetles ~ ., data = plants, method = "symmetric") :
-  some species contain no data and were removed from data matrix x
+some species contain no data and were removed from data matrix x
 
 > 
 > ## fitted values
@@ -476,11 +462,9 @@ Warning in coca.formula(beetles ~ ., data = plants, method = "symmetric") :
 > beetles <- log(beetles + 1)
 > ## predictive CoCA using SIMPLS and formula interface
 > bp.pred <- coca(beetles ~ ., data = plants)
-Warning in coca.formula(beetles ~ ., data = plants) :
-  some species contain no data and were removed from data matrix y
+some species contain no data and were removed from data matrix y
 
-Warning in coca.formula(beetles ~ ., data = plants) :
-  some species contain no data and were removed from data matrix x
+some species contain no data and were removed from data matrix x
 
 > 
 > ## should retain only the useful PLS components for a parsimonious model
@@ -540,11 +524,9 @@ COCA 2  0.0966  3.5782  0.3153  7.9068    0.01
 > 
 > ## predictive CoCA using SIMPLS and formula interface
 > bp.pred <- coca(beetles ~ ., data = plants)
-Warning in coca.formula(beetles ~ ., data = plants) :
-  some species contain no data and were removed from data matrix y
+some species contain no data and were removed from data matrix y
 
-Warning in coca.formula(beetles ~ ., data = plants) :
-  some species contain no data and were removed from data matrix x
+some species contain no data and were removed from data matrix x
 
 > 
 > ## draw the biplot for the response
@@ -580,11 +562,9 @@ Warning in coca.formula(beetles ~ ., data = plants) :
 > 
 > ## fit the model
 > bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
-Warning in coca.formula(beetles ~ ., data = plants, method = "symmetric") :
-  some species contain no data and were removed from data matrix y
+some species contain no data and were removed from data matrix y
 
-Warning in coca.formula(beetles ~ ., data = plants, method = "symmetric") :
-  some species contain no data and were removed from data matrix x
+some species contain no data and were removed from data matrix x
 
 > 
 > ## draw a biplot of the response
@@ -620,11 +600,9 @@ Warning in coca.formula(beetles ~ ., data = plants, method = "symmetric") :
 >      
 > ## fit the model
 > bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
-Warning in coca.formula(beetles ~ ., data = plants, method = "symmetric") :
-  some species contain no data and were removed from data matrix y
+some species contain no data and were removed from data matrix y
 
-Warning in coca.formula(beetles ~ ., data = plants, method = "symmetric") :
-  some species contain no data and were removed from data matrix x
+some species contain no data and were removed from data matrix x
 
 > 
 > ## draw a biplot of the response
@@ -712,11 +690,9 @@ Warning in coca.formula(beetles ~ ., data = plants, method = "symmetric") :
 > 
 > ## fit the model, a symmetric CoCA
 > bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
-Warning in coca.formula(beetles ~ ., data = plants, method = "symmetric") :
-  some species contain no data and were removed from data matrix y
+some species contain no data and were removed from data matrix y
 
-Warning in coca.formula(beetles ~ ., data = plants, method = "symmetric") :
-  some species contain no data and were removed from data matrix x
+some species contain no data and were removed from data matrix x
 
 > 
 > ## extract the scores
@@ -724,11 +700,9 @@ Warning in coca.formula(beetles ~ ., data = plants, method = "symmetric") :
 > 
 > ## predictive CoCA using SIMPLS and formula interface
 > bp.pred <- coca(beetles ~ ., data = plants)
-Warning in coca.formula(beetles ~ ., data = plants) :
-  some species contain no data and were removed from data matrix y
+some species contain no data and were removed from data matrix y
 
-Warning in coca.formula(beetles ~ ., data = plants) :
-  some species contain no data and were removed from data matrix x
+some species contain no data and were removed from data matrix x
 
 > scr2 <- scores(bp.pred)
 > 
@@ -764,22 +738,18 @@ Warning in coca.formula(beetles ~ ., data = plants) :
 > 
 > ## fit the model
 > bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
-Warning in coca.formula(beetles ~ ., data = plants, method = "symmetric") :
-  some species contain no data and were removed from data matrix y
+some species contain no data and were removed from data matrix y
 
-Warning in coca.formula(beetles ~ ., data = plants, method = "symmetric") :
-  some species contain no data and were removed from data matrix x
+some species contain no data and were removed from data matrix x
 
 > 
 > ## Different scaling
 > 
 > ## Predictive CoCA
 > bp.pred <- coca(beetles ~ ., data = plants)
-Warning in coca.formula(beetles ~ ., data = plants) :
-  some species contain no data and were removed from data matrix y
+some species contain no data and were removed from data matrix y
 
-Warning in coca.formula(beetles ~ ., data = plants) :
-  some species contain no data and were removed from data matrix x
+some species contain no data and were removed from data matrix x
 
 > ## Don't show: 
 > options(od)
@@ -812,11 +782,9 @@ Warning in coca.formula(beetles ~ ., data = plants) :
 > 
 > ## fit the model
 > bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
-Warning in coca.formula(beetles ~ ., data = plants, method = "symmetric") :
-  some species contain no data and were removed from data matrix y
+some species contain no data and were removed from data matrix y
 
-Warning in coca.formula(beetles ~ ., data = plants, method = "symmetric") :
-  some species contain no data and were removed from data matrix x
+some species contain no data and were removed from data matrix x
 
 > 
 > ## weights == R[0]
@@ -835,7 +803,7 @@ Warning in coca.formula(beetles ~ ., data = plants, method = "symmetric") :
 > ###
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  13.296 0.056 13.347 0 0 
+Time elapsed:  13.232 0.058 13.288 0 0 
 > grDevices::dev.off()
 null device 
           1 
