@@ -10,15 +10,16 @@
     Psi <- Y %*% diag(Dq) %*% V
     L <- diag(svdA$d)
     L <- L * L
-    U1 <- U[, 1:n.axes, drop = FALSE]
-    U2 <- V[, 1:n.axes, drop = FALSE]
+    seqA <- seq_len(n.axes)
+    U1 <- U[, seqA, drop = FALSE]
+    U2 <- V[, seqA, drop = FALSE]
     colnames(U1) <- colnames(U2) <- ax.names
     rownames(U1) <- colnames(X)
     rownames(U2) <- colnames(Y)
-    X1 <- Ksi[, 1:n.axes, drop = FALSE]
-    X2 <- Psi[, 1:n.axes, drop = FALSE]
+    X1 <- Ksi[, seqA, drop = FALSE]
+    X2 <- Psi[, seqA, drop = FALSE]
     colnames(X1) <- colnames(X2) <- ax.names
-    lambda <- diag(L[1:n.axes, 1:n.axes, drop = FALSE])
+    lambda <- diag(L[seqA, seqA, drop = FALSE])
     names(lambda) <- ax.names
     retval <- list(scores = list(species = list(Y = U1, X= U2),
                    site = list(Y = X1, X = X2)),
