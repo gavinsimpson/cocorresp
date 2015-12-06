@@ -49,5 +49,5 @@ test_that("coca() works & returns correct object", {
                        "varianceExp", "totalVar", "lambda", "n.axes", "Ychi",
                        "R0"))
     expect_is(m2$scores, "list")
-    expect_output(print(m), regexp = "Predictive Co-Correspondence Analysis")
+    expect_output(print(m2), regexp = "Predictive Co-Correspondence Analysis")
 })
