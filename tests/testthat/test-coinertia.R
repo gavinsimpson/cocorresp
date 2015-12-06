@@ -20,3 +20,8 @@ test_that("coinertia() works & returns correct object", {
     expect_is(eigenvals(coin), "numeric")
     expect_equal(length(eigenvals(coin)), nrow(plants) - 1L)
 })
+
+test_that("coinertia() fails with objects with different # samples", {
+    expect_error(coin <- coinertia(beetles, plants[-1, ]),
+                   regexp = "Number of rows in y and x is not equal")
+})
