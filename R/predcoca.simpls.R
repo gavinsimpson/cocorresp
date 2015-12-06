@@ -71,7 +71,7 @@
                    lambda = NULL, n.axes = n.axes,
                    Ychi = list(Ychi1 = Ychi1$Ychi, Ychi2 = Ychi2$Ychi),
                    R0 = R0)
-    class(retval) <- c("predcoca", "coca")
+    class(retval) <- c("predcoca", "coca", "list")
     retval
 }
 
