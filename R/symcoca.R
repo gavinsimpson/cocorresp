@@ -80,6 +80,6 @@
                    n.axes = n.axes,
                    weights = .R0,
                    call = match.call())
-    class(retval) <- c("symcoca","coca")
+    class(retval) <- c("symcoca", "coca", "list")
     retval
 }
