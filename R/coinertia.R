@@ -15,15 +15,15 @@
         stop("all row sums must be >0 in data matrix y")
     if(any(csumy <= 0 )) {
         y <- y[, csumy > 0, drop = FALSE]
-        warning("some species contain no data and were removed from data matrix y\n")
-        csumy <- colSums(y)
+        message("some species contain no data and were removed from data matrix y\n")
+        csumy <- csumy[csumy > 0]       # colSums(y)
     }
     if(any(rsumx <= 0 ))
         stop("all row sums must be >0 in data matrix x")
     if(any(csumx <= 0 )) {
         x <- x[, csumx > 0, drop = FALSE]
-        warning("some species contain no data and were removed from data matrix x\n")
-        csumx <- colSums(x)
+        message("some species contain no data and were removed from data matrix x\n")
+        csumx <- csumx[csumx > 0]       # colSums(x)
     }
     sitesy <- rownames(y)
     sitesx <- rownames(x)
@@ -86,7 +86,7 @@
                 sites = list(Y = X1, X = X2)), weights = weights,
                 lambda = lambda, n.axes = n.axes,
                 symmetric = symmetric, call = match.call())
-    class(res) <- "coinertia"
+    class(res) <- c("coinertia", "list")
     res
 }
 
