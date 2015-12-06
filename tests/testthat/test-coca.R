@@ -24,6 +24,7 @@ test_that("coca() works & returns correct object", {
                            "residuals", "inertia", "rowsum", "colsum",
                            "nam.dat", "n.axes", "weights", "call"))
     expect_is(bp.sym$scores, "list")
+    expect_output(print(bp.sym), regexp = "Symmetric Co-Correspondence Analysis")
 
     ## predictive CoCA
     expect_silent(m <- coca(y = bryophyte, x = vascular,
@@ -36,6 +37,7 @@ test_that("coca() works & returns correct object", {
                       "loadings", "fitted", "varianceExp",
                       "totalVar"))
     expect_is(m$scores, "list")
+    expect_output(print(m), regexp = "Predictive Co-Correspondence Analysis")
 
     ## formula and SIMPLS
     expect_silent(m2 <- coca(bryophyte ~ ., data = vascular,
@@ -47,4 +49,5 @@ test_that("coca() works & returns correct object", {
                        "varianceExp", "totalVar", "lambda", "n.axes", "Ychi",
                        "R0"))
     expect_is(m2$scores, "list")
+    expect_output(print(m), regexp = "Predictive Co-Correspondence Analysis")
 })
