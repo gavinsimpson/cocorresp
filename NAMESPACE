@@ -20,7 +20,8 @@ importFrom("stats",
            "na.fail",
            "printCoefmat",
            "runif",
-           "terms")
+           "terms",
+           "screeplot")
 ## graphics
 importFrom("graphics",
            "plot",
@@ -65,6 +66,7 @@ S3method(weights, predcoca)
 S3method(plot, predcoca)
 S3method(plot, symcoca)
 S3method(points, coca)
+S3method(screeplot, symcoca)
 
 ## print methods
 S3method(print, coinertia)
