@@ -1,6 +1,6 @@
 
-R version 3.2.2 Patched (2015-11-26 r69705) -- "Fire Safety"
-Copyright (C) 2015 The R Foundation for Statistical Computing
+R version 3.2.3 Patched (2016-01-03 r69846) -- "Wooden Christmas-Tree"
+Copyright (C) 2016 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -24,7 +24,7 @@ Type 'q()' to quit R.
 Loading required package: vegan
 Loading required package: permute
 Loading required package: lattice
-This is vegan 2.3-2
+This is vegan 2.3-4
 > 
 > base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
 > cleanEx()
@@ -711,6 +711,39 @@ some species contain no data and were removed from data matrix x
 > 
 > 
 > cleanEx()
+> nameEx("screeplot.symcoca")
+> ### * screeplot.symcoca
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: screeplot.symcoca
+> ### Title: Screeplot for symmetric co-correspondence analysis
+> ### Aliases: screeplot.symcoca
+> ### Keywords: hplot methods
+> 
+> ### ** Examples
+> 
+> ## symmetric CoCA
+> data(beetles)
+> data(plants)
+> 
+> ## log transform the bettle data
+> beetles <- log(beetles + 1)
+> 
+> ## fit the model
+> bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
+some species contain no data and were removed from data matrix y
+
+some species contain no data and were removed from data matrix x
+
+> 
+> ## draw a biplot of the response
+> screeplot(bp.sym)
+> 
+> 
+> 
+> 
+> cleanEx()
 > nameEx("summary.predcoca")
 > ### * summary.predcoca
 > 
@@ -801,7 +834,7 @@ some species contain no data and were removed from data matrix x
 > ###
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  13.136 0.06 13.192 0 0 
+Time elapsed:  14.199 0.15 14.341 0 0 
 > grDevices::dev.off()
 null device 
           1 
