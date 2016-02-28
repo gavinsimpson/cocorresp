@@ -24,6 +24,7 @@ importFrom("stats",
            "screeplot")
 ## graphics
 importFrom("graphics",
+           "abline",
            "plot",
            "axis",
            "box",
