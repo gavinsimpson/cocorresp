@@ -1,5 +1,12 @@
 Cocorresp Change Log
 
+Version 0.3-0
+
+	* screeplot: a new `screeplot()` for symmetric Co-CA analyses.
+
+	* Vignette: a new HTML vignette is provided as an introduction
+	to the co-correspondence analsysi.
+
 Version 0.2-3
 
 	* Corrected a typo in the package DESCRIPTION.  Reported by
