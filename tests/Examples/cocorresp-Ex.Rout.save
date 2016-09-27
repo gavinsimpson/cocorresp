@@ -1,5 +1,5 @@
 
-R version 3.2.3 Patched (2016-01-03 r69846) -- "Wooden Christmas-Tree"
+R version 3.3.0 Patched (2016-05-12 r70603) -- "Supposedly Educational"
 Copyright (C) 2016 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
@@ -24,7 +24,7 @@ Type 'q()' to quit R.
 Loading required package: vegan
 Loading required package: permute
 Loading required package: lattice
-This is vegan 2.3-4
+This is vegan 2.4-1
 > 
 > base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
 > cleanEx()
@@ -114,6 +114,17 @@ Explained:  3.9708   5.74
 Residual:   0.0175   0.02
 
 > plot(bp.sym)
+> 
+> ## extract eignevalues of the analysis
+> eigenvals(bp.sym)
+   COCA 1    COCA 2    COCA 3    COCA 4    COCA 5    COCA 6    COCA 7    COCA 8 
+0.2533802 0.1288657 0.0810520 0.0740855 0.0584979 0.0474342 0.0373292 0.0320276 
+   COCA 9   COCA 10   COCA 11   COCA 12   COCA 13   COCA 14   COCA 15   COCA 16 
+0.0307776 0.0232506 0.0207178 0.0184269 0.0172465 0.0160500 0.0143907 0.0118064 
+  COCA 17   COCA 18   COCA 19   COCA 20   COCA 21   COCA 22   COCA 23   COCA 24 
+0.0105614 0.0100427 0.0087342 0.0084752 0.0065900 0.0062827 0.0050298 0.0043860 
+  COCA 25   COCA 26   COCA 27   COCA 28   COCA 29 
+0.0042550 0.0034389 0.0021756 0.0009622 0.0005873 
 > 
 > ## predictive CoCA using SIMPLS and formula interface
 > bp.pred <- coca(beetles ~ ., data = plants)
@@ -834,7 +845,7 @@ some species contain no data and were removed from data matrix x
 > ###
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  14.199 0.15 14.341 0 0 
+Time elapsed:  15.898 0.179 16.094 0 0 
 > grDevices::dev.off()
 null device 
           1 
