@@ -53,7 +53,7 @@ A symmetric Co-CA is fitted to the beetle and plant data sets as follows
 bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
 ```
 
-Notice that it shouldn't make any difference which of the matrices is specified on the right- or left-hand sides of the formula. The messages printing suring fitting are for information; some species contained no data and hence were removed prior to fitting. This data processing step could have bee performed ahead of time via
+Notice that it shouldn't make any difference which of the matrices is specified on the right- or left-hand sides of the formula. The messages printing during fitting are for information; some species contained no data and hence were removed prior to fitting. This data processing step could have bee performed ahead of time via
 
 ```{r data-process, message = TRUE}
 beetles <- beetles[, colSums(beetles) > 0]
@@ -67,7 +67,7 @@ Printing the resulting object provides a relatively compact summary of the Co-CA
 bp.sym
 ```
 
-A scrreplot provides a compact summary of the dimensionality of the covariance between the two matrices.
+A screeplot provides a compact summary of the dimensionality of the covariance between the two matrices.
 
 ```{r screeplot-symcoca}
 screeplot(bp.sym)
@@ -75,7 +75,7 @@ screeplot(bp.sym)
 
 From the screeplot, we see that most of the signal in the covariance is contained on the first 2-3 axes.
 
-The resulting symmetric cocorrespondence analysis can be plotted in the form of a biplot, except now we have two sets of species (variable) scores and two sets of site (observations or sample) scores. The `plot` method can be used to draw the Co-CA biplots. The `which` argument selects which of two asemblages are drawn:
+The resulting symmetric co-correspondence analysis can be plotted in the form of a biplot, except now we have two sets of species (variable) scores and two sets of site (observations or sample) scores. The `plot` method can be used to draw the Co-CA biplots. The `which` argument selects which of two assemblages are drawn:
 
 * `"response"` indicates the species assemblage on the left-hand side of the formula,
 * `"predictor"` indicates the species assemblag on the right-hand side of the formula.
