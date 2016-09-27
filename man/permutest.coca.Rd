@@ -54,9 +54,13 @@
   \item{pval }{a vector of \emph{P}-values for each ordination axis.}
   \item{permstat }{a vector of values for the test statistic for each axis.}
   \item{total.inertia }{the total inertia in the response matrix.}
-  \item{inertia }{a vector containing the inertia explained by each
-    ordination axis.}
-  \item{fitax }{a vector containing the fit of each axis to response.}
+  \item{inertia }{a vector containing the \emph{residualised}
+    inertia. This is the total inertia in the response \emph{after}
+    removing the inertia explained by all previous axes. For the first
+    CoCA axis this is, by definition, the total inertia in the
+    response.}
+  \item{fitax }{a vector containing the amount of inertia in the
+    response matrix explained by each ordination axis.}
   \item{pcent.fit }{a vector containing the fit of each axis to the
     response as a percentage of the total inertia (variance).}
   \item{n.axes }{the number of axes in the ordination.}
