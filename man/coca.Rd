@@ -184,6 +184,9 @@ bp.sym
 \donttest{summary(bp.sym)}
 plot(bp.sym)
 
+## extract eignevalues of the analysis
+eigenvals(bp.sym)
+
 ## predictive CoCA using SIMPLS and formula interface
 bp.pred <- coca(beetles ~ ., data = plants)
 ## should retain only the useful PLS components for a parsimonious model
