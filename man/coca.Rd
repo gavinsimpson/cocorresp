@@ -106,9 +106,9 @@ coca(y, \ldots)
     and the predictor. (Predictive CoCA via SIMPLS only.)}
 
   \item{fitted}{the fitted values for the response. A list with 2
-    components \code{Yhat} (the fitted values) and
-    \code{Yhat1} (the transformed fitted values. (Predictive
-    CoCA via SIMPLS only.)}
+    components \code{Yhat} (the fitted values on the original scale) and
+    \code{Yhat1} (the fitted values on the chi-square transformed
+    scale). (Predictive CoCA via SIMPLS only.)}
 
   \item{varianceExp}{list with components \code{Yblock} and
     \code{Xblock} containing the variances in the response and
