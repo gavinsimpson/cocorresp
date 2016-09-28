@@ -184,8 +184,11 @@ bp.sym
 \donttest{summary(bp.sym)}
 plot(bp.sym)
 
-## extract eignevalues of the analysis
+## extract eigenvalues of the analysis
 eigenvals(bp.sym)
+
+## correlations between beetle and plant score scores on Co-CA axes
+corAxis(bp.sym)
 
 ## predictive CoCA using SIMPLS and formula interface
 bp.pred <- coca(beetles ~ ., data = plants)
