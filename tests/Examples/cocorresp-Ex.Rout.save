@@ -128,8 +128,12 @@ Residual:   0.0175   0.02
 > 
 > ## correlations between beetle and plant score scores on Co-CA axes
 > corAxis(bp.sym)
-COCA 1 COCA 2 COCA 3 COCA 4 COCA 5 COCA 6 
-0.9451 0.9264 0.8066 0.9309 0.8515 0.8989 
+ COCA 1  COCA 2  COCA 3  COCA 4  COCA 5  COCA 6  COCA 7  COCA 8  COCA 9 COCA 10 
+ 0.9451  0.9264  0.8066  0.9309  0.8515  0.8989  0.8498  0.9247  0.8773  0.8274 
+COCA 11 COCA 12 COCA 13 COCA 14 COCA 15 COCA 16 COCA 17 COCA 18 COCA 19 COCA 20 
+ 0.8938  0.8652  0.9392  0.8972  0.7771  0.9439  0.8924  0.6782  0.8742  0.6880 
+COCA 21 COCA 22 COCA 23 COCA 24 COCA 25 COCA 26 COCA 27 COCA 28 COCA 29 
+ 0.6590  0.7373  0.8370  0.6960  0.8020  0.8206  0.8041  0.7783  0.9815 
 > 
 > ## predictive CoCA using SIMPLS and formula interface
 > bp.pred <- coca(beetles ~ ., data = plants)
@@ -302,8 +306,12 @@ some species contain no data and were removed from data matrix x
 > 
 > ## correlations between axes
 > corAxis(beetles.sym)
-COCA 1 COCA 2 COCA 3 COCA 4 COCA 5 COCA 6 
-0.9451 0.9264 0.8066 0.9309 0.8515 0.8989 
+ COCA 1  COCA 2  COCA 3  COCA 4  COCA 5  COCA 6  COCA 7  COCA 8  COCA 9 COCA 10 
+ 0.9451  0.9264  0.8066  0.9309  0.8515  0.8989  0.8498  0.9247  0.8773  0.8274 
+COCA 11 COCA 12 COCA 13 COCA 14 COCA 15 COCA 16 COCA 17 COCA 18 COCA 19 COCA 20 
+ 0.8938  0.8652  0.9392  0.8972  0.7771  0.9439  0.8924  0.6782  0.8742  0.6880 
+COCA 21 COCA 22 COCA 23 COCA 24 COCA 25 COCA 26 COCA 27 COCA 28 COCA 29 
+ 0.6590  0.7373  0.8370  0.6960  0.8020  0.8206  0.8041  0.7783  0.9815 
 > ## Don't show: 
 > options(od)
 > ## End(Don't show)
@@ -850,7 +858,7 @@ some species contain no data and were removed from data matrix x
 > ###
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  15.708 0.255 15.997 0 0 
+Time elapsed:  15.42 0.157 15.578 0 0 
 > grDevices::dev.off()
 null device 
           1 

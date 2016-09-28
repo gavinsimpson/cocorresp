@@ -14,14 +14,15 @@ corAxis(x, ...)
 
 \method{corAxis}{default}(x, ...)
 
-\method{corAxis}{symcoca}(x, axes = c(1:min(6, x$n.axes)), ...)
+\method{corAxis}{symcoca}(x, axes = NULL, ...)
 }
 
 \arguments{
   \item{x}{an ordination object. Only methods for objects of class
     \code{\link{symcoca}} are currently available.}
-  \item{axes}{the number of axes to calculate the correlation
-    coefficients for.}
+  \item{axes}{numeric; the number of axes to calculate the correlation
+    coefficients for. If \code{NULL}, coefficients for all axes are
+    returned.}
   \item{\dots}{arguments to be passed on to other methods.}
 }
 %\details{}
@@ -34,7 +35,8 @@ corAxis(x, ...)
 
 \note{The arguments for \code{cor} are hard coded at their
   defaults, see \code{\link{cor}} for details. A more flexible version
-  is planned that will allow arguments to be passed to \code{cor}.}
+  is planned that will allow arguments to be passed to \code{cor}.
+}
 
 \seealso{
   \code{\link{cor}}, for the main analysis function.
