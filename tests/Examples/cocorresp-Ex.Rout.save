@@ -115,7 +115,7 @@ Residual:   0.0175   0.02
 
 > plot(bp.sym)
 > 
-> ## extract eignevalues of the analysis
+> ## extract eigenvalues of the analysis
 > eigenvals(bp.sym)
    COCA 1    COCA 2    COCA 3    COCA 4    COCA 5    COCA 6    COCA 7    COCA 8 
 0.2533802 0.1288657 0.0810520 0.0740855 0.0584979 0.0474342 0.0373292 0.0320276 
@@ -125,6 +125,11 @@ Residual:   0.0175   0.02
 0.0105614 0.0100427 0.0087342 0.0084752 0.0065900 0.0062827 0.0050298 0.0043860 
   COCA 25   COCA 26   COCA 27   COCA 28   COCA 29 
 0.0042550 0.0034389 0.0021756 0.0009622 0.0005873 
+> 
+> ## correlations between beetle and plant score scores on Co-CA axes
+> corAxis(bp.sym)
+COCA 1 COCA 2 COCA 3 COCA 4 COCA 5 COCA 6 
+0.9451 0.9264 0.8066 0.9309 0.8515 0.8989 
 > 
 > ## predictive CoCA using SIMPLS and formula interface
 > bp.pred <- coca(beetles ~ ., data = plants)
@@ -845,7 +850,7 @@ some species contain no data and were removed from data matrix x
 > ###
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  15.898 0.179 16.094 0 0 
+Time elapsed:  15.708 0.255 15.997 0 0 
 > grDevices::dev.off()
 null device 
           1 
