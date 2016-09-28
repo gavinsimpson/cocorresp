@@ -15,6 +15,7 @@ addons:
 r_binary_packages:
   - testthat
   - vegan
+  - pls
   - Rcpp
   - crayon
   - lazyeval
