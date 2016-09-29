@@ -1,15 +1,12 @@
-"summary.symcoca" <-
-function(object, axes = c(1:min(6, object$n.axes)),
-         display = c("species", "sites"),
-         scaling = 1, ...)
-  {
-    cocaScores <- scores(object, choices = axes,
-                         scaling = scaling, display = display)
-    retval <- list(cocaScores = cocaScores, inertia = object$inertia,
-                   lambda = object$lambda,
-                   call = object$call, namY = object$nam.dat$namY,
-                   namX = object$nam.dat$namX, scaling = scaling)
+`summary.symcoca` <- function(object, ...) {
+    inert <- rbind(unlist(object$inertia$total),
+                   unlist(object$inertia$residual))
+    explained <- inert[1,] - inert[2,]
+    inert <- cbind(inert[1, ], explained, inert[2, ])
+    colnames(inert) <- c("Total", "Explained", "Residual")
+    rownames(inert) <- paste0(c(object$nam.dat$namY, object$nam.dat$namX), ":")
+    retval <- list(inertia = inert, lambda = object$lambda, call = object$call)
     class(retval) <- "summary.symcoca"
     retval
-  }
+}
 
