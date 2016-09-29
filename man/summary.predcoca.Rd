@@ -14,8 +14,7 @@
 \method{summary}{predcoca}(object, axes = c(1:min(6, object$n.axes)),
          display = c("species", "sites"), \ldots)
 
-\method{summary}{symcoca}(object, axes = c(1:min(6, object$n.axes)),
-        display = c("species", "sites"), scaling = 1, \ldots)
+\method{summary}{symcoca}(object, \ldots)
 
 }
 %- maybe also 'usage' for other objects documented here.
@@ -24,9 +23,6 @@
     \code{"symcoca"}. Generally the result of a call to \code{\link{coca}}.}
   \item{axes}{the number of CoCA axes to return in the result set.}
   \item{display}{one or both of \code{"species"} and/or \code{"sites"}}
-  \item{scaling}{for objects of class \code{"symcoca"} only, the scaling
-    to be applied to the results. One of \code{"1"} or \code{"2"}. See
-    below for details of scalings used.}
   \item{\ldots}{arguments to be passed to other methods.}
 }
 %\details{}
@@ -69,10 +65,7 @@ beetles <- log(beetles + 1)
 
 ## fit the model
 bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
-\donttest{summary(bp.sym, axes = 1:4)}
-
-## Different scaling
-\donttest{summary(bp.sym, axes = 1:4, scaling = 2)}
+summary(bp.sym)
 
 ## Predictive CoCA
 bp.pred <- coca(beetles ~ ., data = plants)

@@ -97,21 +97,10 @@ Symmetric Co-Correspondence Analysis
 Call: symcoca(y = y, x = x, n.axes = n.axes, R0 = weights, symmetric =
 symmetric, nam.dat = nam.dat)
 
-Eigenvalues:
- COCA 1    COCA 2    COCA 3    COCA 4    COCA 5    COCA 6    COCA 7    COCA 8   
-  0.253     0.129     0.081     0.074     0.058     0.047     0.037     0.032   
- COCA 9   COCA 10   COCA 11   COCA 12   COCA 13   COCA 14   COCA 15   COCA 16   
-  0.031     0.023     0.021     0.018     0.017     0.016     0.014     0.012   
-COCA 17   COCA 18   COCA 19   COCA 20   COCA 21   COCA 22   COCA 23   COCA 24   
-  0.011     0.010     0.009     0.008     0.007     0.006     0.005     0.004   
-COCA 25   COCA 26   COCA 27   COCA 28   COCA 29   
-  0.004     0.003     0.002     0.001     0.001   
-
 Inertia:
-           beetles plants
-Total:      3.9883   5.76
-Explained:  3.9708   5.74
-Residual:   0.0175   0.02
+         Total Explained Residual
+beetles:  3.99      3.97     0.02
+plants:   5.76      5.74     0.02
 
 > plot(bp.sym)
 > 
@@ -797,8 +786,27 @@ some species contain no data and were removed from data matrix y
 
 some species contain no data and were removed from data matrix x
 
-> 
-> ## Different scaling
+> summary(bp.sym)
+
+Symmetric Co-Correspondence Analysis
+
+Call: symcoca(y = y, x = x, n.axes = n.axes, R0 = weights, symmetric =
+symmetric, nam.dat = nam.dat)
+
+Inertia:
+         Total Explained Residual
+beetles:  3.99      3.97     0.02
+plants:   5.76      5.74     0.02
+
+Eigenvalues:
+ COCA 1   COCA 2   COCA 3   COCA 4   COCA 5   COCA 6   COCA 7   COCA 8  
+  0.253    0.129    0.081    0.074    0.058    0.047    0.037    0.032  
+ COCA 9  COCA 10  COCA 11  COCA 12  COCA 13  COCA 14  COCA 15  COCA 16  
+  0.031    0.023    0.021    0.018    0.017    0.016    0.014    0.012  
+COCA 17  COCA 18  COCA 19  COCA 20  COCA 21  COCA 22  COCA 23  COCA 24  
+  0.011    0.010    0.009    0.008    0.007    0.006    0.005    0.004  
+COCA 25  COCA 26  COCA 27  COCA 28  COCA 29  
+  0.004    0.003    0.002    0.001    0.001  
 > 
 > ## Predictive CoCA
 > bp.pred <- coca(beetles ~ ., data = plants)
@@ -858,7 +866,7 @@ some species contain no data and were removed from data matrix x
 > ###
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  15.42 0.157 15.578 0 0 
+Time elapsed:  15.572 0.164 15.745 0 0 
 > grDevices::dev.off()
 null device 
           1 
