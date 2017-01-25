@@ -11,8 +11,7 @@
   Co-Correspondence Analysis model.
 }
 \usage{
-\method{summary}{predcoca}(object, axes = c(1:min(6, object$n.axes)),
-         display = c("species", "sites"), \ldots)
+\method{summary}{predcoca}(object, axes = NULL, \ldots)
 
 \method{summary}{symcoca}(object, \ldots)
 
@@ -20,15 +19,16 @@
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{object}{an object of class \code{"predcoca"} or
-    \code{"symcoca"}. Generally the result of a call to \code{\link{coca}}.}
-  \item{axes}{the number of CoCA axes to return in the result set.}
-  \item{display}{one or both of \code{"species"} and/or \code{"sites"}}
+    \code{"symcoca"}. Generally the result of a call to
+    \code{\link{coca}}.}
+  \item{axes}{numeric; how many axes to summarise? The default is to
+    display 6 axes or all available axes, whichever is the smaller.}
   \item{\ldots}{arguments to be passed to other methods.}
 }
-%\details{}
+
 \value{
   A list with the some of the following components:
-  \item{cocaScores}{The site and or species scores for the axes requested.}
+  \item{cocaScores}{The site and/or species scores for the axes requested.}
   \item{call}{The call used to fit the model.}
   \item{lambda}{The eigenvalues for the axes requested. Not for
     \code{\link{predcoca.simpls}}.}
