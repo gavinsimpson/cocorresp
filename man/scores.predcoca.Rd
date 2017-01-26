@@ -13,7 +13,7 @@
        display = c("sites","species"), \dots)
 
 \method{scores}{symcoca}(x, choices = c(1, 2),
-       display = c("sites","species"), scaling = 1, \dots)
+       display = c("sites","species"), scaling = FALSE, \dots)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -22,8 +22,8 @@
     \dQuote{species}, \dQuote{loadings} or \dQuote{xmatrix}. The latter
     two are only available for \code{\link{symcoca}}.}
   \item{choices}{numeric; the ordination axes to return.}
-  \item{scaling}{numeric; whether the species scores should be rescaled
-    to the quarter root of the eigenvalues using
+  \item{scaling}{logical; whether scores should be rescaled
+    by the quarter root of the eigenvalues using
     \code{\link{rescale.symcoca}}.}
   \item{\ldots}{arguments to be passed to other methods.}
 }
