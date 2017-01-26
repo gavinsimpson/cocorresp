@@ -69,6 +69,8 @@ S3method(weights, symcoca)
 S3method(weights, predcoca)
 
 ## plotting methods
+S3method(biplot, symcoca)
+S3method(biplot, predcoca)
 S3method(plot, predcoca)
 S3method(plot, symcoca)
 S3method(points, coca)

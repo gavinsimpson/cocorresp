@@ -13,23 +13,25 @@ rescale(object, \dots)
 
 \method{rescale}{default}(object, \dots)
 
-\method{rescale}{symcoca}(object, axes = seq_len(object$n.axes), \dots)
+\method{rescale}{symcoca}(object, choices = NULL,
+        display = c("species", "sites"), \dots)
 }
-%- maybe also 'usage' for other objects documented here.
+
 \arguments{
   \item{object}{an R object. Currently only objects of class 
     \code{"symcoca"} are supported.}
-  \item{axes}{the number of axes to rescale}
+  \item{choices}{numeric; which axes to rescale and return.}
+  \item{display}{character; which type of scores to rescale.}
   \item{\dots}{other arguments to be passed to \code{rescale}
-    methods. Currently not used here.}
+    methods. Currently not used.}
 }
 \details{
   Currently only implemented for objects of class \code{"symcoca"}.
 }
 \value{
-  Returns a list with the following components:
-  \item{U1}{rescaled species scores for the response}
-  \item{U2}{rescaled species scores for the preditor}
+  Returns a list with one or both of the following components:
+  \item{species}{rescaled species scores for the response}
+  \item{sites}{rescaled species scores for the preditor}
 }
 
 \author{Matlab original by C.J.F. ter Braak and A.P. Schaffers. 

@@ -64,7 +64,7 @@
 data(beetles)
 data(plants)
 
-## log transform the bettle data
+## log transform the beetle data
 beetles <- log(beetles + 1)
 
 ## predictive CoCA using SIMPLS and formula interface
