@@ -4,7 +4,7 @@
 %\VignetteIndexEntry{Introduction to cocorresp}
 -->
 
-```{r setup, echo = FALSE, results = "hide", message = FALSE}
+```{r setup, echo = FALSE, results = "hide", message = FALSE, cache = FALSE}
 knitr::opts_chunk$set(message = FALSE, warning = FALSE)
 library("cocorresp")
 ```
