@@ -75,17 +75,17 @@ screeplot(bp.sym)
 
 From the screeplot, we see that most of the signal in the covariance is contained on the first 2--3 axes.
 
-The resulting symmetric co-correspondence analysis can be plotted in the form of a biplot, except now we have two sets of species (variable) scores and two sets of site (observations or sample) scores. The `plot` method can be used to draw the Co-CA biplots. The `which` argument selects which of two assemblages are drawn:
+The resulting symmetric co-correspondence analysis can be plotted in the form of a biplot, except now we have two sets of species (variable) scores and two sets of site (observations or sample) scores. The `biplot` method can be used to draw Co-CA biplots. The `which` argument selects which of the two assemblages are drawn:
 
-* `"response"` indicates the species assemblage on the left-hand side of the formula,
-* `"predictor"` indicates the species assemblag on the right-hand side of the formula.
+* `"y1"` indicates the species assemblage on the left-hand side of the formula,
+* `"y2"` indicates the species assemblage on the right-hand side of the formula.
 
 ```{r plot-symcoca, fig.width = 14, fig.height = 7, fig.show = "hold"}
 layout(matrix(1:2, ncol = 2))
-plot(bp.sym, which = "response", main = "Beetles")
-plot(bp.sym, which = "predictor", main = "Plants")
+biplot(bp.sym, which = "y1", main = "Beetles")
+biplot(bp.sym, which = "y2", main = "Plants")
 layout(1)
 ```
 
-Some additional control is afforded by the `plot()` method, but good plots of the fitted Co-CA will often require the use of lower-level functions such as the `points()` and `scores()` methods.
+Some additional control is afforded by the `plot()` method, but good plots of the fitted Co-CA will often require the use of lower-level functions such as the `points()` and `scores()` methods, as well as using appropriate sets of scores or loadings.
 
