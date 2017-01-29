@@ -13,7 +13,7 @@ test_that("permutest() works", {
     skip_on_cran()
     expect_message(bp.pred <- coca(beetles ~ ., data = plants),
                    regexp = "Removed some species that contained no data in")
-    bp.perm <- permutest(bp.pred, permutations = 499)
+    bp.perm <- permutest(bp.pred, permutations = 199)
     expect_is(bp.perm, "permutest.coca")
     expect_named(bp.perm, c("pval","permstat","total.inertia","inertia",
                             "fitax","pcent.fit","n.axes", "call"))
