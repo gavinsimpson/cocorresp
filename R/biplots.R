@@ -2,20 +2,20 @@
 ##
 ## }
 
-`biplot.predcoca` <- function(x, which = c("response", "predictor"), choices = 1:2,
+`biplot.predcoca` <- function(x, which = "response", choices = 1:2,
                               type = NULL, xlim = NULL, ylim = NULL,
                               col.species = "red", col.sites = "black",
                               pch.species = 3, pch.sites = 1, cex = 0.7,
                               main = "", sub = "", ylab, xlab, ann = par("ann"),
                               axes = TRUE, ...) {
     ## sort out arguments
-    which <- match.arg(which)           # verify what we're plotting
+    which <- selectWhich(which)  # verify what we're plotting
     ## need two and only two axes to plot
     if(length(choices) != 2L) {
         stop("Exactly two axes should be specified in `choices`")
     }
     ## grab the scores we need depending on what matrix is requested
-    scrs <- if (isTRUE(which == "response")) {
+    scrs <- if (isTRUE(which == "Y")) {
                 ## for proper biplot of response we want spp scores from
                 ## response & site score from predictor
                 list(species = scores(x, display = "species",
@@ -102,7 +102,7 @@
     invisible(scrs)
 }
 
-`biplot.symcoca` <- function(x, which = c("y1", "y2"), choices = 1:2,
+`biplot.symcoca` <- function(x, which = "y1", choices = 1:2,
                              benzecri = TRUE,
                              type = NULL, xlim = NULL, ylim = NULL,
                              col.species = "red", col.sites = "black",
@@ -110,7 +110,7 @@
                              main = "", sub = "", ylab, xlab, ann = par("ann"),
                              axes = TRUE, ...) {
     ## sort out arguments
-    which <- match.arg(which)           # verify what we're plotting
+    which <- selectWhich(which)  # verify what we're plotting
     ## need two and only two axes to plot
     if(length(choices) != 2L) {
         stop("Exactly two axes should be specified in `choices`")
@@ -122,16 +122,10 @@
         scale.species <- TRUE
         scale.sites   <- TRUE
     }
-    ## grab the scores we need depending on what matrix is requested
-    take <- if (isTRUE(which == "y1")) {
-                "Y"
-            } else {
-                "X"
-            }
     scrs <- list(species = scores(x, choices = choices, display = "species",
-                                  scaling = scale.species)[["species"]][[take]],
+                                  scaling = scale.species)[["species"]][[which]],
                  sites = scores(x, choices = choices, display = "sites",
-                                scaling = scale.sites)[["sites"]][[take]])
+                                scaling = scale.sites)[["sites"]][[which]])
 
     ## what type of plot?
     TYPES <- c("text", "points")

@@ -23,9 +23,11 @@ loadings(x, \ldots)
   \item{x}{an object resulting from a call to \code{\link{coca}}.}
   
   \item{choices}{numeric; vector of Co-CA axes to extract loadings for.}
-
-  \item{which}{character; for which matrices should loadings be
-    extracted?}
+  
+  \item{which}{character; should the response or predictor scores be
+    plotted. Can be specified in several ways: \emph{response} choices
+    are one from \code{c("y", "Y", "y1", "response")}; \emph{predictor}
+    choices are one from \code{c("x", "X", "y2", "predictor")}.}
 
   \item{\dots}{additional arguments to be passed to lower level
     methods.}

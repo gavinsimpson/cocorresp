@@ -8,7 +8,7 @@
 }
 \usage{
 \method{biplot}{symcoca}(x,
-    which = c("y1", "y2"),
+    which = "y1",
     choices = 1:2,
     benzecri = TRUE,
     type = NULL,
@@ -27,7 +27,7 @@
     \ldots)
 
 \method{biplot}{predcoca}(x,
-    which = c("response", "predictor"),
+    which = "response",
     choices = 1:2,
     type = NULL,
     xlim = NULL,
@@ -49,7 +49,9 @@
   \item{x}{ an object of class \code{"symcoca"}, the result of
     a call to \code{\link{symcoca}}.}
   \item{which}{character; should the response or predictor scores be
-    plotted.}
+    plotted. Can be specified in several ways: \emph{response} choices
+    are one from \code{c("y", "Y", "y1", "response")}; \emph{predictor}
+    choices are one from \code{c("x", "X", "y2", "predictor")}.}
   \item{choices}{ a vector of length 2 indicating which predictive CoCA
     axes to plot.}
   \item{benzecri}{ logical, should a Benzecri plot be drawn? Such plots
