@@ -2,20 +2,15 @@
                            reg.method = c("simpls", "eigen"),
                            weights = NULL,
                            n.axes = NULL,
-                           symmetric = FALSE, ...) {
+                           symmetric = FALSE,
+                           quiet = FALSE, ...) {
     nam.dat <- list(namY = deparse(substitute(y)),
                     namX = deparse(substitute(x)))
-    if(any(rowSums(y) <= 0 ))
-        stop("all row sums must be >0 in data matrix y")
-    if(any((csum <- colSums(y)) <= 0 )) {
-        y <- y[, csum > 0, drop = FALSE]
-        message("some species contain no data and were removed from data matrix y\n")
-    }
-    if(any(rowSums(x) <= 0 ))
-        stop("all row sums must be >0 in data matrix x")
-    if(any((csum <- colSums(x)) <= 0 )) {
-        x <- x[, csum > 0, drop = FALSE]
-        message("some species contain no data and were removed from data matrix x\n")
+    y <- checkCommunityData(y)
+    x <- checkCommunityData(x)
+    dropped <- c(attr(y, "dropped"), attr(x, "dropped"))
+    if (!quiet) {
+        msgIfDroppedVars(dropped, nam.dat)
     }
     method <- match.arg(method)
     if(method == "predictive") {
@@ -33,3 +28,26 @@
     retval
 }
 
+`checkCommunityData` <- function(x) {
+    dropped <- FALSE
+    if(any(rowSums(x) <= 0 )) {
+        stop("All row sums must be > 0 in data matrix")
+    }
+    if(any((csum <- colSums(x)) <= 0 )) {
+        x <- x[, csum > 0, drop = FALSE]
+        dropped <- TRUE
+    }
+    attr(x, "dropped") <- dropped
+    x
+}
+
+`msgIfDroppedVars` <- function(x, objNames) {
+    dropped <- vector(mode = "list", length = length(x))
+    dropped[x] <- objNames
+    ## print message if we dropped some species
+    if (any(!sapply(dropped, is.null))) {
+        message(paste(paste("\nRemoved some species that contained no data in:",
+                            paste(unlist(dropped), collapse = ", ")), "\n"))
+    }
+    invisible()
+}

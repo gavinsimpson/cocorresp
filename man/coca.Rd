@@ -17,11 +17,11 @@ coca(y, \ldots)
 
 \method{coca}{default}(y, x, method = c("predictive", "symmetric"),
      reg.method = c("simpls", "eigen"), weights = NULL,
-     n.axes = NULL, symmetric = FALSE, \ldots)
+     n.axes = NULL, symmetric = FALSE, quiet = FALSE, \ldots)
 
 \method{coca}{formula}(formula, data, method = c("predictive", "symmetric"),
      reg.method = c("simpls", "eigen"), weights = NULL,
-     n.axes = NULL, symmetric = FALSE, \ldots)
+     n.axes = NULL, symmetric = FALSE, quiet = FALSE, \ldots)
 
 }
 
@@ -64,6 +64,9 @@ coca(y, \ldots)
     (default) then the weights \eqn{R_0} are taken as the row sums of \code{y}
     unless user defined weights are provided via argument
     \code{weights}. Ignored if \code{method} is \code{"predictive"}.}
+
+  \item{quiet}{logical; suppress messages due to removal of species with
+    no data.}
 
   \item{\dots}{additional arguments to be passed to lower level methods.}
 }
