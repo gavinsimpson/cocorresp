@@ -23,12 +23,13 @@
 \note{
   This function needs an update and to allow option to restrict
   fitted values to specified axes, and the names of the returned objects
-  need making more obvious!}
+  need making more obvious!
+}
 
 \value{
   A list with the following components:
-  \item{Yhat1 }{the fitted values for the \dQuote{response} matrix.}
-  \item{Yhat2 }{the fitted values for the \dQuote{predictor} matrix.}
+  \item{Y }{the fitted values for the \dQuote{response} matrix.}
+  \item{X }{the fitted values for the \dQuote{predictor} matrix.}
   \item{nam.dat }{a vector containing the names of the \dQuote{response}
     and \dQuote{predictor} matrices respectively. Used for printing the
     results.}
@@ -60,5 +61,8 @@ bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
 ## fitted values
 bp.fit <- fitted(bp.sym)
 \donttest{bp.fit}
+
+## fitted values for beetles only
+beetle.fit <- fitted(bp.sym, which = "y1")
 }
 \keyword{multivariate}
