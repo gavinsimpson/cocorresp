@@ -42,17 +42,18 @@
 
 ##' @rdname loadings
 ##' @param choices numeric; vector of Co-CA axes to extract loadings for.
-##' @param which character; for which matrices should loadings be extracted?
+##' @param which character; should the response or predictor scores be
+##'   plotted. Can be specified in several ways: \emph{response} choices
+##'   are one from \code{c("y", "Y", "y1", "response")}; \emph{predictor}
+##'   choices are one from \code{c("x", "X", "y2", "predictor")}.}
 ##' @importFrom stats setNames
 `loadings.predcoca` <- function(x, choices = c(1, 2),
                                 which = c("response", "predictor"), ...) {
     if (!isTRUE(inherits(x, "predcoca"))) {
         stop("x must be of class \"predcoca\"")
     }
-    which <- match.arg(which, several.ok = TRUE)
-    WHICH <- setNames(c("Y","X"), c("response", "predictor"))
-    WHICH <- WHICH[which]
-    out <- x[["loadings"]][WHICH]
+    which <- selectWhich(which)
+    out <- x[["loadings"]][which]
     out <- lapply(out, `[`, , choices)
     if (length(out) == 1L) {
         out <- out[[1]]
@@ -67,10 +68,8 @@
     if (!isTRUE(inherits(x, "symcoca"))) {
         stop("x must be of class \"symcoca\"")
     }
-    which <- match.arg(which, several.ok = TRUE)
-    WHICH <- setNames(c("Y","X"), c("y1", "y2"))
-    WHICH <- WHICH[which]
-    out <- x[["loadings"]][WHICH]
+    which <- selectWhich(which)
+    out <- x[["loadings"]][which]
     out <- lapply(out, `[`, , choices)
     if (length(out) == 1L) {
         out <- out[[1]]
