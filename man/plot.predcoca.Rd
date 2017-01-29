@@ -70,7 +70,7 @@ beetles <- log(beetles + 1)
 ## predictive CoCA using SIMPLS and formula interface
 bp.pred <- coca(beetles ~ ., data = plants)
 
-## draw the biplot for the response
+## draw the plot for the response scores
 plot(bp.pred)
 
 ## plot of both

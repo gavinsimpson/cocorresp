@@ -79,7 +79,7 @@ sol <- envfit(bp.sym, verges, which = "response")
 sol
 
 ## plot the response matrix and the fitted vectors
-plot(bp.sym, which = "response")
+biplot(bp.sym, which = "y1")
 plot(sol)
 }
 \keyword{ multivariate }
