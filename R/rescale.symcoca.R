@@ -4,9 +4,10 @@
         choices <- seq_len(object$n.axes)
     }
     display <- match.arg(display, several.ok = TRUE)
-    lambda4 <- diag(sqrt(sqrt(eigenvals(object, choices = choices))),
-                    nrow = length(choices),
-                    ncol = length(choices))
+    ev <- eigenvals(object, choices = choices)
+    lc <- length(choices)
+    lambda4 <- diag(sqrt(sqrt(ev)), nrow = lc, ncol = lc)
+    colnames(lambda4) <- rownames(lambda4) <- names(ev)
     out <- list()
     if ("species" %in% display) {
         out$species <-
