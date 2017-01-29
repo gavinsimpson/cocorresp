@@ -7,7 +7,7 @@
 }
 \usage{
 \method{plot}{predcoca}(x,
-    which = c("response", "predictor"),
+    which = "response",
     choices = 1:2,
     display = c("species", "sites"),
     type,
