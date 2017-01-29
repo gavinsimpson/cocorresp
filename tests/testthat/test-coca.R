@@ -16,7 +16,7 @@ data(vascular)
 test_that("coca() works & returns correct object", {
     ## symmetric CoCA
     expect_message(bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric"),
-                   regexp = "some species contain no data")
+                   regexp = "Removed some species that contained no data in:")
     expect_is(bp.sym, "coca")
     expect_is(bp.sym, "symcoca")
     expect_is(bp.sym, "list")
