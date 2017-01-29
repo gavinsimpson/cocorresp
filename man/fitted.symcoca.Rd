@@ -8,11 +8,15 @@
   Co-Correpsondence analysis model.
 }
 \usage{
-\method{fitted}{symcoca}(object, \ldots)
+\method{fitted}{symcoca}(object, which = c("y1","y2"), \ldots)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{object}{an object of class \code{"symcoca"}}
+  \item{which}{character; should the response or predictor scores be
+    plotted. Can be specified in several ways: \emph{response} choices
+    are one from \code{c("y", "Y", "y1", "response")}; \emph{predictor}
+    choices are one from \code{c("x", "X", "y2", "predictor")}.}
   \item{\ldots}{arguments to be passed to other methods.}
 }
 
