@@ -25,7 +25,9 @@
   \item{x}{ an object of class \code{"predcoca"}, the result of
     a call to \code{\link{coca}}.}
   \item{which}{character; should the response or predictor scores be
-    plotted.}
+    plotted. Can be specified in several ways: \emph{response} choices
+    are one from \code{c("y", "Y", "y1", "response")}; \emph{predictor}
+    choices are one from \code{c("x", "X", "y2", "predictor")}.}
   \item{choices}{ a vector of length 2 indicating which predictive CoCA
     axes to plot.}
   \item{display}{ which sets of scores are drawn. See
