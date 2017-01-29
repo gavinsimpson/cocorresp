@@ -182,7 +182,7 @@ data(plants)
 bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
 bp.sym
 \donttest{summary(bp.sym)}
-plot(bp.sym)
+biplot(bp.sym)                          # produces a Benzecri biplot
 
 ## extract eigenvalues of the analysis
 eigenvals(bp.sym)
@@ -208,7 +208,7 @@ bp.perm}
 bp.pred <- coca(beetles ~ ., data = plants, n.axes = 2)
 bp.pred
 \donttest{summary(bp.pred)}
-plot(bp.pred)
+biplot(bp.pred)                         # plots correct scores or loadings
 
 ## predictive CoCA using Eigen-analysis
 data(bryophyte)
@@ -225,8 +225,8 @@ crossval(bryophyte, vascular)
 carp.pred <- coca(y = bryophyte, x = vascular,
                   reg.method = "eigen", n.axes = 2)
 carp.pred
-## plot
-plot(carp.pred)
+## drawn biplot
+biplot(carp.pred)
 \testonly{options(od)}
 }
 \keyword{multivariate}
