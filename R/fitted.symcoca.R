@@ -22,7 +22,7 @@
         nam <- c(nam, object$nam.dat$namX)
     }
     out$nam.dat <- nam
-    names(out$nam.dat) <- c("namY","namX")
+    names(out$nam.dat) <- c("namY","namX")[c("Y","X") %in% which]
     class(out) <- "fitted.symcoca"
     out
 }
