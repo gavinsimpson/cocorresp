@@ -51,7 +51,7 @@ This is vegan 2.4-2
 > 
 > flush(stderr()); flush(stdout())
 > 
-> ### Name: biplot.symcoca
+> ### Name: biplot-methods
 > ### Title: Biplots of co-correspondence analysis models
 > ### Aliases: biplot.symcoca biplot.predcoca
 > ### Keywords: hplot methods
@@ -877,7 +877,7 @@ Removed some species that contained no data in: beetles, plants
 > 
 > flush(stderr()); flush(stdout())
 > 
-> ### Name: summary.predcoca
+> ### Name: summary-methods
 > ### Title: Summarizing Co-CA Model Fits
 > ### Aliases: summary.predcoca print.summary.predcoca summary.symcoca
 > ###   print.summary.symcoca
@@ -978,7 +978,7 @@ Removed some species that contained no data in: beetles, plants
 > ###
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  11.758 0.05 11.85 0 0 
+Time elapsed:  12.393 0.047 12.495 0 0 
 > grDevices::dev.off()
 null device 
           1 
