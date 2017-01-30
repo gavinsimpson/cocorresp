@@ -35,7 +35,7 @@ beetles <- log(beetles + 1)
 ## fit the model
 bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
 
-## draw a biplot of the response
+## draw a screeplot of the eignevalues
 screeplot(bp.sym)
 
 }
