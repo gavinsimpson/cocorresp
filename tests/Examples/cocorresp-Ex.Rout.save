@@ -1,5 +1,5 @@
 
-R version 3.3.0 Patched (2016-05-12 r70603) -- "Supposedly Educational"
+R version 3.3.2 Patched (2016-12-21 r71843) -- "Sincere Pumpkin Patch"
 Copyright (C) 2016 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
@@ -24,7 +24,7 @@ Type 'q()' to quit R.
 Loading required package: vegan
 Loading required package: permute
 Loading required package: lattice
-This is vegan 2.4-1
+This is vegan 2.4-2
 > 
 > base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
 > cleanEx()
@@ -42,6 +42,58 @@ This is vegan 2.4-1
 > 
 > data(beetles)
 > data(plants)
+> 
+> 
+> 
+> cleanEx()
+> nameEx("biplots")
+> ### * biplots
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: biplot.symcoca
+> ### Title: Biplots of co-correspondence analysis models
+> ### Aliases: biplot.symcoca biplot.predcoca
+> ### Keywords: hplot methods
+> 
+> ### ** Examples
+> 
+> ## symmetric CoCA
+> data(beetles)
+> data(plants)
+> 
+> ## log transform the beetle data
+> beetles <- log(beetles + 1)
+> 
+> ## fit the model
+> bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
+
+Removed some species that contained no data in: beetles, plants 
+
+> 
+> ## draw a biplot of the beetle results
+> biplot(bp.sym)
+> 
+> ## biplot of both - Fig 1 in ter Braak & Schaffers (2004)
+> layout(matrix(1:2, ncol = 2))
+> biplot(bp.sym, which = "y1", main = "Beetles")
+> biplot(bp.sym, which = "y2", main = "Plants")
+> layout(1)
+> 
+> ## predictive CoCA
+> bp.pred <- coca(beetles ~ ., data = plants)
+
+Removed some species that contained no data in: beetles, plants 
+
+> 
+> ## draw a biplot of the response
+> biplot(bp.pred)
+> 
+> ## recreate Fig 3 in ter Braak & Schaffers (2004)
+> layout(matrix(1:2, ncol = 2))
+> biplot(bp.pred, which = "response", main = "Beetles")
+> biplot(bp.pred, which = "predictor", main = "Plants")
+> layout(1)
 > 
 > 
 > 
@@ -86,9 +138,8 @@ This is vegan 2.4-1
 > data(plants)
 > ## fit the model
 > bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
-some species contain no data and were removed from data matrix y
 
-some species contain no data and were removed from data matrix x
+Removed some species that contained no data in: beetles, plants 
 
 > bp.sym
 
@@ -102,7 +153,7 @@ Inertia:
 beetles:  3.99      3.97     0.02
 plants:   5.76      5.74     0.02
 
-> plot(bp.sym)
+> biplot(bp.sym)                          # produces a Benzecri biplot
 > 
 > ## extract eigenvalues of the analysis
 > eigenvals(bp.sym)
@@ -126,9 +177,8 @@ COCA 21 COCA 22 COCA 23 COCA 24 COCA 25 COCA 26 COCA 27 COCA 28 COCA 29
 > 
 > ## predictive CoCA using SIMPLS and formula interface
 > bp.pred <- coca(beetles ~ ., data = plants)
-some species contain no data and were removed from data matrix y
 
-some species contain no data and were removed from data matrix x
+Removed some species that contained no data in: beetles, plants 
 
 > ## should retain only the useful PLS components for a parsimonious model
 > 
@@ -145,9 +195,8 @@ some species contain no data and were removed from data matrix x
 > ## agrees with the Leave-one-out cross-validation
 > ## refit the model with only 2 PLS components
 > bp.pred <- coca(beetles ~ ., data = plants, n.axes = 2)
-some species contain no data and were removed from data matrix y
 
-some species contain no data and were removed from data matrix x
+Removed some species that contained no data in: beetles, plants 
 
 > bp.pred
 
@@ -156,19 +205,12 @@ Predictive Co-Correspondence Analysis
 Call: predcoca.simpls(y = y, x = x, R0 = weights, n.axes = n.axes,
 nam.dat = nam.dat)
 
-Percentage Variance Explained:
+Co-CA Method: simpls
 
-Y-block: variance explained in beetles (response) 
-             Comp 1  Comp 2
-Individual:   10.28   7.924
-Cumulative:   10.28  18.208
-
-X-block: variance explained in plants (predictor) 
-             Comp 1  Comp 2
-Individual:   11.28   7.679
-Cumulative:   11.28  18.956
-
-> plot(bp.pred)
+             Role Variance
+beetles Predictor     5.76
+plants   Response     3.99
+> biplot(bp.pred)                         # plots correct scores or loadings
 > 
 > ## predictive CoCA using Eigen-analysis
 > data(bryophyte)
@@ -181,16 +223,18 @@ Predictive Co-Correspondence Analysis
 Call: predcoca.eigen(y = y, x = x, R0 = weights, n.axes = n.axes,
 nam.dat = nam.dat)
 
-Eigenvalues:
- COCA 1   COCA 2   COCA 3   COCA 4   COCA 5   COCA 6   COCA 7   COCA 8  
-  0.301    0.072    0.022    0.017    0.015    0.010    0.007    0.006  
- COCA 9  COCA 10  COCA 11  COCA 12  COCA 13  COCA 14  COCA 15  COCA 16  
-  0.005    0.005    0.004    0.004    0.003    0.003    0.003    0.003  
-COCA 17  COCA 18  COCA 19  COCA 20  COCA 21  COCA 22  COCA 23  COCA 24  
-  0.002    0.002    0.002    0.002    0.001    0.001    0.001    0.001  
-COCA 25  COCA 26  COCA 27  COCA 28  COCA 29  
-  0.001    0.001    0.001    0.001    0.001  
+Co-CA Method: eigen
 
+
+Eigenvalues:
+
+
+ COCA 1  COCA 2  COCA 3  COCA 4  COCA 5  COCA 6  COCA 7  COCA 8  COCA 9 COCA 10 
+  0.301   0.072   0.022   0.017   0.015   0.010   0.007   0.006   0.005   0.005 
+COCA 11 COCA 12 COCA 13 COCA 14 COCA 15 COCA 16 COCA 17 COCA 18 COCA 19 COCA 20 
+  0.004   0.004   0.003   0.003   0.003   0.003   0.002   0.002   0.002   0.002 
+COCA 21 COCA 22 COCA 23 COCA 24 COCA 25 COCA 26 COCA 27 COCA 28 COCA 29 
+  0.001   0.001   0.001   0.001   0.001   0.001   0.001   0.001   0.001 
 > 
 > ## determine important PLS components - takes a while
 > ## Not run: 
@@ -208,12 +252,16 @@ Predictive Co-Correspondence Analysis
 Call: predcoca.eigen(y = y, x = x, R0 = weights, n.axes = n.axes,
 nam.dat = nam.dat)
 
-Eigenvalues:
-COCA 1  COCA 2  
- 0.301   0.072  
+Co-CA Method: eigen
 
-> ## plot
-> plot(carp.pred)
+
+Eigenvalues:
+
+
+COCA 1 COCA 2 
+ 0.301  0.072 
+> ## drawn biplot
+> biplot(carp.pred)
 > ## Don't show: 
 > options(od)
 > ## End(Don't show)
@@ -288,9 +336,8 @@ COIN25   COIN26   COIN27   COIN28   COIN29
 > 
 > ## symmetric Co-CA model
 > beetles.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
-some species contain no data and were removed from data matrix y
 
-some species contain no data and were removed from data matrix x
+Removed some species that contained no data in: beetles, plants 
 
 > 
 > ## correlations between axes
@@ -334,9 +381,8 @@ COCA 21 COCA 22 COCA 23 COCA 24 COCA 25 COCA 26 COCA 27 COCA 28 COCA 29
 > 
 > ## predictive CoCA using SIMPLS and formula interface
 > bp.pred <- coca(beetles ~ ., data = plants)
-some species contain no data and were removed from data matrix y
 
-some species contain no data and were removed from data matrix x
+Removed some species that contained no data in: beetles, plants 
 
 > ## should retain only the useful PLS components for a
 > ## parsimonious model
@@ -374,9 +420,8 @@ some species contain no data and were removed from data matrix x
 > 
 > ## fit the model
 > bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
-some species contain no data and were removed from data matrix y
 
-some species contain no data and were removed from data matrix x
+Removed some species that contained no data in: beetles, plants 
 
 > 
 > ## load the environmental data
@@ -389,19 +434,19 @@ some species contain no data and were removed from data matrix x
 ***VECTORS
 
             COCA 1   COCA 2     r2 Pr(>r)    
-Mmoisture  0.96693  0.25505 0.5749  0.001 ***
-Zmoisture  0.97608  0.21741 0.5600  0.001 ***
-Org        0.99122  0.13224 0.4313  0.001 ***
-Sandiness -0.42600  0.90472 0.3054  0.022 *  
-pH         0.28519 -0.95847 0.3911  0.002 ** 
-NO3        0.55393 -0.83256 0.2290  0.043 *  
-NH4       -0.74618  0.66575 0.2105  0.067 .  
-Nmin       0.22988 -0.97322 0.0216  0.777    
-P         -0.66726  0.74482 0.4050  0.005 ** 
-K         -0.84995  0.52686 0.3329  0.007 ** 
-Nitr       0.57252 -0.81989 0.3048  0.014 *  
-HourSun   -0.87694 -0.48060 0.0889  0.337    
-Warmth35  -0.98677  0.16213 0.0383  0.624    
+Mmoisture  0.95452  0.29815 0.5749  0.001 ***
+Zmoisture  0.96693  0.25503 0.5600  0.001 ***
+Org        0.98775  0.15605 0.4313  0.001 ***
+Sandiness -0.36950  0.92923 0.3054  0.022 *  
+pH         0.24370 -0.96985 0.3911  0.002 ** 
+NO3        0.48984 -0.87181 0.2290  0.043 *  
+NH4       -0.68741  0.72627 0.2105  0.067 .  
+Nmin       0.19562 -0.98068 0.0216  0.777    
+P         -0.60334  0.79749 0.4050  0.005 ** 
+K         -0.80614  0.59173 0.3329  0.007 ** 
+Nitr       0.50795 -0.86139 0.3048  0.014 *  
+HourSun   -0.83884 -0.54438 0.0889  0.337    
+Warmth35  -0.98159  0.19098 0.0383  0.624    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 Permutation: free
@@ -410,7 +455,7 @@ Number of permutations: 999
 
 > 
 > ## plot the response matrix and the fitted vectors
-> plot(bp.sym, which = "response")
+> biplot(bp.sym, which = "y1")
 > plot(sol)
 > 
 > 
@@ -437,13 +482,90 @@ Number of permutations: 999
 > 
 > ## fit the model
 > bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
-some species contain no data and were removed from data matrix y
 
-some species contain no data and were removed from data matrix x
+Removed some species that contained no data in: beetles, plants 
 
 > 
 > ## fitted values
 > bp.fit <- fitted(bp.sym)
+> 
+> ## fitted values for beetles only
+> beetle.fit <- fitted(bp.sym, which = "y1")
+> 
+> 
+> 
+> cleanEx()
+> nameEx("loadings")
+> ### * loadings
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: loadings
+> ### Title: CoCA species loadings
+> ### Aliases: loadings lodaings.default loadings.predcoca loadings.symcoca
+> ### Keywords: methods utilities
+> 
+> ### ** Examples
+> 
+> ## Don't show: 
+> od <- options(digits = 4)
+> ## End(Don't show)
+> ## symmetric CoCA
+> data(beetles)
+> ## log transform the bettle data
+> beetles <- log(beetles + 1)
+> data(plants)
+> ## fit the model
+> bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
+
+Removed some species that contained no data in: beetles, plants 
+
+> 
+> ## extract the loadings
+> lds <- loadings(bp.sym)
+> head(lds[["Y"]])                        # loadings for the Y_1 matrix
+           COCA 1  COCA 2   COCA 3  COCA 4  COCA 5  COCA 6  COCA 7   COCA 8
+ACUPAEXI -0.20433 -2.3498  0.76183 -1.0127  1.4034 -2.5364  3.0100 -1.04927
+ACUPAFLA  2.41972  1.8627  4.41465 -3.5657 -1.7423  1.0069 -1.2161 -0.61023
+ACUPAMER -0.08044 -1.6561 -0.70618  0.1282 -0.7759  0.9211 -0.2393  0.16375
+ACUPPARV -0.35028 -2.3408 -0.54588 -1.1433 -0.2107  1.5491 -1.1002  0.77127
+AGONUDOR -0.94516 -0.4898  0.06219 -0.1248 -0.1782  1.7137  1.2734  0.85400
+AGONUMAR -1.17993  1.8149 -0.57044  0.4099 -0.5633  3.1117  4.2546  0.07285
+          COCA 9 COCA 10   COCA 11   COCA 12 COCA 13   COCA 14   COCA 15
+ACUPAEXI  0.2879 -3.5468 -0.006264 -0.009975  0.4322  0.006181  2.398233
+ACUPAFLA  1.0450 -2.9776  1.808148  0.799091  1.3346 -0.487961 -0.008534
+ACUPAMER  0.8502 -0.6213  0.046045  2.435928  0.9016 -0.607928 -1.364512
+ACUPPARV  0.7625  0.3012  0.345524 -0.402013 -1.2806 -0.775343  0.278058
+AGONUDOR -1.3710 -1.2102 -0.483949 -0.447292 -0.0550  0.597343  0.638313
+AGONUMAR  0.5489 -0.4140 -0.381092 -1.194910 -0.9777  2.240623 -0.366266
+         COCA 16 COCA 17  COCA 18 COCA 19 COCA 20 COCA 21 COCA 22  COCA 23
+ACUPAEXI -0.7641 -3.9594  3.32941 -3.8922  -2.174  0.6124  0.7720 -2.23477
+ACUPAFLA  0.9329  3.6454 -1.60903  0.5133  -2.868  2.9343 -0.5537 -1.40914
+ACUPAMER  1.1023 -2.4022  1.57618  3.5603  -4.553  0.6857 -3.5433 -4.42921
+ACUPPARV  0.7979 -0.7522  0.53157 -0.8950  -1.016 -0.1105 -0.2904 -0.52682
+AGONUDOR -0.1244 -0.4620  0.68838  0.5493  -1.459 -0.4355 -0.2117 -0.09072
+AGONUMAR  0.3160  0.7134 -0.01793 -1.4123   2.530  2.4812 -3.5288 -1.71179
+         COCA 24 COCA 25 COCA 26 COCA 27  COCA 28 COCA 29
+ACUPAEXI  0.1135 -0.6765   1.510 -0.4866  0.43469  3.7077
+ACUPAFLA  1.3515 -1.5095   1.172  0.1704  0.51336 -0.3939
+ACUPAMER  8.0862  6.5713 -21.853 18.5783 -2.57428 -1.0913
+ACUPPARV  1.8835 -0.1173  -1.050  0.5223  0.09321  0.2501
+AGONUDOR  1.8146  0.3052  -0.347  0.4452  0.81912  0.1377
+AGONUMAR  0.8812 -1.8526  -1.118 -1.0975  1.56669  0.8840
+> str(lds)
+List of 2
+ $ Y: num [1:91, 1:29] -0.2043 2.4197 -0.0804 -0.3503 -0.9452 ...
+  ..- attr(*, "dimnames")=List of 2
+  .. ..$ : chr [1:91] "ACUPAEXI" "ACUPAFLA" "ACUPAMER" "ACUPPARV" ...
+  .. ..$ : chr [1:29] "COCA 1" "COCA 2" "COCA 3" "COCA 4" ...
+ $ X: num [1:173, 1:29] -1.297 -2.383 0.872 -0.692 1.227 ...
+  ..- attr(*, "dimnames")=List of 2
+  .. ..$ : chr [1:173] "achimill" "agrocapi" "agrostol" "allivine" ...
+  .. ..$ : chr [1:29] "COCA 1" "COCA 2" "COCA 3" "COCA 4" ...
+> 
+> ## Don't show: 
+> options(od)
+> ## End(Don't show)
 > 
 > 
 > 
@@ -473,9 +595,8 @@ some species contain no data and were removed from data matrix x
 > beetles <- log(beetles + 1)
 > ## predictive CoCA using SIMPLS and formula interface
 > bp.pred <- coca(beetles ~ ., data = plants)
-some species contain no data and were removed from data matrix y
 
-some species contain no data and were removed from data matrix x
+Removed some species that contained no data in: beetles, plants 
 
 > 
 > ## should retain only the useful PLS components for a parsimonious model
@@ -530,17 +651,16 @@ COCA 2  0.0966  3.5782  0.3153  7.9068    0.01
 > data(beetles)
 > data(plants)
 > 
-> ## log transform the bettle data
+> ## log transform the beetle data
 > beetles <- log(beetles + 1)
 > 
 > ## predictive CoCA using SIMPLS and formula interface
 > bp.pred <- coca(beetles ~ ., data = plants)
-some species contain no data and were removed from data matrix y
 
-some species contain no data and were removed from data matrix x
+Removed some species that contained no data in: beetles, plants 
 
 > 
-> ## draw the biplot for the response
+> ## draw the plot for the response scores
 > plot(bp.pred)
 > 
 > ## plot of both
@@ -558,7 +678,7 @@ some species contain no data and were removed from data matrix x
 > flush(stderr()); flush(stdout())
 > 
 > ### Name: plot.symcoca
-> ### Title: Biplots for symmetric co-correspondence analysis
+> ### Title: Plots for symmetric co-correspondence analysis
 > ### Aliases: plot.symcoca
 > ### Keywords: hplot methods
 > 
@@ -568,17 +688,16 @@ some species contain no data and were removed from data matrix x
 > data(beetles)
 > data(plants)
 > 
-> ## log transform the bettle data
+> ## log transform the beetle data
 > beetles <- log(beetles + 1)
 > 
 > ## fit the model
 > bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
-some species contain no data and were removed from data matrix y
 
-some species contain no data and were removed from data matrix x
+Removed some species that contained no data in: beetles, plants 
 
 > 
-> ## draw a biplot of the response
+> ## draw a plot of the response scores
 > plot(bp.sym)
 > 
 > ## plot of both
@@ -611,12 +730,11 @@ some species contain no data and were removed from data matrix x
 >      
 > ## fit the model
 > bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
-some species contain no data and were removed from data matrix y
 
-some species contain no data and were removed from data matrix x
+Removed some species that contained no data in: beetles, plants 
 
 > 
-> ## draw a biplot of the response
+> ## draw a plot of the response scores
 > plot(bp.sym, type = "none")
 > points(bp.sym, display = "sites", col = "blue", pch = 16)
 > points(bp.sym, display = "species", col = "red", pch = 3, cex = 0.8)
@@ -701,9 +819,8 @@ some species contain no data and were removed from data matrix x
 > 
 > ## fit the model, a symmetric CoCA
 > bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
-some species contain no data and were removed from data matrix y
 
-some species contain no data and were removed from data matrix x
+Removed some species that contained no data in: beetles, plants 
 
 > 
 > ## extract the scores
@@ -711,9 +828,8 @@ some species contain no data and were removed from data matrix x
 > 
 > ## predictive CoCA using SIMPLS and formula interface
 > bp.pred <- coca(beetles ~ ., data = plants)
-some species contain no data and were removed from data matrix y
 
-some species contain no data and were removed from data matrix x
+Removed some species that contained no data in: beetles, plants 
 
 > scr2 <- scores(bp.pred)
 > 
@@ -745,9 +861,8 @@ some species contain no data and were removed from data matrix x
 > 
 > ## fit the model
 > bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
-some species contain no data and were removed from data matrix y
 
-some species contain no data and were removed from data matrix x
+Removed some species that contained no data in: beetles, plants 
 
 > 
 > ## draw a biplot of the response
@@ -782,9 +897,8 @@ some species contain no data and were removed from data matrix x
 > 
 > ## fit the model
 > bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
-some species contain no data and were removed from data matrix y
 
-some species contain no data and were removed from data matrix x
+Removed some species that contained no data in: beetles, plants 
 
 > summary(bp.sym)
 
@@ -810,9 +924,8 @@ COCA 25  COCA 26  COCA 27  COCA 28  COCA 29
 > 
 > ## Predictive CoCA
 > bp.pred <- coca(beetles ~ ., data = plants)
-some species contain no data and were removed from data matrix y
 
-some species contain no data and were removed from data matrix x
+Removed some species that contained no data in: beetles, plants 
 
 > ## Don't show: 
 > options(od)
@@ -845,9 +958,8 @@ some species contain no data and were removed from data matrix x
 > 
 > ## fit the model
 > bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
-some species contain no data and were removed from data matrix y
 
-some species contain no data and were removed from data matrix x
+Removed some species that contained no data in: beetles, plants 
 
 > 
 > ## weights == R[0]
@@ -866,7 +978,7 @@ some species contain no data and were removed from data matrix x
 > ###
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  15.572 0.164 15.745 0 0 
+Time elapsed:  11.626 0.047 11.717 0 0 
 > grDevices::dev.off()
 null device 
           1 
