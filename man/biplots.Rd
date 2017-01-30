@@ -1,4 +1,4 @@
-\name{biplot.symcoca}
+\name{biplot-methods}
 \alias{biplot.symcoca}
 \alias{biplot.predcoca}
 \title{Biplots of co-correspondence analysis models}
