@@ -14,21 +14,19 @@ Co-correspondence analysis ordination methods for community ecology
   common to both communitities.
 }
 \details{
-\tabular{ll}{
-Package: \tab cocorresp\cr
-Type: \tab Package\cr
-Version: \tab 0.2-1\cr
-Date: \tab 2013-12-12\cr
-Depends: \tab vegan\cr
-License: \tab GPL Version 2\cr
-Encoding: \tab UTF-8\cr
-}
+  The main interface function is \code{\link{coca}} which accepts a
+  formula or two community data matrices. An appropriate formula is
+  \code{Y ~ ., data = X} and the associated \code{data} object from
+  which \code{.} will be looked up. The \code{method} argument is used
+  to select from the two forms of CoCA: \code{method = "predictive"} for
+  predictive CoCA (the default), and \code{method = "symmetric"} for
+  symmetric CoCA.
 }
 \author{
-Original Matlab routines by C.J.F. ter Braak and A.P. Schaffers. R port
-by Gavin L. Simpson. Function simpls based on simpls.fit (package pls)
-by Ron Wehrens and Bjorn-Helge Mevik.
-
-Maintainer: Gavin L. Simpson <gavin.simpson@ucl.ac.uk>
+  Original Matlab routines by C.J.F. ter Braak and A.P. Schaffers. R port
+  by Gavin L. Simpson. Function simpls based on \code{simpls.fit} (package
+  pls) by Ron Wehrens and Bjorn-Helge Mevik.
+  
+  Maintainer: Gavin L. Simpson <ucfagls@gmail.com>
 }
 \keyword{ package }
