@@ -1,4 +1,4 @@
-\name{summary.predcoca}
+\name{summary-methods}
 \alias{summary.predcoca}
 \alias{print.summary.predcoca}
 \alias{summary.symcoca}
