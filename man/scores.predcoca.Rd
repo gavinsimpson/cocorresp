@@ -1,4 +1,4 @@
-\name{scores.predcoca}
+\name{scores-methods}
 \alias{scores.predcoca}
 \alias{scores.symcoca}
 
