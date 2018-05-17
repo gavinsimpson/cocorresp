@@ -7,7 +7,7 @@ citEntry(entry="Manual",
 	author = personList(as.person("G. L. Simpson")),
 	year = 2009,
 	note = paste("R package version", meta$Version),
-   	url = "http://cran.r-project.org/package=cocorresp",
+   	url = "https://cran.r-project.org/package=cocorresp",
 	textVersion =
 	paste("Simpson, G.L. (2009).", 
 	"cocorresp: Co-correspondence analysis ordination methods. (R package version ",
