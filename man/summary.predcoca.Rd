@@ -69,7 +69,7 @@ summary(bp.sym)
 
 ## Predictive CoCA
 bp.pred <- coca(beetles ~ ., data = plants)
-\donttest{summary(bp.pred, axes = 1:2)}
+summary(bp.pred, axes = 1:2)
 \testonly{options(od)}
 }
 

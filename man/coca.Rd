@@ -184,7 +184,7 @@ data(plants)
 ## fit the model
 bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
 bp.sym
-\donttest{summary(bp.sym)}
+summary(bp.sym)
 biplot(bp.sym)                          # produces a Benzecri biplot
 
 ## extract eigenvalues of the analysis
@@ -204,13 +204,14 @@ crossval(beetles, plants)
 ## so 2 axes are sufficient
 ## permutation test to assess significant PLS components - takes a while
 bp.perm <- permutest(bp.pred, permutations = 99)
-bp.perm}
+bp.perm
+}
 
 ## agrees with the Leave-one-out cross-validation
 ## refit the model with only 2 PLS components
 bp.pred <- coca(beetles ~ ., data = plants, n.axes = 2)
 bp.pred
-\donttest{summary(bp.pred)}
+summary(bp.pred)
 biplot(bp.pred)                         # plots correct scores or loadings
 
 ## predictive CoCA using Eigen-analysis
