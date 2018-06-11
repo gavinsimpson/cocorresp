@@ -4,6 +4,7 @@
     cat("\nInertia:\n")
     printCoefmat(x$inertia, digits = digits, na.print = "")
     cat("\nEigenvalues:\n")
-    print(round(x$lambda, digits), ..., print.gap = 2)
+    print(format(eigenvals(x), digits = digits), ..., print.gap = 2,
+          quote = FALSE)
     invisible(x)
 }

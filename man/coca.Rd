@@ -197,9 +197,8 @@ corAxis(bp.sym)
 bp.pred <- coca(beetles ~ ., data = plants)
 ## should retain only the useful PLS components for a parsimonious model
 
+\donttest{
 ## Leave-one-out crossvalidation - this takes a while
-
-\dontrun{
 crossval(beetles, plants)
 ## so 2 axes are sufficient
 ## permutation test to assess significant PLS components - takes a while
@@ -212,7 +211,7 @@ bp.perm
 bp.pred <- coca(beetles ~ ., data = plants, n.axes = 2)
 bp.pred
 summary(bp.pred)
-biplot(bp.pred)                         # plots correct scores or loadings
+biplot(bp.pred)                     # plots correct scores or loadings
 
 ## predictive CoCA using Eigen-analysis
 data(bryophyte)
@@ -220,10 +219,11 @@ data(vascular)
 carp.pred <- coca(y = bryophyte, x = vascular, reg.method = "eigen")
 carp.pred
 
+\donttest{
 ## determine important PLS components - takes a while
-\dontrun{
 crossval(bryophyte, vascular)
-(carp.perm <- permutest(carp.pred, permutations = 99))}
+(carp.perm <- permutest(carp.pred, permutations = 99))
+}
 
 ## 2 components again, refit
 carp.pred <- coca(y = bryophyte, x = vascular,

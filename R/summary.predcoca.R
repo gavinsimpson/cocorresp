@@ -4,7 +4,7 @@
     }
     cocaScores <- scores(object, choices = axes, ...)
     retval <- list(cocaScores = cocaScores, call = object$call,
-                   lambda = object$lambda, namY = object$nam.dat$namY,
+                   lambda = eigenvals(object), namY = object$nam.dat$namY,
                    namX = object$nam.dat$namX,
                    loadings = lapply(object$loadings, `[`, , axes),
                    varianceExp = object$varianceExp,
