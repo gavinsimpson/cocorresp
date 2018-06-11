@@ -9,7 +9,7 @@
     cat("\n")
     if (is.null(x$totalVar)) {
         writeLines("\nEigenvalues:\n\n")
-        print(round(x$lambda, digits), ...)
+        print(round(eigenvals(x), digits), ...)
     } else {
         totVar <- unlist(x$totalVar, use.names = FALSE)
         ##names(totVar) <- paste(unlist(x$nam.dat, use.names = FALSE), c("(predictor)", "(response)"))

@@ -50,17 +50,18 @@
         xlim <- range(sapply(xy, function(x) range(x$x[is.finite(x$x)])))
     if (is.null(ylim))
         ylim <- range(sapply(xy, function(x) range(x$y[is.finite(x$y)])))
-    ## process x/y labels
+    ## process x/y label
+    ev <- eigenvals(x)
     if(missing(xlab)) {
         xlabs <- sapply(xy, `[[`, "xlab")
         xlab <- xlabs[!is.null(xlabs)][1]
-        eigx <- round(x$lambda[choices[1]], 4)
+        eigx <- round(ev[choices[1]], 4)
         xlab <- bquote(.(xlab) ~~ (lambda[.(choices[1])] == .(eigx)))
     }
     if(missing(ylab)) {
         ylabs <- sapply(xy, `[[`, "ylab")
         ylab <- ylabs[!is.null(ylabs)][1]
-        eigy <- round(x$lambda[choices[2]], 4)
+        eigy <- round(ev[choices[2]], 4)
         ylab <- bquote(.(ylab) ~~ (lambda[.(choices[2])] == .(eigy)))
     }
     #opar <- par(no.readonly=TRUE)

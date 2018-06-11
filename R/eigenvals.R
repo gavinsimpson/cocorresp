@@ -19,7 +19,7 @@
 }
 
 `lambda` <- function(x, choices = NULL) {
-    eig <- x$lambda
+    eig <- x[["lambda"]]
     if (!is.null(choices)) {
         eig <- eig[choices]
     }
