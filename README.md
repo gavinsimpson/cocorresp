@@ -12,7 +12,7 @@
 
 Fits predictive and symmetric co-correspondence analysis (CoCA) models to relate one data matrix to another data matrix. More specifically, CoCA maximises the weighted covariance between the weighted averaged species scores of one community and the weighted averaged species scores of another community. CoCA attempts to find patterns that are common to both communitities.
 
-The main interface function is \code{\link{coca}} which accepts a 
+The main interface function is `coca` which accepts a 
 formula or two community data matrices. An appropriate formula is `Y ~ ., data = X` and the associated `data` object from which `.` will be looked up. The `method` argument is used to select from the two forms of CoCA:
 
 1. `method = "predictive"` for predictive CoCA (the default), and
