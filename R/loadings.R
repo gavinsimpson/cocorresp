@@ -30,7 +30,7 @@
 ##' bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
 ##' ## extract the loadings
 ##' lds <- loadings(bp.sym)
-##' head(lds[["Y"]])                        # loadings for the Y_1 matrix
+##' \dontshow{head(lds[["Y"]])                        # loadings for the Y_1 matrix}
 ##' str(lds)
 `loadings` <- function(x, ...) {
     UseMethod("loadings")

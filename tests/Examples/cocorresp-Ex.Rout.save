@@ -1035,7 +1035,7 @@ Removed some species that contained no data in: beetles, plants
 > cleanEx()
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  9.014 0.107 9.161 0 0 
+Time elapsed:  9.543 0.097 9.708 0 0 
 > grDevices::dev.off()
 null device 
           1 
