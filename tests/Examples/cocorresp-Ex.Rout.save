@@ -533,9 +533,6 @@ Removed some species that contained no data in: beetles, plants
 > 
 > ### ** Examples
 > 
-> ## Don't show: 
-> od <- options(digits = 4)
-> ## End(Don't show)
 > ## symmetric CoCA
 > data(beetles)
 > ## log transform the bettle data
@@ -549,49 +546,6 @@ Removed some species that contained no data in: beetles, plants
 > 
 > ## extract the loadings
 > lds <- loadings(bp.sym)
-> head(lds[["Y"]])                        # loadings for the Y_1 matrix
-           COCA 1  COCA 2   COCA 3  COCA 4  COCA 5  COCA 6  COCA 7   COCA 8
-ACUPAEXI -0.20433 -2.3498  0.76183 -1.0127  1.4034 -2.5364  3.0100 -1.04927
-ACUPAFLA  2.41972  1.8627  4.41465 -3.5657 -1.7423  1.0069 -1.2161 -0.61023
-ACUPAMER -0.08044 -1.6561 -0.70618  0.1282 -0.7759  0.9211 -0.2393  0.16375
-ACUPPARV -0.35028 -2.3408 -0.54588 -1.1433 -0.2107  1.5491 -1.1002  0.77127
-AGONUDOR -0.94516 -0.4898  0.06219 -0.1248 -0.1782  1.7137  1.2734  0.85400
-AGONUMAR -1.17993  1.8149 -0.57044  0.4099 -0.5633  3.1117  4.2546  0.07285
-          COCA 9 COCA 10   COCA 11   COCA 12 COCA 13   COCA 14   COCA 15
-ACUPAEXI  0.2879 -3.5468 -0.006264 -0.009975  0.4322  0.006181  2.398233
-ACUPAFLA  1.0450 -2.9776  1.808148  0.799091  1.3346 -0.487961 -0.008534
-ACUPAMER  0.8502 -0.6213  0.046045  2.435928  0.9016 -0.607928 -1.364512
-ACUPPARV  0.7625  0.3012  0.345524 -0.402013 -1.2806 -0.775343  0.278058
-AGONUDOR -1.3710 -1.2102 -0.483949 -0.447292 -0.0550  0.597343  0.638313
-AGONUMAR  0.5489 -0.4140 -0.381092 -1.194910 -0.9777  2.240623 -0.366266
-         COCA 16 COCA 17  COCA 18 COCA 19 COCA 20 COCA 21 COCA 22  COCA 23
-ACUPAEXI -0.7641 -3.9594  3.32941 -3.8922  -2.174  0.6124  0.7720 -2.23477
-ACUPAFLA  0.9329  3.6454 -1.60903  0.5133  -2.868  2.9343 -0.5537 -1.40914
-ACUPAMER  1.1023 -2.4022  1.57618  3.5603  -4.553  0.6857 -3.5433 -4.42921
-ACUPPARV  0.7979 -0.7522  0.53157 -0.8950  -1.016 -0.1105 -0.2904 -0.52682
-AGONUDOR -0.1244 -0.4620  0.68838  0.5493  -1.459 -0.4355 -0.2117 -0.09072
-AGONUMAR  0.3160  0.7134 -0.01793 -1.4123   2.530  2.4812 -3.5288 -1.71179
-         COCA 24 COCA 25 COCA 26 COCA 27  COCA 28 COCA 29
-ACUPAEXI  0.1135 -0.6765   1.510 -0.4866  0.43469  3.7077
-ACUPAFLA  1.3515 -1.5095   1.172  0.1704  0.51336 -0.3939
-ACUPAMER  8.0862  6.5713 -21.853 18.5783 -2.57428 -1.0913
-ACUPPARV  1.8835 -0.1173  -1.050  0.5223  0.09321  0.2501
-AGONUDOR  1.8146  0.3052  -0.347  0.4452  0.81912  0.1377
-AGONUMAR  0.8812 -1.8526  -1.118 -1.0975  1.56669  0.8840
-> str(lds)
-List of 2
- $ Y: num [1:91, 1:29] -0.2043 2.4197 -0.0804 -0.3503 -0.9452 ...
-  ..- attr(*, "dimnames")=List of 2
-  .. ..$ : chr [1:91] "ACUPAEXI" "ACUPAFLA" "ACUPAMER" "ACUPPARV" ...
-  .. ..$ : chr [1:29] "COCA 1" "COCA 2" "COCA 3" "COCA 4" ...
- $ X: num [1:173, 1:29] -1.297 -2.383 0.872 -0.692 1.227 ...
-  ..- attr(*, "dimnames")=List of 2
-  .. ..$ : chr [1:173] "achimill" "agrocapi" "agrostol" "allivine" ...
-  .. ..$ : chr [1:29] "COCA 1" "COCA 2" "COCA 3" "COCA 4" ...
-> 
-> ## Don't show: 
-> options(od)
-> ## End(Don't show)
 > 
 > 
 > 
@@ -1035,7 +989,7 @@ Removed some species that contained no data in: beetles, plants
 > cleanEx()
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  9.543 0.097 9.708 0 0 
+Time elapsed:  8.886 0.088 9.016 0 0 
 > grDevices::dev.off()
 null device 
           1 

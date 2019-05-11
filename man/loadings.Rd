@@ -54,9 +54,6 @@ loadings(x, \ldots)
 }
 
 \examples{
-\testonly{
-od <- options(digits = 4)
-}
 ## symmetric CoCA
 data(beetles)
 ## log transform the bettle data
@@ -67,10 +64,6 @@ bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
 
 ## extract the loadings
 lds <- loadings(bp.sym)
-head(lds[["Y"]])                        # loadings for the Y_1 matrix
-str(lds)
-
-\testonly{options(od)}
 }
 \keyword{methods}
 \keyword{utilities}
