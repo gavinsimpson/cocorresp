@@ -30,7 +30,6 @@ after_success:
   - Rscript -e 'covr::codecov()'
 
 r_build_args: " --compact-vignettes=gs+qpdf"
-r_check_args: " --as-cran"
 
 notifications:
   email:
