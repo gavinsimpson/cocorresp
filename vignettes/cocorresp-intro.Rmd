@@ -39,7 +39,7 @@ beetles <- log1p(beetles)
 data(plants)
 ```
 
-The data are observations of beetle and vascular plant species abundance at 30 roadside verges in the Netherlands. There are `r nrow(beetles)` beetle taxa and `r nrow(plants)` vascular plant species. The abundances of the vascular plants are recorded on the 1--9 va der Maarel scale. To make the distributions of beetle species abundances more symmetric and stabilise variances, the counts are log transformed.
+The data are observations of beetle and vascular plant species abundance at 30 roadside verges in the Netherlands. There are `r ncol(beetles)` beetle taxa and `r ncol(plants)` vascular plant species. The abundances of the vascular plants are recorded on the 1--9 van der Maarel scale. To make the distributions of beetle species abundances more symmetric and stabilise variances, the counts are log transformed.
 
 Both forms of Co-CA are fitted using the `coca()` function. The call comprises
 
