@@ -1,5 +1,5 @@
 
-R version 3.6.0 Patched (2019-05-10 r76483) -- "Planting of a Tree"
+R version 3.6.2 Patched (2019-12-14 r77583) -- "Dark and Stormy Night"
 Copyright (C) 2019 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
@@ -24,7 +24,7 @@ Type 'q()' to quit R.
 Loading required package: vegan
 Loading required package: permute
 Loading required package: lattice
-This is vegan 2.5-4
+This is vegan 2.5-6
 > 
 > base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
 > base::assign(".old_wd", base::getwd(), pos = 'CheckExEnv')
@@ -455,30 +455,6 @@ Removed some species that contained no data in: beetles, plants
 > 
 > ## fit vectors for the environmental data
 > sol <- envfit(bp.sym, verges, which = "response")
-> sol
-
-***VECTORS
-
-            COCA 1   COCA 2     r2 Pr(>r)   
-Mmoisture  0.95452  0.29815 0.5749  0.002 **
-Zmoisture  0.96693  0.25503 0.5600  0.002 **
-Org        0.98775  0.15605 0.4313  0.005 **
-Sandiness -0.36950  0.92923 0.3054  0.017 * 
-pH         0.24370 -0.96985 0.3911  0.004 **
-NO3        0.48984 -0.87181 0.2290  0.053 . 
-NH4       -0.68741  0.72627 0.2105  0.075 . 
-Nmin       0.19562 -0.98068 0.0216  0.773   
-P         -0.60334  0.79749 0.4050  0.004 **
-K         -0.80614  0.59173 0.3329  0.009 **
-Nitr       0.50795 -0.86139 0.3048  0.018 * 
-HourSun   -0.83884 -0.54438 0.0889  0.372   
-Warmth35  -0.98159  0.19098 0.0383  0.646   
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-Permutation: free
-Number of permutations: 999
-
-
 > 
 > ## plot the response matrix and the fitted vectors
 > biplot(bp.sym, which = "y1")
@@ -989,7 +965,7 @@ Removed some species that contained no data in: beetles, plants
 > cleanEx()
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  8.886 0.088 9.016 0 0 
+Time elapsed:  12.805 0.425 13.309 0 0 
 > grDevices::dev.off()
 null device 
           1 
