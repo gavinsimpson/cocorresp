@@ -1,5 +1,11 @@
 Cocorresp Change Log
 
+Version 0.4-1
+
+	* envfit.coca: Don't test the output from example in `envfit.coca`
+	during `R CMD check`. Issue using ATLAS BLAS reported by Brian
+	Ripley. Issue #11
+
 Version 0.3-0
 
 	* screeplot: a new `screeplot()` for symmetric Co-CA analyses.
