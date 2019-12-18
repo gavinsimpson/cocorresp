@@ -541,6 +541,7 @@ Removed some species that contained no data in: beetles, plants
 > ### ** Examples
 > 
 > ## Don't show: 
+> suppressWarnings(RNGversion("3.5.0"))
 > od <- options(digits = 4)
 > ## End(Don't show)
 > ## load some data
@@ -572,7 +573,7 @@ Permutation test results:
 
          Stat. Inertia     Fit   % fit P-value
 COCA 1  0.1146  3.9883  0.4102 10.2843    0.02
-COCA 2  0.0966  3.5782  0.3153  7.9068    0.04
+COCA 2  0.0966  3.5782  0.3153  7.9068    0.02
 
 > 
 > ## Don't show: 
@@ -965,7 +966,7 @@ Removed some species that contained no data in: beetles, plants
 > cleanEx()
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  12.731 0.246 13.063 0 0 
+Time elapsed:  12.72 0.199 13.001 0 0 
 > grDevices::dev.off()
 null device 
           1 
