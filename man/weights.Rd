@@ -34,7 +34,7 @@ from Co-correspondence Analysis models.
   weighted correlations in ordination space. See \code{\link{coca}} for
   details on creating CoCA models.}
 \examples{
-\testonly{od <- options(digits = 4)}
+\dontshow{od <- options(digits = 4)}
 ## symmetric CoCA
 data(beetles)
 data(plants)
@@ -47,7 +47,7 @@ bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
 
 ## weights == R[0]
 weights(bp.sym)
-\testonly{options(od)}
+\dontshow{options(od)}
 }
 \keyword{methods}
 \keyword{utilities}

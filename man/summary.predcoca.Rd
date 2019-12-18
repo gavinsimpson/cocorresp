@@ -55,7 +55,7 @@
 \seealso{The model fitting function \code{\link{coca}}}
 
 \examples{
-\testonly{od <- options(digits = 4)}
+\dontshow{od <- options(digits = 4)}
 ## symmetric CoCA
 data(beetles)
 data(plants)
@@ -70,7 +70,7 @@ summary(bp.sym)
 ## Predictive CoCA
 bp.pred <- coca(beetles ~ ., data = plants)
 summary(bp.pred, axes = 1:2)
-\testonly{options(od)}
+\dontshow{options(od)}
 }
 
 \keyword{multivariate}

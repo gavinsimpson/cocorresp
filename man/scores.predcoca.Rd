@@ -59,7 +59,7 @@
   \code{\link[vegan]{scores}}, for further details on the method.
 }
 \examples{
-\testonly{od <- options(digits = 4)}
+\dontshow{od <- options(digits = 4)}
 ## load some data
 data(beetles)
 data(plants)
@@ -77,7 +77,7 @@ scr <- scores(bp.sym)
 bp.pred <- coca(beetles ~ ., data = plants)
 scr2 <- scores(bp.pred)
 
-\testonly{options(od)}
+\dontshow{options(od)}
 }
 \keyword{multivariate}
 \keyword{methods}

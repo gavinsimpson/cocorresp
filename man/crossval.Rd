@@ -78,7 +78,7 @@ crossval(y, x, n.axes = min(dim(x), dim(y)) - 1,
 
 \seealso{The model fitting function \code{\link{coca}}}
 \examples{
-\testonly{od <- options(digits = 4)}
+\dontshow{od <- options(digits = 4)}
 ## load the data sets
 data(beetles)
 data(plants)
@@ -96,6 +96,6 @@ bp.pred <- coca(beetles ~ ., data = plants)
 crossval(beetles, plants)
 }
 ## so 2 axes are sufficient
-\testonly{options(od)}
+\dontshow{options(od)}
 }
 \keyword{multivariate}

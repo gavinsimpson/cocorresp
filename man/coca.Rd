@@ -173,7 +173,7 @@ coca(y, \ldots)
   summary methods.}
 
 \examples{
-\testonly{
+\dontshow{
 od <- options(digits = 4)
 }
 ## symmetric CoCA
@@ -231,7 +231,7 @@ carp.pred <- coca(y = bryophyte, x = vascular,
 carp.pred
 ## drawn biplot
 biplot(carp.pred)
-\testonly{options(od)}
+\dontshow{options(od)}
 }
 \keyword{multivariate}
 \keyword{regression}

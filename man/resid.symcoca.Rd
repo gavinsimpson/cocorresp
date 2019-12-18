@@ -21,11 +21,11 @@
 \author{Gavin L. Simpson}
 \seealso{\code{\link{symcoca}}}
 \examples{
-\testonly{od <- options(digits = 4)}
+\dontshow{od <- options(digits = 4)}
 data(bryophyte)
 data(vascular)
 bryo.sym <- coca(bryophyte ~ ., data = vascular, method = "symmetric")
 eps <- resid(bryo.sym)
-\testonly{options(od)}
+\dontshow{options(od)}
 }
 \keyword{multivariate}

@@ -38,13 +38,13 @@ rescale(object, \dots)
   R port by Gavin L. Simpson.}
 \seealso{\code{\link{symcoca}}}
 \examples{
-\testonly{od <- options(digits = 4)}
+\dontshow{od <- options(digits = 4)}
 data(bryophyte)
 data(vascular)
 
 bryo.sym <- coca(bryophyte ~ ., data = vascular, method = "symmetric")
 
 \donttest{rescale(bryo.sym, axes = 1:2)}
-\testonly{options(od)}
+\dontshow{options(od)}
 }
 \keyword{multivariate}
