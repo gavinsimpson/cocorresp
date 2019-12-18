@@ -36,3 +36,6 @@ move: check
 clean:
 	cd ..;\
 	rm -r cocorresp.Rcheck/
+
+pkgdown:
+	R -q -e 'library("pkgdown"); build_site(preview = FALSE)'
