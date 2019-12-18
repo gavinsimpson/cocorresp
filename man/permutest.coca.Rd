@@ -107,7 +107,10 @@
   co-correspondence analysis.
 }
 \examples{
-\testonly{od <- options(digits = 4)}
+\dontshow{
+suppressWarnings(RNGversion("3.5.0"))
+od <- options(digits = 4)
+}
 ## load some data
 data(beetles)
 data(plants)
@@ -129,6 +132,6 @@ crossval(beetles, plants)
 bp.perm <- permutest(bp.pred, permutations = 50, n.axes = 2)
 bp.perm
 
-\testonly{options(od)}
+\dontshow{options(od)}
 }
 \keyword{multivariate}
