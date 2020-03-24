@@ -1,5 +1,9 @@
 Cocorresp Change Log
 
+Version 0.4-2
+
+	* eigenvals: Methods now return an object of class "eignevals".
+
 Version 0.4-1
 
 	* envfit.coca: Don't test the output from example in `envfit.coca`
