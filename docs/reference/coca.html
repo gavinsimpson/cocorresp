@@ -71,7 +71,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">cocorresp</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.2</span>
       </span>
     </div>
 
@@ -350,14 +350,12 @@
 #&gt;  COCA 25   COCA 26   COCA 27   COCA 28   COCA 29  
 #&gt; 1.30e-03  1.06e-03  8.53e-04  2.93e-04  5.56e-05  </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/biplot.html'>biplot</a></span>(<span class='no'>bp.sym</span>)                          <span class='co'># produces a Benzecri biplot</span></div><div class='img'><img src='coca-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'>## extract eigenvalues of the analysis</span>
-<span class='fu'>eigenvals</span>(<span class='no'>bp.sym</span>)</div><div class='output co'>#&gt;    COCA 1    COCA 2    COCA 3    COCA 4    COCA 5    COCA 6    COCA 7    COCA 8 
-#&gt; 5.906e-01 3.159e-01 2.028e-01 1.042e-01 6.687e-02 6.112e-02 5.257e-02 4.448e-02 
-#&gt;    COCA 9   COCA 10   COCA 11   COCA 12   COCA 13   COCA 14   COCA 15   COCA 16 
-#&gt; 3.514e-02 2.313e-02 2.179e-02 1.433e-02 1.340e-02 1.097e-02 1.021e-02 8.390e-03 
-#&gt;   COCA 17   COCA 18   COCA 19   COCA 20   COCA 21   COCA 22   COCA 23   COCA 24 
-#&gt; 7.440e-03 4.852e-03 4.149e-03 3.446e-03 2.819e-03 2.416e-03 2.256e-03 1.775e-03 
-#&gt;   COCA 25   COCA 26   COCA 27   COCA 28   COCA 29 
-#&gt; 1.296e-03 1.061e-03 8.534e-04 2.931e-04 5.562e-05 </div><div class='input'>
+<span class='fu'>eigenvals</span>(<span class='no'>bp.sym</span>)</div><div class='output co'>#&gt;  COCA 1  COCA 2  COCA 3  COCA 4  COCA 5  COCA 6  COCA 7  COCA 8  COCA 9 COCA 10 
+#&gt;  0.5906  0.3159  0.2028  0.1042  0.0669  0.0611  0.0526  0.0445  0.0351  0.0231 
+#&gt; COCA 11 COCA 12 COCA 13 COCA 14 COCA 15 COCA 16 COCA 17 COCA 18 COCA 19 COCA 20 
+#&gt;  0.0218  0.0143  0.0134  0.0110  0.0102  0.0084  0.0074  0.0049  0.0041  0.0034 
+#&gt; COCA 21 COCA 22 COCA 23 COCA 24 COCA 25 COCA 26 COCA 27 COCA 28 COCA 29 
+#&gt;  0.0028  0.0024  0.0023  0.0018  0.0013  0.0011  0.0009  0.0003  0.0001 </div><div class='input'>
 <span class='co'>## correlations between beetle and plant score scores on Co-CA axes</span>
 <span class='fu'><a href='corAxis.html'>corAxis</a></span>(<span class='no'>bp.sym</span>)</div><div class='output co'>#&gt;  COCA 1  COCA 2  COCA 3  COCA 4  COCA 5  COCA 6  COCA 7  COCA 8  COCA 9 COCA 10 
 #&gt;  0.8795  0.8830  0.8154  0.8490  0.8880  0.7738  0.7264  0.8193  0.7979  0.7758 
@@ -412,7 +410,7 @@
 #&gt; COCA11  COCA12  COCA13  COCA14  COCA15  COCA16  COCA17  COCA18  COCA19  COCA20  
 #&gt;    5.8     3.5     2.7     2.0     2.5    -0.1    -2.1    -2.9    -2.9    -3.5  
 #&gt; COCA21  COCA22  COCA23  COCA24  COCA25  COCA26  COCA27  COCA28  COCA29  
-#&gt;   -4.2    -4.3    -4.8    -5.7    -8.1   -24.6   -29.2   -37.9   -41.4  </div><div class='input'><span class='co'>## so 2 axes are sufficient</span>
+#&gt;   -4.2    -4.3    -4.8    -5.7    -8.1   -24.6   -29.2   -37.9   -39.6  </div><div class='input'><span class='co'>## so 2 axes are sufficient</span>
 <span class='co'>## permutation test to assess significant PLS components - takes a while</span>
 <span class='no'>bp.perm</span> <span class='kw'>&lt;-</span> <span class='fu'>permutest</span>(<span class='no'>bp.pred</span>, <span class='kw'>permutations</span> <span class='kw'>=</span> <span class='fl'>99</span>)</div><div class='output co'>#&gt; Permutations for axis: 1 - completed
 #&gt; Permutations for axis: 2 - completed
