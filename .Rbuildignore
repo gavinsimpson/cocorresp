@@ -1,5 +1,14 @@
 LICENSE
 ^\.travis\.yml$
-^travis-tool\.sh
+^LICENSE\.md$
+\.Rproj$
+^\.Rproj\.user$
+^Makefile
+^\.gitattributes
+^\.gitignore
+^docs$
+^_pkgdown\.yml$
+^codecov\.yml$
+^cran-comments\.md$
 ^appveyor\.yml$
-Makefile
+^\.github$
