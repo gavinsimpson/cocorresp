@@ -1,7 +1,7 @@
 
-R version 3.6.2 Patched (2019-12-14 r77583) -- "Dark and Stormy Night"
-Copyright (C) 2019 The R Foundation for Statistical Computing
-Platform: x86_64-pc-linux-gnu (64-bit)
+R version 3.6.3 (2020-02-29) -- "Holding the Windsock"
+Copyright (C) 2020 The R Foundation for Statistical Computing
+Platform: x86_64-redhat-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
@@ -179,14 +179,12 @@ Eigenvalues:
 > 
 > ## extract eigenvalues of the analysis
 > eigenvals(bp.sym)
-   COCA 1    COCA 2    COCA 3    COCA 4    COCA 5    COCA 6    COCA 7    COCA 8 
-0.2533802 0.1288657 0.0810520 0.0740855 0.0584979 0.0474342 0.0373292 0.0320276 
-   COCA 9   COCA 10   COCA 11   COCA 12   COCA 13   COCA 14   COCA 15   COCA 16 
-0.0307776 0.0232506 0.0207178 0.0184269 0.0172465 0.0160500 0.0143907 0.0118064 
-  COCA 17   COCA 18   COCA 19   COCA 20   COCA 21   COCA 22   COCA 23   COCA 24 
-0.0105614 0.0100427 0.0087342 0.0084752 0.0065900 0.0062827 0.0050298 0.0043860 
-  COCA 25   COCA 26   COCA 27   COCA 28   COCA 29 
-0.0042550 0.0034389 0.0021756 0.0009622 0.0005873 
+ COCA 1  COCA 2  COCA 3  COCA 4  COCA 5  COCA 6  COCA 7  COCA 8  COCA 9 COCA 10 
+0.25338 0.12887 0.08105 0.07409 0.05850 0.04743 0.03733 0.03203 0.03078 0.02325 
+COCA 11 COCA 12 COCA 13 COCA 14 COCA 15 COCA 16 COCA 17 COCA 18 COCA 19 COCA 20 
+0.02072 0.01843 0.01725 0.01605 0.01439 0.01181 0.01056 0.01004 0.00873 0.00848 
+COCA 21 COCA 22 COCA 23 COCA 24 COCA 25 COCA 26 COCA 27 COCA 28 COCA 29 
+0.00659 0.00628 0.00503 0.00439 0.00426 0.00344 0.00218 0.00096 0.00059 
 > 
 > ## correlations between beetle and plant score scores on Co-CA axes
 > corAxis(bp.sym)
@@ -966,7 +964,7 @@ Removed some species that contained no data in: beetles, plants
 > cleanEx()
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  12.72 0.199 13.001 0 0 
+Time elapsed:  2.173 0.065 2.248 0 0 
 > grDevices::dev.off()
 null device 
           1 
