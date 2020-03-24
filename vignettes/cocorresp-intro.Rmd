@@ -1,17 +1,18 @@
-<!--
-%\VignetteBuilder{knitr::knitr}
-%\VignetteEngine{knitr::knitr}
-%\VignetteIndexEntry{Introduction to cocorresp}
--->
+---
+title: "Introduction to Co-correspondence Analysis"
+author: "Gavin L. Simpson"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to Co-correspondence Analysis}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
 
 ```{r setup, echo = FALSE, results = "hide", message = FALSE, cache = FALSE}
 knitr::opts_chunk$set(message = FALSE, warning = FALSE)
 library("cocorresp")
 ```
-
-# Introduction to co-correspondence analysis
-
-### Gavin L. Simpson
 
 Among the ordination methods available to ecologists there are methods that relate a species abundance or occurrence matrix to a matrix of explanatory variables. Known as constrained or canonical ordination methods, redundancy analysis (RDA) and Canonical Correspondence Analysis (CCA) are the most commonly encountered forms. A restriction of these methods is that they are only constrained if there are fewer explanatory variables as numbers of observations or species, whichever is lowest, - 1.
 
