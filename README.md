@@ -1,16 +1,16 @@
 ## Co-correspondence analysis with R
 
+[![CRAN version](https://www.r-pkg.org/badges/version/cocorresp)](https://cran.r-project.org/package=cocorresp)
+[![CRAN downloads](https://cranlogs.r-pkg.org/badges/grand-total/cocorresp)](https://cran.r-project.org/package=cocorresp)
+[![Build Status](https://travis-ci.org/gavinsimpson/cocorresp.svg?branch=master)](https://travis-ci.org/gavinsimpson/cocorresp)
+[![Build status](https://ci.appveyor.com/api/projects/status/u1e24ck7a61eonxr/branch/master?svg=true)](https://ci.appveyor.com/project/gavinsimpson/cocorresp/branch/master)
+[![codecov.io](https://codecov.io/github/gavinsimpson/cocorresp/coverage.svg?branch=master)](https://codecov.io/github/gavinsimpson/cocorresp?branch=master)
+
 **cocorresp** fits symmetric and predictive co-correspondence (CoCA) models in R.
-
-#### Released version
-[![CRAN version](https://www.r-pkg.org/badges/version/cocorresp)](https://cran.r-project.org/package=cocorresp) [![](https://cranlogs.r-pkg.org/badges/grand-total/cocorresp)](https://cran.r-project.org/package=cocorresp)
-
-#### Build status
-[![Build Status](https://travis-ci.org/gavinsimpson/cocorresp.svg?branch=master)](https://travis-ci.org/gavinsimpson/cocorresp)  [![Build status](https://ci.appveyor.com/api/projects/status/u1e24ck7a61eonxr/branch/master?svg=true)](https://ci.appveyor.com/project/gavinsimpson/cocorresp/branch/master)  [![codecov.io](https://codecov.io/github/gavinsimpson/cocorresp/coverage.svg?branch=master)](https://codecov.io/github/gavinsimpson/cocorresp?branch=master)
 
 ## Summary
 
-Fits predictive and symmetric co-correspondence analysis (CoCA) models to relate one data matrix to another data matrix. More specifically, CoCA maximises the weighted covariance between the weighted averaged species scores of one community and the weighted averaged species scores of another community. CoCA attempts to find patterns that are common to both communitities.
+Fits predictive and symmetric co-correspondence analysis (CoCA) models to relate one data matrix to another data matrix. More specifically, CoCA maximises the weighted covariance between the weighted averaged species scores of one community and the weighted averaged species scores of another community. CoCA attempts to find patterns that are common to both communities.
 
 The main interface function is `coca` which accepts a 
 formula or two community data matrices. An appropriate formula is `Y ~ ., data = X` and the associated `data` object from which `.` will be looked up. The `method` argument is used to select from the two forms of CoCA:
