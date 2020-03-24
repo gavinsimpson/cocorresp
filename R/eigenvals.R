@@ -23,5 +23,8 @@
     if (!is.null(choices)) {
         eig <- eig[choices]
     }
+    if (!is.null(eig)) {
+        class(eig) <- c("eigenvals", "numeric")
+    }
     eig
 }
