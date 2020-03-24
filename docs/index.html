@@ -83,7 +83,7 @@
 <h2 class="hasAnchor">
 <a href="#co-correspondence-analysis-with-r" class="anchor"></a>Co-correspondence analysis with R</h2>
 
-<p><strong>cocorresp</strong> fits symmetric and predictive co-correspondence (CoCA) models in R.</p>
+<p><strong>cocorresp</strong> fits symmetric and predictive co-correspondence analysis (CoCA) models in R. CoCA relates two community matrices together in the same way that CCA relates a community matrix and a matrix of environmental or other predictor variables.</p>
 </div>
 <div id="summary" class="section level2">
 <h2 class="hasAnchor">
@@ -96,15 +96,15 @@
 <li>
 <code>method = "symmetric"</code> for symmetric CoCA.</li>
 </ol>
-<p>The cocorresp package is based on original Matlab routines by C.J.F. ter Braak and A.P. Schaffers. The R port was by Gavin L. Simpson. Function <code><a href="reference/simpls.html">cocorresp::simpls()</a></code> is largely based on <code>simpls.fit()</code> from the <strong>pls</strong> package of Ron Wehrens and Bjorn-Helge Mevik.</p>
+<p><strong>cocorresp</strong> is based on original Matlab routines by C.J.F. ter Braak and A.P. Schaffers. The R port was by Gavin L. Simpson. Function <code><a href="reference/simpls.html">cocorresp::simpls()</a></code> is largely based on <code>simpls.fit()</code> from the <strong>pls</strong> package of Ron Wehrens and Bjorn-Helge Mevik.</p>
 </div>
-<div id="installtion" class="section level2">
+<div id="installation" class="section level2">
 <h2 class="hasAnchor">
-<a href="#installtion" class="anchor"></a>Installtion</h2>
+<a href="#installation" class="anchor"></a>Installation</h2>
 <p><strong>cocorresp</strong> is available from CRAN; install the latest release using</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"cocorresp"</span>)</a></code></pre></div>
-<p>To install the development version, use the <strong>devtools</strong> package (you may need to install <strong>devtools</strong> first)</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"gavinsimpson/cocorresp"</span>)</a></code></pre></div>
+<p>To install the development version, use the <strong>remotes</strong> package (you may need to install <strong>remotes</strong> first)</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1">remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"gavinsimpson/cocorresp"</span>)</a></code></pre></div>
 </div>
 
   </div>

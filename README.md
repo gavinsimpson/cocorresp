@@ -6,7 +6,7 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/u1e24ck7a61eonxr/branch/master?svg=true)](https://ci.appveyor.com/project/gavinsimpson/cocorresp/branch/master)
 [![codecov.io](https://codecov.io/github/gavinsimpson/cocorresp/coverage.svg?branch=master)](https://codecov.io/github/gavinsimpson/cocorresp?branch=master)
 
-**cocorresp** fits symmetric and predictive co-correspondence (CoCA) models in R.
+**cocorresp** fits symmetric and predictive co-correspondence analysis (CoCA) models in R. CoCA relates two community matrices together in the same way that CCA relates a community matrix and a matrix of environmental or other predictor variables.
 
 ## Summary
 
@@ -16,11 +16,11 @@ The main interface function is `coca` which accepts a
 formula or two community data matrices. An appropriate formula is `Y ~ ., data = X` and the associated `data` object from which `.` will be looked up. The `method` argument is used to select from the two forms of CoCA:
 
 1. `method = "predictive"` for predictive CoCA (the default), and
-1. `method = "symmetric"` for symmetric CoCA.
+2. `method = "symmetric"` for symmetric CoCA.
 
-The cocorresp package is based on original Matlab routines by C.J.F. ter Braak and A.P. Schaffers. The R port was by Gavin L. Simpson. Function `cocorresp::simpls()` is largely based on `simpls.fit()` from the **pls** package of Ron Wehrens and Bjorn-Helge Mevik.
+**cocorresp** is based on original Matlab routines by C.J.F. ter Braak and A.P. Schaffers. The R port was by Gavin L. Simpson. Function `cocorresp::simpls()` is largely based on `simpls.fit()` from the **pls** package of Ron Wehrens and Bjorn-Helge Mevik.
 
-## Installtion
+## Installation
 
 **cocorresp** is available from CRAN; install the latest release using
 
@@ -28,8 +28,8 @@ The cocorresp package is based on original Matlab routines by C.J.F. ter Braak a
 install.packages("cocorresp")
 ```
 
-To install the development version, use the **devtools** package (you may need to install **devtools** first)
+To install the development version, use the **remotes** package (you may need to install **remotes** first)
 
 ```r
-devtools::install_github("gavinsimpson/cocorresp")
+remotes::install_github("gavinsimpson/cocorresp")
 ```
