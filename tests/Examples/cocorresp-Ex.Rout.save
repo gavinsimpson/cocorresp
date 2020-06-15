@@ -219,8 +219,8 @@ nam.dat = nam.dat)
 Co-CA Method: simpls
 
              Role Variance
-beetles Predictor     5.76
-plants   Response     3.99
+plants  Predictor     5.76
+beetles  Response     3.99
 > summary(bp.pred)
 
 Predictive Co-Correspondence Analysis
@@ -964,7 +964,7 @@ Removed some species that contained no data in: beetles, plants
 > cleanEx()
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  2.173 0.065 2.248 0 0 
+Time elapsed:  2.914 0.079 3.003 0 0 
 > grDevices::dev.off()
 null device 
           1 
