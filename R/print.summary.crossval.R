@@ -2,7 +2,7 @@
 function(x, digits = max(3, getOption("digits") - 3), ...)
   {
     ##calculations/manipulations
-    names(x$CVfit) <- paste("COCA", 1:x$n.axes, sep = " ")
+    names(x$CVfit) <- paste("COCA", seq_len(x$n.axes), sep = " ")
     pcentX <- (x$varianceExp$Xblock / x$totalVar$Xblock) * 100
     Xvar.mat <- rbind(pcentX, cumsum(pcentX))
     pcentY <- (x$varianceExp$Yblock / x$totalVar$Yblock) * 100
@@ -12,8 +12,8 @@ function(x, digits = max(3, getOption("digits") - 3), ...)
     ##printing
     cat("\nCross-validation for Predictive Co-Correspondence Analysis\n\n")
     writeLines(strwrap(pasteCall(x$call)))
-    cat(sprintf("\nCross-validatory %%fit of %s to %s:\n\n", x$nam.dat$namX,
-                x$nam.dat$namY))
+    cat(sprintf("\nCross-validatory %%fit of %s to %s:\n\n", x$nam.dat$namY,
+                x$nam.dat$namX))
     print(round(x$CVfit, digits), print.gap = 2)
     cat(sprintf("\nTotal Variance in %s: %f\n", x$nam.dat$namY,
                 format(x$totalVar$Yblock, digits)))
