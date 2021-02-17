@@ -47,6 +47,8 @@
 
 
 
+
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -58,9 +60,15 @@
 
 
 
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -81,12 +89,6 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
@@ -105,7 +107,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/gavinsimpson/cocorresp/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -133,17 +135,17 @@
   data matrices containing species abundance data.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>coca</span>(<span class='no'>y</span>, <span class='no'>...</span>)
+    <pre class="usage"><span class='fu'>coca</span><span class='op'>(</span><span class='va'>y</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S3 method for default</span>
-<span class='fu'>coca</span>(<span class='no'>y</span>, <span class='no'>x</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"predictive"</span>, <span class='st'>"symmetric"</span>),
-     <span class='kw'>reg.method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"simpls"</span>, <span class='st'>"eigen"</span>), <span class='kw'>weights</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-     <span class='kw'>n.axes</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>symmetric</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>quiet</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)
+<span class='fu'>coca</span><span class='op'>(</span><span class='va'>y</span>, <span class='va'>x</span>, method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"predictive"</span>, <span class='st'>"symmetric"</span><span class='op'>)</span>,
+     reg.method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"simpls"</span>, <span class='st'>"eigen"</span><span class='op'>)</span>, weights <span class='op'>=</span> <span class='cn'>NULL</span>,
+     n.axes <span class='op'>=</span> <span class='cn'>NULL</span>, symmetric <span class='op'>=</span> <span class='cn'>FALSE</span>, quiet <span class='op'>=</span> <span class='cn'>FALSE</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S3 method for formula</span>
-<span class='fu'>coca</span>(<span class='no'>formula</span>, <span class='no'>data</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"predictive"</span>, <span class='st'>"symmetric"</span>),
-     <span class='kw'>reg.method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"simpls"</span>, <span class='st'>"eigen"</span>), <span class='kw'>weights</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-     <span class='kw'>n.axes</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>symmetric</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>quiet</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
+<span class='fu'>coca</span><span class='op'>(</span><span class='va'>formula</span>, <span class='va'>data</span>, method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"predictive"</span>, <span class='st'>"symmetric"</span><span class='op'>)</span>,
+     reg.method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"simpls"</span>, <span class='st'>"eigen"</span><span class='op'>)</span>, weights <span class='op'>=</span> <span class='cn'>NULL</span>,
+     n.axes <span class='op'>=</span> <span class='cn'>NULL</span>, symmetric <span class='op'>=</span> <span class='cn'>FALSE</span>, quiet <span class='op'>=</span> <span class='cn'>FALSE</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -314,21 +316,23 @@
 <p><code><a href='crossval.html'>crossval</a></code> for cross-validation and
   <code><a href='permutest.coca.html'>permutest.coca</a></code> for permutation test to determine the
   number of PLS axes to retain in for predictive CoCA.</p>  
-<p><code><a href='summary.predcoca.html'>summary.predcoca</a></code> and <code><a href='summary.predcoca.html'>summary.symcoca</a></code> for
+<p><code><a href='summary-methods.html'>summary.predcoca</a></code> and <code><a href='summary-methods.html'>summary.symcoca</a></code> for
   summary methods.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># \dontshow{</span>
-<span class='no'>od</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span>(<span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>4</span>)
+<span class='va'>od</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span><span class='op'>(</span>digits <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span>
 <span class='co'># }</span>
 <span class='co'>## symmetric CoCA</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>beetles</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>beetles</span><span class='op'>)</span>
 <span class='co'>## log transform the bettle data</span>
-<span class='no'>beetles</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span>(<span class='no'>beetles</span> + <span class='fl'>1</span>)
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>plants</span>)
+<span class='va'>beetles</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>beetles</span> <span class='op'>+</span> <span class='fl'>1</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>plants</span><span class='op'>)</span>
 <span class='co'>## fit the model</span>
-<span class='no'>bp.sym</span> <span class='kw'>&lt;-</span> <span class='fu'>coca</span>(<span class='no'>beetles</span> ~ <span class='no'>.</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>plants</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"symmetric"</span>)</div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'>Removed some species that contained no data in: beetles, plants </span></div><div class='input'><span class='no'>bp.sym</span></div><div class='output co'>#&gt; 
+<span class='va'>bp.sym</span> <span class='op'>&lt;-</span> <span class='fu'>coca</span><span class='op'>(</span><span class='va'>beetles</span> <span class='op'>~</span> <span class='va'>.</span>, data <span class='op'>=</span> <span class='va'>plants</span>, method <span class='op'>=</span> <span class='st'>"symmetric"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'></span>
+#&gt; <span class='message'>Removed some species that contained no data in: beetles, plants </span></div><div class='input'><span class='va'>bp.sym</span>
+</div><div class='output co'>#&gt; 
 #&gt; Symmetric Co-Correspondence Analysis
 #&gt; 
 #&gt; Call: symcoca(y = y, x = x, n.axes = n.axes, R0 = weights, symmetric =
@@ -338,7 +342,8 @@
 #&gt;          Total Explained Residual
 #&gt; beetles:  5.70      5.60     0.09
 #&gt; plants:   6.16      6.07     0.09
-#&gt; </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>bp.sym</span>)</div><div class='output co'>#&gt; 
+#&gt; </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>bp.sym</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Symmetric Co-Correspondence Analysis
 #&gt; 
 #&gt; Call: symcoca(y = y, x = x, n.axes = n.axes, R0 = weights, symmetric =
@@ -357,28 +362,33 @@
 #&gt;  COCA 17   COCA 18   COCA 19   COCA 20   COCA 21   COCA 22   COCA 23   COCA 24  
 #&gt; 7.44e-03  4.85e-03  4.15e-03  3.45e-03  2.82e-03  2.42e-03  2.26e-03  1.78e-03  
 #&gt;  COCA 25   COCA 26   COCA 27   COCA 28   COCA 29  
-#&gt; 1.30e-03  1.06e-03  8.53e-04  2.93e-04  5.56e-05  </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/biplot.html'>biplot</a></span>(<span class='no'>bp.sym</span>)                          <span class='co'># produces a Benzecri biplot</span></div><div class='img'><img src='coca-1.png' alt='' width='700' height='433' /></div><div class='input'>
+#&gt; 1.30e-03  1.06e-03  8.53e-04  2.93e-04  5.56e-05  </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/biplot.html'>biplot</a></span><span class='op'>(</span><span class='va'>bp.sym</span><span class='op'>)</span>                          <span class='co'># produces a Benzecri biplot</span>
+</div><div class='img'><img src='coca-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'>## extract eigenvalues of the analysis</span>
-<span class='fu'>eigenvals</span>(<span class='no'>bp.sym</span>)</div><div class='output co'>#&gt;  COCA 1  COCA 2  COCA 3  COCA 4  COCA 5  COCA 6  COCA 7  COCA 8  COCA 9 COCA 10 
+<span class='fu'>eigenvals</span><span class='op'>(</span><span class='va'>bp.sym</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;  COCA 1  COCA 2  COCA 3  COCA 4  COCA 5  COCA 6  COCA 7  COCA 8  COCA 9 COCA 10 
 #&gt;  0.5906  0.3159  0.2028  0.1042  0.0669  0.0611  0.0526  0.0445  0.0351  0.0231 
 #&gt; COCA 11 COCA 12 COCA 13 COCA 14 COCA 15 COCA 16 COCA 17 COCA 18 COCA 19 COCA 20 
 #&gt;  0.0218  0.0143  0.0134  0.0110  0.0102  0.0084  0.0074  0.0049  0.0041  0.0034 
 #&gt; COCA 21 COCA 22 COCA 23 COCA 24 COCA 25 COCA 26 COCA 27 COCA 28 COCA 29 
 #&gt;  0.0028  0.0024  0.0023  0.0018  0.0013  0.0011  0.0009  0.0003  0.0001 </div><div class='input'>
 <span class='co'>## correlations between beetle and plant score scores on Co-CA axes</span>
-<span class='fu'><a href='corAxis.html'>corAxis</a></span>(<span class='no'>bp.sym</span>)</div><div class='output co'>#&gt;  COCA 1  COCA 2  COCA 3  COCA 4  COCA 5  COCA 6  COCA 7  COCA 8  COCA 9 COCA 10 
+<span class='fu'><a href='corAxis.html'>corAxis</a></span><span class='op'>(</span><span class='va'>bp.sym</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;  COCA 1  COCA 2  COCA 3  COCA 4  COCA 5  COCA 6  COCA 7  COCA 8  COCA 9 COCA 10 
 #&gt;  0.8795  0.8830  0.8154  0.8490  0.8880  0.7738  0.7264  0.8193  0.7979  0.7758 
 #&gt; COCA 11 COCA 12 COCA 13 COCA 14 COCA 15 COCA 16 COCA 17 COCA 18 COCA 19 COCA 20 
 #&gt;  0.8908  0.8277  0.8916  0.9240  0.7915  0.7046  0.6205  0.7882  0.7451  0.7148 
 #&gt; COCA 21 COCA 22 COCA 23 COCA 24 COCA 25 COCA 26 COCA 27 COCA 28 COCA 29 
 #&gt;  0.9076  0.3968  0.8034  0.6177  0.7608  0.9179  0.5622  0.3823  0.9937 </div><div class='input'>
 <span class='co'>## predictive CoCA using SIMPLS and formula interface</span>
-<span class='no'>bp.pred</span> <span class='kw'>&lt;-</span> <span class='fu'>coca</span>(<span class='no'>beetles</span> ~ <span class='no'>.</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>plants</span>)</div><div class='output co'>#&gt; <span class='message'></span>
+<span class='va'>bp.pred</span> <span class='op'>&lt;-</span> <span class='fu'>coca</span><span class='op'>(</span><span class='va'>beetles</span> <span class='op'>~</span> <span class='va'>.</span>, data <span class='op'>=</span> <span class='va'>plants</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'></span>
 #&gt; <span class='message'>Removed some species that contained no data in: beetles, plants </span></div><div class='input'><span class='co'>## should retain only the useful PLS components for a parsimonious model</span>
 
 <span class='co'># \donttest{</span>
 <span class='co'>## Leave-one-out crossvalidation - this takes a while</span>
-<span class='fu'><a href='crossval.html'>crossval</a></span>(<span class='no'>beetles</span>, <span class='no'>plants</span>)</div><div class='output co'>#&gt; <span class='message'>some species contain no data and were removed from data matrix y</span></div><div class='output co'>#&gt; <span class='message'>some species contain no data and were removed from data matrix x</span></div><div class='output co'>#&gt; LOO - Site: 1 - Complete
+<span class='fu'><a href='crossval.html'>crossval</a></span><span class='op'>(</span><span class='va'>beetles</span>, <span class='va'>plants</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'>some species contain no data and were removed from data matrix y</span></div><div class='output co'>#&gt; <span class='message'>some species contain no data and were removed from data matrix x</span></div><div class='output co'>#&gt; LOO - Site: 1 - Complete
 #&gt; LOO - Site: 2 - Complete
 #&gt; LOO - Site: 3 - Complete
 #&gt; LOO - Site: 4 - Complete
@@ -421,7 +431,8 @@
 #&gt; COCA21  COCA22  COCA23  COCA24  COCA25  COCA26  COCA27  COCA28  COCA29  
 #&gt;   -4.2    -4.3    -4.8    -5.7    -8.1   -24.6   -29.2   -37.9   -41.4  </div><div class='input'><span class='co'>## so 2 axes are sufficient</span>
 <span class='co'>## permutation test to assess significant PLS components - takes a while</span>
-<span class='no'>bp.perm</span> <span class='kw'>&lt;-</span> <span class='fu'>permutest</span>(<span class='no'>bp.pred</span>, <span class='kw'>permutations</span> <span class='kw'>=</span> <span class='fl'>99</span>)</div><div class='output co'>#&gt; Permutations for axis: 1 - completed
+<span class='va'>bp.perm</span> <span class='op'>&lt;-</span> <span class='fu'>permutest</span><span class='op'>(</span><span class='va'>bp.pred</span>, permutations <span class='op'>=</span> <span class='fl'>99</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Permutations for axis: 1 - completed
 #&gt; Permutations for axis: 2 - completed
 #&gt; Permutations for axis: 3 - completed
 #&gt; Permutations for axis: 4 - completed
@@ -449,7 +460,8 @@
 #&gt; Permutations for axis: 26 - completed
 #&gt; Permutations for axis: 27 - completed
 #&gt; Permutations for axis: 28 - completed
-#&gt; Permutations for axis: 29 - completed</div><div class='input'><span class='no'>bp.perm</span></div><div class='output co'>#&gt; 
+#&gt; Permutations for axis: 29 - completed</div><div class='input'><span class='va'>bp.perm</span>
+</div><div class='output co'>#&gt; 
 #&gt; Permutation test for predictive co-correspondence analysis:
 #&gt; 
 #&gt; Call: permutest.coca(x = bp.pred, permutations = 99)
@@ -490,8 +502,10 @@
 
 <span class='co'>## agrees with the Leave-one-out cross-validation</span>
 <span class='co'>## refit the model with only 2 PLS components</span>
-<span class='no'>bp.pred</span> <span class='kw'>&lt;-</span> <span class='fu'>coca</span>(<span class='no'>beetles</span> ~ <span class='no'>.</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>plants</span>, <span class='kw'>n.axes</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'>Removed some species that contained no data in: beetles, plants </span></div><div class='input'><span class='no'>bp.pred</span></div><div class='output co'>#&gt; 
+<span class='va'>bp.pred</span> <span class='op'>&lt;-</span> <span class='fu'>coca</span><span class='op'>(</span><span class='va'>beetles</span> <span class='op'>~</span> <span class='va'>.</span>, data <span class='op'>=</span> <span class='va'>plants</span>, n.axes <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'></span>
+#&gt; <span class='message'>Removed some species that contained no data in: beetles, plants </span></div><div class='input'><span class='va'>bp.pred</span>
+</div><div class='output co'>#&gt; 
 #&gt; Predictive Co-Correspondence Analysis
 #&gt; 
 #&gt; Call: predcoca.simpls(y = y, x = x, R0 = weights, n.axes = n.axes,
@@ -501,7 +515,8 @@
 #&gt; 
 #&gt;              Role Variance
 #&gt; plants  Predictor     6.16
-#&gt; beetles  Response     5.70</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>bp.pred</span>)</div><div class='output co'>#&gt; 
+#&gt; beetles  Response     5.70</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>bp.pred</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Predictive Co-Correspondence Analysis
 #&gt; 
 #&gt; Call: predcoca.simpls(y = y, x = x, R0 = weights, n.axes = n.axes,
@@ -517,12 +532,14 @@
 #&gt; X-block: variance explained in plants (predictor) 
 #&gt;              Comp 1  Comp 2
 #&gt; Individual:  21.7    16.2  
-#&gt; Cumulative:  21.7    37.9  </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/biplot.html'>biplot</a></span>(<span class='no'>bp.pred</span>)                     <span class='co'># plots correct scores or loadings</span></div><div class='img'><img src='coca-2.png' alt='' width='700' height='433' /></div><div class='input'>
+#&gt; Cumulative:  21.7    37.9  </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/biplot.html'>biplot</a></span><span class='op'>(</span><span class='va'>bp.pred</span><span class='op'>)</span>                     <span class='co'># plots correct scores or loadings</span>
+</div><div class='img'><img src='coca-2.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'>## predictive CoCA using Eigen-analysis</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>bryophyte</span>)
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>vascular</span>)
-<span class='no'>carp.pred</span> <span class='kw'>&lt;-</span> <span class='fu'>coca</span>(<span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>bryophyte</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>vascular</span>, <span class='kw'>reg.method</span> <span class='kw'>=</span> <span class='st'>"eigen"</span>)
-<span class='no'>carp.pred</span></div><div class='output co'>#&gt; 
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>bryophyte</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>vascular</span><span class='op'>)</span>
+<span class='va'>carp.pred</span> <span class='op'>&lt;-</span> <span class='fu'>coca</span><span class='op'>(</span>y <span class='op'>=</span> <span class='va'>bryophyte</span>, x <span class='op'>=</span> <span class='va'>vascular</span>, reg.method <span class='op'>=</span> <span class='st'>"eigen"</span><span class='op'>)</span>
+<span class='va'>carp.pred</span>
+</div><div class='output co'>#&gt; 
 #&gt; Predictive Co-Correspondence Analysis
 #&gt; 
 #&gt; Call: predcoca.eigen(y = y, x = x, R0 = weights, n.axes = n.axes,
@@ -542,7 +559,8 @@
 #&gt;   0.001   0.001   0.001   0.001   0.001   0.001   0.001   0.001   0.001 </div><div class='input'>
 <span class='co'># \donttest{</span>
 <span class='co'>## determine important PLS components - takes a while</span>
-<span class='fu'><a href='crossval.html'>crossval</a></span>(<span class='no'>bryophyte</span>, <span class='no'>vascular</span>)</div><div class='output co'>#&gt; LOO - Site: 1 - Complete
+<span class='fu'><a href='crossval.html'>crossval</a></span><span class='op'>(</span><span class='va'>bryophyte</span>, <span class='va'>vascular</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; LOO - Site: 1 - Complete
 #&gt; LOO - Site: 2 - Complete
 #&gt; LOO - Site: 3 - Complete
 #&gt; LOO - Site: 4 - Complete
@@ -623,7 +641,8 @@
 #&gt; COCA11  COCA12  COCA13  COCA14  COCA15  COCA16  COCA17  COCA18  COCA19  COCA20  
 #&gt;   24.0    23.1    22.9    21.2    20.4    19.8    21.0    19.5    18.0    17.4  
 #&gt; COCA21  COCA22  COCA23  COCA24  COCA25  COCA26  COCA27  COCA28  COCA29  
-#&gt;   17.2    13.7    13.0    13.5    12.5    11.1     9.7     8.4     8.4  </div><div class='input'>(<span class='no'>carp.perm</span> <span class='kw'>&lt;-</span> <span class='fu'>permutest</span>(<span class='no'>carp.pred</span>, <span class='kw'>permutations</span> <span class='kw'>=</span> <span class='fl'>99</span>))</div><div class='output co'>#&gt; Permutations for axis: 1 - completed
+#&gt;   17.2    13.7    13.0    13.5    12.5    11.1     9.7     8.4     8.4  </div><div class='input'><span class='op'>(</span><span class='va'>carp.perm</span> <span class='op'>&lt;-</span> <span class='fu'>permutest</span><span class='op'>(</span><span class='va'>carp.pred</span>, permutations <span class='op'>=</span> <span class='fl'>99</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Permutations for axis: 1 - completed
 #&gt; Permutations for axis: 2 - completed
 #&gt; Permutations for axis: 3 - completed
 #&gt; Permutations for axis: 4 - completed
@@ -691,9 +710,10 @@
 #&gt; </div><div class='input'><span class='co'># }</span>
 
 <span class='co'>## 2 components again, refit</span>
-<span class='no'>carp.pred</span> <span class='kw'>&lt;-</span> <span class='fu'>coca</span>(<span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>bryophyte</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>vascular</span>,
-                  <span class='kw'>reg.method</span> <span class='kw'>=</span> <span class='st'>"eigen"</span>, <span class='kw'>n.axes</span> <span class='kw'>=</span> <span class='fl'>2</span>)
-<span class='no'>carp.pred</span></div><div class='output co'>#&gt; 
+<span class='va'>carp.pred</span> <span class='op'>&lt;-</span> <span class='fu'>coca</span><span class='op'>(</span>y <span class='op'>=</span> <span class='va'>bryophyte</span>, x <span class='op'>=</span> <span class='va'>vascular</span>,
+                  reg.method <span class='op'>=</span> <span class='st'>"eigen"</span>, n.axes <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>
+<span class='va'>carp.pred</span>
+</div><div class='output co'>#&gt; 
 #&gt; Predictive Co-Correspondence Analysis
 #&gt; 
 #&gt; Call: predcoca.eigen(y = y, x = x, R0 = weights, n.axes = n.axes,
@@ -707,7 +727,9 @@
 #&gt; 
 #&gt; COCA 1 COCA 2 
 #&gt;  0.301  0.072 </div><div class='input'><span class='co'>## drawn biplot</span>
-<span class='fu'><a href='https://rdrr.io/r/stats/biplot.html'>biplot</a></span>(<span class='no'>carp.pred</span>)</div><div class='img'><img src='coca-3.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span>(<span class='no'>od</span>)</div></pre>
+<span class='fu'><a href='https://rdrr.io/r/stats/biplot.html'>biplot</a></span><span class='op'>(</span><span class='va'>carp.pred</span><span class='op'>)</span>
+</div><div class='img'><img src='coca-3.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span><span class='op'>(</span><span class='va'>od</span><span class='op'>)</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -723,7 +745,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>
@@ -731,6 +753,8 @@
 
   
 
+
+  
 
   </body>
 </html>

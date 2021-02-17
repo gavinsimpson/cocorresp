@@ -19,6 +19,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -38,12 +40,6 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
@@ -62,7 +58,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/gavinsimpson/cocorresp/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -90,7 +86,7 @@
 <a href="#summary" class="anchor"></a>Summary</h2>
 <p>Fits predictive and symmetric co-correspondence analysis (CoCA) models to relate one data matrix to another data matrix. More specifically, CoCA maximises the weighted covariance between the weighted averaged species scores of one community and the weighted averaged species scores of another community. CoCA attempts to find patterns that are common to both communities.</p>
 <p>The main interface function is <code>coca</code> which accepts a formula or two community data matrices. An appropriate formula is <code>Y ~ ., data = X</code> and the associated <code>data</code> object from which <code>.</code> will be looked up. The <code>method</code> argument is used to select from the two forms of CoCA:</p>
-<ol>
+<ol style="list-style-type: decimal">
 <li>
 <code>method = "predictive"</code> for predictive CoCA (the default), and</li>
 <li>
@@ -102,16 +98,18 @@
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p><strong>cocorresp</strong> is available from CRAN; install the latest release using</p>
-<div class="sourceCode" id="cb1"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"cocorresp"</span>)</pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"cocorresp"</span><span class="op">)</span></code></pre></div>
 <p>To install the development version, use the <strong>remotes</strong> package (you may need to install <strong>remotes</strong> first)</p>
-<div class="sourceCode" id="cb2"><pre class="r"><span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"gavinsimpson/cocorresp"</span>)</pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"gavinsimpson/cocorresp"</span><span class="op">)</span></code></pre></div>
 </div>
 
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
 <li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=cocorresp">https://​cloud.r-project.org/​package=cocorresp</a>
 </li>
@@ -121,36 +119,41 @@
 </li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li><a href="https://www.r-project.org/Licenses/GPL-2">GPL-2</a></li>
 </ul>
 </div>
+
+
 <div class="citation">
-<h2>Citation</h2>
+<h2 data-toc-skip>Citation</h2>
 <ul class="list-unstyled">
 <li><a href="authors.html">Citing cocorresp</a></li>
 </ul>
 </div>
+
 <div class="developers">
-<h2>Developers</h2>
+<h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
 <li>Gavin L. Simpson <br><small class="roles"> Maintainer </small>  </li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://cran.r-project.org/package=cocorresp"><img src="https://www.r-pkg.org/badges/version/cocorresp" alt="CRAN version"></a></li>
-<li><a href="https://cran.r-project.org/package=cocorresp"><img src="https://cranlogs.r-pkg.org/badges/grand-total/cocorresp" alt="CRAN downloads"></a></li>
-<li><a href="https://travis-ci.org/gavinsimpson/cocorresp"><img src="https://travis-ci.org/gavinsimpson/cocorresp.svg?branch=master" alt="Build Status"></a></li>
-<li><a href="https://ci.appveyor.com/project/gavinsimpson/cocorresp/branch/master"><img src="https://ci.appveyor.com/api/projects/status/u1e24ck7a61eonxr/branch/master?svg=true" alt="Build status"></a></li>
-<li><a href="https://codecov.io/github/gavinsimpson/cocorresp?branch=master"><img src="https://codecov.io/github/gavinsimpson/cocorresp/coverage.svg?branch=master" alt="codecov.io"></a></li>
+<li><a href="https://cran.r-project.org/package=cocorresp" class="external-link"><img src="https://www.r-pkg.org/badges/version/cocorresp" alt="CRAN version"></a></li>
+<li><a href="https://cran.r-project.org/package=cocorresp" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/grand-total/cocorresp" alt="CRAN downloads"></a></li>
+<li><a href="https://travis-ci.org/gavinsimpson/cocorresp" class="external-link"><img src="https://travis-ci.org/gavinsimpson/cocorresp.svg?branch=master" alt="Build Status"></a></li>
+<li><a href="https://ci.appveyor.com/project/gavinsimpson/cocorresp/branch/master" class="external-link"><img src="https://ci.appveyor.com/api/projects/status/u1e24ck7a61eonxr/branch/master?svg=true" alt="Build status"></a></li>
+<li><a href="https://codecov.io/github/gavinsimpson/cocorresp?branch=master" class="external-link"><img src="https://codecov.io/github/gavinsimpson/cocorresp/coverage.svg?branch=master" alt="codecov.io"></a></li>
 </ul>
 </div>
-</div>
+
+  </div>
 </div>
 
 
@@ -159,7 +162,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>
@@ -167,6 +170,8 @@
 
   
 
+
+  
 
   </body>
 </html>

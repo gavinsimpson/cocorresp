@@ -19,6 +19,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -38,12 +40,6 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
@@ -61,8 +57,8 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/gavinsimpson/cocorresp/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+  <a href="https://github.com/gavinsimpson/cocorresp/" class="external-link">
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -76,15 +72,15 @@
 
       
 
-      </header><div class="row">
+      </header><script src="cocorresp-intro_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Introduction to Co-correspondence Analysis</h1>
-                        <h4 class="author">Gavin L. Simpson</h4>
+                        <h4 data-toc-skip class="author">Gavin L. Simpson</h4>
             
-            <h4 class="date">2020-06-15</h4>
+            <h4 data-toc-skip class="date">2021-02-17</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/gavinsimpson/cocorresp/blob/master/vignettes/cocorresp-intro.Rmd"><code>vignettes/cocorresp-intro.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/gavinsimpson/cocorresp/blob/master/vignettes/cocorresp-intro.Rmd" class="external-link"><code>vignettes/cocorresp-intro.Rmd</code></a></small>
       <div class="hidden name"><code>cocorresp-intro.Rmd</code></div>
 
     </div>
@@ -105,10 +101,11 @@
 <h2 class="hasAnchor">
 <a href="#symmetric-co-ca" class="anchor"></a>Symmetric Co-CA</h2>
 <p>As an illustration of symmetric Co-CA, we look at common patterns in a data set of beetles and plants. The data are provided with <strong>cocorresp</strong></p>
-<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span>(<span class="no">beetles</span>)
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">beetles</span><span class="op">)</span>
 <span class="co">## log transform the beetle data</span>
-<span class="no">beetles</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log1p</a></span>(<span class="no">beetles</span>)
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span>(<span class="no">plants</span>)</pre></body></html></div>
+<span class="va">beetles</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log1p</a></span><span class="op">(</span><span class="va">beetles</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">plants</span><span class="op">)</span></code></pre></div>
 <p>The data are observations of beetle and vascular plant species abundance at 30 roadside verges in the Netherlands. There are 126 beetle taxa and 231 vascular plant species. The abundances of the vascular plants are recorded on the 1–9 van der Maarel scale. To make the distributions of beetle species abundances more symmetric and stabilise variances, the counts are log transformed.</p>
 <p>Both forms of Co-CA are fitted using the <code><a href="../reference/coca.html">coca()</a></code> function. The call comprises</p>
 <ol style="list-style-type: decimal">
@@ -117,15 +114,18 @@
 <li>the type of Co-CA model to fit, indicated by the <code>method</code> argument; options are <code>"symmetric"</code> and <code>"predictive"</code>.</li>
 </ol>
 <p>A symmetric Co-CA is fitted to the beetle and plant data sets as follows</p>
-<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="no">bp.sym</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/coca.html">coca</a></span>(<span class="no">beetles</span> ~ <span class="no">.</span>, <span class="kw">data</span> <span class="kw">=</span> <span class="no">plants</span>, <span class="kw">method</span> <span class="kw">=</span> <span class="st">"symmetric"</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">bp.sym</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/coca.html">coca</a></span><span class="op">(</span><span class="va">beetles</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">plants</span>, method <span class="op">=</span> <span class="st">"symmetric"</span><span class="op">)</span></code></pre></div>
 <pre><code>## 
 ## Removed some species that contained no data in: beetles, plants</code></pre>
 <p>Notice that it shouldn’t make any difference which of the matrices is specified on the right- or left-hand sides of the formula. The messages printing during fitting are for information; some species contained no data and hence were removed prior to fitting. This data processing step could have been performed ahead of time via</p>
-<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="no">beetles</span> <span class="kw">&lt;-</span> <span class="no">beetles</span>[, <span class="fu"><a href="https://rdrr.io/r/base/colSums.html">colSums</a></span>(<span class="no">beetles</span>) <span class="kw">&gt;</span> <span class="fl">0</span>]
-<span class="no">plants</span> <span class="kw">&lt;-</span> <span class="no">plants</span>[, <span class="fu"><a href="https://rdrr.io/r/base/colSums.html">colSums</a></span>(<span class="no">plants</span>) <span class="kw">&gt;</span> <span class="fl">0</span>]
-<span class="no">bp.sym</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/coca.html">coca</a></span>(<span class="no">beetles</span> ~ <span class="no">.</span>, <span class="kw">data</span> <span class="kw">=</span> <span class="no">plants</span>, <span class="kw">method</span> <span class="kw">=</span> <span class="st">"symmetric"</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">beetles</span> <span class="op">&lt;-</span> <span class="va">beetles</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/colSums.html" class="external-link">colSums</a></span><span class="op">(</span><span class="va">beetles</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">]</span>
+<span class="va">plants</span> <span class="op">&lt;-</span> <span class="va">plants</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/colSums.html" class="external-link">colSums</a></span><span class="op">(</span><span class="va">plants</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">]</span>
+<span class="va">bp.sym</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/coca.html">coca</a></span><span class="op">(</span><span class="va">beetles</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">plants</span>, method <span class="op">=</span> <span class="st">"symmetric"</span><span class="op">)</span></code></pre></div>
 <p>Printing the resulting object provides a relatively compact summary of the Co-CA model fitted</p>
-<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="no">bp.sym</span></pre></body></html></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">bp.sym</span></code></pre></div>
 <pre><code>## 
 ## Symmetric Co-Correspondence Analysis
 ## 
@@ -137,7 +137,8 @@
 ## beetles: 3.988     3.971    0.018
 ## plants:  5.757     5.740    0.018</code></pre>
 <p>A screeplot provides a graphical summary of the dimensionality of the covariance between the two matrices.</p>
-<div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/stats/screeplot.html">screeplot</a></span>(<span class="no">bp.sym</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/screeplot.html" class="external-link">screeplot</a></span><span class="op">(</span><span class="va">bp.sym</span><span class="op">)</span></code></pre></div>
 <p><img src="cocorresp-intro_files/figure-html/screeplot-symcoca-1.png" width="700"></p>
 <p>From the screeplot, we see that most of the signal in the covariance is contained on the first 2–3 axes.</p>
 <p>The resulting symmetric co-correspondence analysis can be plotted in the form of a biplot, except now we have two sets of species (variable) scores and two sets of site (observations or sample) scores. The <code>biplot</code> method can be used to draw Co-CA biplots. The <code>which</code> argument selects which of the two assemblages are drawn:</p>
@@ -147,12 +148,13 @@
 <li>
 <code>"y2"</code> indicates the species assemblage on the right-hand side of the formula.</li>
 </ul>
-<div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/layout.html">layout</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span>(<span class="fl">1</span>:<span class="fl">2</span>, <span class="kw">ncol</span> <span class="kw">=</span> <span class="fl">2</span>))
-<span class="fu"><a href="https://rdrr.io/r/stats/biplot.html">biplot</a></span>(<span class="no">bp.sym</span>, <span class="kw">which</span> <span class="kw">=</span> <span class="st">"y1"</span>, <span class="kw">main</span> <span class="kw">=</span> <span class="st">"Beetles"</span>)
-<span class="fu"><a href="https://rdrr.io/r/stats/biplot.html">biplot</a></span>(<span class="no">bp.sym</span>, <span class="kw">which</span> <span class="kw">=</span> <span class="st">"y2"</span>, <span class="kw">main</span> <span class="kw">=</span> <span class="st">"Plants"</span>)
-<span class="fu"><a href="https://rdrr.io/r/graphics/layout.html">layout</a></span>(<span class="fl">1</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/layout.html" class="external-link">layout</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span>, ncol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/stats/biplot.html" class="external-link">biplot</a></span><span class="op">(</span><span class="va">bp.sym</span>, which <span class="op">=</span> <span class="st">"y1"</span>, main <span class="op">=</span> <span class="st">"Beetles"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/stats/biplot.html" class="external-link">biplot</a></span><span class="op">(</span><span class="va">bp.sym</span>, which <span class="op">=</span> <span class="st">"y2"</span>, main <span class="op">=</span> <span class="st">"Plants"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/layout.html" class="external-link">layout</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></code></pre></div>
 <p><img src="cocorresp-intro_files/figure-html/plot-symcoca-1.png" width="1344"></p>
-<p>Some additional control is afforded by the <code><a href="https://rdrr.io/r/base/plot.html">plot()</a></code> method, but good plots of the fitted Co-CA will often require the use of lower-level functions such as the <code><a href="https://rdrr.io/r/graphics/points.html">points()</a></code> and <code>scores()</code> methods, as well as using appropriate sets of scores or loadings.</p>
+<p>Some additional control is afforded by the <code><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot()</a></code> method, but good plots of the fitted Co-CA will often require the use of lower-level functions such as the <code><a href="https://rdrr.io/r/graphics/points.html" class="external-link">points()</a></code> and <code>scores()</code> methods, as well as using appropriate sets of scores or loadings.</p>
 </div>
   </div>
 
@@ -171,7 +173,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>
@@ -179,6 +181,8 @@
 
   
 
+
+  
 
   </body>
 </html>

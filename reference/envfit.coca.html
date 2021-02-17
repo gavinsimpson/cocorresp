@@ -48,6 +48,8 @@
 
 
 
+
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -59,9 +61,15 @@
 
 
 
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -82,12 +90,6 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
@@ -106,7 +108,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/gavinsimpson/cocorresp/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -136,9 +138,9 @@
     </div>
 
     <pre class="usage"><span class='co'># S3 method for coca</span>
-<span class='fu'>envfit</span>(<span class='no'>ord</span>, <span class='no'>env</span>, <span class='kw'>which</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"response"</span>, <span class='st'>"predictor"</span>),
-       <span class='kw'>choices</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>), <span class='kw'>scaling</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>w</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-       <span class='kw'>strata</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>permutations</span> <span class='kw'>=</span> <span class='fl'>999</span>, <span class='no'>...</span>)</pre>
+<span class='fu'>envfit</span><span class='op'>(</span><span class='va'>ord</span>, <span class='va'>env</span>, which <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"response"</span>, <span class='st'>"predictor"</span><span class='op'>)</span>,
+       choices <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span>, scaling <span class='op'>=</span> <span class='cn'>FALSE</span>, <span class='va'>w</span>, na.rm <span class='op'>=</span> <span class='cn'>FALSE</span>,
+       strata <span class='op'>=</span> <span class='cn'>NULL</span>, permutations <span class='op'>=</span> <span class='fl'>999</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -167,7 +169,7 @@
     <tr>
       <th>scaling</th>
       <td><p>logical; should sacling be applied. See
-    <code><a href='scores.predcoca.html'>scores.symcoca</a></code>.</p></td>
+    <code><a href='scores-methods.html'>scores.symcoca</a></code>.</p></td>
     </tr>
     <tr>
       <th>w</th>
@@ -216,21 +218,23 @@
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## symmetric CoCA</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>beetles</span>)
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>plants</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>beetles</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>plants</span><span class='op'>)</span>
 
 <span class='co'>## log transform the bettle data</span>
-<span class='no'>beetles</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span>(<span class='no'>beetles</span> + <span class='fl'>1</span>)
+<span class='va'>beetles</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>beetles</span> <span class='op'>+</span> <span class='fl'>1</span><span class='op'>)</span>
 
 <span class='co'>## fit the model</span>
-<span class='no'>bp.sym</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='coca.html'>coca</a></span>(<span class='no'>beetles</span> ~ <span class='no'>.</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>plants</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"symmetric"</span>)</div><div class='output co'>#&gt; <span class='message'></span>
+<span class='va'>bp.sym</span> <span class='op'>&lt;-</span> <span class='fu'><a href='coca.html'>coca</a></span><span class='op'>(</span><span class='va'>beetles</span> <span class='op'>~</span> <span class='va'>.</span>, data <span class='op'>=</span> <span class='va'>plants</span>, method <span class='op'>=</span> <span class='st'>"symmetric"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'></span>
 #&gt; <span class='message'>Removed some species that contained no data in: beetles, plants </span></div><div class='input'>
 <span class='co'>## load the environmental data</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>verges</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>verges</span><span class='op'>)</span>
 
 <span class='co'>## fit vectors for the environmental data</span>
-<span class='no'>sol</span> <span class='kw'>&lt;-</span> <span class='fu'>envfit</span>(<span class='no'>bp.sym</span>, <span class='no'>verges</span>, <span class='kw'>which</span> <span class='kw'>=</span> <span class='st'>"response"</span>)
-<span class='no'>sol</span></div><div class='output co'>#&gt; 
+<span class='va'>sol</span> <span class='op'>&lt;-</span> <span class='fu'>envfit</span><span class='op'>(</span><span class='va'>bp.sym</span>, <span class='va'>verges</span>, which <span class='op'>=</span> <span class='st'>"response"</span><span class='op'>)</span>
+<span class='va'>sol</span>
+</div><div class='output co'>#&gt; 
 #&gt; ***VECTORS
 #&gt; 
 #&gt;             COCA 1   COCA 2     r2 Pr(&gt;r)  
@@ -254,7 +258,9 @@
 #&gt; 
 #&gt; </div><div class='input'>
 <span class='co'>## plot the response matrix and the fitted vectors</span>
-<span class='fu'><a href='https://rdrr.io/r/stats/biplot.html'>biplot</a></span>(<span class='no'>bp.sym</span>, <span class='kw'>which</span> <span class='kw'>=</span> <span class='st'>"y1"</span>)</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>sol</span>)</div><div class='img'><img src='envfit.coca-1.png' alt='' width='700' height='433' /></div></pre>
+<span class='fu'><a href='https://rdrr.io/r/stats/biplot.html'>biplot</a></span><span class='op'>(</span><span class='va'>bp.sym</span>, which <span class='op'>=</span> <span class='st'>"y1"</span><span class='op'>)</span>
+</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>sol</span><span class='op'>)</span>
+</div><div class='img'><img src='envfit.coca-1.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -270,7 +276,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>
@@ -278,6 +284,8 @@
 
   
 
+
+  
 
   </body>
 </html>
