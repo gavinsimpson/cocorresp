@@ -3,10 +3,13 @@ Cocorresp Change Log
 Version 0.4-2
 
 	* eigenvals: Methods now return an object of class "eigenvals".
-	
-	* print.predcoca: The labels for predictor and response matrices were in the
-	reverse order. The total variances for preditors and responses were correct,
-	but the object names were back-to-front.
+
+	* print.predcoca: The labels for predictor and response matrices were in
+	the reverse order. The total variances for preditors and responses were
+	correct, but the object names were back-to-front.
+
+	* print.crossval, print.summary.crossval: Tweak to order of response and
+	predictor matrices in a printed message. Suggested by Cajo ter Braak.
 
 Version 0.4-1
 
