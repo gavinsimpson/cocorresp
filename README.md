@@ -2,7 +2,7 @@
 
 [![CRAN version](https://www.r-pkg.org/badges/version/cocorresp)](https://cran.r-project.org/package=cocorresp)
 [![CRAN downloads](https://cranlogs.r-pkg.org/badges/grand-total/cocorresp)](https://cran.r-project.org/package=cocorresp)
-![R-CMD-check](https://github.com/gavinsimpson/cocorresp/workflows/R-CMD-check/badge.svg)
+[![R-CMD-check](https://github.com/gavinsimpson/cocorresp/workflows/R-CMD-check/badge.svg)](https://github.com/gavinsimpson/cocorresp/actions)
 [![Build status](https://ci.appveyor.com/api/projects/status/u1e24ck7a61eonxr/branch/master?svg=true)](https://ci.appveyor.com/project/gavinsimpson/cocorresp/branch/master)
 [![codecov.io](https://codecov.io/github/gavinsimpson/cocorresp/coverage.svg?branch=master)](https://codecov.io/github/gavinsimpson/cocorresp?branch=master)
 
