@@ -1,5 +1,5 @@
 
-R version 3.6.3 (2020-02-29) -- "Holding the Windsock"
+R version 4.0.3 (2020-10-10) -- "Bunny-Wunnies Freak Out"
 Copyright (C) 2020 The R Foundation for Statistical Computing
 Platform: x86_64-redhat-linux-gnu (64-bit)
 
@@ -24,7 +24,7 @@ Type 'q()' to quit R.
 Loading required package: vegan
 Loading required package: permute
 Loading required package: lattice
-This is vegan 2.5-6
+This is vegan 2.5-7
 > 
 > base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
 > base::assign(".old_wd", base::getwd(), pos = 'CheckExEnv')
@@ -964,7 +964,7 @@ Removed some species that contained no data in: beetles, plants
 > cleanEx()
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  2.914 0.079 3.003 0 0 
+Time elapsed:  9.707 0.356 4.021 0 0 
 > grDevices::dev.off()
 null device 
           1 
