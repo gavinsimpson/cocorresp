@@ -1,5 +1,10 @@
 Cocorresp Change Log
 
+Version 0.4-3
+
+    * Suggests: {rmarkdown} is now explicitly a suggested package following
+    changes to the {knitr} dependencies.
+
 Version 0.4-2
 
 	* eigenvals: Methods now return an object of class "eigenvals".

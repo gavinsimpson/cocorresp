@@ -1,11 +1,11 @@
 Package: cocorresp
 Type: Package
 Title: Co-Correspondence Analysis Methods
-Version: 0.4-2
-Date: 2020-03-24
+Version: 0.4-3
+Date: 2021-05-07
 Depends: vegan (>= 2.5-0), R (>= 3.4.0)
 Imports: stats, graphics, utils, grDevices
-Suggests: testthat, knitr
+Suggests: testthat, knitr, rmarkdown
 Author: Original Matlab routines by C.J.F. ter Braak and A.P. Schaffers. R port by Gavin L. Simpson.
   Function simpls based on simpls.fit (package pls) by Ron Wehrens and Bjorn-Helge Mevik.
 Maintainer: Gavin L. Simpson <ucfagls@gmail.com>
