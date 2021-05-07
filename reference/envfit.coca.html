@@ -61,6 +61,9 @@
 
 
 
+<!-- dependencies from examples -->
+
+
   
 
   
@@ -83,7 +86,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">cocorresp</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4-2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4-3</span>
       </span>
     </div>
 
@@ -169,7 +172,7 @@
     <tr>
       <th>scaling</th>
       <td><p>logical; should sacling be applied. See
-    <code><a href='scores-methods.html'>scores.symcoca</a></code>.</p></td>
+    <code><a href='scores.predcoca.html'>scores.symcoca</a></code>.</p></td>
     </tr>
     <tr>
       <th>w</th>
@@ -217,50 +220,53 @@
   details of the generic function and the computations performed.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>## symmetric CoCA</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>beetles</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>plants</span><span class='op'>)</span>
-
-<span class='co'>## log transform the bettle data</span>
-<span class='va'>beetles</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>beetles</span> <span class='op'>+</span> <span class='fl'>1</span><span class='op'>)</span>
-
-<span class='co'>## fit the model</span>
-<span class='va'>bp.sym</span> <span class='op'>&lt;-</span> <span class='fu'><a href='coca.html'>coca</a></span><span class='op'>(</span><span class='va'>beetles</span> <span class='op'>~</span> <span class='va'>.</span>, data <span class='op'>=</span> <span class='va'>plants</span>, method <span class='op'>=</span> <span class='st'>"symmetric"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'>Removed some species that contained no data in: beetles, plants </span></div><div class='input'>
-<span class='co'>## load the environmental data</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>verges</span><span class='op'>)</span>
-
-<span class='co'>## fit vectors for the environmental data</span>
-<span class='va'>sol</span> <span class='op'>&lt;-</span> <span class='fu'>envfit</span><span class='op'>(</span><span class='va'>bp.sym</span>, <span class='va'>verges</span>, which <span class='op'>=</span> <span class='st'>"response"</span><span class='op'>)</span>
-<span class='va'>sol</span>
-</div><div class='output co'>#&gt; 
-#&gt; ***VECTORS
-#&gt; 
-#&gt;             COCA 1   COCA 2     r2 Pr(&gt;r)  
-#&gt; Mmoisture  0.76095 -0.64881 0.4686  0.036 *
-#&gt; Zmoisture  0.65812 -0.75292 0.3711  0.076 .
-#&gt; Org        0.29636 -0.95508 0.2873  0.162  
-#&gt; Sandiness  0.05840  0.99829 0.1718  0.422  
-#&gt; pH         0.64658 -0.76284 0.1683  0.490  
-#&gt; NO3       -0.54818 -0.83636 0.2088  0.294  
-#&gt; NH4       -0.16274  0.98667 0.2975  0.181  
-#&gt; Nmin      -0.99942  0.03412 0.0872  0.678  
-#&gt; P         -0.60030  0.79978 0.5153  0.034 *
-#&gt; K         -0.29634  0.95508 0.3284  0.114  
-#&gt; Nitr      -0.39179 -0.92005 0.2336  0.274  
-#&gt; HourSun    0.59022  0.80724 0.0220  0.878  
-#&gt; Warmth35   0.69088  0.72297 0.0269  0.833  
-#&gt; ---
-#&gt; Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-#&gt; Permutation: free
-#&gt; Number of permutations: 999
-#&gt; 
-#&gt; </div><div class='input'>
-<span class='co'>## plot the response matrix and the fitted vectors</span>
-<span class='fu'><a href='https://rdrr.io/r/stats/biplot.html'>biplot</a></span><span class='op'>(</span><span class='va'>bp.sym</span>, which <span class='op'>=</span> <span class='st'>"y1"</span><span class='op'>)</span>
-</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>sol</span><span class='op'>)</span>
-</div><div class='img'><img src='envfit.coca-1.png' alt='' width='700' height='433' /></div></pre>
+    <pre class="examples"><span class='r-in'><span class='co'>## symmetric CoCA</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>beetles</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>plants</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## log transform the bettle data</span></span>
+<span class='r-in'><span class='va'>beetles</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>beetles</span> <span class='op'>+</span> <span class='fl'>1</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## fit the model</span></span>
+<span class='r-in'><span class='va'>bp.sym</span> <span class='op'>&lt;-</span> <span class='fu'><a href='coca.html'>coca</a></span><span class='op'>(</span><span class='va'>beetles</span> <span class='op'>~</span> <span class='va'>.</span>, data <span class='op'>=</span> <span class='va'>plants</span>, method <span class='op'>=</span> <span class='st'>"symmetric"</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Removed some species that contained no data in: beetles, plants </span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## load the environmental data</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>verges</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## fit vectors for the environmental data</span></span>
+<span class='r-in'><span class='va'>sol</span> <span class='op'>&lt;-</span> <span class='fu'>envfit</span><span class='op'>(</span><span class='va'>bp.sym</span>, <span class='va'>verges</span>, which <span class='op'>=</span> <span class='st'>"response"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>sol</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ***VECTORS</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>             COCA 1   COCA 2     r2 Pr(&gt;r)  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Mmoisture  0.76095 -0.64881 0.4686  0.036 *</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Zmoisture  0.65812 -0.75292 0.3711  0.076 .</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Org        0.29636 -0.95508 0.2873  0.162  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Sandiness  0.05840  0.99829 0.1718  0.422  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> pH         0.64658 -0.76284 0.1683  0.490  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> NO3       -0.54818 -0.83636 0.2088  0.294  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> NH4       -0.16274  0.98667 0.2975  0.181  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Nmin      -0.99942  0.03412 0.0872  0.678  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> P         -0.60030  0.79978 0.5153  0.034 *</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> K         -0.29634  0.95508 0.3284  0.114  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Nitr      -0.39179 -0.92005 0.2336  0.274  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> HourSun    0.59022  0.80724 0.0220  0.878  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Warmth35   0.69088  0.72297 0.0269  0.833  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ---</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutation: free</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Number of permutations: 999</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## plot the response matrix and the fitted vectors</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/stats/biplot.html'>biplot</a></span><span class='op'>(</span><span class='va'>bp.sym</span>, which <span class='op'>=</span> <span class='st'>"y1"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>sol</span><span class='op'>)</span></span>
+<span class='r-plt'><img src='envfit.coca-1.png' alt='' width='700' height='433' /></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -272,11 +278,11 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Gavin L. Simpson.</p>
+  <p><p>Developed by Gavin L. Simpson.</p></p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
 </div>
 
       </footer>

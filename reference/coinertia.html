@@ -59,6 +59,9 @@
 
 
 
+<!-- dependencies from examples -->
+
+
   
 
   
@@ -81,7 +84,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">cocorresp</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4-2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4-3</span>
       </span>
     </div>
 
@@ -205,25 +208,28 @@
   using identity matrices for \(K_1\), \(K_2\), and \(R_0\).</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>od</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span><span class='op'>(</span>digits <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>beetles</span>, <span class='va'>plants</span><span class='op'>)</span>
-<span class='va'>coin</span> <span class='op'>&lt;-</span> <span class='fu'>coinertia</span><span class='op'>(</span><span class='va'>beetles</span>, <span class='va'>plants</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>some species contain no data and were removed from data matrix y</span></div><div class='output co'>#&gt; <span class='message'>some species contain no data and were removed from data matrix x</span></div><div class='input'><span class='va'>coin</span>
-</div><div class='output co'>#&gt; 
-#&gt; Coinertia Analysis
-#&gt; 
-#&gt; Call: coinertia.default(y = beetles, x = plants)
-#&gt; 
-#&gt; Eigenvalues:
-#&gt;  COIN1    COIN2    COIN3    COIN4    COIN5    COIN6    COIN7    COIN8   
-#&gt;  0.591    0.316    0.203    0.104    0.067    0.061    0.053    0.044   
-#&gt;  COIN9   COIN10   COIN11   COIN12   COIN13   COIN14   COIN15   COIN16   
-#&gt;  0.035    0.023    0.022    0.014    0.013    0.011    0.010    0.008   
-#&gt; COIN17   COIN18   COIN19   COIN20   COIN21   COIN22   COIN23   COIN24   
-#&gt;  0.007    0.005    0.004    0.003    0.003    0.002    0.002    0.002   
-#&gt; COIN25   COIN26   COIN27   COIN28   COIN29   
-#&gt;  0.001    0.001    0.001    0.000    0.000   </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span><span class='op'>(</span><span class='va'>od</span><span class='op'>)</span>
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='va'>od</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span><span class='op'>(</span>digits <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>beetles</span>, <span class='va'>plants</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>coin</span> <span class='op'>&lt;-</span> <span class='fu'>coinertia</span><span class='op'>(</span><span class='va'>beetles</span>, <span class='va'>plants</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> some species contain no data and were removed from data matrix y</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> some species contain no data and were removed from data matrix x</span>
+<span class='r-in'><span class='va'>coin</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Coinertia Analysis</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Call: coinertia.default(y = beetles, x = plants)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Eigenvalues:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  COIN1    COIN2    COIN3    COIN4    COIN5    COIN6    COIN7    COIN8   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  0.591    0.316    0.203    0.104    0.067    0.061    0.053    0.044   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  COIN9   COIN10   COIN11   COIN12   COIN13   COIN14   COIN15   COIN16   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  0.035    0.023    0.022    0.014    0.013    0.011    0.010    0.008   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COIN17   COIN18   COIN19   COIN20   COIN21   COIN22   COIN23   COIN24   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  0.007    0.005    0.004    0.003    0.003    0.002    0.002    0.002   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COIN25   COIN26   COIN27   COIN28   COIN29   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  0.001    0.001    0.001    0.000    0.000   </span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span><span class='op'>(</span><span class='va'>od</span><span class='op'>)</span></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -235,11 +241,11 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Gavin L. Simpson.</p>
+  <p><p>Developed by Gavin L. Simpson.</p></p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
 </div>
 
       </footer>

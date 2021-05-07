@@ -61,6 +61,9 @@
 
 
 
+<!-- dependencies from examples -->
+
+
   
 
   
@@ -83,7 +86,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">cocorresp</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4-2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4-3</span>
       </span>
     </div>
 
@@ -252,86 +255,93 @@ summary(object, ...)
   co-correspondence analysis.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># \dontshow{</span>
-<span class='fu'><a href='https://rdrr.io/r/base/warning.html'>suppressWarnings</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>RNGversion</a></span><span class='op'>(</span><span class='st'>"3.5.0"</span><span class='op'>)</span><span class='op'>)</span>
-<span class='va'>od</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span><span class='op'>(</span>digits <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span>
-<span class='co'># }</span>
-<span class='co'>## load some data</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>beetles</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>plants</span><span class='op'>)</span>
-
-<span class='co'>## log transform the bettle data</span>
-<span class='va'>beetles</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>beetles</span> <span class='op'>+</span> <span class='fl'>1</span><span class='op'>)</span>
-<span class='co'>## predictive CoCA using SIMPLS and formula interface</span>
-<span class='va'>bp.pred</span> <span class='op'>&lt;-</span> <span class='fu'><a href='coca.html'>coca</a></span><span class='op'>(</span><span class='va'>beetles</span> <span class='op'>~</span> <span class='va'>.</span>, data <span class='op'>=</span> <span class='va'>plants</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'>Removed some species that contained no data in: beetles, plants </span></div><div class='input'>
-<span class='co'>## should retain only the useful PLS components for a parsimonious model</span>
-<span class='co'># \donttest{</span>
-<span class='co'>## Leave-one-out crossvalidation - this takes a while</span>
-<span class='fu'><a href='crossval.html'>crossval</a></span><span class='op'>(</span><span class='va'>beetles</span>, <span class='va'>plants</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>some species contain no data and were removed from data matrix y</span></div><div class='output co'>#&gt; <span class='message'>some species contain no data and were removed from data matrix x</span></div><div class='output co'>#&gt; LOO - Site: 1 - Complete
-#&gt; LOO - Site: 2 - Complete
-#&gt; LOO - Site: 3 - Complete
-#&gt; LOO - Site: 4 - Complete
-#&gt; LOO - Site: 5 - Complete
-#&gt; LOO - Site: 6 - Complete
-#&gt; LOO - Site: 7 - Complete
-#&gt; LOO - Site: 8 - Complete
-#&gt; LOO - Site: 9 - Complete
-#&gt; LOO - Site: 10 - Complete
-#&gt; LOO - Site: 11 - Complete
-#&gt; LOO - Site: 12 - Complete
-#&gt; LOO - Site: 13 - Complete
-#&gt; LOO - Site: 14 - Complete
-#&gt; LOO - Site: 15 - Complete
-#&gt; LOO - Site: 16 - Complete
-#&gt; LOO - Site: 17 - Complete
-#&gt; LOO - Site: 18 - Complete
-#&gt; LOO - Site: 19 - Complete
-#&gt; LOO - Site: 20 - Complete
-#&gt; LOO - Site: 21 - Complete
-#&gt; LOO - Site: 22 - Complete
-#&gt; LOO - Site: 23 - Complete
-#&gt; LOO - Site: 24 - Complete
-#&gt; LOO - Site: 25 - Complete
-#&gt; LOO - Site: 26 - Complete
-#&gt; LOO - Site: 27 - Complete
-#&gt; LOO - Site: 28 - Complete
-#&gt; LOO - Site: 29 - Complete
-#&gt; LOO - Site: 30 - Complete</div><div class='output co'>#&gt; 
-#&gt; Cross-validation for Predictive Co-Correspondence Analysis
-#&gt; 
-#&gt; Call: crossval(y = beetles, x = plants)
-#&gt; 
-#&gt; Cross-validatory %fit of beetles to plants:
-#&gt; 
-#&gt;  COCA1   COCA2   COCA3   COCA4   COCA5   COCA6   COCA7   COCA8   COCA9  COCA10  
-#&gt;    5.1     7.8     7.0     6.9     7.7     8.5     8.7     6.8     6.5     6.7  
-#&gt; COCA11  COCA12  COCA13  COCA14  COCA15  COCA16  COCA17  COCA18  COCA19  COCA20  
-#&gt;    5.8     3.5     2.7     2.0     2.5    -0.1    -2.1    -2.9    -2.9    -3.5  
-#&gt; COCA21  COCA22  COCA23  COCA24  COCA25  COCA26  COCA27  COCA28  COCA29  
-#&gt;   -4.2    -4.3    -4.8    -5.7    -8.1   -24.6   -29.2   -37.9   -41.4  </div><div class='input'><span class='co'>## so 2 axes are sufficient</span>
-<span class='co'># }</span>
-
-<span class='co'>## permutation test</span>
-<span class='co'>## (Testing the first 2 axes &amp; only 50 perms for speed.)</span>
-<span class='va'>bp.perm</span> <span class='op'>&lt;-</span> <span class='fu'>permutest</span><span class='op'>(</span><span class='va'>bp.pred</span>, permutations <span class='op'>=</span> <span class='fl'>50</span>, n.axes <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Permutations for axis: 1 - completed
-#&gt; Permutations for axis: 2 - completed</div><div class='input'><span class='va'>bp.perm</span>
-</div><div class='output co'>#&gt; 
-#&gt; Permutation test for predictive co-correspondence analysis:
-#&gt; 
-#&gt; Call: permutest.coca(x = bp.pred, permutations = 50, n.axes = 2)
-#&gt; 
-#&gt; Permutation test results:
-#&gt; 
-#&gt;         Stat. Inertia    Fit  % fit P-value
-#&gt; COCA 1 0.0890  5.6964 0.4658 8.1763    0.02
-#&gt; COCA 2 0.0761  5.2306 0.3701 6.4973    0.25
-#&gt; </div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span><span class='op'>(</span><span class='va'>od</span><span class='op'>)</span>
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='co'># \dontshow{</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/warning.html'>suppressWarnings</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>RNGversion</a></span><span class='op'>(</span><span class='st'>"3.5.0"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>od</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span><span class='op'>(</span>digits <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span>
+<span class='r-in'><span class='co'># }</span></span>
+<span class='r-in'><span class='co'>## load some data</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>beetles</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>plants</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## log transform the bettle data</span></span>
+<span class='r-in'><span class='va'>beetles</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>beetles</span> <span class='op'>+</span> <span class='fl'>1</span><span class='op'>)</span></span>
+<span class='r-in'><span class='co'>## predictive CoCA using SIMPLS and formula interface</span></span>
+<span class='r-in'><span class='va'>bp.pred</span> <span class='op'>&lt;-</span> <span class='fu'><a href='coca.html'>coca</a></span><span class='op'>(</span><span class='va'>beetles</span> <span class='op'>~</span> <span class='va'>.</span>, data <span class='op'>=</span> <span class='va'>plants</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Removed some species that contained no data in: beetles, plants </span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## should retain only the useful PLS components for a parsimonious model</span></span>
+<span class='r-in'><span class='co'># \donttest{</span></span>
+<span class='r-in'><span class='co'>## Leave-one-out crossvalidation - this takes a while</span></span>
+<span class='r-in'><span class='fu'><a href='crossval.html'>crossval</a></span><span class='op'>(</span><span class='va'>beetles</span>, <span class='va'>plants</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> some species contain no data and were removed from data matrix y</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> some species contain no data and were removed from data matrix x</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 1 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 2 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 3 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 4 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 5 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 6 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 7 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 8 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 9 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 10 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 11 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 12 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 13 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 14 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 15 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 16 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 17 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 18 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 19 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 20 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 21 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 22 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 23 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 24 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 25 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 26 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 27 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 28 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 29 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 30 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Cross-validation for Predictive Co-Correspondence Analysis</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Call: crossval(y = beetles, x = plants)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Cross-validatory %fit of beetles to plants:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  COCA1   COCA2   COCA3   COCA4   COCA5   COCA6   COCA7   COCA8   COCA9  COCA10  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5.1     7.8     7.0     6.9     7.7     8.5     8.7     6.8     6.5     6.7  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA11  COCA12  COCA13  COCA14  COCA15  COCA16  COCA17  COCA18  COCA19  COCA20  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5.8     3.5     2.7     2.0     2.5    -0.1    -2.1    -2.9    -2.9    -3.5  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA21  COCA22  COCA23  COCA24  COCA25  COCA26  COCA27  COCA28  COCA29  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   -4.2    -4.3    -4.8    -5.7    -8.1   -24.6   -29.2   -37.9   -41.4  </span>
+<span class='r-in'><span class='co'>## so 2 axes are sufficient</span></span>
+<span class='r-in'><span class='co'># }</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## permutation test</span></span>
+<span class='r-in'><span class='co'>## (Testing the first 2 axes &amp; only 50 perms for speed.)</span></span>
+<span class='r-in'><span class='va'>bp.perm</span> <span class='op'>&lt;-</span> <span class='fu'>permutest</span><span class='op'>(</span><span class='va'>bp.pred</span>, permutations <span class='op'>=</span> <span class='fl'>50</span>, n.axes <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 1 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 2 - completed</span>
+<span class='r-in'><span class='va'>bp.perm</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutation test for predictive co-correspondence analysis:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Call: permutest.coca(x = bp.pred, permutations = 50, n.axes = 2)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutation test results:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>         Stat. Inertia    Fit  % fit P-value</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 1 0.0890  5.6964 0.4658 8.1763    0.02</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 2 0.0761  5.2306 0.3701 6.4973    0.25</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span><span class='op'>(</span><span class='va'>od</span><span class='op'>)</span></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -343,11 +353,11 @@ summary(object, ...)
 
       <footer>
       <div class="copyright">
-  <p>Developed by Gavin L. Simpson.</p>
+  <p><p>Developed by Gavin L. Simpson.</p></p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
 </div>
 
       </footer>

@@ -60,6 +60,9 @@
 
 
 
+<!-- dependencies from examples -->
+
+
   
 
   
@@ -82,7 +85,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">cocorresp</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4-2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4-3</span>
       </span>
     </div>
 
@@ -167,7 +170,7 @@
       <th>data</th>
       <td><p>an optional data frame containing the variables in the model.
     If not found in <code>data</code>, the variables are taken from
-    <code><a href='https://rdrr.io/r/base/environment.html'>environment(formula)</a></code>, typically the environment from which
+    <code>environment(formula)</code>, typically the environment from which
     <code>coca</code> is called.</p></td>
     </tr>
     <tr>
@@ -186,7 +189,7 @@
     </tr>
     <tr>
       <th>weights</th>
-      <td><p>a vector of length <code><a href='https://rdrr.io/r/base/nrow.html'>nrow(y)</a></code> of user supplied
+      <td><p>a vector of length <code>nrow(y)</code> of user supplied
     weights for \(R_0\). If <code>weights = NULL</code> (default) then the
     weights are determined from <code>y</code> (default) or <code>x</code> and <code>y</code>
     (<code>symmetric = TRUE</code> only).</p></td>
@@ -316,420 +319,444 @@
 <p><code><a href='crossval.html'>crossval</a></code> for cross-validation and
   <code><a href='permutest.coca.html'>permutest.coca</a></code> for permutation test to determine the
   number of PLS axes to retain in for predictive CoCA.</p>  
-<p><code><a href='summary-methods.html'>summary.predcoca</a></code> and <code><a href='summary-methods.html'>summary.symcoca</a></code> for
+<p><code><a href='summary.predcoca.html'>summary.predcoca</a></code> and <code><a href='summary.predcoca.html'>summary.symcoca</a></code> for
   summary methods.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># \dontshow{</span>
-<span class='va'>od</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span><span class='op'>(</span>digits <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span>
-<span class='co'># }</span>
-<span class='co'>## symmetric CoCA</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>beetles</span><span class='op'>)</span>
-<span class='co'>## log transform the bettle data</span>
-<span class='va'>beetles</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>beetles</span> <span class='op'>+</span> <span class='fl'>1</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>plants</span><span class='op'>)</span>
-<span class='co'>## fit the model</span>
-<span class='va'>bp.sym</span> <span class='op'>&lt;-</span> <span class='fu'>coca</span><span class='op'>(</span><span class='va'>beetles</span> <span class='op'>~</span> <span class='va'>.</span>, data <span class='op'>=</span> <span class='va'>plants</span>, method <span class='op'>=</span> <span class='st'>"symmetric"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'>Removed some species that contained no data in: beetles, plants </span></div><div class='input'><span class='va'>bp.sym</span>
-</div><div class='output co'>#&gt; 
-#&gt; Symmetric Co-Correspondence Analysis
-#&gt; 
-#&gt; Call: symcoca(y = y, x = x, n.axes = n.axes, R0 = weights, symmetric =
-#&gt; symmetric, nam.dat = nam.dat)
-#&gt; 
-#&gt; Inertia:
-#&gt;          Total Explained Residual
-#&gt; beetles:  5.70      5.60     0.09
-#&gt; plants:   6.16      6.07     0.09
-#&gt; </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>bp.sym</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; 
-#&gt; Symmetric Co-Correspondence Analysis
-#&gt; 
-#&gt; Call: symcoca(y = y, x = x, n.axes = n.axes, R0 = weights, symmetric =
-#&gt; symmetric, nam.dat = nam.dat)
-#&gt; 
-#&gt; Inertia:
-#&gt;          Total Explained Residual
-#&gt; beetles:  5.70      5.60     0.09
-#&gt; plants:   6.16      6.07     0.09
-#&gt; 
-#&gt; Eigenvalues:
-#&gt;   COCA 1    COCA 2    COCA 3    COCA 4    COCA 5    COCA 6    COCA 7    COCA 8  
-#&gt; 5.91e-01  3.16e-01  2.03e-01  1.04e-01  6.69e-02  6.11e-02  5.26e-02  4.45e-02  
-#&gt;   COCA 9   COCA 10   COCA 11   COCA 12   COCA 13   COCA 14   COCA 15   COCA 16  
-#&gt; 3.51e-02  2.31e-02  2.18e-02  1.43e-02  1.34e-02  1.10e-02  1.02e-02  8.39e-03  
-#&gt;  COCA 17   COCA 18   COCA 19   COCA 20   COCA 21   COCA 22   COCA 23   COCA 24  
-#&gt; 7.44e-03  4.85e-03  4.15e-03  3.45e-03  2.82e-03  2.42e-03  2.26e-03  1.78e-03  
-#&gt;  COCA 25   COCA 26   COCA 27   COCA 28   COCA 29  
-#&gt; 1.30e-03  1.06e-03  8.53e-04  2.93e-04  5.56e-05  </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/biplot.html'>biplot</a></span><span class='op'>(</span><span class='va'>bp.sym</span><span class='op'>)</span>                          <span class='co'># produces a Benzecri biplot</span>
-</div><div class='img'><img src='coca-1.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='co'>## extract eigenvalues of the analysis</span>
-<span class='fu'>eigenvals</span><span class='op'>(</span><span class='va'>bp.sym</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  COCA 1  COCA 2  COCA 3  COCA 4  COCA 5  COCA 6  COCA 7  COCA 8  COCA 9 COCA 10 
-#&gt;  0.5906  0.3159  0.2028  0.1042  0.0669  0.0611  0.0526  0.0445  0.0351  0.0231 
-#&gt; COCA 11 COCA 12 COCA 13 COCA 14 COCA 15 COCA 16 COCA 17 COCA 18 COCA 19 COCA 20 
-#&gt;  0.0218  0.0143  0.0134  0.0110  0.0102  0.0084  0.0074  0.0049  0.0041  0.0034 
-#&gt; COCA 21 COCA 22 COCA 23 COCA 24 COCA 25 COCA 26 COCA 27 COCA 28 COCA 29 
-#&gt;  0.0028  0.0024  0.0023  0.0018  0.0013  0.0011  0.0009  0.0003  0.0001 </div><div class='input'>
-<span class='co'>## correlations between beetle and plant score scores on Co-CA axes</span>
-<span class='fu'><a href='corAxis.html'>corAxis</a></span><span class='op'>(</span><span class='va'>bp.sym</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  COCA 1  COCA 2  COCA 3  COCA 4  COCA 5  COCA 6  COCA 7  COCA 8  COCA 9 COCA 10 
-#&gt;  0.8795  0.8830  0.8154  0.8490  0.8880  0.7738  0.7264  0.8193  0.7979  0.7758 
-#&gt; COCA 11 COCA 12 COCA 13 COCA 14 COCA 15 COCA 16 COCA 17 COCA 18 COCA 19 COCA 20 
-#&gt;  0.8908  0.8277  0.8916  0.9240  0.7915  0.7046  0.6205  0.7882  0.7451  0.7148 
-#&gt; COCA 21 COCA 22 COCA 23 COCA 24 COCA 25 COCA 26 COCA 27 COCA 28 COCA 29 
-#&gt;  0.9076  0.3968  0.8034  0.6177  0.7608  0.9179  0.5622  0.3823  0.9937 </div><div class='input'>
-<span class='co'>## predictive CoCA using SIMPLS and formula interface</span>
-<span class='va'>bp.pred</span> <span class='op'>&lt;-</span> <span class='fu'>coca</span><span class='op'>(</span><span class='va'>beetles</span> <span class='op'>~</span> <span class='va'>.</span>, data <span class='op'>=</span> <span class='va'>plants</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'>Removed some species that contained no data in: beetles, plants </span></div><div class='input'><span class='co'>## should retain only the useful PLS components for a parsimonious model</span>
-
-<span class='co'># \donttest{</span>
-<span class='co'>## Leave-one-out crossvalidation - this takes a while</span>
-<span class='fu'><a href='crossval.html'>crossval</a></span><span class='op'>(</span><span class='va'>beetles</span>, <span class='va'>plants</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>some species contain no data and were removed from data matrix y</span></div><div class='output co'>#&gt; <span class='message'>some species contain no data and were removed from data matrix x</span></div><div class='output co'>#&gt; LOO - Site: 1 - Complete
-#&gt; LOO - Site: 2 - Complete
-#&gt; LOO - Site: 3 - Complete
-#&gt; LOO - Site: 4 - Complete
-#&gt; LOO - Site: 5 - Complete
-#&gt; LOO - Site: 6 - Complete
-#&gt; LOO - Site: 7 - Complete
-#&gt; LOO - Site: 8 - Complete
-#&gt; LOO - Site: 9 - Complete
-#&gt; LOO - Site: 10 - Complete
-#&gt; LOO - Site: 11 - Complete
-#&gt; LOO - Site: 12 - Complete
-#&gt; LOO - Site: 13 - Complete
-#&gt; LOO - Site: 14 - Complete
-#&gt; LOO - Site: 15 - Complete
-#&gt; LOO - Site: 16 - Complete
-#&gt; LOO - Site: 17 - Complete
-#&gt; LOO - Site: 18 - Complete
-#&gt; LOO - Site: 19 - Complete
-#&gt; LOO - Site: 20 - Complete
-#&gt; LOO - Site: 21 - Complete
-#&gt; LOO - Site: 22 - Complete
-#&gt; LOO - Site: 23 - Complete
-#&gt; LOO - Site: 24 - Complete
-#&gt; LOO - Site: 25 - Complete
-#&gt; LOO - Site: 26 - Complete
-#&gt; LOO - Site: 27 - Complete
-#&gt; LOO - Site: 28 - Complete
-#&gt; LOO - Site: 29 - Complete
-#&gt; LOO - Site: 30 - Complete</div><div class='output co'>#&gt; 
-#&gt; Cross-validation for Predictive Co-Correspondence Analysis
-#&gt; 
-#&gt; Call: crossval(y = beetles, x = plants)
-#&gt; 
-#&gt; Cross-validatory %fit of beetles to plants:
-#&gt; 
-#&gt;  COCA1   COCA2   COCA3   COCA4   COCA5   COCA6   COCA7   COCA8   COCA9  COCA10  
-#&gt;    5.1     7.8     7.0     6.9     7.7     8.5     8.7     6.8     6.5     6.7  
-#&gt; COCA11  COCA12  COCA13  COCA14  COCA15  COCA16  COCA17  COCA18  COCA19  COCA20  
-#&gt;    5.8     3.5     2.7     2.0     2.5    -0.1    -2.1    -2.9    -2.9    -3.5  
-#&gt; COCA21  COCA22  COCA23  COCA24  COCA25  COCA26  COCA27  COCA28  COCA29  
-#&gt;   -4.2    -4.3    -4.8    -5.7    -8.1   -24.6   -29.2   -37.9   -41.4  </div><div class='input'><span class='co'>## so 2 axes are sufficient</span>
-<span class='co'>## permutation test to assess significant PLS components - takes a while</span>
-<span class='va'>bp.perm</span> <span class='op'>&lt;-</span> <span class='fu'>permutest</span><span class='op'>(</span><span class='va'>bp.pred</span>, permutations <span class='op'>=</span> <span class='fl'>99</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Permutations for axis: 1 - completed
-#&gt; Permutations for axis: 2 - completed
-#&gt; Permutations for axis: 3 - completed
-#&gt; Permutations for axis: 4 - completed
-#&gt; Permutations for axis: 5 - completed
-#&gt; Permutations for axis: 6 - completed
-#&gt; Permutations for axis: 7 - completed
-#&gt; Permutations for axis: 8 - completed
-#&gt; Permutations for axis: 9 - completed
-#&gt; Permutations for axis: 10 - completed
-#&gt; Permutations for axis: 11 - completed
-#&gt; Permutations for axis: 12 - completed
-#&gt; Permutations for axis: 13 - completed
-#&gt; Permutations for axis: 14 - completed
-#&gt; Permutations for axis: 15 - completed
-#&gt; Permutations for axis: 16 - completed
-#&gt; Permutations for axis: 17 - completed
-#&gt; Permutations for axis: 18 - completed
-#&gt; Permutations for axis: 19 - completed
-#&gt; Permutations for axis: 20 - completed
-#&gt; Permutations for axis: 21 - completed
-#&gt; Permutations for axis: 22 - completed
-#&gt; Permutations for axis: 23 - completed
-#&gt; Permutations for axis: 24 - completed
-#&gt; Permutations for axis: 25 - completed
-#&gt; Permutations for axis: 26 - completed
-#&gt; Permutations for axis: 27 - completed
-#&gt; Permutations for axis: 28 - completed
-#&gt; Permutations for axis: 29 - completed</div><div class='input'><span class='va'>bp.perm</span>
-</div><div class='output co'>#&gt; 
-#&gt; Permutation test for predictive co-correspondence analysis:
-#&gt; 
-#&gt; Call: permutest.coca(x = bp.pred, permutations = 99)
-#&gt; 
-#&gt; Permutation test results:
-#&gt; 
-#&gt;          Stat. Inertia    Fit  % fit P-value
-#&gt; COCA 1  0.0890  5.6964 0.4658 8.1763    0.02
-#&gt; COCA 2  0.0761  5.2306 0.3701 6.4973    0.08
-#&gt; COCA 3  0.0620  4.8605 0.2839 4.9832    0.23
-#&gt; COCA 4  0.0935  4.5766 0.3912 6.8683    0.11
-#&gt; COCA 5  0.0569  4.1854 0.2252 3.9530    0.77
-#&gt; COCA 6  0.0878  3.9602 0.3196 5.6115    0.40
-#&gt; COCA 7  0.0715  3.6406 0.2430 4.2650    0.63
-#&gt; COCA 8  0.0627  3.3976 0.2005 3.5195    0.91
-#&gt; COCA 9  0.0792  3.1971 0.2347 4.1209    0.85
-#&gt; COCA 10 0.0716  2.9624 0.1978 3.4730    0.83
-#&gt; COCA 11 0.1044  2.7646 0.2613 4.5880    0.61
-#&gt; COCA 12 0.0486  2.5032 0.1160 2.0368    1.00
-#&gt; COCA 13 0.0805  2.3872 0.1778 3.1208    0.98
-#&gt; COCA 14 0.0717  2.2094 0.1478 2.5938    0.99
-#&gt; COCA 15 0.0926  2.0617 0.1747 3.0670    0.99
-#&gt; COCA 16 0.1201  1.8870 0.2023 3.5520    0.89
-#&gt; COCA 17 0.0606  1.6846 0.0963 1.6903    1.00
-#&gt; COCA 18 0.1157  1.5883 0.1647 2.8919    0.91
-#&gt; COCA 19 0.0793  1.4236 0.1045 1.8353    1.00
-#&gt; COCA 20 0.0921  1.3191 0.1112 1.9524    0.99
-#&gt; COCA 21 0.0864  1.2078 0.0961 1.6867    1.00
-#&gt; COCA 22 0.1297  1.1118 0.1276 2.2403    0.94
-#&gt; COCA 23 0.0793  0.9841 0.0723 1.2692    0.99
-#&gt; COCA 24 0.1198  0.9118 0.0976 1.7130    0.97
-#&gt; COCA 25 0.1142  0.8143 0.0835 1.4651    0.88
-#&gt; COCA 26 0.2439  0.7308 0.1433 2.5157    0.75
-#&gt; COCA 27 0.2024  0.5875 0.0989 1.7364    0.79
-#&gt; COCA 28 0.6375  0.4886 0.1902 3.3391    0.51
-#&gt; COCA 29 1.1924  0.2984 0.1623 2.8489    0.12
-#&gt; </div><div class='input'><span class='co'># }</span>
-
-<span class='co'>## agrees with the Leave-one-out cross-validation</span>
-<span class='co'>## refit the model with only 2 PLS components</span>
-<span class='va'>bp.pred</span> <span class='op'>&lt;-</span> <span class='fu'>coca</span><span class='op'>(</span><span class='va'>beetles</span> <span class='op'>~</span> <span class='va'>.</span>, data <span class='op'>=</span> <span class='va'>plants</span>, n.axes <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'>Removed some species that contained no data in: beetles, plants </span></div><div class='input'><span class='va'>bp.pred</span>
-</div><div class='output co'>#&gt; 
-#&gt; Predictive Co-Correspondence Analysis
-#&gt; 
-#&gt; Call: predcoca.simpls(y = y, x = x, R0 = weights, n.axes = n.axes,
-#&gt; nam.dat = nam.dat)
-#&gt; 
-#&gt; Co-CA Method: simpls
-#&gt; 
-#&gt;              Role Variance
-#&gt; plants  Predictor     6.16
-#&gt; beetles  Response     5.70</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>bp.pred</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; 
-#&gt; Predictive Co-Correspondence Analysis
-#&gt; 
-#&gt; Call: predcoca.simpls(y = y, x = x, R0 = weights, n.axes = n.axes,
-#&gt; nam.dat = nam.dat)
-#&gt; 
-#&gt; Percentage Variance Explained:
-#&gt; 
-#&gt; Y-block: variance explained in beetles (response) 
-#&gt;              Comp 1  Comp 2
-#&gt; Individual:   8.18    6.38 
-#&gt; Cumulative:   8.18   14.56 
-#&gt; 
-#&gt; X-block: variance explained in plants (predictor) 
-#&gt;              Comp 1  Comp 2
-#&gt; Individual:  21.7    16.2  
-#&gt; Cumulative:  21.7    37.9  </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/biplot.html'>biplot</a></span><span class='op'>(</span><span class='va'>bp.pred</span><span class='op'>)</span>                     <span class='co'># plots correct scores or loadings</span>
-</div><div class='img'><img src='coca-2.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='co'>## predictive CoCA using Eigen-analysis</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>bryophyte</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>vascular</span><span class='op'>)</span>
-<span class='va'>carp.pred</span> <span class='op'>&lt;-</span> <span class='fu'>coca</span><span class='op'>(</span>y <span class='op'>=</span> <span class='va'>bryophyte</span>, x <span class='op'>=</span> <span class='va'>vascular</span>, reg.method <span class='op'>=</span> <span class='st'>"eigen"</span><span class='op'>)</span>
-<span class='va'>carp.pred</span>
-</div><div class='output co'>#&gt; 
-#&gt; Predictive Co-Correspondence Analysis
-#&gt; 
-#&gt; Call: predcoca.eigen(y = y, x = x, R0 = weights, n.axes = n.axes,
-#&gt; nam.dat = nam.dat)
-#&gt; 
-#&gt; Co-CA Method: eigen
-#&gt; 
-#&gt; 
-#&gt; Eigenvalues:
-#&gt; 
-#&gt; 
-#&gt;  COCA 1  COCA 2  COCA 3  COCA 4  COCA 5  COCA 6  COCA 7  COCA 8  COCA 9 COCA 10 
-#&gt;   0.301   0.072   0.022   0.017   0.015   0.010   0.007   0.006   0.005   0.005 
-#&gt; COCA 11 COCA 12 COCA 13 COCA 14 COCA 15 COCA 16 COCA 17 COCA 18 COCA 19 COCA 20 
-#&gt;   0.004   0.004   0.003   0.003   0.003   0.003   0.002   0.002   0.002   0.002 
-#&gt; COCA 21 COCA 22 COCA 23 COCA 24 COCA 25 COCA 26 COCA 27 COCA 28 COCA 29 
-#&gt;   0.001   0.001   0.001   0.001   0.001   0.001   0.001   0.001   0.001 </div><div class='input'>
-<span class='co'># \donttest{</span>
-<span class='co'>## determine important PLS components - takes a while</span>
-<span class='fu'><a href='crossval.html'>crossval</a></span><span class='op'>(</span><span class='va'>bryophyte</span>, <span class='va'>vascular</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; LOO - Site: 1 - Complete
-#&gt; LOO - Site: 2 - Complete
-#&gt; LOO - Site: 3 - Complete
-#&gt; LOO - Site: 4 - Complete
-#&gt; LOO - Site: 5 - Complete
-#&gt; LOO - Site: 6 - Complete
-#&gt; LOO - Site: 7 - Complete
-#&gt; LOO - Site: 8 - Complete
-#&gt; LOO - Site: 9 - Complete
-#&gt; LOO - Site: 10 - Complete
-#&gt; LOO - Site: 11 - Complete
-#&gt; LOO - Site: 12 - Complete
-#&gt; LOO - Site: 13 - Complete
-#&gt; LOO - Site: 14 - Complete
-#&gt; LOO - Site: 15 - Complete
-#&gt; LOO - Site: 16 - Complete
-#&gt; LOO - Site: 17 - Complete
-#&gt; LOO - Site: 18 - Complete
-#&gt; LOO - Site: 19 - Complete
-#&gt; LOO - Site: 20 - Complete
-#&gt; LOO - Site: 21 - Complete
-#&gt; LOO - Site: 22 - Complete
-#&gt; LOO - Site: 23 - Complete
-#&gt; LOO - Site: 24 - Complete
-#&gt; LOO - Site: 25 - Complete
-#&gt; LOO - Site: 26 - Complete
-#&gt; LOO - Site: 27 - Complete
-#&gt; LOO - Site: 28 - Complete
-#&gt; LOO - Site: 29 - Complete
-#&gt; LOO - Site: 30 - Complete
-#&gt; LOO - Site: 31 - Complete
-#&gt; LOO - Site: 32 - Complete
-#&gt; LOO - Site: 33 - Complete
-#&gt; LOO - Site: 34 - Complete
-#&gt; LOO - Site: 35 - Complete
-#&gt; LOO - Site: 36 - Complete
-#&gt; LOO - Site: 37 - Complete
-#&gt; LOO - Site: 38 - Complete
-#&gt; LOO - Site: 39 - Complete
-#&gt; LOO - Site: 40 - Complete
-#&gt; LOO - Site: 41 - Complete
-#&gt; LOO - Site: 42 - Complete
-#&gt; LOO - Site: 43 - Complete
-#&gt; LOO - Site: 44 - Complete
-#&gt; LOO - Site: 45 - Complete
-#&gt; LOO - Site: 46 - Complete
-#&gt; LOO - Site: 47 - Complete
-#&gt; LOO - Site: 48 - Complete
-#&gt; LOO - Site: 49 - Complete
-#&gt; LOO - Site: 50 - Complete
-#&gt; LOO - Site: 51 - Complete
-#&gt; LOO - Site: 52 - Complete
-#&gt; LOO - Site: 53 - Complete
-#&gt; LOO - Site: 54 - Complete
-#&gt; LOO - Site: 55 - Complete
-#&gt; LOO - Site: 56 - Complete
-#&gt; LOO - Site: 57 - Complete
-#&gt; LOO - Site: 58 - Complete
-#&gt; LOO - Site: 59 - Complete
-#&gt; LOO - Site: 60 - Complete
-#&gt; LOO - Site: 61 - Complete
-#&gt; LOO - Site: 62 - Complete
-#&gt; LOO - Site: 63 - Complete
-#&gt; LOO - Site: 64 - Complete
-#&gt; LOO - Site: 65 - Complete
-#&gt; LOO - Site: 66 - Complete
-#&gt; LOO - Site: 67 - Complete
-#&gt; LOO - Site: 68 - Complete
-#&gt; LOO - Site: 69 - Complete
-#&gt; LOO - Site: 70 - Complete</div><div class='output co'>#&gt; 
-#&gt; Cross-validation for Predictive Co-Correspondence Analysis
-#&gt; 
-#&gt; Call: crossval(y = bryophyte, x = vascular)
-#&gt; 
-#&gt; Cross-validatory %fit of bryophyte to vascular:
-#&gt; 
-#&gt;  COCA1   COCA2   COCA3   COCA4   COCA5   COCA6   COCA7   COCA8   COCA9  COCA10  
-#&gt;   17.9    24.8    26.2    26.6    28.3    28.2    27.1    25.5    24.6    24.6  
-#&gt; COCA11  COCA12  COCA13  COCA14  COCA15  COCA16  COCA17  COCA18  COCA19  COCA20  
-#&gt;   24.0    23.1    22.9    21.2    20.4    19.8    21.0    19.5    18.0    17.4  
-#&gt; COCA21  COCA22  COCA23  COCA24  COCA25  COCA26  COCA27  COCA28  COCA29  
-#&gt;   17.2    13.7    13.0    13.5    12.5    11.1     9.7     8.4     8.4  </div><div class='input'><span class='op'>(</span><span class='va'>carp.perm</span> <span class='op'>&lt;-</span> <span class='fu'>permutest</span><span class='op'>(</span><span class='va'>carp.pred</span>, permutations <span class='op'>=</span> <span class='fl'>99</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Permutations for axis: 1 - completed
-#&gt; Permutations for axis: 2 - completed
-#&gt; Permutations for axis: 3 - completed
-#&gt; Permutations for axis: 4 - completed
-#&gt; Permutations for axis: 5 - completed
-#&gt; Permutations for axis: 6 - completed
-#&gt; Permutations for axis: 7 - completed
-#&gt; Permutations for axis: 8 - completed
-#&gt; Permutations for axis: 9 - completed
-#&gt; Permutations for axis: 10 - completed
-#&gt; Permutations for axis: 11 - completed
-#&gt; Permutations for axis: 12 - completed
-#&gt; Permutations for axis: 13 - completed
-#&gt; Permutations for axis: 14 - completed
-#&gt; Permutations for axis: 15 - completed
-#&gt; Permutations for axis: 16 - completed
-#&gt; Permutations for axis: 17 - completed
-#&gt; Permutations for axis: 18 - completed
-#&gt; Permutations for axis: 19 - completed
-#&gt; Permutations for axis: 20 - completed
-#&gt; Permutations for axis: 21 - completed
-#&gt; Permutations for axis: 22 - completed
-#&gt; Permutations for axis: 23 - completed
-#&gt; Permutations for axis: 24 - completed
-#&gt; Permutations for axis: 25 - completed
-#&gt; Permutations for axis: 26 - completed
-#&gt; Permutations for axis: 27 - completed
-#&gt; Permutations for axis: 28 - completed
-#&gt; Permutations for axis: 29 - completed</div><div class='output co'>#&gt; 
-#&gt; Permutation test for predictive co-correspondence analysis:
-#&gt; 
-#&gt; Call: permutest.coca(x = carp.pred, permutations = 99)
-#&gt; 
-#&gt; Permutation test results:
-#&gt; 
-#&gt;           Stat. Inertia     Fit   % fit P-value
-#&gt; COCA 1   0.2617  3.4713  0.7199 20.7388    0.01
-#&gt; COCA 2   0.1385  2.7514  0.3346  9.6394    0.01
-#&gt; COCA 3   0.0687  2.4168  0.1554  4.4755    0.18
-#&gt; COCA 4   0.0669  2.2614  0.1418  4.0854    0.48
-#&gt; COCA 5   0.0776  2.1196  0.1526  4.3953    0.33
-#&gt; COCA 6   0.0676  1.9670  0.1245  3.5872    0.80
-#&gt; COCA 7   0.0671  1.8425  0.1159  3.3385    0.46
-#&gt; COCA 8   0.0586  1.7266  0.0956  2.7536    0.78
-#&gt; COCA 9   0.0508  1.6310  0.0789  2.2718    0.96
-#&gt; COCA 10  0.0521  1.5522  0.0768  2.2136    0.97
-#&gt; COCA 11  0.0576  1.4753  0.0804  2.3153    0.91
-#&gt; COCA 12  0.0631  1.3950  0.0827  2.3835    0.84
-#&gt; COCA 13  0.0692  1.3122  0.0850  2.4481    0.65
-#&gt; COCA 14  0.0546  1.2272  0.0636  1.8311    0.94
-#&gt; COCA 15  0.0556  1.1637  0.0613  1.7656    0.98
-#&gt; COCA 16  0.0559  1.1024  0.0583  1.6802    0.97
-#&gt; COCA 17  0.0679  1.0441  0.0664  1.9125    0.59
-#&gt; COCA 18  0.0641  0.9777  0.0589  1.6970    0.98
-#&gt; COCA 19  0.0562  0.9188  0.0489  1.4084    1.00
-#&gt; COCA 20  0.0445  0.8699  0.0371  1.0686    1.00
-#&gt; COCA 21  0.0468  0.8328  0.0373  1.0732    1.00
-#&gt; COCA 22  0.0464  0.7955  0.0353  1.0162    1.00
-#&gt; COCA 23  0.0559  0.7603  0.0403  1.1595    1.00
-#&gt; COCA 24  0.0703  0.7200  0.0473  1.3629    0.99
-#&gt; COCA 25  0.0456  0.6727  0.0293  0.8450    1.00
-#&gt; COCA 26  0.0656  0.6434  0.0396  1.1408    1.00
-#&gt; COCA 27  0.0599  0.6038  0.0341  0.9835    0.99
-#&gt; COCA 28  0.0630  0.5696  0.0338  0.9725    1.00
-#&gt; COCA 29  0.0620  0.5359  0.0313  0.9007    1.00
-#&gt; </div><div class='input'><span class='co'># }</span>
-
-<span class='co'>## 2 components again, refit</span>
-<span class='va'>carp.pred</span> <span class='op'>&lt;-</span> <span class='fu'>coca</span><span class='op'>(</span>y <span class='op'>=</span> <span class='va'>bryophyte</span>, x <span class='op'>=</span> <span class='va'>vascular</span>,
-                  reg.method <span class='op'>=</span> <span class='st'>"eigen"</span>, n.axes <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>
-<span class='va'>carp.pred</span>
-</div><div class='output co'>#&gt; 
-#&gt; Predictive Co-Correspondence Analysis
-#&gt; 
-#&gt; Call: predcoca.eigen(y = y, x = x, R0 = weights, n.axes = n.axes,
-#&gt; nam.dat = nam.dat)
-#&gt; 
-#&gt; Co-CA Method: eigen
-#&gt; 
-#&gt; 
-#&gt; Eigenvalues:
-#&gt; 
-#&gt; 
-#&gt; COCA 1 COCA 2 
-#&gt;  0.301  0.072 </div><div class='input'><span class='co'>## drawn biplot</span>
-<span class='fu'><a href='https://rdrr.io/r/stats/biplot.html'>biplot</a></span><span class='op'>(</span><span class='va'>carp.pred</span><span class='op'>)</span>
-</div><div class='img'><img src='coca-3.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span><span class='op'>(</span><span class='va'>od</span><span class='op'>)</span>
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='co'># \dontshow{</span></span>
+<span class='r-in'><span class='va'>od</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span><span class='op'>(</span>digits <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span>
+<span class='r-in'><span class='co'># }</span></span>
+<span class='r-in'><span class='co'>## symmetric CoCA</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>beetles</span><span class='op'>)</span></span>
+<span class='r-in'><span class='co'>## log transform the bettle data</span></span>
+<span class='r-in'><span class='va'>beetles</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>beetles</span> <span class='op'>+</span> <span class='fl'>1</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>plants</span><span class='op'>)</span></span>
+<span class='r-in'><span class='co'>## fit the model</span></span>
+<span class='r-in'><span class='va'>bp.sym</span> <span class='op'>&lt;-</span> <span class='fu'>coca</span><span class='op'>(</span><span class='va'>beetles</span> <span class='op'>~</span> <span class='va'>.</span>, data <span class='op'>=</span> <span class='va'>plants</span>, method <span class='op'>=</span> <span class='st'>"symmetric"</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Removed some species that contained no data in: beetles, plants </span>
+<span class='r-in'><span class='va'>bp.sym</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Symmetric Co-Correspondence Analysis</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Call: symcoca(y = y, x = x, n.axes = n.axes, R0 = weights, symmetric =</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> symmetric, nam.dat = nam.dat)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Inertia:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>          Total Explained Residual</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> beetles:  5.70      5.60     0.09</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> plants:   6.16      6.07     0.09</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>bp.sym</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Symmetric Co-Correspondence Analysis</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Call: symcoca(y = y, x = x, n.axes = n.axes, R0 = weights, symmetric =</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> symmetric, nam.dat = nam.dat)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Inertia:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>          Total Explained Residual</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> beetles:  5.70      5.60     0.09</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> plants:   6.16      6.07     0.09</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Eigenvalues:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   COCA 1    COCA 2    COCA 3    COCA 4    COCA 5    COCA 6    COCA 7    COCA 8  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5.91e-01  3.16e-01  2.03e-01  1.04e-01  6.69e-02  6.11e-02  5.26e-02  4.45e-02  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   COCA 9   COCA 10   COCA 11   COCA 12   COCA 13   COCA 14   COCA 15   COCA 16  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3.51e-02  2.31e-02  2.18e-02  1.43e-02  1.34e-02  1.10e-02  1.02e-02  8.39e-03  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  COCA 17   COCA 18   COCA 19   COCA 20   COCA 21   COCA 22   COCA 23   COCA 24  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7.44e-03  4.85e-03  4.15e-03  3.45e-03  2.82e-03  2.42e-03  2.26e-03  1.78e-03  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  COCA 25   COCA 26   COCA 27   COCA 28   COCA 29  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1.30e-03  1.06e-03  8.53e-04  2.93e-04  5.56e-05  </span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/stats/biplot.html'>biplot</a></span><span class='op'>(</span><span class='va'>bp.sym</span><span class='op'>)</span>                          <span class='co'># produces a Benzecri biplot</span></span>
+<span class='r-plt'><img src='coca-1.png' alt='' width='700' height='433' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## extract eigenvalues of the analysis</span></span>
+<span class='r-in'><span class='fu'>eigenvals</span><span class='op'>(</span><span class='va'>bp.sym</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  COCA 1  COCA 2  COCA 3  COCA 4  COCA 5  COCA 6  COCA 7  COCA 8  COCA 9 COCA 10 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  0.5906  0.3159  0.2028  0.1042  0.0669  0.0611  0.0526  0.0445  0.0351  0.0231 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 11 COCA 12 COCA 13 COCA 14 COCA 15 COCA 16 COCA 17 COCA 18 COCA 19 COCA 20 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  0.0218  0.0143  0.0134  0.0110  0.0102  0.0084  0.0074  0.0049  0.0041  0.0034 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 21 COCA 22 COCA 23 COCA 24 COCA 25 COCA 26 COCA 27 COCA 28 COCA 29 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  0.0028  0.0024  0.0023  0.0018  0.0013  0.0011  0.0009  0.0003  0.0001 </span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## correlations between beetle and plant score scores on Co-CA axes</span></span>
+<span class='r-in'><span class='fu'><a href='corAxis.html'>corAxis</a></span><span class='op'>(</span><span class='va'>bp.sym</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  COCA 1  COCA 2  COCA 3  COCA 4  COCA 5  COCA 6  COCA 7  COCA 8  COCA 9 COCA 10 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  0.8795  0.8830  0.8154  0.8490  0.8880  0.7738  0.7264  0.8193  0.7979  0.7758 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 11 COCA 12 COCA 13 COCA 14 COCA 15 COCA 16 COCA 17 COCA 18 COCA 19 COCA 20 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  0.8908  0.8277  0.8916  0.9240  0.7915  0.7046  0.6205  0.7882  0.7451  0.7148 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 21 COCA 22 COCA 23 COCA 24 COCA 25 COCA 26 COCA 27 COCA 28 COCA 29 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  0.9076  0.3968  0.8034  0.6177  0.7608  0.9179  0.5622  0.3823  0.9937 </span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## predictive CoCA using SIMPLS and formula interface</span></span>
+<span class='r-in'><span class='va'>bp.pred</span> <span class='op'>&lt;-</span> <span class='fu'>coca</span><span class='op'>(</span><span class='va'>beetles</span> <span class='op'>~</span> <span class='va'>.</span>, data <span class='op'>=</span> <span class='va'>plants</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Removed some species that contained no data in: beetles, plants </span>
+<span class='r-in'><span class='co'>## should retain only the useful PLS components for a parsimonious model</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># \donttest{</span></span>
+<span class='r-in'><span class='co'>## Leave-one-out crossvalidation - this takes a while</span></span>
+<span class='r-in'><span class='fu'><a href='crossval.html'>crossval</a></span><span class='op'>(</span><span class='va'>beetles</span>, <span class='va'>plants</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> some species contain no data and were removed from data matrix y</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> some species contain no data and were removed from data matrix x</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 1 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 2 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 3 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 4 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 5 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 6 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 7 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 8 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 9 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 10 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 11 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 12 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 13 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 14 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 15 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 16 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 17 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 18 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 19 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 20 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 21 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 22 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 23 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 24 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 25 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 26 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 27 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 28 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 29 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 30 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Cross-validation for Predictive Co-Correspondence Analysis</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Call: crossval(y = beetles, x = plants)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Cross-validatory %fit of beetles to plants:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  COCA1   COCA2   COCA3   COCA4   COCA5   COCA6   COCA7   COCA8   COCA9  COCA10  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5.1     7.8     7.0     6.9     7.7     8.5     8.7     6.8     6.5     6.7  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA11  COCA12  COCA13  COCA14  COCA15  COCA16  COCA17  COCA18  COCA19  COCA20  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5.8     3.5     2.7     2.0     2.5    -0.1    -2.1    -2.9    -2.9    -3.5  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA21  COCA22  COCA23  COCA24  COCA25  COCA26  COCA27  COCA28  COCA29  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   -4.2    -4.3    -4.8    -5.7    -8.1   -24.6   -29.2   -37.9   -41.4  </span>
+<span class='r-in'><span class='co'>## so 2 axes are sufficient</span></span>
+<span class='r-in'><span class='co'>## permutation test to assess significant PLS components - takes a while</span></span>
+<span class='r-in'><span class='va'>bp.perm</span> <span class='op'>&lt;-</span> <span class='fu'>permutest</span><span class='op'>(</span><span class='va'>bp.pred</span>, permutations <span class='op'>=</span> <span class='fl'>99</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 1 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 2 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 3 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 4 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 5 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 6 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 7 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 8 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 9 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 10 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 11 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 12 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 13 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 14 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 15 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 16 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 17 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 18 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 19 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 20 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 21 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 22 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 23 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 24 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 25 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 26 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 27 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 28 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 29 - completed</span>
+<span class='r-in'><span class='va'>bp.perm</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutation test for predictive co-correspondence analysis:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Call: permutest.coca(x = bp.pred, permutations = 99)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutation test results:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>          Stat. Inertia    Fit  % fit P-value</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 1  0.0890  5.6964 0.4658 8.1763    0.02</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 2  0.0761  5.2306 0.3701 6.4973    0.08</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 3  0.0620  4.8605 0.2839 4.9832    0.23</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 4  0.0935  4.5766 0.3912 6.8683    0.11</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 5  0.0569  4.1854 0.2252 3.9530    0.77</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 6  0.0878  3.9602 0.3196 5.6115    0.40</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 7  0.0715  3.6406 0.2430 4.2650    0.63</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 8  0.0627  3.3976 0.2005 3.5195    0.91</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 9  0.0792  3.1971 0.2347 4.1209    0.85</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 10 0.0716  2.9624 0.1978 3.4730    0.83</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 11 0.1044  2.7646 0.2613 4.5880    0.61</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 12 0.0486  2.5032 0.1160 2.0368    1.00</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 13 0.0805  2.3872 0.1778 3.1208    0.98</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 14 0.0717  2.2094 0.1478 2.5938    0.99</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 15 0.0926  2.0617 0.1747 3.0670    0.99</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 16 0.1201  1.8870 0.2023 3.5520    0.89</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 17 0.0606  1.6846 0.0963 1.6903    1.00</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 18 0.1157  1.5883 0.1647 2.8919    0.91</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 19 0.0793  1.4236 0.1045 1.8353    1.00</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 20 0.0921  1.3191 0.1112 1.9524    0.99</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 21 0.0864  1.2078 0.0961 1.6867    1.00</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 22 0.1297  1.1118 0.1276 2.2403    0.94</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 23 0.0793  0.9841 0.0723 1.2692    0.99</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 24 0.1198  0.9118 0.0976 1.7130    0.97</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 25 0.1142  0.8143 0.0835 1.4651    0.88</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 26 0.2439  0.7308 0.1433 2.5157    0.75</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 27 0.2024  0.5875 0.0989 1.7364    0.79</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 28 0.6375  0.4886 0.1902 3.3391    0.51</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 29 1.1924  0.2984 0.1623 2.8489    0.12</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'><span class='co'># }</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## agrees with the Leave-one-out cross-validation</span></span>
+<span class='r-in'><span class='co'>## refit the model with only 2 PLS components</span></span>
+<span class='r-in'><span class='va'>bp.pred</span> <span class='op'>&lt;-</span> <span class='fu'>coca</span><span class='op'>(</span><span class='va'>beetles</span> <span class='op'>~</span> <span class='va'>.</span>, data <span class='op'>=</span> <span class='va'>plants</span>, n.axes <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Removed some species that contained no data in: beetles, plants </span>
+<span class='r-in'><span class='va'>bp.pred</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Predictive Co-Correspondence Analysis</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Call: predcoca.simpls(y = y, x = x, R0 = weights, n.axes = n.axes,</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> nam.dat = nam.dat)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Co-CA Method: simpls</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>              Role Variance</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> plants  Predictor     6.16</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> beetles  Response     5.70</span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>bp.pred</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Predictive Co-Correspondence Analysis</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Call: predcoca.simpls(y = y, x = x, R0 = weights, n.axes = n.axes,</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> nam.dat = nam.dat)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Percentage Variance Explained:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Y-block: variance explained in beetles (response) </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>              Comp 1  Comp 2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Individual:   8.18    6.38 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Cumulative:   8.18   14.56 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> X-block: variance explained in plants (predictor) </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>              Comp 1  Comp 2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Individual:  21.7    16.2  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Cumulative:  21.7    37.9  </span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/stats/biplot.html'>biplot</a></span><span class='op'>(</span><span class='va'>bp.pred</span><span class='op'>)</span>                     <span class='co'># plots correct scores or loadings</span></span>
+<span class='r-plt'><img src='coca-2.png' alt='' width='700' height='433' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## predictive CoCA using Eigen-analysis</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>bryophyte</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>vascular</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>carp.pred</span> <span class='op'>&lt;-</span> <span class='fu'>coca</span><span class='op'>(</span>y <span class='op'>=</span> <span class='va'>bryophyte</span>, x <span class='op'>=</span> <span class='va'>vascular</span>, reg.method <span class='op'>=</span> <span class='st'>"eigen"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>carp.pred</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Predictive Co-Correspondence Analysis</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Call: predcoca.eigen(y = y, x = x, R0 = weights, n.axes = n.axes,</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> nam.dat = nam.dat)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Co-CA Method: eigen</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Eigenvalues:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  COCA 1  COCA 2  COCA 3  COCA 4  COCA 5  COCA 6  COCA 7  COCA 8  COCA 9 COCA 10 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   0.301   0.072   0.022   0.017   0.015   0.010   0.007   0.006   0.005   0.005 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 11 COCA 12 COCA 13 COCA 14 COCA 15 COCA 16 COCA 17 COCA 18 COCA 19 COCA 20 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   0.004   0.004   0.003   0.003   0.003   0.003   0.002   0.002   0.002   0.002 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 21 COCA 22 COCA 23 COCA 24 COCA 25 COCA 26 COCA 27 COCA 28 COCA 29 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   0.001   0.001   0.001   0.001   0.001   0.001   0.001   0.001   0.001 </span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># \donttest{</span></span>
+<span class='r-in'><span class='co'>## determine important PLS components - takes a while</span></span>
+<span class='r-in'><span class='fu'><a href='crossval.html'>crossval</a></span><span class='op'>(</span><span class='va'>bryophyte</span>, <span class='va'>vascular</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 1 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 2 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 3 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 4 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 5 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 6 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 7 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 8 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 9 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 10 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 11 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 12 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 13 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 14 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 15 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 16 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 17 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 18 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 19 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 20 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 21 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 22 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 23 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 24 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 25 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 26 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 27 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 28 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 29 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 30 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 31 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 32 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 33 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 34 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 35 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 36 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 37 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 38 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 39 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 40 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 41 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 42 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 43 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 44 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 45 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 46 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 47 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 48 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 49 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 50 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 51 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 52 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 53 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 54 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 55 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 56 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 57 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 58 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 59 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 60 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 61 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 62 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 63 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 64 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 65 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 66 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 67 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 68 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 69 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LOO - Site: 70 - Complete</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Cross-validation for Predictive Co-Correspondence Analysis</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Call: crossval(y = bryophyte, x = vascular)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Cross-validatory %fit of bryophyte to vascular:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  COCA1   COCA2   COCA3   COCA4   COCA5   COCA6   COCA7   COCA8   COCA9  COCA10  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   17.9    24.8    26.2    26.6    28.3    28.2    27.1    25.5    24.6    24.6  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA11  COCA12  COCA13  COCA14  COCA15  COCA16  COCA17  COCA18  COCA19  COCA20  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   24.0    23.1    22.9    21.2    20.4    19.8    21.0    19.5    18.0    17.4  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA21  COCA22  COCA23  COCA24  COCA25  COCA26  COCA27  COCA28  COCA29  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   17.2    13.7    13.0    13.5    12.5    11.1     9.7     8.4     8.4  </span>
+<span class='r-in'><span class='op'>(</span><span class='va'>carp.perm</span> <span class='op'>&lt;-</span> <span class='fu'>permutest</span><span class='op'>(</span><span class='va'>carp.pred</span>, permutations <span class='op'>=</span> <span class='fl'>99</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 1 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 2 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 3 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 4 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 5 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 6 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 7 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 8 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 9 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 10 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 11 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 12 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 13 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 14 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 15 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 16 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 17 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 18 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 19 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 20 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 21 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 22 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 23 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 24 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 25 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 26 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 27 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 28 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutations for axis: 29 - completed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutation test for predictive co-correspondence analysis:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Call: permutest.coca(x = carp.pred, permutations = 99)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Permutation test results:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>           Stat. Inertia     Fit   % fit P-value</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 1   0.2617  3.4713  0.7199 20.7388    0.01</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 2   0.1385  2.7514  0.3346  9.6394    0.01</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 3   0.0687  2.4168  0.1554  4.4755    0.18</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 4   0.0669  2.2614  0.1418  4.0854    0.48</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 5   0.0776  2.1196  0.1526  4.3953    0.33</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 6   0.0676  1.9670  0.1245  3.5872    0.80</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 7   0.0671  1.8425  0.1159  3.3385    0.46</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 8   0.0586  1.7266  0.0956  2.7536    0.78</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 9   0.0508  1.6310  0.0789  2.2718    0.96</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 10  0.0521  1.5522  0.0768  2.2136    0.97</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 11  0.0576  1.4753  0.0804  2.3153    0.91</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 12  0.0631  1.3950  0.0827  2.3835    0.84</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 13  0.0692  1.3122  0.0850  2.4481    0.65</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 14  0.0546  1.2272  0.0636  1.8311    0.94</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 15  0.0556  1.1637  0.0613  1.7656    0.98</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 16  0.0559  1.1024  0.0583  1.6802    0.97</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 17  0.0679  1.0441  0.0664  1.9125    0.59</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 18  0.0641  0.9777  0.0589  1.6970    0.98</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 19  0.0562  0.9188  0.0489  1.4084    1.00</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 20  0.0445  0.8699  0.0371  1.0686    1.00</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 21  0.0468  0.8328  0.0373  1.0732    1.00</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 22  0.0464  0.7955  0.0353  1.0162    1.00</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 23  0.0559  0.7603  0.0403  1.1595    1.00</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 24  0.0703  0.7200  0.0473  1.3629    0.99</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 25  0.0456  0.6727  0.0293  0.8450    1.00</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 26  0.0656  0.6434  0.0396  1.1408    1.00</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 27  0.0599  0.6038  0.0341  0.9835    0.99</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 28  0.0630  0.5696  0.0338  0.9725    1.00</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 29  0.0620  0.5359  0.0313  0.9007    1.00</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'><span class='co'># }</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## 2 components again, refit</span></span>
+<span class='r-in'><span class='va'>carp.pred</span> <span class='op'>&lt;-</span> <span class='fu'>coca</span><span class='op'>(</span>y <span class='op'>=</span> <span class='va'>bryophyte</span>, x <span class='op'>=</span> <span class='va'>vascular</span>,</span>
+<span class='r-in'>                  reg.method <span class='op'>=</span> <span class='st'>"eigen"</span>, n.axes <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>carp.pred</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Predictive Co-Correspondence Analysis</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Call: predcoca.eigen(y = y, x = x, R0 = weights, n.axes = n.axes,</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> nam.dat = nam.dat)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Co-CA Method: eigen</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Eigenvalues:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> COCA 1 COCA 2 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  0.301  0.072 </span>
+<span class='r-in'><span class='co'>## drawn biplot</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/stats/biplot.html'>biplot</a></span><span class='op'>(</span><span class='va'>carp.pred</span><span class='op'>)</span></span>
+<span class='r-plt'><img src='coca-3.png' alt='' width='700' height='433' /></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span><span class='op'>(</span><span class='va'>od</span><span class='op'>)</span></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -741,11 +768,11 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Gavin L. Simpson.</p>
+  <p><p>Developed by Gavin L. Simpson.</p></p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
 </div>
 
       </footer>

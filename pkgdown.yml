@@ -1,7 +1,7 @@
 pandoc: 2.7.3
-pkgdown: 1.6.1.9000
-pkgdown_sha: d34ce5fc8317e409437c502e8af3c2bca2b894c3
+pkgdown: 1.6.1.9001
+pkgdown_sha: 88b3b3daffb8180f4ea0d94e50dfbc74cd7893ca
 articles:
   cocorresp-intro: cocorresp-intro.html
-last_built: 2021-02-17T18:04Z
+last_built: 2021-05-07T08:30Z
 
