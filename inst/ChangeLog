@@ -1,0 +1,188 @@
+Cocorresp Change Log
+
+Version 0.4-3
+
+    * Suggests: {rmarkdown} is now explicitly a suggested package following
+    changes to the {knitr} dependencies.
+
+Version 0.4-2
+
+	* eigenvals: Methods now return an object of class "eigenvals".
+
+	* print.predcoca: The labels for predictor and response matrices were in
+	the reverse order. The total variances for preditors and responses were
+	correct, but the object names were back-to-front.
+
+	* print.crossval, print.summary.crossval: Tweak to order of response and
+	predictor matrices in a printed message. Suggested by Cajo ter Braak.
+
+Version 0.4-1
+
+	* envfit.coca: Don't test the output from example in `envfit.coca`
+	during `R CMD check`. Issue using ATLAS BLAS reported by Brian
+	Ripley. Issue #11
+
+Version 0.3-0
+
+	* screeplot: a new `screeplot()` for symmetric Co-CA analyses.
+
+	* Vignette: a new HTML vignette is provided as an introduction
+	to the co-correspondence analsysi.
+
+Version 0.2-3
+
+	* Corrected a typo in the package DESCRIPTION.  Reported by
+	Prof. Ripley.
+
+	* Switched to title case in DESCRIPTION Title field.  Reported by
+	Uwe Ligges.
+
+Version 0.2-2
+
+	Development is now done on Github:
+	https://github.com/gavinsimpson/cocorresp
+
+	* envfit.coca: fixed to work with new vegan permutation
+	interface in `envfit.default`. Reported & fixed by Jari Oksanen
+
+	* NAMESPACE: import `factorfit` and `vectorfit` as we use these
+	directly. Reported & fixed by Jari Oksanen
+
+Version 0.2-1
+
+	* envfit.coca: now does weighted correlations in common with
+	`envfit.default` for weighted ordinations.
+
+	* weights: new methods for objects of classes "symcoca" and
+	"predcoca".
+
+	* fitted.symcoca: was not preserving the names of the `X`
+	and `Y` community matrices. The `print` method now squishes
+	very small variations in the results resulting from floating
+	point computations.
+
+	* Tests: The package Examples are now checked against known
+	good runs as part of new package checks in `./tests/`.
+
+Version 0.2-0
+
+	* NAMESPACE: cocorresp now has a namespace and imports from
+	package vegan's namespace. Hence we now depend on vegan version
+	1.17-12 or greater.
+
+	* coca: now returns an object with class "coca" as well as a
+	class from the fitting function ("predcoca" or "symcoca").
+
+	* scores.symcoca: Now always returns a nested list even if only
+	a single type of scores is requested. Individual scores
+	components are named consistently `X` and `Y` rather than `U1`,
+	`U2` etc.
+
+	* scores.predcoca: Now always returns a nested list even if only
+	a single type of scores is requested. Individual scores
+	components are named consistently `X` and `Y` rather than `U1`,
+	`U2` etc.
+
+	* plot.symcoca, plot.predcoca: Plot method changed to plot
+	only one of the	response or predictor results. Now also returns
+	an object of class "ordiplot" which should be able to be used
+	with all of Vegan's ordiplot code.
+
+	* predcoca.eigen, predcoca.simpls, symcoca: These are now non-
+	visible and not exported. Original intention was that the user
+	would not call these functions.
+
+	* envfit.coca: a method for the vegan envfit() function for
+	vector and factor fitting external data to Co-CA fits.
+
+	* eigenvals.coca: a method for the vegan eigenvals() function,
+	which extracts Eigenvalues from Co-CA models.
+
+	* points.coca: a points method for all types of Co-CA fitted by
+	coca().
+
+	* coinertia: this is now a fully user-visible function. The old
+	function is now named fitCoinertia().
+
+Version 0.1-9
+
+	* CITATION: Updated citation file.
+
+	* DESCRIPTION: Updated to latest version - updates were
+	missed from previous version.
+
+Version 0.1-8
+
+	* CITATION: updated citation file to match CRAN requirements.
+
+Version 0.1-7 (opened June 25th 2008)
+
+	* permutest.coca: Correct markup for S3 method now
+	that permutest is generic in vegan.
+
+	* pasteCall: This function was added to vegan as a
+	helper. As cocorresp depends on vegan there is no
+	need for it in cocorresp.
+
+Version 0.1-6
+
+	* Removed Encoding: UTF-8 from package DESCRIPTION file.
+
+	* Fixed a bug in print method for fitted.predcoca
+
+	* Added scaleLin and mcLin to internal functions.
+
+	* Updated Version: field in DESCRIPTION to match new
+	requirements in R 2.6.0.
+
+Version 0.1-5
+
+	* Added 'stats' and 'graphics' to Depends field.
+
+Version 0.1-4
+
+	* Completely rewrote plot.predcoca() and plot.symcoca()
+	from the ground up. These methods are far more
+	flexible and modular than before and most options are
+	user-configurable. Methods default to a 1x2 display
+	showing both biplots, setting 'oneFig = FALSE' overides
+	this behaviour and each biplot is plotted in turn on
+	the active device. New argument 'ask' controls whether
+	the user is prompted to display the next plot or not
+	like plot.lm() does. 'ask' tries to work out whether
+	prompting is required (it is not if the user has already
+	set up a 1x2 or greater plotting region). This feature is
+	based on code in plot.lm().
+
+	Still need to work out the most intuitive way of
+	handlings set of graphical parameters for the
+	predictor and response for total customisation.
+
+	* Minor documentation fix
+
+Version 0.1-3
+
+	* scores.symcoca() incorrectly returned the wrong site
+	scores for matrix X. Reported by S. Juggins.
+
+	* corAxis.symcoca() incorrectly called scores with
+	argument ''extract'' instead of ''display''. Reported
+	by S. Juggins.
+
+	* Added flush.console() calls to crossval() and
+	permutest.coca() to make sure the progress is
+	printed to the console in Mac OSx and Windows. Suggested
+	by S. Juggins.
+
+	* Added argument n.axes to permutest.coca to control the
+	number of axes tested. Defaults to x$n.axes to maintain
+	backwards compatibility. Suggested by S. Juggins.
+
+	* Minor typos in documentation fixed, and removed
+	\dQuote{} from within \code{} chunks as it was not being
+	processed as I expected.
+
+Version 0.1-2
+
+	* First Public Release
+

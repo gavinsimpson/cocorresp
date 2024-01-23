@@ -1,0 +1,15 @@
+if(!exists("meta") || is.null(meta)) meta <- packageDescription("cocorresp")
+
+citHeader("To cite package 'cocorresp' in publications use:")
+
+citEntry(entry="Manual",
+	title ="cocorresp: Co-correspondence analysis ordination methods",
+	author = personList(as.person("G. L. Simpson")),
+	year = 2009,
+	note = paste("R package version", meta$Version),
+   	url = "https://cran.r-project.org/package=cocorresp",
+	textVersion =
+	paste("Simpson, G.L. (2009).", 
+	"cocorresp: Co-correspondence analysis ordination methods. (R package version ",
+	meta$Version, ").", " (http://cran.r-project.org/package=analogue).", sep="")
+)
