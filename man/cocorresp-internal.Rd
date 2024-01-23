@@ -1,6 +1,4 @@
 \name{cocorresp-internal}
-\alias{scaleLin}
-\alias{mcLin}
 \alias{predcoca.simpls}
 \alias{predcoca.eigen}
 \alias{symcoca}
@@ -19,6 +17,7 @@ predcoca.simpls(y, x, R0 = NULL, n.axes = NULL, nam.dat = NULL)
 symcoca(y, x, n.axes = NULL, R0 = NULL,
         symmetric = FALSE, nam.dat = NULL)
 }
+
 \arguments{
 
   \item{y}{a data frame containing the response community data matrix.}
@@ -49,9 +48,6 @@ symcoca(y, x, n.axes = NULL, R0 = NULL,
   
   \item{Y}{ a matrix for which standardised chi-square residuals are to
     be calculated.}
-  
-  \item{eps}{ tolerance - leave as default.}
-
 }
 \details{
   These are not to be called by the user.
