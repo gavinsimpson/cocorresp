@@ -20,7 +20,7 @@ function(Y, R0, eps = 0.000001)
 function(X, R0, eps = 0.000000001)
   {
     ## calculates the weighted autoscaled Xs and the weighted mean
-    ## and standarddeviation of columns of matrix X using row weights W
+    ## and standard deviation of columns of matrix X using row weights W
     ## (a col vector) and multiplies with sqrt of W so that rXs can be
     ## put in an unweighted analysis
     Wn <- R0 / sum(R0);
