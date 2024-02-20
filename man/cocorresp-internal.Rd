@@ -45,9 +45,6 @@ symcoca(y, x, n.axes = NULL, R0 = NULL,
     containing the names of \code{y} and \code{x} respectively. Used to
     label printed output. If missing the names of are deduced from
     \code{y} and \code{x}.}
-  
-  \item{Y}{ a matrix for which standardised chi-square residuals are to
-    be calculated.}
 }
 \details{
   These are not to be called by the user.
