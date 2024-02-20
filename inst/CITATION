@@ -1,15 +1,15 @@
 if(!exists("meta") || is.null(meta)) meta <- packageDescription("cocorresp")
 
-citHeader("To cite package 'cocorresp' in publications use:")
+year <- sub("-.*", "", meta$Date)
+note <- sprintf("R package version %s", meta$Version)
 
-citEntry(entry="Manual",
-	title ="cocorresp: Co-correspondence analysis ordination methods",
-	author = personList(as.person("G. L. Simpson")),
-	year = 2009,
-	note = paste("R package version", meta$Version),
+bibentry(bibtype = "Manual",
+	title = "cocorresp: Co-correspondence analysis ordination methods",
+	author = c(person(given = "Gavin L.", family = "Simpson",
+                      comment = c(ORCID = "0000-0002-9084-8413"))
+			   ),
+	year = year,
+	note = note,
    	url = "https://cran.r-project.org/package=cocorresp",
-	textVersion =
-	paste("Simpson, G.L. (2009).", 
-	"cocorresp: Co-correspondence analysis ordination methods. (R package version ",
-	meta$Version, ").", " (http://cran.r-project.org/package=analogue).", sep="")
+	header = "To cite package 'cocorresp' in publications use:"
 )
