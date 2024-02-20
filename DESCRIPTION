@@ -2,7 +2,7 @@ Package: cocorresp
 Type: Package
 Title: Co-Correspondence Analysis Methods
 Version: 0.4-4
-Date: 2024-01-23
+Date: 2024-02-20
 Depends: vegan (>= 2.5-0), R (>= 3.4.0)
 Imports: stats, graphics, utils, grDevices
 Suggests: testthat, knitr, rmarkdown, pls

@@ -1,5 +1,9 @@
 Cocorresp Change Log
 
+Version 0.4-4
+
+    * Suggests: {pls} is now explicitly a suggested package.
+
 Version 0.4-3
 
     * Suggests: {rmarkdown} is now explicitly a suggested package following
