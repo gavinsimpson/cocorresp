@@ -128,8 +128,8 @@ crossval(beetles, plants)
 }
 
 ## permutation test
-## (Testing the first 2 axes & only 50 perms for speed.)
-bp.perm <- permutest(bp.pred, permutations = 50, n.axes = 2)
+## (Testing the first 2 axes & only 25 perms for speed.)
+bp.perm <- permutest(bp.pred, permutations = 25, n.axes = 2)
 bp.perm
 
 \dontshow{options(od)}
