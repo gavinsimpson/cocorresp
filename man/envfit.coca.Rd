@@ -36,18 +36,18 @@
     specified strata.}
   \item{permutations}{Number of permutations for assessing significance
     of vectors or factors. Set to \code{0} to skip permutations.}
-  \item{\dots}{Arguments passed to \code{\link{vectorfit}} and
-    \code{\link{factorfit}}.}
+  \item{\dots}{Arguments passed to \code{\link[vegan]{vectorfit}} and
+    \code{\link[vegan]{factorfit}}.}
 }
 \details{
-  See \code{\link{envfit}} for details of the method.
+  See \code{\link[vegan]{envfit}} for details of the method.
 }
 \value{
-  Returns an object of class \code{\link{envfit}}. 
+  Returns an object of class \code{\link[vegan]{envfit}}. 
 }
 \author{
   Gavin L. Simpson. The code interfaces with and uses code from
-  \code{\link{envfit}} for the main computations, which was written by
+  \code{\link[vegan]{envfit}} for the main computations, which was written by
   Jari Oksanen.
 }
 % \section{Warning}{
@@ -57,7 +57,7 @@
 %   the correct sets of weights to use.
 % }
 \seealso{
-  \code{\link{coca}} for fitting models. \code{\link{envfit}} for
+  \code{\link{coca}} for fitting models. \code{\link[vegan]{envfit}} for
   details of the generic function and the computations performed.
 }
 \examples{
