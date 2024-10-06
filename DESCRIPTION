@@ -6,9 +6,22 @@ Date: 2024-10-06
 Depends: vegan (>= 2.5-0), R (>= 3.4.0)
 Imports: stats, graphics, utils, grDevices
 Suggests: testthat, knitr, rmarkdown, pls
-Author: Original Matlab routines by C.J.F. ter Braak and A.P. Schaffers. R port by Gavin L. Simpson.
-  Function simpls based on simpls.fit (package pls) by Ron Wehrens and Bjorn-Helge Mevik.
-Maintainer: Gavin L. Simpson <ucfagls@gmail.com>
+Authors@R: c(person(c("Gavin", "L."), "Simpson",
+  email = "ucfagls@gmail.com", role = c("aut", "cre", "trl"),
+  comment = "R port of Matlab routines, plus additional code"),
+  person(c("Cajo", "J.F."), "ter Braak",
+    role = c("aut"),
+    comment = "Original Matlab routines"),
+  person(c("Andre", "P"), "Schaffers",
+    role = c("aut"),
+    comment = "Original Matlab routines"),
+  person("Ron", "Wehrens",
+    role = c("aut"),
+    comment = "For simpls.fit()"),
+  person("Bjorn-Helge", "Mevik",
+    role = c("aut"),
+    comment = "For simpls.fit()")
+  )
 Description: Fits predictive and symmetric co-correspondence analysis (CoCA) models to relate one data matrix to another data matrix. More specifically, CoCA maximises the weighted covariance between the weighted averaged species scores of one community and the weighted averaged species scores of another community. CoCA attempts to find patterns that are common to both communities.
 License: GPL-2
 URL: https://gavinsimpson.github.io/cocorresp/
