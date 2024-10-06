@@ -1,105 +1,37 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>/404.html</loc>
-  </url>
-  <url>
-    <loc>/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>/articles/cocorresp-intro.html</loc>
-  </url>
-  <url>
-    <loc>/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>/authors.html</loc>
-  </url>
-  <url>
-    <loc>/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/beetles.html</loc>
-  </url>
-  <url>
-    <loc>/reference/biplots.html</loc>
-  </url>
-  <url>
-    <loc>/reference/bryophyte.html</loc>
-  </url>
-  <url>
-    <loc>/reference/coca.html</loc>
-  </url>
-  <url>
-    <loc>/reference/cocorresp-internal.html</loc>
-  </url>
-  <url>
-    <loc>/reference/cocorresp-package.html</loc>
-  </url>
-  <url>
-    <loc>/reference/coinertia.html</loc>
-  </url>
-  <url>
-    <loc>/reference/coinertiaI.html</loc>
-  </url>
-  <url>
-    <loc>/reference/corAxis.html</loc>
-  </url>
-  <url>
-    <loc>/reference/crossval.html</loc>
-  </url>
-  <url>
-    <loc>/reference/envfit.coca.html</loc>
-  </url>
-  <url>
-    <loc>/reference/fitCoinertia.html</loc>
-  </url>
-  <url>
-    <loc>/reference/fitted.symcoca.html</loc>
-  </url>
-  <url>
-    <loc>/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/loadings.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mcChi.html</loc>
-  </url>
-  <url>
-    <loc>/reference/permutest.coca.html</loc>
-  </url>
-  <url>
-    <loc>/reference/plot.predcoca.html</loc>
-  </url>
-  <url>
-    <loc>/reference/plot.symcoca.html</loc>
-  </url>
-  <url>
-    <loc>/reference/points.coca.html</loc>
-  </url>
-  <url>
-    <loc>/reference/rescale.html</loc>
-  </url>
-  <url>
-    <loc>/reference/resid.symcoca.html</loc>
-  </url>
-  <url>
-    <loc>/reference/scaleChi.html</loc>
-  </url>
-  <url>
-    <loc>/reference/scores.predcoca.html</loc>
-  </url>
-  <url>
-    <loc>/reference/screeplot.symcoca.html</loc>
-  </url>
-  <url>
-    <loc>/reference/simpls.html</loc>
-  </url>
-  <url>
-    <loc>/reference/summary.predcoca.html</loc>
-  </url>
-  <url>
-    <loc>/reference/weights.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>/404.html</loc></url>
+<url><loc>/LICENSE-text.html</loc></url>
+<url><loc>/articles/cocorresp-intro.html</loc></url>
+<url><loc>/articles/index.html</loc></url>
+<url><loc>/authors.html</loc></url>
+<url><loc>/index.html</loc></url>
+<url><loc>/reference/beetles.html</loc></url>
+<url><loc>/reference/biplots.html</loc></url>
+<url><loc>/reference/bryophyte.html</loc></url>
+<url><loc>/reference/coca.html</loc></url>
+<url><loc>/reference/cocorresp-internal.html</loc></url>
+<url><loc>/reference/cocorresp-package.html</loc></url>
+<url><loc>/reference/coinertia.html</loc></url>
+<url><loc>/reference/coinertiaI.html</loc></url>
+<url><loc>/reference/corAxis.html</loc></url>
+<url><loc>/reference/crossval.html</loc></url>
+<url><loc>/reference/envfit.coca.html</loc></url>
+<url><loc>/reference/fitCoinertia.html</loc></url>
+<url><loc>/reference/fitted.symcoca.html</loc></url>
+<url><loc>/reference/index.html</loc></url>
+<url><loc>/reference/loadings.html</loc></url>
+<url><loc>/reference/mcChi.html</loc></url>
+<url><loc>/reference/permutest.coca.html</loc></url>
+<url><loc>/reference/plot.predcoca.html</loc></url>
+<url><loc>/reference/plot.symcoca.html</loc></url>
+<url><loc>/reference/points.coca.html</loc></url>
+<url><loc>/reference/rescale.html</loc></url>
+<url><loc>/reference/resid.symcoca.html</loc></url>
+<url><loc>/reference/scaleChi.html</loc></url>
+<url><loc>/reference/scores.predcoca.html</loc></url>
+<url><loc>/reference/screeplot.symcoca.html</loc></url>
+<url><loc>/reference/simpls.html</loc></url>
+<url><loc>/reference/summary.predcoca.html</loc></url>
+<url><loc>/reference/weights.html</loc></url>
 </urlset>
+

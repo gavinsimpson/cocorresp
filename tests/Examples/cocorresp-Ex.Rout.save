@@ -1,7 +1,7 @@
 
-R version 4.3.2 (2023-10-31) -- "Eye Holes"
-Copyright (C) 2023 The R Foundation for Statistical Computing
-Platform: x86_64-pc-linux-gnu (64-bit)
+R version 4.4.1 (2024-06-14) -- "Race for Your Life"
+Copyright (C) 2024 The R Foundation for Statistical Computing
+Platform: aarch64-apple-darwin20
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
@@ -24,7 +24,7 @@ Type 'q()' to quit R.
 Loading required package: vegan
 Loading required package: permute
 Loading required package: lattice
-This is vegan 2.6-4
+This is vegan 2.6-8
 > 
 > base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
 > base::assign(".old_wd", base::getwd(), pos = 'CheckExEnv')
@@ -131,6 +131,8 @@ Removed some species that contained no data in: beetles, plants
 > 
 > ## Don't show: 
 > od <- options(digits = 4)
+> mpt <- Sys.getenv("OMP_THREAD_LIMIT", unset = "not_set")
+> Sys.setenv("OMP_THREAD_LIMIT" = 1)
 > ## End(Don't show)
 > ## symmetric CoCA
 > data(beetles)
@@ -288,6 +290,11 @@ COCA 1 COCA 2
 > biplot(carp.pred)
 > ## Don't show: 
 > options(od)
+> if (mpt == "not_set") {
++   Sys.unsetenv("OMP_THREAD_LIMIT")
++ } else {
++   Sys.setenv("OMP_THREAD_LIMIT" = mpt)
++ }
 > ## End(Don't show)
 > 
 > 
@@ -964,7 +971,7 @@ Removed some species that contained no data in: beetles, plants
 > cleanEx()
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  25.503 1.347 5.387 0 0 
+Time elapsed:  1.652 0.061 1.727 0 0 
 > grDevices::dev.off()
 null device 
           1 

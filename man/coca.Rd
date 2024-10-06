@@ -175,6 +175,8 @@ coca(y, \ldots)
 \examples{
 \dontshow{
 od <- options(digits = 4)
+mpt <- Sys.getenv("OMP_THREAD_LIMIT", unset = "not_set")
+Sys.setenv("OMP_THREAD_LIMIT" = 1)
 }
 ## symmetric CoCA
 data(beetles)
@@ -231,7 +233,14 @@ carp.pred <- coca(y = bryophyte, x = vascular,
 carp.pred
 ## drawn biplot
 biplot(carp.pred)
-\dontshow{options(od)}
+\dontshow{
+options(od)
+if (mpt == "not_set") {
+  Sys.unsetenv("OMP_THREAD_LIMIT")
+} else {
+  Sys.setenv("OMP_THREAD_LIMIT" = mpt)
+}
+}
 }
 \keyword{multivariate}
 \keyword{regression}
