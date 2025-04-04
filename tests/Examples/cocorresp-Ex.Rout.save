@@ -931,7 +931,7 @@ Cumulative:  100.000
 > flush(stderr()); flush(stdout())
 > 
 > ### Name: weights.symcoca
-> ### Title: Exctract CoCA model weights
+> ### Title: Extract CoCA model weights
 > ### Aliases: weights.symcoca weights.predcoca
 > ### Keywords: methods utilities
 > 
@@ -970,7 +970,7 @@ Removed some species that contained no data in: beetles, plants
 > cleanEx()
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  1.652 0.048 1.708 0 0 
+Time elapsed:  1.665 0.063 1.739 0 0 
 > grDevices::dev.off()
 null device 
           1 
