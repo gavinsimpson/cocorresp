@@ -1,7 +1,7 @@
 \name{weights.symcoca}
 \alias{weights.symcoca}
 \alias{weights.predcoca}
-\title{Exctract CoCA model weights}
+\title{Extract CoCA model weights}
 \description{
 Extractor function to identify and select appropriate analysis weights
 from Co-correspondence Analysis models.

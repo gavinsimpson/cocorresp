@@ -126,7 +126,7 @@ coca(y, \ldots)
 
   \item{n.axes}{the number of fitted axes}
 
-  \item{Ychi}{a list containing the mean-centered chi-square matrices
+  \item{Ychi}{a list containing the mean-centred chi-square matrices
     for the response (\code{Ychi1}) and the predictor
     (\code{Ychi2}). (Predictive CoCA only.)}
 
@@ -146,7 +146,7 @@ coca(y, \ldots)
     (symmetric CoCA only).}
   
   \item{colsum}{a list with the column sums for the response
-    (\code{csum1})and the preditor (\code{csum2})
+    (\code{csum1})and the predictor (\code{csum2})
     (symmetric CoCA only).}
 }
 \references{
@@ -160,7 +160,7 @@ coca(y, \ldots)
   Original Matlab code by C.J.F. ter Braak and A.P. Schaffers. R
   port by Gavin L. Simpson. Formula method for \code{coca} uses a
   modified version of \code{\link[vegan]{ordiParseFormula}} by Jari
-  Oksanen to handle formulea.
+  Oksanen to handle formulas.
 }
 
 \seealso{

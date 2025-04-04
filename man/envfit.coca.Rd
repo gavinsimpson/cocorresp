@@ -24,11 +24,11 @@
     should be used during fitting of vectors and factors.}
   \item{choices}{numeric; the axes to which vectors and factors are
     fitted.}
-  \item{scaling}{logical; should sacling be applied. See
+  \item{scaling}{logical; should scaling be applied. See
     \code{\link{scores.symcoca}}.}
   \item{w}{weights used in fitting vectors and factors.}
   \item{na.rm}{Remove points with missing values in ordination scores or
-    environmental variables. The operation is casewise; the whole row of
+    environmental variables. The operation is case-wise; the whole row of
     data is removed if there is a missing value and \code{na.rm =
       TRUE}.}
   \item{strata}{An integer vector or factor specifying the strata for

@@ -27,7 +27,7 @@ crossval(y, x, n.axes = min(dim(x), dim(y)) - 1,
     cross-validation for. Default is to perform the CV for all
     extractable axes.}
   \item{centre}{centre \code{y} and \code{x} during analysis? Currently
-    ignored as it may not be neccessary.}
+    ignored as it may not be necessary.}
   \item{verbose}{if \code{TRUE}, the default, print information on the
     progress of the cross-validation procedure.}
   \item{object}{an object of class \code{crossval} as returned by
@@ -72,7 +72,7 @@ crossval(y, x, n.axes = min(dim(x), dim(y)) - 1,
   A.P. Schaffers.}
 
 \note{This function is not a bit out-of-date compared to some of the
-  other functions. It should have a formular interface like
+  other functions. It should have a formula interface like
   \code{\link{coca}} or work on the results from \code{\link{coca}},
   although that will have to be altered to store a copy of the data? }
 
