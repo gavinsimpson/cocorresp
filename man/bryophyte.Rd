@@ -6,7 +6,7 @@
 \description{
   The data consist of observations on 30 bryophyte and 123 vascular
   plant species in 70 spring meadows (sites, samples). The species data
-  are a subset of only those species occuring in five or more meadows.
+  are a subset of only those species occurring in five or more meadows.
 }
 \usage{
 data(bryophyte)

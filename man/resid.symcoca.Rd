@@ -15,7 +15,7 @@
 \value{
   A list containing the residuals for the response and the 
   predictor with the following components:
-  \item{Y}{residuals of the fit to the repsonse.}
+  \item{Y}{residuals of the fit to the response.}
   \item{X}{residuals of the fit to the predictor.}
 }
 \author{Gavin L. Simpson}

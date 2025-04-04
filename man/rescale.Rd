@@ -31,7 +31,7 @@ rescale(object, \dots)
 \value{
   Returns a list with one or both of the following components:
   \item{species}{rescaled species scores for the response}
-  \item{sites}{rescaled species scores for the preditor}
+  \item{sites}{rescaled species scores for the predictor}
 }
 
 \author{Matlab original by C.J.F. ter Braak and A.P. Schaffers. 
