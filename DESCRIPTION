@@ -27,3 +27,4 @@ License: GPL-2
 URL: https://gavinsimpson.github.io/cocorresp/
 BugReports: https://github.com/gavinsimpson/cocorresp/issues
 VignetteBuilder: knitr
+Language: en-GB
