@@ -17,7 +17,13 @@ pkgdown::build_site(preview = FALSE)
 Documentation lives in R comments. Prefer Markdown syntax; retain Rd syntax for
 mathematics and specialized constructs. Commit generated Rd and NAMESPACE.
 Use `air format R tests` for formatting and `lintr::lint_package()` for checks.
-The documentation job detects stale generated files.
+The documentation job detects stale generated files. It uses roxygen2 8.1.0,
+matching `Config/roxygen2/version` in DESCRIPTION. When upgrading roxygen2,
+update its version in the quality workflow and regenerate documentation together.
+Install this version with `pak::pkg_install("roxygen2@8.1.0")` if needed.
+
+Checks run on pull requests and pushes to main/master. Feature-branch pushes
+are checked through their PR to avoid duplicate push and PR runs.
 
 Tests use testthat edition 3. Add numerical tests for algorithms and snapshots
 for presentation behavior. New snapshots must be reviewed, not accepted blindly.
