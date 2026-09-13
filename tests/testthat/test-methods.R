@@ -62,7 +62,7 @@ test_that("print and summary methods dispatch for every supported class", {
     model_fixture("predictive", "eigen"),
     coinertia(d$y, d$x, n.axes = 2),
     crossval(d$y, d$x, n.axes = 2, verbose = FALSE),
-    vegan::permutest(
+    permutest(
       model_fixture("predictive"),
       permutations = 3,
       verbose = FALSE

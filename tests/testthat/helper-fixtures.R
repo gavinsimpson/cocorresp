@@ -21,10 +21,10 @@ check_backend <- function(backend) {
   out <- crossval(d$y, d$x, n.axes = 2, verbose = FALSE, parallel = backend)
   expect_equal(numeric_result(out), numeric_result(serial), tolerance = 1e-8)
   set.seed(23)
-  serial <- vegan::permutest(fit, permutations = 5, verbose = FALSE)
+  serial <- permutest(fit, permutations = 5, verbose = FALSE)
   expected_seed <- get(".Random.seed", envir = .GlobalEnv)
   set.seed(23)
-  out <- vegan::permutest(
+  out <- permutest(
     fit,
     permutations = 5,
     verbose = FALSE,

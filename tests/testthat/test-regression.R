@@ -13,6 +13,6 @@ test_that("established numerical results remain compatible", {
     tolerance = 1e-8
   )
   set.seed(42)
-  perm <- vegan::permutest(pred, permutations = 9, n.axes = 2, verbose = FALSE)
+  perm <- permutest(pred, permutations = 9, n.axes = 2, verbose = FALSE)
   expect_equal(perm[names(ref$permutation)], ref$permutation, tolerance = 1e-8)
 })

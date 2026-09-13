@@ -2,10 +2,10 @@ test_that("permutation designs and serial adapters preserve statistics and RNG",
   d <- community_fixture()
   fit <- model_fixture("predictive", axes = 2)
   withr::local_seed(100)
-  a <- vegan::permutest(fit, permutations = 7, verbose = FALSE)
+  a <- permutest(fit, permutations = 7, verbose = FALSE)
   seed <- .Random.seed
   set.seed(100)
-  b <- vegan::permutest(
+  b <- permutest(
     fit,
     permutations = 7,
     verbose = FALSE,
@@ -15,7 +15,7 @@ test_that("permutation designs and serial adapters preserve statistics and RNG",
   expect_equal(numeric_result(a), numeric_result(b))
   pm <- rbind(1:16, 16:1)
   expect_s3_class(
-    vegan::permutest(fit, permutations = pm, verbose = FALSE),
+    permutest(fit, permutations = pm, verbose = FALSE),
     "permutest.coca"
   )
   expect_identical(.Random.seed, seed)
@@ -25,19 +25,19 @@ test_that("permutation designs and serial adapters preserve statistics and RNG",
     all(rep(1:4, each = 4)[p] == rep(1:4, each = 4))
   })))
   expect_s3_class(
-    vegan::permutest(fit, permutations = control, verbose = FALSE),
+    permutest(fit, permutations = control, verbose = FALSE),
     "permutest.coca"
   )
   expect_warning(
-    vegan::permutest(fit, n.axes = 9, permutations = 2, verbose = FALSE),
+    permutest(fit, n.axes = 9, permutations = 2, verbose = FALSE),
     "reset"
   )
-  expect_error(vegan::permutest(model_fixture(), verbose = FALSE), "predcoca")
+  expect_error(permutest(model_fixture(), verbose = FALSE), "predcoca")
   for (bad in list(0, NA_real_, -1, 1.5)) {
-    expect_error(vegan::permutest(fit, permutations = bad), "positive integer")
+    expect_error(permutest(fit, permutations = bad), "positive integer")
   }
   for (bad in list(matrix(1, 2, 16), matrix(1:15, 1), "bad")) {
-    expect_error(vegan::permutest(fit, permutations = bad), "row permutations")
+    expect_error(permutest(fit, permutations = bad), "row permutations")
   }
   expect_error(make_mapper(0), "positive integer")
   bad_map <- function(X, FUN, ...) rev(lapply(X, FUN, ...))
@@ -142,12 +142,12 @@ test_that("complete blocked enumeration uses the number actually evaluated", {
   expect_true(all(apply(design, 1, function(p) {
     identical(c(1, 1, 2, 2)[p], c(1, 1, 2, 2))
   })))
-  result <- suppressMessages(vegan::permutest(
+  result <- suppressMessages(permutest(
     fit,
     permutations = control,
     verbose = FALSE
   ))
-  explicit <- vegan::permutest(fit, permutations = design, verbose = FALSE)
+  explicit <- permutest(fit, permutations = design, verbose = FALSE)
   expect_equal(numeric_result(result), numeric_result(explicit))
   axis <- permutation_axis(
     fit$Ychi$Ychi1,
