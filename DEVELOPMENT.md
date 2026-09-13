@@ -14,6 +14,12 @@ devtools::check()
 pkgdown::build_site(preview = FALSE)
 ```
 
+The package also compares example output with a reviewed reference. Regenerate
+it with `make examples-reference` (or the historical alias `make move`), review
+the diff, then run `make check` to confirm the comparison. This target uses a
+plain check deliberately: an `--as-cran` check subsequently runs `donttest`
+examples and leaves that different transcript in the check directory.
+
 Documentation lives in R comments. Prefer Markdown syntax; retain Rd syntax for
 mathematics and specialised constructs. Commit generated Rd and NAMESPACE.
 Use `air format R tests` for formatting and `lintr::lint_package()` for checks.

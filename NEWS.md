@@ -5,6 +5,8 @@
 * Require R >= 4.1 and use testthat edition 3.
 * Generate help and NAMESPACE from Markdown roxygen comments.
 * Add numerical regression tests, graphical snapshots, and modern CI/site workflows.
+* Retain a reviewed `R CMD check` example-output reference and provide
+  `make examples-reference` plus the historical `make move` alias to update it.
 * Restrict image snapshot comparisons to a dedicated Ubuntu release-R CI job
   and explicit local opt-in; retain plotting behaviour tests across the full matrix.
 * Export the documented `loadings()` generic, forwarding non-CoCA objects to stats.
