@@ -1,7 +1,7 @@
 # Contributing
 
 Report bugs and request features at https://github.com/gavinsimpson/cocorresp/issues.
-Include a minimal reproducible example, expected and observed behavior, and
+Include a minimal reproducible example, expected and observed behaviour, and
 `sessionInfo()`. Use synthetic or shareable data where possible.
 
 For code changes, open a focused pull request from a feature branch. Follow

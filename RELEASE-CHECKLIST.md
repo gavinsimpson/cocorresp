@@ -25,6 +25,6 @@ Before drafting or submitting, re-read the current JOSS requirements:
 https://joss.readthedocs.io/en/latest/submitting.html and
 https://joss.readthedocs.io/en/latest/paper.html.
 
-The modernization does not establish Matlab equivalence, independent research
+The modernisation does not establish Matlab equivalence, independent research
 impact, authorship agreement, or publication eligibility on its own. The human
 authors decide these matters and conduct editorial/reviewer conversations.

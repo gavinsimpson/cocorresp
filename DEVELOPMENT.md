@@ -15,20 +15,23 @@ pkgdown::build_site(preview = FALSE)
 ```
 
 Documentation lives in R comments. Prefer Markdown syntax; retain Rd syntax for
-mathematics and specialized constructs. Commit generated Rd and NAMESPACE.
+mathematics and specialised constructs. Commit generated Rd and NAMESPACE.
 Use `air format R tests` for formatting and `lintr::lint_package()` for checks.
 The documentation job detects stale generated files. It uses roxygen2 8.1.0,
 matching `Config/roxygen2/version` in DESCRIPTION. When upgrading roxygen2,
 update its version in the quality workflow and regenerate documentation together.
 Install this version with `pak::pkg_install("roxygen2@8.1.0")` if needed.
+Package prose uses British English, as declared by `Language: en-GB`. The quality
+workflow runs `spelling::spell_check_package()`; add only legitimate names and
+technical terms to `inst/WORDLIST`, never alternative US spellings.
 
 Checks run on pull requests and pushes to main/master. Feature-branch pushes
 are checked through their PR to avoid duplicate push and PR runs.
 
 Tests use testthat edition 3. Add numerical tests for algorithms and snapshots
-for presentation behavior. Image comparisons live in `test-visual.R` and run
+for presentation behaviour. Image comparisons live in `test-visual.R` and run
 only in the dedicated Ubuntu 24.04 / release-R `visual-snapshots` CI job.
-All numerical, coordinate, scaling and behavioral plotting assertions still run
+All numerical, coordinate, scaling and behavioural plotting assertions still run
 throughout the OS/R matrix. Local image comparisons are opt-in:
 
 ```r

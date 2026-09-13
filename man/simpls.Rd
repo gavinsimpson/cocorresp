@@ -53,10 +53,10 @@ allow a weighted analysis.
 \details{
 This function is a modified version of
 \link[pls:simpls.fit]{simpls.fit} from package \code{pls}. Four
-modification have been made:
+modifications have been made:
 \enumerate{
-\item The input matrices \code{X} and \code{Y} are not centered,
-\item The scores (\code{tt} in the code) are not centered,
+\item The input matrices \code{X} and \code{Y} are not centred,
+\item The scores (\code{tt} in the code) are not centred,
 \item Added code to calculate the total variance in the \code{Y}
 matrix, \code{Ytotvar}, and the variance in \code{Y} accounted for
 by each PLS axis, \code{Yvar} (See Value below), and

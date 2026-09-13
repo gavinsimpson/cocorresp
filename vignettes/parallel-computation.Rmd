@@ -14,7 +14,7 @@ library(cocorresp)
 
 `crossval()` and `vegan::permutest()` run serially by default. Leave-one-out folds
 are independent; permutation replicates within an axis are independent, but
-successive axes depend on residualization and must run sequentially.
+successive axes depend on residualisation and must run sequentially.
 
 ```{r data}
 data(beetles)
@@ -32,7 +32,7 @@ Pass `parallel = 2L` to create two PSOCK workers, automatically stopped on
 success or error. Pass an existing cluster to reuse workers; cocorresp never
 stops a caller-owned cluster. Avoid nested parallelism and limit BLAS threads
 when each worker performs matrix operations. Small datasets often run faster
-serially because worker startup and serialization have a cost.
+serially because worker startup and serialisation have a cost.
 
 ```{r clusters, eval=FALSE}
 crossval(y, x, n.axes = 2, parallel = 2L)

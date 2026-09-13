@@ -1,12 +1,12 @@
 # AI assistance record
 
 On 2026-09-13, OpenAI Codex (GPT-6) assisted with repository inspection,
-goodpractice analysis, modernization planning, documentation migration, code
+goodpractice analysis, modernisation planning, documentation migration, code
 refactoring, regression-test development, and CI configuration.
 
 Automated validation includes testthat, numerical comparisons, package checks,
 coverage, and backend integration tests. These checks do not constitute human
-review. The maintainer must review the code, mathematical behavior, documentation,
+review. The maintainer must review the code, mathematical behaviour, documentation,
 and test/reference choices before release. Record that review here when completed;
 do not claim it has already occurred.
 

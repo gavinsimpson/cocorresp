@@ -1,12 +1,10 @@
 backends
-behavior
 Benzecri
 Bjorn
 Braak
 Canoco
 CanoDraw
 Carabid
-centered
 Chemometrics
 Chessel
 CMD
@@ -58,7 +56,7 @@ pval
 Raemakers
 RDA
 residualised
-residualization
+residualisation
 rowscores
 rowsum
 roxygen

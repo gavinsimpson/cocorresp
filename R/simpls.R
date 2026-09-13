@@ -4,10 +4,10 @@
 #' allow a weighted analysis.
 #' @details This function is a modified version of
 #' [simpls.fit][pls::simpls.fit] from package `pls`. Four
-#' modification have been made:
+#' modifications have been made:
 #' \enumerate{
-#' \item The input matrices `X` and `Y` are not centered,
-#' \item The scores (`tt` in the code) are not centered,
+#' \item The input matrices `X` and `Y` are not centred,
+#' \item The scores (`tt` in the code) are not centred,
 #' \item Added code to calculate the total variance in the `Y`
 #' matrix, `Ytotvar`, and the variance in `Y` accounted for
 #' by each PLS axis, `Yvar` (See Value below), and
@@ -110,9 +110,9 @@ simpls <-
     nobj <- dim(X)[1] # n in paper
     nvar <- dim(X)[2] # p in paper
     npred <- dim(Y)[2]
-    ## Center variables:
+    ## Centre variables:
     Xmeans <- colMeans(X)
-    ##X <- sweep(X, 2, Xmeans)             # This is not strictly neccessary
+    ##X <- sweep(X, 2, Xmeans)             # This is not strictly necessary
     # (but might be good for accuracy?)!
     Ymeans <- colMeans(Y)
     ##Y <- sweep(Y, 2, Ymeans)
@@ -135,12 +135,12 @@ simpls <-
       tt <- X %*% rr
       ## We don't want to centre the scores when we are doing a
       ## weighted analysis
-      ## tt <- tt - mean(tt)             # center scores
+      ## tt <- tt - mean(tt)             # centre scores
       tnorm <- sqrt(sum(tt * tt))
       if (!is.finite(tnorm) || tnorm == 0) {
         stop("SIMPLS component has zero covariance or exhausted rank")
       }
-      tt <- tt / tnorm # normalize scores
+      tt <- tt / tnorm # normalise scores
       rr <- rr / tnorm # adapt weights accordingly
       pp <- crossprod(X, tt) # X block factor loadings
       qq <- crossprod(Y, tt) # Y block factor loadings
@@ -150,7 +150,7 @@ simpls <-
         vv <- vv - VV %*% crossprod(VV, pp) # vv orth to previous loadings
         uu <- uu - TT %*% crossprod(TT, uu) # uu orth to previous tt values
       }
-      vv <- vv / sqrt(sum(vv * vv)) # normalize orthogonal loadings
+      vv <- vv / sqrt(sum(vv * vv)) # normalise orthogonal loadings
       S <- S - vv %*% crossprod(vv, S) # deflate S
       RR[, a] <- rr
       TT[, a] <- tt

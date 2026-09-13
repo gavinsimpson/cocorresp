@@ -7,7 +7,7 @@
 \alias{print.summary.symcoca}
 \alias{summary.predcoca}
 \alias{summary.symcoca}
-\title{Summarizing Co-CA Model Fits}
+\title{Summarising Co-CA Model Fits}
 \usage{
 \method{print}{summary.predcoca}(x, digits = max(3, getOption("digits") - 3), ...)
 

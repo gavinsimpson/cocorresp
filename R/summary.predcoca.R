@@ -1,4 +1,4 @@
-#' Summarizing Co-CA Model Fits
+#' Summarising Co-CA Model Fits
 #'
 #' `summary` methods for classes `"predcoca"` and
 #' `"symcoca"`. These provide a summary of the main results of a

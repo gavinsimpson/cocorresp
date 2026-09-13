@@ -5,9 +5,9 @@ template:
 reference:
   - title: Fit and evaluate models
     contents: [coca, coinertia, crossval, permutest.coca, envfit.coca]
-  - title: Extract and summarize results
+  - title: Extract and summarise results
     contents: [scores.predcoca, loadings, weights.symcoca, corAxis, rescale, fitted.symcoca, resid.symcoca, summary.predcoca]
-  - title: Visualize models
+  - title: Visualise models
     contents: [biplot.predcoca, plot.predcoca, plot.symcoca, points.coca, screeplot.symcoca]
   - title: Re-exported vegan generics
     contents: [reexports]

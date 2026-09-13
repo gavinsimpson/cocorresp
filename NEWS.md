@@ -6,7 +6,7 @@
 * Generate help and NAMESPACE from Markdown roxygen comments.
 * Add numerical regression tests, graphical snapshots, and modern CI/site workflows.
 * Restrict image snapshot comparisons to a dedicated Ubuntu release-R CI job
-  and explicit local opt-in; retain plotting behavior tests across the full matrix.
+  and explicit local opt-in; retain plotting behaviour tests across the full matrix.
 * Export the documented `loadings()` generic, forwarding non-CoCA objects to stats.
 * Move vegan from Depends to Imports. Attaching cocorresp no longer attaches
   vegan. Re-export its original `scores()`, `eigenvals()`, `permutest()` and
@@ -31,7 +31,7 @@
 
 * Add serial-by-default `parallel` arguments accepting worker counts, caller-owned clusters, or ordered mapping functions.
 * Support PSOCK and mirai clusters plus documented future/futurize adapters.
-* Generate random permutations centrally, preserving legacy integer-count sampling and RNG behavior across backends.
+* Generate random permutations centrally, preserving legacy integer-count sampling and RNG behaviour across backends.
 * Accept restricted permutation controls and explicit permutation matrices.
 * Report progress through messages rather than stdout; `verbose = FALSE` remains silent for progress.
 
@@ -39,4 +39,4 @@
 
 * Share input validation and dispatch between formula/matrix interfaces.
 * Use row/column scaling for chi-square transformations and share plotting machinery.
-* Aggregate LOO errors once and isolate permutation workers and residualization.
+* Aggregate LOO errors once and isolate permutation workers and residualisation.
