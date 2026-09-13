@@ -151,7 +151,7 @@ summary(bp.sym)
 biplot(bp.sym)                          # produces a Benzecri biplot
 
 ## extract eigenvalues of the analysis
-eigenvals(bp.sym)
+vegan::eigenvals(bp.sym)
 
 ## correlations between beetle and plant score scores on Co-CA axes
 corAxis(bp.sym)
@@ -165,7 +165,7 @@ bp.pred <- coca(beetles ~ ., data = plants)
 crossval(beetles, plants)
 ## so 2 axes are sufficient
 ## permutation test to assess significant PLS components - takes a while
-bp.perm <- permutest(bp.pred, permutations = 99)
+bp.perm <- vegan::permutest(bp.pred, permutations = 99)
 bp.perm
 }
 
@@ -185,7 +185,7 @@ carp.pred
 \donttest{
 ## determine important PLS components - takes a while
 crossval(bryophyte, vascular)
-(carp.perm <- permutest(carp.pred, permutations = 99))
+(carp.perm <- vegan::permutest(carp.pred, permutations = 99))
 }
 
 ## 2 components again, refit

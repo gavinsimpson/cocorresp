@@ -53,7 +53,7 @@ Scaling floors include the equality boundary. `scaling = FALSE` now leaves
 symmetric plotting scores unscaled. Loadings extraction and summary printing
 have regression tests. Consult NEWS for all intentional behavior changes.
 
-`centre` in `crossval()` and `R0` in `permutest()` remain compatibility
+`centre` in `crossval()` and `R0` in `vegan::permutest()` remain compatibility
 arguments with no effect. Row weights used by permutation tests are those
 already incorporated in the fitted model. LOO CV retains the established
 weighting convention; redesigning that estimator is outside this release.

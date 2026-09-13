@@ -86,7 +86,7 @@ bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
 data(verges)
 
 ## fit vectors for the environmental data
-sol <- envfit(bp.sym, verges, which = "response")
+sol <- vegan::envfit(bp.sym, verges, which = "response")
 \donttest{sol}
 
 ## plot the response matrix and the fitted vectors

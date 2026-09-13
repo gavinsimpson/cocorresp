@@ -2,8 +2,8 @@ Package: cocorresp
 Type: Package
 Title: Co-Correspondence Analysis Methods
 Version: 0.5.0
-Depends: vegan (>= 2.5-0), R (>= 4.1.0)
-Imports: stats, graphics, utils, grDevices, parallel, permute
+Depends: R (>= 4.1.0)
+Imports: stats, graphics, utils, grDevices, parallel, permute, vegan (>= 2.5-0)
 Suggests: testthat (>= 3.3.2), roxygen2, knitr, rmarkdown, pls,
     withr, vdiffr, future, future.apply, futurize, mirai, future.mirai
 Authors@R: c(person(c("Gavin", "L."), "Simpson",

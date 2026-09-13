@@ -39,7 +39,7 @@ benchmark_parallel <- function() {
                 parallel = backend
               )
             } else {
-              permutest(
+              vegan::permutest(
                 fit,
                 permutations = 49,
                 verbose = FALSE,

@@ -6,7 +6,11 @@
 * Generate help and NAMESPACE from Markdown roxygen comments.
 * Add numerical regression tests, graphical snapshots, and modern CI/site workflows.
 * Export the documented `loadings()` generic, forwarding non-CoCA objects to stats.
-* Retain vegan in Depends to preserve its attachment for existing scripts.
+* Move vegan from Depends to Imports. Attaching cocorresp no longer attaches
+  vegan; use `vegan::scores()`, `vegan::eigenvals()`, `vegan::permutest()` and
+  `vegan::envfit()`, or explicitly attach vegan in existing scripts.
+* Guard each optional parallel-backend test with `skip_if_not_installed()`;
+  test future and futurize independently.
 
 ## Correctness fixes
 

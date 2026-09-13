@@ -12,7 +12,7 @@ knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
 library(cocorresp)
 ```
 
-`crossval()` and `permutest()` run serially by default. Leave-one-out folds
+`crossval()` and `vegan::permutest()` run serially by default. Leave-one-out folds
 are independent; permutation replicates within an axis are independent, but
 successive axes depend on residualization and must run sequentially.
 
@@ -23,7 +23,7 @@ y <- log1p(beetles)
 x <- plants
 fit <- coca(y, x, n.axes = 2, quiet = TRUE)
 set.seed(2026)
-permutest(fit, permutations = 9, verbose = FALSE)
+vegan::permutest(fit, permutations = 9, verbose = FALSE)
 ```
 
 ## Worker ownership
@@ -39,7 +39,7 @@ crossval(y, x, n.axes = 2, parallel = 2L)
 local({
   cl <- parallel::makePSOCKcluster(2)
   on.exit(parallel::stopCluster(cl))
-  permutest(fit, parallel = cl)
+  vegan::permutest(fit, parallel = cl)
 })
 local({
   cl <- mirai::make_cluster(2)
@@ -65,7 +65,7 @@ local({
   old <- future::plan(future::multisession, workers = 2)
   on.exit(future::plan(old))
   crossval(y, x, n.axes = 2, parallel = future_map)
-  permutest(fit, parallel = futurize_map)
+  vegan::permutest(fit, parallel = futurize_map)
 })
 # Alternatively select future.mirai::mirai_multisession in future::plan().
 ```
@@ -91,7 +91,7 @@ control and a count need not produce identical results from the same seed.
 control <- permute::how(nperm = 9, blocks = rep(1:3, each = 10))
 set.seed(2026)
 pm <- permute::shuffleSet(nrow(y), control = control)
-permutest(fit, permutations = pm, verbose = FALSE)
+vegan::permutest(fit, permutations = pm, verbose = FALSE)
 ```
 
 Rows of a permutation matrix must contain each observation index exactly once.
@@ -100,7 +100,7 @@ statistic is included once in the p-value calculation, `(1 + exceedances)/(1 + B
 Small or restrictive designs can yield fewer permutations than requested;
 the actual count is used. Users are responsible for exchangeability assumptions.
 
-For `envfit(..., na.rm = TRUE)`, free blocked designs and strata are reduced
+For `vegan::envfit(..., na.rm = TRUE)`, free blocked designs and strata are reduced
 alongside observations. Explicit matrices must preserve the retained subset.
 For series, grid, or plot designs, construct complete-case data and a matching
 control explicitly; the package errors rather than silently changing the design.

@@ -21,6 +21,10 @@ which \code{.} will be looked up. The \code{method} argument is used
 to select from the two forms of CoCA: \code{method = "predictive"} for
 predictive CoCA (the default), and \code{method = "symmetric"} for
 symmetric CoCA.
+
+vegan is imported but is not attached by \code{library(cocorresp)}. Use
+\code{\link[vegan:scores]{vegan::scores()}}, \code{\link[vegan:eigenvals]{vegan::eigenvals()}}, \code{\link[vegan:permutest]{vegan::permutest()}} and
+\code{\link[vegan:envfit]{vegan::envfit()}} to call its generics, or explicitly attach vegan.
 }
 \seealso{
 Useful links:

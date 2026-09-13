@@ -79,9 +79,15 @@ conditions under which their identities hold.
   messages and contextual error handlers, nonfinite-statistic/fold-error guards,
   a malformed-block guard, and the residual-inertia roundoff warning. Every
   retained function executes; unforced floating-point warning paths remain.
-- **Depends:** vegan remains attached for compatibility with users who call its
-  generics after attaching cocorresp. Moving it to Imports requires a separate
-  deprecation/compatibility decision.
+- **Depends (resolved after the audit):** vegan now appears in Imports.
+  Attaching cocorresp no longer attaches vegan. Examples and guides use
+  namespace-qualified vegan generics; existing scripts should do likewise or
+  explicitly attach vegan. The maintainer approved this compatibility change.
+  The goodpractice totals above describe the audit before this follow-up.
+  Follow-up validation: all 386 expectations pass, full CRAN-style check has
+  no errors/warnings/notes, and a fresh installed-package session confirms
+  vegan stays off the search path while its qualified generics dispatch.
+  Each optional backend test checks all packages it calls before setup.
 - **Line length:** some mathematical roxygen, references and legacy comments
   exceed 80 columns. Air formats executable code; focused lint excludes cosmetic
   line length, naming and formatting rules that conflict with legacy APIs/Air.

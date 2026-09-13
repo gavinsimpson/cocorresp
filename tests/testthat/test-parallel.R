@@ -88,8 +88,9 @@ test_that("mirai clusters implement the same mapping contract", {
   expect_equal(unlist(parallel::parLapply(cl, 1:2, sqrt)), sqrt(1:2))
 })
 
-test_that("future and futurize mapping adapters agree", {
+test_that("future mapping adapters agree", {
   skip_on_cran()
+  skip_if_not_installed("future")
   skip_if_not_installed("future.apply")
   withr::local_seed(42)
   old <- future::plan(future::multisession, workers = 2)
@@ -98,7 +99,15 @@ test_that("future and futurize mapping adapters agree", {
     future.apply::future_lapply(X, FUN, ..., future.seed = FALSE)
   }
   check_backend(adapter)
+})
+
+test_that("futurize mapping adapters agree", {
+  skip_on_cran()
+  skip_if_not_installed("future")
   skip_if_not_installed("futurize")
+  withr::local_seed(42)
+  old <- future::plan(future::multisession, workers = 2)
+  on.exit(future::plan(old), add = TRUE)
   futuristic <- function(X, FUN, ...) {
     futurize::futurize(lapply(X, FUN, ...), seed = FALSE)
   }
@@ -107,6 +116,9 @@ test_that("future and futurize mapping adapters agree", {
 
 test_that("future.mirai can run the future adapter", {
   skip_on_cran()
+  skip_if_not_installed("future")
+  skip_if_not_installed("future.apply")
+  skip_if_not_installed("mirai")
   skip_if_not_installed("future.mirai")
   withr::local_seed(42)
   old <- future::plan(future.mirai::mirai_multisession, workers = 2)

@@ -13,6 +13,10 @@
 #' to select from the two forms of CoCA: `method = "predictive"` for
 #' predictive CoCA (the default), and `method = "symmetric"` for
 #' symmetric CoCA.
+#'
+#' vegan is imported but is not attached by `library(cocorresp)`. Use
+#' [vegan::scores()], [vegan::eigenvals()], [vegan::permutest()] and
+#' [vegan::envfit()] to call its generics, or explicitly attach vegan.
 #' @author Original Matlab routines by C.J.F. ter Braak and A.P. Schaffers. R port
 #' by Gavin L. Simpson. Function simpls based on `simpls.fit` (package
 #' pls) by Ron Wehrens and Bjorn-Helge Mevik.

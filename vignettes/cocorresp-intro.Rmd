@@ -88,5 +88,5 @@ biplot(bp.sym, which = "y2", main = "Plants")
 layout(1)
 ```
 
-Some additional control is afforded by the `plot()` method, but good plots of the fitted Co-CA will often require the use of lower-level functions such as the `points()` and `scores()` methods, as well as using appropriate sets of scores or loadings.
+Some additional control is afforded by the `plot()` method, but good plots of the fitted Co-CA will often require the use of lower-level functions such as the `points()` and `vegan::scores()` methods, as well as using appropriate sets of scores or loadings.
 
