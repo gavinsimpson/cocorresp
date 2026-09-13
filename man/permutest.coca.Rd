@@ -133,7 +133,7 @@ crossval(beetles, plants)
 
 ## permutation test
 ## (Testing the first 2 axes & only 25 perms for speed.)
-bp.perm <- vegan::permutest(bp.pred, permutations = 25, n.axes = 2)
+bp.perm <- permutest(bp.pred, permutations = 25, n.axes = 2)
 bp.perm
 
 \dontshow{options(od); do.call(RNGkind, as.list(old_rng))}

@@ -14,9 +14,10 @@
 #' predictive CoCA (the default), and `method = "symmetric"` for
 #' symmetric CoCA.
 #'
-#' vegan is imported but is not attached by `library(cocorresp)`. Use
-#' [vegan::scores()], [vegan::eigenvals()], [vegan::permutest()] and
-#' [vegan::envfit()] to call its generics, or explicitly attach vegan.
+#' vegan is imported but is not attached by `library(cocorresp)`. Its
+#' [scores()][vegan::scores], [eigenvals()][vegan::eigenvals],
+#' [permutest()][vegan::permutest] and [envfit()][vegan::envfit] generics are
+#' re-exported, so these functions remain available after attaching cocorresp.
 #' @author Original Matlab routines by C.J.F. ter Braak and A.P. Schaffers. R port
 #' by Gavin L. Simpson. Function simpls based on `simpls.fit` (package
 #' pls) by Ron Wehrens and Bjorn-Helge Mevik.
@@ -26,7 +27,7 @@
 #' @rdname cocorresp-package
 #' @aliases cocorresp-package cocorresp
 #' @name cocorresp-package
-#' @importFrom vegan scores pasteCall permutest envfit vectorfit factorfit eigenvals
+#' @importFrom vegan pasteCall vectorfit factorfit
 #' @importFrom stats resid weights complete.cases cor model.frame model.matrix na.fail printCoefmat runif terms screeplot setNames
 #' @importFrom graphics abline plot axis box par plot.new plot.window points text title
 #' @importFrom grDevices xy.coords

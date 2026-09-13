@@ -43,11 +43,11 @@
 #' bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
 #'
 #' ## extract the scores
-#' scr <- vegan::scores(bp.sym)
+#' scr <- scores(bp.sym)
 #'
 #' ## predictive CoCA using SIMPLS and formula interface
 #' bp.pred <- coca(beetles ~ ., data = plants)
-#' scr2 <- vegan::scores(bp.pred)
+#' scr2 <- scores(bp.pred)
 #'
 #' \dontshow{options(od)}
 #' @keywords methods

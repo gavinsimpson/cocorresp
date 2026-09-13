@@ -22,9 +22,10 @@ to select from the two forms of CoCA: \code{method = "predictive"} for
 predictive CoCA (the default), and \code{method = "symmetric"} for
 symmetric CoCA.
 
-vegan is imported but is not attached by \code{library(cocorresp)}. Use
-\code{\link[vegan:scores]{vegan::scores()}}, \code{\link[vegan:eigenvals]{vegan::eigenvals()}}, \code{\link[vegan:permutest]{vegan::permutest()}} and
-\code{\link[vegan:envfit]{vegan::envfit()}} to call its generics, or explicitly attach vegan.
+vegan is imported but is not attached by \code{library(cocorresp)}. Its
+\link[vegan:scores]{scores()}, \link[vegan:eigenvals]{eigenvals()},
+\link[vegan:permutest]{permutest()} and \link[vegan:envfit]{envfit()} generics are
+re-exported, so these functions remain available after attaching cocorresp.
 }
 \seealso{
 Useful links:

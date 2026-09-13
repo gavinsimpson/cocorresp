@@ -9,6 +9,8 @@ reference:
     contents: [scores.predcoca, loadings, weights.symcoca, corAxis, rescale, fitted.symcoca, resid.symcoca, summary.predcoca]
   - title: Visualize models
     contents: [biplot.predcoca, plot.predcoca, plot.symcoca, points.coca, screeplot.symcoca]
+  - title: Re-exported vegan generics
+    contents: [reexports]
   - title: Data
     contents: [beetles, bryophyte]
   - title: Package and algorithms

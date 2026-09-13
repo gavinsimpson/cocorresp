@@ -66,7 +66,7 @@ See \link[vegan:envfit]{envfit} for details of the method.
 
 \%   This function is experimental. The vectors fitted are unweighted
 \%   whereas to be consistent with the \link[vegan:cca]{cca} method of
-\%   \link[vegan:envfit]{envfit} they should be weighted. I just need to work out
+\%   \link{envfit} they should be weighted. I just need to work out
 \%   the correct sets of weights to use.
 \%
 }
@@ -86,7 +86,7 @@ bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
 data(verges)
 
 ## fit vectors for the environmental data
-sol <- vegan::envfit(bp.sym, verges, which = "response")
+sol <- envfit(bp.sym, verges, which = "response")
 \donttest{sol}
 
 ## plot the response matrix and the fitted vectors

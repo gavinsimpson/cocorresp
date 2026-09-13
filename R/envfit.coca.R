@@ -49,7 +49,7 @@
 #' data(verges)
 #'
 #' ## fit vectors for the environmental data
-#' sol <- vegan::envfit(bp.sym, verges, which = "response")
+#' sol <- envfit(bp.sym, verges, which = "response")
 #' \donttest{sol}
 #'
 #' ## plot the response matrix and the fitted vectors
