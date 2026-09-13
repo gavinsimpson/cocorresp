@@ -45,13 +45,8 @@ unless user defined weights are provided via argument
 Internal cocorresp functions.
 }
 \details{
-\code{predcoca.simpls}, \code{predcoca.eigen} and \code{symcoca}
-perform the actual fitting of Co-CA models.
-
-These are not to be called by the user.
-
-\code{predcoca.simpls}, \code{predcoca.eigen} and \code{symcoca}
-perform the actual model fitting but are not meant to be called by the
+\code{predcoca.simpls}, \code{predcoca.eigen} and \code{symcoca} perform the
+actual model fitting but are not meant to be called by the
 user as \code{coca} pre-processes the input data before calling these
 functions.
 }

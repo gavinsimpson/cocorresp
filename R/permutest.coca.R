@@ -15,6 +15,16 @@
 #'
 #' To be precise, this approach does not test the significance of SIMPLS
 #' axes, but those of NIPALS-PLS axes (ter Braak and de Jong 1998).
+#'
+#' `permutations` can also be a [permute::how()] control object or a
+#' numeric matrix whose rows are permutations of `seq_len(nrow(x$Ychi$Ychi1))`.
+#' Matrix rows select residual rows directly and are reused for each axis.
+#' Controls generate a matrix once and use the actual number returned.
+#' Integer counts retain historical sampling and inverse-assignment semantics,
+#' with fresh permutations for each axis. Permutations are generated in the
+#' calling process, so worker count and scheduling do not change the RNG stream.
+#' Replicates run in parallel; dependent axes remain sequential.
+#' `R0` is retained for compatibility and ignored; weights are stored in `x`.
 #' @param x an object of class `"predcoca"`.
 #' @param R0 row weights to use in the analysis. If missing, the
 #' default, these are determined from `x`.
@@ -102,15 +112,6 @@
 #' @rdname permutest.coca
 #' @export
 #' @inheritParams crossval
-#' @details `permutations` can also be a [permute::how()] control object or a
-#' numeric matrix whose rows are permutations of `seq_len(nrow(x$Ychi$Ychi1))`.
-#' Matrix rows select residual rows directly and are reused for each axis.
-#' Controls generate a matrix once and use the actual number returned.
-#' Integer counts retain historical sampling and inverse-assignment semantics,
-#' with fresh permutations for each axis. Permutations are generated in the
-#' calling process, so worker count and scheduling do not change the RNG stream.
-#' Replicates run in parallel; dependent axes remain sequential.
-#' `R0` is retained for compatibility and ignored; weights are stored in `x`.
 permutest.coca <- function(
   x,
   R0 = NULL,

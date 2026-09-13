@@ -1,13 +1,8 @@
 #' Internal cocorresp Functions
 #'
 #' Internal cocorresp functions.
-#'
-#' `predcoca.simpls`, `predcoca.eigen` and `symcoca`
-#' perform the actual fitting of Co-CA models.
-#' @details These are not to be called by the user.
-#'
-#' `predcoca.simpls`, `predcoca.eigen` and `symcoca`
-#' perform the actual model fitting but are not meant to be called by the
+#' @details `predcoca.simpls`, `predcoca.eigen` and `symcoca` perform the
+#' actual model fitting but are not meant to be called by the
 #' user as `coca` pre-processes the input data before calling these
 #' functions.
 #' @param y a data frame containing the response community data matrix.

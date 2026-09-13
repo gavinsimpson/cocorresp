@@ -6,6 +6,10 @@
 #' @details Performs a leave-one-out cross-validation of a predictive
 #' Co-Correspondence Analysis model. It can be slow depending on the
 #' number of columns in the matrices, and of course the number of sites.
+#'
+#' Folds run independently; results are combined in site order.
+#' `varianceExp` and `totalVar` describe the full-data SIMPLS fit. `centre`
+#' is retained for compatibility and currently has no effect.
 #' @param y the response species matrix.
 #' @param x the predictor species matrix.
 #' @param n.axes the number of axes to calculate the leave-one-out
@@ -80,9 +84,6 @@
 #' create a PSOCK cluster, which is stopped on exit. Supplied clusters are never
 #' stopped. Optional future and futurize adapters are described in
 #' `vignette("parallel-computation")`.
-#' @details Folds run independently; results are combined in site order.
-#' `varianceExp` and `totalVar` describe the full-data SIMPLS fit. `centre`
-#' is retained for compatibility and currently has no effect.
 crossval <- function(
   y,
   x,
