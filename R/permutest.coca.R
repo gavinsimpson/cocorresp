@@ -1,3 +1,103 @@
+#' Permutation test for predictive co-correspondence analysis
+#'   models
+#'
+#' A permutation test for predictive co-correspondence analysis models to
+#'   assess the significance of each CoCA ordination axes.
+#' @details An alternative approach to cross-validation (see
+#'   [crossval]) to select the number of axes to retain in a
+#'   predictive co-correspondence analysis is to test the statistical
+#'   significance of each ordination axis using permutation tests.
+#'
+#'   The test statistic used is the *F*-ratio based on the fit of the
+#'   first axis to the response data (ter Braak and Smilauer 2002). The
+#'   second and subsequent axes are tested by treating previous axes as
+#'   co-variables.
+#'
+#'   To be precise, this approach does not test the significance of SIMPLS
+#'   axes, but those of NIPALS-PLS axes (ter Braak and de Jong 1998).
+#' @param x an object of class `"predcoca"`.
+#' @param R0 row weights to use in the analysis. If missing, the
+#'     default, these are determined from `x`.
+#' @param permutations the number of permutations to perform.
+#' @param n.axes The number of axes to test. Defaults to the number of
+#'     axes stated in `x$n.axes`.
+#' @param verbose if `TRUE`, the default, print information on the
+#'     progress of the permutation test procedure.
+#' @param object an object of class `"permutest.coca"`.
+#' @param \ldots arguments to be passed to other methods.
+#' @returns A list with the following components:
+#'   \item{pval }{a vector of *P*-values for each ordination axis.}
+#'   \item{permstat }{a vector of values for the test statistic for each axis.}
+#'   \item{total.inertia }{the total inertia in the response matrix.}
+#'   \item{inertia }{a vector containing the *residualised*
+#'     inertia. This is the total inertia in the response *after*
+#'     removing the inertia explained by all previous axes. For the first
+#'     CoCA axis this is, by definition, the total inertia in the
+#'     response.}
+#'   \item{fitax }{a vector containing the amount of inertia in the
+#'     response matrix explained by each ordination axis.}
+#'   \item{pcent.fit }{a vector containing the fit of each axis to the
+#'     response as a percentage of the total inertia (variance).}
+#'   \item{n.axes }{the number of axes in the ordination.}
+#'   \item{call }{the matched call.}
+#' @references ter Braak, C.J.F. and de Jong, S. (1998) The objective function of
+#'   partial least squares regression. *Journal of Chemometrics*
+#'   **12**, 41--54.
+#'
+#'   ter Braak, C.J.F and Schaffers, A.P. (2004) Co-Correspondence
+#'   Analysis: a new ordination method to relate two community
+#'   compositions. *Ecology* **85(3)**, 834--846.
+#'
+#'   ter Braak, C.J.F. and Smilauer, P. (2002) *Canoco reference manual
+#'     and CanoDraw for Windows user's guide: software for canonical
+#'     community ordination. Version 4.5*. New York: Microcomputer Power.
+#' @author Gavin L. Simpson, based on Matlab code by C.J.F. ter Braak and
+#'   A.P. Schaffers.
+#' @note Argument `R0` is provided for compatibility with the original
+#'   MATLAB code. The R usage paradigm makes this argument redundant in the
+#'   current code and it may be invalid to supply different row weights
+#'   (\eqn{R_0}) as `R0`. This argument will likely be removed in future
+#'   versions.
+#' @seealso [coca], for the model fitting function,
+#'   [crossval], for a leave-one-out cross-validation
+#'   procedure, which is the preferred way to select axes in a predictive
+#'   co-correspondence analysis.
+#' @examples
+#' \dontshow{
+#' suppressWarnings(RNGversion("3.5.0"))
+#' od <- options(digits = 4)
+#' }
+#' ## load some data
+#' data(beetles)
+#' data(plants)
+#'
+#' ## log transform the bettle data
+#' beetles <- log(beetles + 1)
+#' ## predictive CoCA using SIMPLS and formula interface
+#' bp.pred <- coca(beetles ~ ., data = plants)
+#'
+#' ## should retain only the useful PLS components for a parsimonious model
+#' \donttest{
+#' ## Leave-one-out crossvalidation - this takes a while
+#' crossval(beetles, plants)
+#' ## so 2 axes are sufficient
+#' }
+#'
+#' ## permutation test
+#' ## (Testing the first 2 axes & only 25 perms for speed.)
+#' bp.perm <- permutest(bp.pred, permutations = 25, n.axes = 2)
+#' bp.perm
+#'
+#' \dontshow{options(od)}
+#' @keywords multivariate
+#' @section Warning:
+#' This function is **slow**. Beware setting argument
+#'   `permutations` higher than the default. Determine how long it
+#'   takes for the default 99 permutations to complete before going crazy
+#'   and asking for thousands of permutations - you've been warned, have a
+#'   good book to hand.
+#' @rdname permutest.coca
+#' @export
 "permutest.coca" <- function(x, R0 = NULL, permutations = 99,
                              n.axes = x$n.axes, verbose = TRUE, ...) {
     permtest <- function(Y, X1, X0 = NULL, permutations, step) {

@@ -1,3 +1,5 @@
+#' @rdname coca
+#' @export
 `print.predcoca` <- function(x, digits = NULL, ...) {
     if (missing(digits) || is.null(digits)) {
         digits <- max(3, getOption("digits") - 3)

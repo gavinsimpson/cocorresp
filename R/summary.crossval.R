@@ -1,3 +1,5 @@
+#' @rdname crossval
+#' @export
 "summary.crossval" <-
 function(object, axes = c(1:min(6, object$n.axes)), ...)
   {

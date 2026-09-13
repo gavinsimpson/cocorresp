@@ -1,3 +1,5 @@
+#' @rdname crossval
+#' @export
 `print.crossval` <- function(x, digits = min(3, getOption("digits") - 3),
                              ...) {
     names(x$CVfit) <- paste("COCA", seq_len(x$n.axes), sep = "")

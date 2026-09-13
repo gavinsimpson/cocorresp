@@ -1,3 +1,60 @@
+#' Get Species or Site Scores from an Ordination
+#'
+#' Function to access either species or site scores for specified axes in
+#'   co-correspondence analysis ordination methods.
+#' @details Implements a [scores][vegan::scores] method for symmetric
+#'   co-correspondence analysis ordination results.
+#' @param x an ordination result
+#' @param display partial match to access scores for \dQuote{sites}
+#'     \dQuote{species}, \dQuote{loadings} or \dQuote{xmatrix}. The latter
+#'     two are only available for [symcoca].
+#' @param choices numeric; the ordination axes to return.
+#' @param scaling logical; whether scores should be rescaled
+#'     by the quarter root of the eigenvalues using
+#'     [rescale.symcoca].
+#' @param \ldots arguments to be passed to other methods.
+#' @returns A list with one or more components containing matrices of the
+#'   requested scores:
+#'   
+#'   \item{species }{A list with two components, `Y` and `X`,
+#'     containing the species scores for the response matrix `Y` and
+#'     the predictor matrix `X` respectively.}
+#'   \item{sites }{A list with two components, `Y` and `X`,
+#'     containing the site scores for the response matrix `Y` and
+#'     the predictor matrix `X` respectively.}
+#'   \item{loadings }{A list with two components, `Y` and `X`
+#'     containing the loadings for the response and predictor matrix. For
+#'     [symcoca] only.}
+#'   \item{xmatrix }{The X matrix. For [symcoca] only.}
+#' @references ter Braak, C.J.F and Schaffers, A.P. (2004) Co-Correspondence
+#'   Analysis: a new ordination method to relate two community
+#'   compositions. *Ecology* **85(3)**, 834--846
+#' @author Gavin L. Simpson, based on Matlab code by C.J.F. ter Braak and
+#'   A.P. Schaffers.
+#' @seealso [scores][vegan::scores], for further details on the method.
+#' @examples
+#' \dontshow{od <- options(digits = 4)}
+#' ## load some data
+#' data(beetles)
+#' data(plants)
+#'
+#' ## log transform the bettle data
+#' beetles <- log(beetles + 1)
+#'
+#' ## fit the model, a symmetric CoCA
+#' bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
+#'
+#' ## extract the scores
+#' scr <- scores(bp.sym)
+#'
+#' ## predictive CoCA using SIMPLS and formula interface
+#' bp.pred <- coca(beetles ~ ., data = plants)
+#' scr2 <- scores(bp.pred)
+#'
+#' \dontshow{options(od)}
+#' @keywords methods
+#' @rdname scores.predcoca
+#' @export
 `scores.predcoca` <- function(x, choices = c(1,2),
                               display = c("sites", "species"), ...) {
     if (!inherits(x, "predcoca"))

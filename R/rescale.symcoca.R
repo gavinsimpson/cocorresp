@@ -1,3 +1,5 @@
+#' @rdname rescale
+#' @export
 `rescale.symcoca` <- function(object, choices = NULL,
                               display = c("species", "sites"), ...) {
     if (is.null(choices)) {

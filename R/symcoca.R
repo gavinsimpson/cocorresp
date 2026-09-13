@@ -1,3 +1,4 @@
+#' @rdname cocorresp-internal
 `symcoca` <- function(y, x, n.axes = NULL, R0 = NULL, symmetric = FALSE,
                       nam.dat = NULL) {
     ## Y1 is y and Y2 is x - this matters as this is a symmetric coca

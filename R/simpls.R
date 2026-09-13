@@ -1,3 +1,78 @@
+#' Modified version of Sijmen de Jong's SIMPLS
+#'
+#' Fits a PLSR model with the SIMPLS algorithm, modified to
+#'   allow a weighted analysis.
+#' @details This function is a modified version of
+#'   [simpls.fit][pls::simpls.fit] from package `pls`. Four
+#'   modification have been made:
+#'   \enumerate{
+#'     \item The input matrices `X` and `Y` are not centered,
+#'     \item The scores (`tt` in the code) are not centered,
+#'     \item Added code to calculate the total variance in the `Y`
+#'       matrix, `Ytotvar`, and the variance in `Y` accounted for
+#'       by each PLS axis, `Yvar` (See Value below), and
+#'     \item Additional components are returned if argument `stripped`
+#'     is `TRUE`.
+#'   }
+#'
+#'   This function should not be called directly, but through
+#'   the generic function [coca].
+#'
+#'   SIMPLS is much faster than
+#'   the NIPALS algorithm, especially when the number of X variables
+#'   increases, but gives slightly different results in the case of
+#'   multivariate Y. SIMPLS truly maximises the covariance criterion.
+#'   According to de Jong, the standard PLS2 algorithms lie closer to
+#'   ordinary least-squares regression where a precise fit is sought;
+#'   SIMPLS lies closer to PCR with stable  predictions.
+#' @param X a matrix of observations.  `NA`s and `Inf`s are not
+#'     allowed.
+#' @param Y a vector or matrix of responses.  `NA`s and `Inf`s
+#'     are not allowed.
+#' @param ncomp the number of components to be used in the
+#'     modelling.
+#' @param stripped logical.  If `TRUE` the calculations are stripped
+#'     as much as possible for speed; this is meant for use with
+#'     cross-validation or simulations when only the coefficients are
+#'     needed.  Defaults to `FALSE`.
+#' @param ... other arguments.  Currently ignored.
+#' @returns A list containing the following components is returned:
+#'   \item{coefficients}{an array of regression coefficients for 1, ...,
+#'     `ncomp` components.  The dimensions of `coefficients` are
+#'     `c(nvar, npred, ncomp)` with `nvar` the number
+#'     of `X` variables and `npred` the number of variables to be
+#'     predicted in `Y`.}
+#'   \item{scores}{a matrix of scores.}
+#'   \item{loadings}{a matrix of loadings.}
+#'   \item{Yscores}{a matrix of Y-scores.}
+#'   \item{Yloadings}{a matrix of Y-loadings.}
+#'   \item{projection}{the projection matrix used to convert X to scores.}
+#'   \item{Xmeans}{a vector of means of the X variables.}
+#'   \item{Ymeans}{a vector of means of the Y variables.}
+#'   \item{fitted.values}{an array of fitted values.  The dimensions of
+#'     `fitted.values` are `c(nobj, npred, ncomp)` with
+#'     `nobj` the number samples and `npred` the number of
+#'     Y variables.}
+#'   \item{residuals}{an array of regression residuals.  It has the same
+#'     dimensions as `fitted.values`.}
+#'   \item{Xvar}{a vector with the amount of X-variance explained by each
+#'     number of components.}
+#'   \item{Yvar}{a vector with the amount of Y-variance explained by each
+#'     number of components.}
+#'   \item{Xtotvar}{Total variance in `X`.}
+#'   \item{Ytotvar}{Total variance in `Y`.}
+#'
+#'   If `stripped` is `TRUE`, only the components
+#'   `coefficients`, `Xmeans` and `Ymeans`, `Xvar` and
+#'   `Yvar`, and `Xtotvar` and `Ytotvar` are returned.
+#' @references de Jong, S. (1993) SIMPLS: an alternative approach to partial least
+#'   squares regression.  *Chemometrics and Intelligent Laboratory Systems*,
+#'   **18**, 251--263.
+#' @author Based on [simpls.fit][pls::simpls.fit] by Ron Wehrens and
+#'   Bjorn-Helge Mevik, with simple modifications by Gavin L. Simpson.
+#' @seealso [coca]
+#' @keywords multivariate
+#' @rdname simpls
 "simpls" <-
 function(X, Y, ncomp, stripped = FALSE, ...)
 {

@@ -1,3 +1,5 @@
+#' @rdname permutest.coca
+#' @export
 "summary.permutest.coca" <- function(object, ...)
 {
     retval <- list(pval = object$pval, permstat = object$permstat,

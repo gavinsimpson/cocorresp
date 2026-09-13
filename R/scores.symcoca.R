@@ -1,3 +1,5 @@
+#' @rdname scores.predcoca
+#' @export
 `scores.symcoca` <- function(x, choices = c(1, 2),
                              display = c("sites", "species"),
                              scaling = FALSE, ...) {

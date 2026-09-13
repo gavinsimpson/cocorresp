@@ -1,3 +1,44 @@
+#' Add points to a Co-CA plot
+#'
+#' Draws points on the current graphic device based on in
+#'   supplied [coca] model object.
+#' @details The visual appearance of the plotted points can be controlled by
+#'   supplying appropriate graphical parameters via the `...`
+#'   argument. See [par] for details.
+#' @param x an object inheriting from class [coca].
+#' @param display character; one of the stated choices. Indicates which
+#'     scores to use to draw points.
+#' @param which character; one of the stated choices. Indicates which of
+#'     the response or predictor data sets is used to select scores from.
+#' @param choices The Co-CA axes to draw points for.
+#' @param scaling logical; should species scores in a symmetric Co-CA be
+#'     rescaled?
+#' @param select Items to be displayed. This can either be a logical
+#'     vector which is `TRUE` for displayed items or a vector of
+#'     indices of displayed items.
+#' @param ... Arguments passed to other methods
+#' @returns Returns the plotted x and y coordinates as a matrix.
+#' @author Gavin L. Simpson
+#' @seealso [plot] methods; [plot.predcoca] and
+#'   [plot.symcoca].
+#' @examples
+#' ## symmetric CoCA
+#' data(beetles)
+#' data(plants)
+#'      
+#' ## log transform the bettle data
+#' beetles <- log(beetles + 1)
+#'      
+#' ## fit the model
+#' bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
+#'
+#' ## draw a plot of the response scores
+#' plot(bp.sym, type = "none")
+#' points(bp.sym, display = "sites", col = "blue", pch = 16)
+#' points(bp.sym, display = "species", col = "red", pch = 3, cex = 0.8)
+#' @keywords methods
+#' @rdname points.coca
+#' @export
 `points.coca` <- function(x, display = c("sites","species"),
                           which = c("response","predictor"),
                           choices = c(1,2), scaling = FALSE,

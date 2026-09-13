@@ -1,3 +1,5 @@
+#' @rdname summary.predcoca
+#' @export
 `summary.symcoca` <- function(object, ...) {
     inert <- rbind(unlist(object$inertia$total),
                    unlist(object$inertia$residual))

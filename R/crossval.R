@@ -1,3 +1,79 @@
+#' Cross-validation for predictive Co-Correspondence
+#'   Analysis models
+#'
+#' Performs a leave-one-out cross-validation of a predictive
+#'   Co-Correspondence Analysis model.
+#' @details Performs a leave-one-out cross-validation of a predictive
+#'   Co-Correspondence Analysis model. It can be slow depending on the
+#'   number of columns in the matrices, and of course the number of sites.
+#' @param y the response species matrix.
+#' @param x the predictor species matrix.
+#' @param n.axes the number of axes to calculate the leave-one-out
+#'     cross-validation for. Default is to perform the CV for all
+#'     extractable axes.
+#' @param centre centre `y` and `x` during analysis? Currently
+#'     ignored as it may not be necessary.
+#' @param verbose if `TRUE`, the default, print information on the
+#'     progress of the cross-validation procedure.
+#' @param object an object of class `crossval` as returned by
+#'     `crossval`.
+#' @param axes the number of axes to summarise results for.
+#' @param digits the number of digits to print to the R console window.
+#' @param ... further arguments to `print` - currently ignored.
+#' @returns Returns a large list with the following components:
+#'   \item{dimx, dimy }{the dimensions of the input matrices `x` and
+#'     `y` respectively.}
+#'   
+#'   \item{press0 }{the \eqn{press_0} statistic.}
+#'   
+#'   \item{n.axes }{the number of axes tested.}
+#'   
+#'   \item{CVfit }{the cross-validatory fit.}
+#'   
+#'   \item{varianceExp}{list with components `Yblock` and
+#'     `Xblock` containing the variances in the response and the
+#'     predictor respectively, explained by each fitted PLS
+#'     axis.}
+#'  
+#'   \item{totalVar}{list with components `Yblock` and `Xblock`
+#'     containing the total variance in the response and the predictor
+#'     respectively.}
+#'   
+#'   \item{nam.dat}{list with components `namY` and `namX`
+#'     containing the names of the response and the predictor(s)
+#'     respectively.}
+#'   
+#'   \item{call }{the R call used.}
+#' @author Gavin L. Simpson, based on Matlab code by C.J.F. ter Braak and
+#'   A.P. Schaffers.
+#' @note This function is not a bit out-of-date compared to some of the
+#'   other functions. It should have a formula interface like
+#'   [coca] or work on the results from [coca],
+#'   although that will have to be altered to store a copy of the data?
+#' @seealso The model fitting function [coca]
+#' @examples
+#' \dontshow{od <- options(digits = 4)}
+#' ## load the data sets
+#' data(beetles)
+#' data(plants)
+#'
+#' ## log transform the bettle data
+#' beetles <- log(beetles + 1)
+#'
+#' ## predictive CoCA using SIMPLS and formula interface
+#' bp.pred <- coca(beetles ~ ., data = plants)
+#' ## should retain only the useful PLS components for a
+#' ## parsimonious model
+#'
+#' ## Leave-one-out crossvalidation - this takes a while
+#' \dontrun{
+#' crossval(beetles, plants)
+#' }
+#' ## so 2 axes are sufficient
+#' \dontshow{options(od)}
+#' @keywords multivariate
+#' @rdname crossval
+#' @export
 `crossval` <- function(y, x, n.axes = min(dim(x), dim(y)) - 1, centre = TRUE,
                        verbose = TRUE) {
     ## Y1 = X or predictor matrix

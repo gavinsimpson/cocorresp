@@ -1,3 +1,5 @@
+#' @rdname crossval
+#' @export
 "print.summary.crossval" <-
 function(x, digits = max(3, getOption("digits") - 3), ...)
   {

@@ -1,3 +1,5 @@
+#' @rdname permutest.coca
+#' @export
 "print.summary.permutest.coca" <-
 function(x, digits = max(3, getOption("digits") - 3), ...)
   {

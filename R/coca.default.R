@@ -1,3 +1,5 @@
+#' @rdname coca
+#' @export
 "coca.default" <- function(y, x, method = c("predictive", "symmetric"),
                            reg.method = c("simpls", "eigen"),
                            weights = NULL,
@@ -28,6 +30,7 @@
     retval
 }
 
+#' @noRd
 `checkCommunityData` <- function(x) {
     dropped <- FALSE
     if(any(rowSums(x) <= 0 )) {
@@ -41,6 +44,7 @@
     x
 }
 
+#' @noRd
 `msgIfDroppedVars` <- function(x, objNames) {
     dropped <- vector(mode = "list", length = length(x))
     dropped[x] <- objNames

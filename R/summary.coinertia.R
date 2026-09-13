@@ -1,3 +1,5 @@
+#' @rdname fitCoinertia
+#' @export
 "summary.fitCoinertia" <-
 function(object, ...)
   {

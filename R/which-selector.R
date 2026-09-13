@@ -1,6 +1,7 @@
 ## Function that provides a common & consistent interface
 ## to select which community matrix to display/work with
 
+#' @noRd
 `selectWhich` <- function(x) {
     optsY1 <- c("y1", "Y1", "y", "Y", "response")
     optsY2 <- c("y2", "Y2", "x", "X", "predictor")

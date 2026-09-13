@@ -1,3 +1,37 @@
+#' Internal cocorresp Functions
+#'
+#' Internal cocorresp functions.
+#'
+#'   `predcoca.simpls`, `predcoca.eigen` and `symcoca`
+#'   perform the actual fitting of Co-CA models.
+#' @details These are not to be called by the user.
+#'
+#'   `predcoca.simpls`, `predcoca.eigen` and `symcoca`
+#'   perform the actual model fitting but are not meant to be called by the
+#'   user as `coca` pre-processes the input data before calling these
+#'   functions.
+#' @param y a data frame containing the response community data matrix.
+#' @param x a data frame containing the predictor community data matrix.
+#' @param R0 a vector of length `nrow(y)` of user supplied
+#'     weights for \eqn{R_0}. If `weights = NULL` (default) then the
+#'     weights are determined from `y` (default) or `x` and `y`
+#'     (`symmetric = TRUE` only).
+#' @param n.axes the number of CoCA axes to extract. If missing (default)
+#'     the `n.axes` is \eqn{min(ncol(y), ncol(x), nrow(y), nrow(x)) -
+#'       1}.
+#' @param symmetric if `method` is `"symmetric"` then
+#'     `symmetric` determines whether weights for \eqn{R_0} are
+#'     symmetric and taken as the average of the row sums of `x` and
+#'     `y` (`symmetric = TRUE`). If `symmetric = FALSE`
+#'     (default) then the weights \eqn{R_0} are taken as the row sums of `y`
+#'     unless user defined weights are provided via argument
+#'     `weights`. Ignored if `method` is `"predictive"`.
+#' @param nam.dat an optional list with elements `namY` and `namX`
+#'     containing the names of `y` and `x` respectively. Used to
+#'     label printed output. If missing the names of are deduced from
+#'     `y` and `x`.
+#' @keywords internal
+#' @rdname cocorresp-internal
 `predcoca.simpls` <- function(y, x, R0 = NULL, n.axes = NULL,
                               nam.dat = NULL) {
     if(is.null(nam.dat)) {

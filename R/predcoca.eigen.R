@@ -1,3 +1,4 @@
+#' @rdname cocorresp-internal
 "predcoca.eigen" <- function (y, x, R0 = NULL, n.axes = NULL,
                               nam.dat = NULL) {
     ## y is the response matrix

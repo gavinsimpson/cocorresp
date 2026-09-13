@@ -1,3 +1,5 @@
+#' @rdname summary.predcoca
+#' @export
 `print.summary.symcoca` <- function(x, digits = max(3, getOption("digits") - 3), ...) {
     cat("\nSymmetric Co-Correspondence Analysis\n\n")
     writeLines(strwrap(pasteCall(x$call)))

@@ -1,3 +1,5 @@
+#' @rdname coca
+#' @export
 "coca.formula" <- function(formula, data, method = c("predictive", "symmetric"),
                            reg.method = c("simpls", "eigen"), weights = NULL,
                            n.axes = NULL, symmetric = FALSE, quiet = FALSE, ...) {
