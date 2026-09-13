@@ -1,0 +1,106 @@
+---
+title: "Parallel computation and reproducibility"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Parallel computation and reproducibility}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+library(cocorresp)
+```
+
+`crossval()` and `permutest()` run serially by default. Leave-one-out folds
+are independent; permutation replicates within an axis are independent, but
+successive axes depend on residualization and must run sequentially.
+
+```{r data}
+data(beetles)
+data(plants)
+y <- log1p(beetles)
+x <- plants
+fit <- coca(y, x, n.axes = 2, quiet = TRUE)
+set.seed(2026)
+permutest(fit, permutations = 9, verbose = FALSE)
+```
+
+## Worker ownership
+
+Pass `parallel = 2L` to create two PSOCK workers, automatically stopped on
+success or error. Pass an existing cluster to reuse workers; cocorresp never
+stops a caller-owned cluster. Avoid nested parallelism and limit BLAS threads
+when each worker performs matrix operations. Small datasets often run faster
+serially because worker startup and serialization have a cost.
+
+```{r clusters, eval=FALSE}
+crossval(y, x, n.axes = 2, parallel = 2L)
+local({
+  cl <- parallel::makePSOCKcluster(2)
+  on.exit(parallel::stopCluster(cl))
+  permutest(fit, parallel = cl)
+})
+local({
+  cl <- mirai::make_cluster(2)
+  on.exit(mirai::stop_cluster(cl))
+  crossval(y, x, n.axes = 2, parallel = cl)
+})
+```
+
+## Future and futurize adapters
+
+A mapping function must accept `X`, `FUN`, and `...`, and return a list in
+input order. The package checks this contract. Backend packages remain
+optional. Install the backend of your choice separately.
+
+```{r futures, eval=FALSE}
+future_map <- function(X, FUN, ...) {
+  future.apply::future_lapply(X, FUN, ..., future.seed = FALSE)
+}
+futurize_map <- function(X, FUN, ...) {
+  futurize::futurize(lapply(X, FUN, ...), seed = FALSE)
+}
+local({
+  old <- future::plan(future::multisession, workers = 2)
+  on.exit(future::plan(old))
+  crossval(y, x, n.axes = 2, parallel = future_map)
+  permutest(fit, parallel = futurize_map)
+})
+# Alternatively select future.mirai::mirai_multisession in future::plan().
+```
+
+Wrapping `crossval(...)` directly in `futurize()` is not a supported substitute
+for the adapter. cocorresp never selects a future plan or launches mirai daemons
+unless the user supplies an appropriate backend.
+
+## Random numbers and restricted permutations
+
+All permutations are generated in the calling process. Workers perform no
+random draws. For a fixed seed, RNG configuration, and input, changing backend
+or worker count preserves permutation statistics and the resulting RNG state.
+Floating-point results can vary slightly across BLAS implementations.
+
+Integer counts preserve the historical algorithm: a fresh set of permutations
+is sampled for every axis, with residuals assigned into sampled rows. Explicit
+matrices instead select residual rows directly, as in `residuals[p, ]`.
+A control object generates one matrix reused across axes. Consequently, a
+control and a count need not produce identical results from the same seed.
+
+```{r designs}
+control <- permute::how(nperm = 9, blocks = rep(1:3, each = 10))
+set.seed(2026)
+pm <- permute::shuffleSet(nrow(y), control = control)
+permutest(fit, permutations = pm, verbose = FALSE)
+```
+
+Rows of a permutation matrix must contain each observation index exactly once.
+The number of matrix rows determines the number of replicates. The observed
+statistic is included once in the p-value calculation, `(1 + exceedances)/(1 + B)`.
+Small or restrictive designs can yield fewer permutations than requested;
+the actual count is used. Users are responsible for exchangeability assumptions.
+
+For `envfit(..., na.rm = TRUE)`, free blocked designs and strata are reduced
+alongside observations. Explicit matrices must preserve the retained subset.
+For series, grid, or plot designs, construct complete-case data and a matching
+control explicitly; the package errors rather than silently changing the design.

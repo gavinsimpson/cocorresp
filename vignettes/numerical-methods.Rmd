@@ -1,0 +1,67 @@
+---
+title: "Numerical methods and validation"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Numerical methods and validation}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+Co-correspondence analysis relates two community matrices observed at the same
+sites. Rows are matched by position, not sorted by their labels. Inputs must
+be finite, non-negative numeric data with positive row totals. Empty species
+are removed; at least two non-empty species and two sites are required.
+Cross-validation requires at least three sites.
+
+## Algorithms and provenance
+
+The package ports the Matlab routines of Cajo J. F. ter Braak and Andre P.
+Schaffers. The predictive SIMPLS routine derives from the `pls` implementation
+by Ron Wehrens and Bjorn-Helge Mevik, adapted for weighted, uncentred analysis.
+The package retains its GPL-2 licence and original authorship credits.
+
+Symmetric CoCA uses weighted co-inertia decomposition. Predictive CoCA offers
+SIMPLS and the original eigen-based algorithm. These are distinct formulations;
+validation does not assume all output components are interchangeable.
+
+Default symmetric-method weights come from the response matrix. To make the
+weighting symmetric when swapping communities, set `symmetric = TRUE`, or
+supply the same positive row weights to both fits. Axis signs are arbitrary;
+comparisons should use fitted values, eigenvalues, or sign-aligned subspaces.
+
+## Validation
+
+The test suite compares weighted transforms with explicit matrix algebra,
+checks inertia decomposition, and compares SIMPLS coefficients with
+`pls::simpls.fit(..., center = FALSE)`. Fixed small data preserve established
+0.4-6 results for symmetric eigenvalues, SIMPLS fitted values, CV fit, and
+permutation statistics. Their generation seed and provenance are recorded in
+`tests/testthat/fixtures/README.md`.
+
+No original Matlab executable or reference output was available for this
+modernization; Matlab numerical equivalence has not been established.
+
+## Corrected behavior
+
+The eigen branch now computes every requested axis when the response matrix
+is at least as wide as the predictor matrix. Cross-validation supports one
+axis and reports variance from the full-data fit: `Xvar`/`Xtotvar` for the
+predictor and `Yvar`/`Ytotvar` for the response. This fixes row-order-dependent
+variance summaries and incorrect response-block reporting.
+
+Scaling floors include the equality boundary. `scaling = FALSE` now leaves
+symmetric plotting scores unscaled. Loadings extraction and summary printing
+have regression tests. Consult NEWS for all intentional behavior changes.
+
+`centre` in `crossval()` and `R0` in `permutest()` remain compatibility
+arguments with no effect. Row weights used by permutation tests are those
+already incorporated in the fitted model. LOO CV retains the established
+weighting convention; redesigning that estimator is outside this release.
+
+## References
+
+- ter Braak, C. J. F. and Schaffers, A. P. (2004). Co-correspondence analysis:
+  a new ordination method to relate two community compositions. *Ecology*,
+  85, 834–846.
+- ter Braak, C. J. F. and de Jong, S. (1998). The objective function of partial
+  least squares regression. *Journal of Chemometrics*, 12, 41–54.

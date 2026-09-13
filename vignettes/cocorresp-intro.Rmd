@@ -6,7 +6,7 @@ output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Introduction to Co-correspondence Analysis}
   %\VignetteEngine{knitr::rmarkdown}
-  \usepackage[utf8]{inputenc}
+  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r setup, echo = FALSE, results = "hide", message = FALSE, cache = FALSE}
@@ -54,7 +54,7 @@ A symmetric Co-CA is fitted to the beetle and plant data sets as follows
 bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
 ```
 
-Notice that it shouldn't make any difference which of the matrices is specified on the right- or left-hand sides of the formula. The messages printing during fitting are for information; some species contained no data and hence were removed prior to fitting. This data processing step could have been performed ahead of time via
+Swapping communities preserves symmetric weighting only when `symmetric = TRUE` or identical row weights are supplied; the default weights come from the response community. The messages printing during fitting are for information; some species contained no data and hence were removed prior to fitting. This data processing step could have been performed ahead of time via
 
 ```{r data-process, message = TRUE}
 beetles <- beetles[, colSums(beetles) > 0]
