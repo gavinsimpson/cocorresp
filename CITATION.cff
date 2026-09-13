@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "Please cite cocorresp and the CoCA methods used in your research."
+type: software
+title: "cocorresp: Co-Correspondence Analysis Methods"
+authors:
+  - family-names: Simpson
+    given-names: Gavin L.
+    orcid: https://orcid.org/0000-0002-9084-8413
+version: 0.5.0
+license: GPL-2.0-only
+repository-code: https://github.com/gavinsimpson/cocorresp
+url: https://gavinsimpson.github.io/cocorresp/
