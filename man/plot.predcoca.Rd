@@ -43,12 +43,12 @@ points. If \code{type = "text"}, then the row names of the scores
 matrices are plotted. If \code{type = "none"}, then the scores are
 not plotted.}
 
-\item{xlim, }{ylim limits for the x and y axes. If non supplied,
+\item{xlim, ylim}{limits for the x and y axes. If non supplied,
 suitable limits will be determined from the data.}
 
-\item{main, }{sub the main and sub titles for the plot.}
+\item{main, sub}{the main and sub titles for the plot.}
 
-\item{xlab, }{ylab labels for the x and y axes. If non supplied
+\item{xlab, ylab}{labels for the x and y axes. If non supplied
 suitable labels are formed from the result object.}
 
 \item{ann}{logical, if TRUE plots are annotated and not if FALSE,

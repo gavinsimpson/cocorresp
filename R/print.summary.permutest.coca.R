@@ -1,13 +1,10 @@
 #' @rdname permutest.coca
 #' @export
-"print.summary.permutest.coca" <-
-function(x, digits = max(3, getOption("digits") - 3), ...)
-  {
+print.summary.permutest.coca <-
+  function(x, digits = max(3, getOption("digits") - 3), ...) {
     #needs an axes argument for displaying the chi-square residuals
-    ptest.stats <- rbind(x$permstat, x$inertia,
-                         x$fitax, x$pcent.fit, x$pval)
-    rownames(ptest.stats) <- c("Stat.", "Inertia",
-                               "Fit", "% fit", "P-value")
+    ptest.stats <- rbind(x$permstat, x$inertia, x$fitax, x$pcent.fit, x$pval)
+    rownames(ptest.stats) <- c("Stat.", "Inertia", "Fit", "% fit", "P-value")
     colnames(ptest.stats) <- paste("COCA", 1:x$n.axes, sep = " ")
     cat("\nPermutation test for predictive co-correspondence analysis:\n\n")
     writeLines(strwrap(pasteCall(x$call)))
@@ -20,4 +17,3 @@ function(x, digits = max(3, getOption("digits") - 3), ...)
     #print(x$Ychi2)
     invisible(x)
   }
-

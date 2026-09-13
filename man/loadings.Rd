@@ -27,7 +27,8 @@ are one from \code{c("y", "Y", "y1", "response")}; \emph{predictor}
 choices are one from \code{c("x", "X", "y2", "predictor")}.}
 }
 \value{
-A list of data frames or a single data frame depending on other arguments.
+A list of numeric matrices, or a single matrix when one community is selected.
+Selecting a single axis simplifies that matrix to a numeric vector.
 }
 \description{
 Extract CoCA species loadings from fitted objects.

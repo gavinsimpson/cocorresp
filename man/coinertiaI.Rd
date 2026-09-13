@@ -18,19 +18,12 @@ coinertiaI(X, Y, fast = TRUE)
 If \code{fast = TRUE}, a matrix of row scores for matrix
 \code{Y} (see \code{scores} below). If
 \code{fast = FALSE} a list with the following components:
-
-\item{weights }{A list with components \code{X} and
-\code{Y} containing the left and right singular vectors
-respectively of the SVD on the triplets.}
-\item{scores }{A list with components \code{X} and
-\code{Y}, containing the row scores of the
-\code{X} and \code{Y} species matrices. These are
-the result of a matrix multiplication of \code{X} by the
-left singular vectors and \code{Y} by the right singular
-vectors.}
-\item{lambda }{the Eigenvalues of the analysis (the square of the
-singular values from the SVD.}
-\item{call }{the matched function call.}
+\itemize{
+\item \strong{weights}: A list with components \code{X} and \code{Y} containing the left and right singular vectors respectively of the SVD on the triplets.
+\item \strong{scores}: A list with components \code{X} and \code{Y}, containing the row scores of the \code{X} and \code{Y} species matrices. These are the result of a matrix multiplication of \code{X} by the left singular vectors and \code{Y} by the right singular vectors.
+\item \strong{lambda}: the Eigenvalues of the analysis (the square of the singular values from the SVD.
+\item \strong{call}: the matched function call.
+}
 }
 \description{
 Performs a co-inertia of the triplets \eqn{(Q_1,K_1,R_0)} and

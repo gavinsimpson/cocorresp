@@ -9,7 +9,14 @@
 \title{Cross-validation for predictive Co-Correspondence
 Analysis models}
 \usage{
-crossval(y, x, n.axes = min(dim(x), dim(y)) - 1, centre = TRUE, verbose = TRUE)
+crossval(
+  y,
+  x,
+  n.axes = min(dim(x), dim(y)) - 1,
+  centre = TRUE,
+  verbose = TRUE,
+  parallel = 1L
+)
 
 \method{print}{crossval}(x, digits = min(3, getOption("digits") - 3), ...)
 
@@ -32,6 +39,13 @@ ignored as it may not be necessary.}
 \item{verbose}{if \code{TRUE}, the default, print information on the
 progress of the cross-validation procedure.}
 
+\item{parallel}{A positive integer worker count (default \code{1L}, serial), a
+caller-owned \code{\link[parallel:makeCluster]{parallel::makeCluster()}} cluster, or a function with arguments
+\code{X}, \code{FUN}, and \code{...} returning a list in input order. Counts greater than one
+create a PSOCK cluster, which is stopped on exit. Supplied clusters are never
+stopped. Optional future and futurize adapters are described in
+\code{vignette("parallel-computation")}.}
+
 \item{digits}{the number of digits to print to the R console window.}
 
 \item{...}{further arguments to \code{print} - currently ignored.}
@@ -43,29 +57,16 @@ progress of the cross-validation procedure.}
 }
 \value{
 Returns a large list with the following components:
-\item{dimx, dimy }{the dimensions of the input matrices \code{x} and
-\code{y} respectively.}
-
-\item{press0 }{the \eqn{press_0} statistic.}
-
-\item{n.axes }{the number of axes tested.}
-
-\item{CVfit }{the cross-validatory fit.}
-
-\item{varianceExp}{list with components \code{Yblock} and
-\code{Xblock} containing the variances in the response and the
-predictor respectively, explained by each fitted PLS
-axis.}
-
-\item{totalVar}{list with components \code{Yblock} and \code{Xblock}
-containing the total variance in the response and the predictor
-respectively.}
-
-\item{nam.dat}{list with components \code{namY} and \code{namX}
-containing the names of the response and the predictor(s)
-respectively.}
-
-\item{call }{the R call used.}
+\itemize{
+\item \strong{dimx, dimy}: the dimensions of the input matrices \code{x} and \code{y} respectively.
+\item \strong{press0}: the \eqn{press_0} statistic.
+\item \strong{n.axes}: the number of axes tested.
+\item \strong{CVfit}: the cross-validatory fit.
+\item \strong{varianceExp}: list with components \code{Yblock} and \code{Xblock} containing the variances in the response and the predictor respectively, explained by each fitted PLS axis.
+\item \strong{totalVar}: list with components \code{Yblock} and \code{Xblock} containing the total variance in the response and the predictor respectively.
+\item \strong{nam.dat}: list with components \code{namY} and \code{namX} containing the names of the response and the predictor(s) respectively.
+\item \strong{call}: the R call used.
+}
 }
 \description{
 Performs a leave-one-out cross-validation of a predictive
@@ -75,6 +76,10 @@ Co-Correspondence Analysis model.
 Performs a leave-one-out cross-validation of a predictive
 Co-Correspondence Analysis model. It can be slow depending on the
 number of columns in the matrices, and of course the number of sites.
+
+Folds run independently; results are combined in site order.
+\code{varianceExp} and \code{totalVar} describe the full-data SIMPLS fit. \code{centre}
+is retained for compatibility and currently has no effect.
 }
 \note{
 This function is not a bit out-of-date compared to some of the

@@ -25,30 +25,22 @@ needed.  Defaults to \code{FALSE}.}
 }
 \value{
 A list containing the following components is returned:
-\item{coefficients}{an array of regression coefficients for 1, ...,
-\code{ncomp} components.  The dimensions of \code{coefficients} are
-\code{c(nvar, npred, ncomp)} with \code{nvar} the number
-of \code{X} variables and \code{npred} the number of variables to be
-predicted in \code{Y}.}
-\item{scores}{a matrix of scores.}
-\item{loadings}{a matrix of loadings.}
-\item{Yscores}{a matrix of Y-scores.}
-\item{Yloadings}{a matrix of Y-loadings.}
-\item{projection}{the projection matrix used to convert X to scores.}
-\item{Xmeans}{a vector of means of the X variables.}
-\item{Ymeans}{a vector of means of the Y variables.}
-\item{fitted.values}{an array of fitted values.  The dimensions of
-\code{fitted.values} are \code{c(nobj, npred, ncomp)} with
-\code{nobj} the number samples and \code{npred} the number of
-Y variables.}
-\item{residuals}{an array of regression residuals.  It has the same
-dimensions as \code{fitted.values}.}
-\item{Xvar}{a vector with the amount of X-variance explained by each
-number of components.}
-\item{Yvar}{a vector with the amount of Y-variance explained by each
-number of components.}
-\item{Xtotvar}{Total variance in \code{X}.}
-\item{Ytotvar}{Total variance in \code{Y}.}
+\itemize{
+\item \strong{coefficients}: an array of regression coefficients for 1, ..., \code{ncomp} components.  The dimensions of \code{coefficients} are \code{c(nvar, npred, ncomp)} with \code{nvar} the number of \code{X} variables and \code{npred} the number of variables to be predicted in \code{Y}.
+\item \strong{scores}: a matrix of scores.
+\item \strong{loadings}: a matrix of loadings.
+\item \strong{Yscores}: a matrix of Y-scores.
+\item \strong{Yloadings}: a matrix of Y-loadings.
+\item \strong{projection}: the projection matrix used to convert X to scores.
+\item \strong{Xmeans}: a vector of means of the X variables.
+\item \strong{Ymeans}: a vector of means of the Y variables.
+\item \strong{fitted.values}: an array of fitted values.  The dimensions of \code{fitted.values} are \code{c(nobj, npred, ncomp)} with \code{nobj} the number samples and \code{npred} the number of Y variables.
+\item \strong{residuals}: an array of regression residuals.  It has the same dimensions as \code{fitted.values}.
+\item \strong{Xvar}: a vector with the amount of X-variance explained by each number of components.
+\item \strong{Yvar}: a vector with the amount of Y-variance explained by each number of components.
+\item \strong{Xtotvar}: Total variance in \code{X}.
+\item \strong{Ytotvar}: Total variance in \code{Y}.
+}
 
 If \code{stripped} is \code{TRUE}, only the components
 \code{coefficients}, \code{Xmeans} and \code{Ymeans}, \code{Xvar} and

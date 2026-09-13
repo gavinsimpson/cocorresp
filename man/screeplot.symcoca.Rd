@@ -12,10 +12,10 @@ a call to \link{symcoca}.}
 
 \item{type}{the type of points to draw; see \link{points}.}
 
-\item{xlab, }{ylab labels for the x and y axes. If none supplied
+\item{xlab, ylab}{labels for the x and y axes. If none supplied
 suitable labels are formed from the result object.}
 
-\item{\ldots}{other graphical parameters as in 'par' may also be passed as
+\item{...}{other graphical parameters as in 'par' may also be passed as
 arguments.}
 }
 \description{

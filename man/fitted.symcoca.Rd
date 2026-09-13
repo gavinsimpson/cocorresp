@@ -3,33 +3,35 @@
 \name{fitted.symcoca}
 \alias{fitted.symcoca}
 \alias{print.fitted.symcoca}
-\title{Fitted values of a Symmetric Co-Correpsondence analysis model.}
+\title{Fitted values of a Symmetric Co-Correspondence analysis model.}
 \usage{
 \method{fitted}{symcoca}(object, which = c("y1", "y2"), ...)
 
 \method{print}{fitted.symcoca}(x, digits = max(3, getOption("digits") - 3), ...)
 }
 \arguments{
-\item{object}{an object of class \code{"symcoca"}}
+\item{object, x}{an object of class \code{"symcoca"}}
 
 \item{which}{character; should the response or predictor scores be
 plotted. Can be specified in several ways: \emph{response} choices
 are one from \code{c("y", "Y", "y1", "response")}; \emph{predictor}
 choices are one from \code{c("x", "X", "y2", "predictor")}.}
 
-\item{\ldots}{arguments to be passed to other methods.}
+\item{...}{arguments to be passed to other methods.}
+
+\item{digits}{Number of significant digits for printing.}
 }
 \value{
 A list with the following components:
-\item{Y }{the fitted values for the \dQuote{response} matrix.}
-\item{X }{the fitted values for the \dQuote{predictor} matrix.}
-\item{nam.dat }{a vector containing the names of the \dQuote{response}
-and \dQuote{predictor} matrices respectively. Used for printing the
-results.}
+\itemize{
+\item \strong{Y}: the fitted values for the "response" matrix.
+\item \strong{X}: the fitted values for the "predictor" matrix.
+\item \strong{nam.dat}: a vector containing the names of the "response" and "predictor" matrices respectively. Used for printing the results.
+}
 }
 \description{
 Calculates and extracts the fitted values of a Symmetric
-Co-Correpsondence analysis model.
+Co-Correspondence analysis model.
 }
 \note{
 This function needs an update and to allow option to restrict

@@ -2,20 +2,25 @@
 % Please edit documentation in R/resid.symcoca.R
 \name{resid.symcoca}
 \alias{resid.symcoca}
+\alias{residuals.symcoca}
 \title{Extract Model Residuals}
 \usage{
 \method{resid}{symcoca}(object, ...)
+
+\method{residuals}{symcoca}(object, ...)
 }
 \arguments{
 \item{object}{an object of class \code{"symcoca"}.}
 
-\item{\ldots}{arguments to be passed to other methods.}
+\item{...}{arguments to be passed to other methods.}
 }
 \value{
 A list containing the residuals for the response and the
 predictor with the following components:
-\item{Y}{residuals of the fit to the response.}
-\item{X}{residuals of the fit to the predictor.}
+\itemize{
+\item \strong{Y}: residuals of the fit to the response.
+\item \strong{X}: residuals of the fit to the predictor.
+}
 }
 \description{
 Extracts the residuals of the fitted model of a symmetric CoCA

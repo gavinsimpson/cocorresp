@@ -17,11 +17,13 @@ be calculated.}
 \item{eps}{a tolerance.}
 }
 \value{
-\item{Yr }{the matrix of standardised chi-squared residuals of Y.}
+\itemize{
+\item \strong{Yr}: the matrix of standardised chi-squared residuals of Y.
+}
 }
 \description{
 Scales a matrix, Y, to is standardised chi-square residuals \eqn{(o -
-    e) / \sqrt{e}}{(o - e) / sqrt(e)} (given \eqn{K_n} and \eqn{R_0}
+e) / \sqrt{e}}{(o - e) / sqrt(e)} (given \eqn{K_n} and \eqn{R_0}
 metrics derived from an external matrix \eqn{Y_0}) so that further
 analysis can be unweighted.
 }

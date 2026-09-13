@@ -1,8 +1,7 @@
 #' @rdname crossval
 #' @export
-"print.summary.crossval" <-
-function(x, digits = max(3, getOption("digits") - 3), ...)
-  {
+print.summary.crossval <-
+  function(x, digits = max(3, getOption("digits") - 3), ...) {
     ##calculations/manipulations
     names(x$CVfit) <- paste("COCA", seq_len(x$n.axes), sep = " ")
     pcentX <- (x$varianceExp$Xblock / x$totalVar$Xblock) * 100
@@ -14,20 +13,36 @@ function(x, digits = max(3, getOption("digits") - 3), ...)
     ##printing
     cat("\nCross-validation for Predictive Co-Correspondence Analysis\n\n")
     writeLines(strwrap(pasteCall(x$call)))
-    cat(sprintf("\nCross-validatory %%fit of %s to %s:\n\n", x$nam.dat$namY,
-                x$nam.dat$namX))
+    cat(sprintf(
+      "\nCross-validatory %%sit of %s to %s:\n\n",
+      x$nam.dat$namY,
+      x$nam.dat$namX
+    ))
     print(round(x$CVfit, digits), print.gap = 2)
-    cat(sprintf("\nTotal Variance in %s: %f\n", x$nam.dat$namY,
-                format(x$totalVar$Yblock, digits)))
-    cat(sprintf("\nTotal Variance in %s: %f\n", x$nam.dat$namX,
-                format(x$totalVar$Xblock, digits)))
+    cat(sprintf(
+      "\nTotal Variance in %s: %s\n",
+      x$nam.dat$namY,
+      format(x$totalVar$Yblock, digits = digits)
+    ))
+    cat(sprintf(
+      "\nTotal Variance in %s: %s\n",
+      x$nam.dat$namX,
+      format(x$totalVar$Xblock, digits = digits)
+    ))
     cat("\nPercentage Variance Explained:\n")
-    cat("\nY-block: variance explained in", x$nam.dat$namY,
-        "(response) \n", sep = " ")
+    cat(
+      "\nY-block: variance explained in",
+      x$nam.dat$namY,
+      "(response) \n",
+      sep = " "
+    )
     print(round(Yvar.mat, digits), ..., print.gap = 2)
-    cat("\nX-block: variance explained in", x$nam.dat$namX,
-        "(predictor) \n", sep = " ")
+    cat(
+      "\nX-block: variance explained in",
+      x$nam.dat$namX,
+      "(predictor) \n",
+      sep = " "
+    )
     print(round(Xvar.mat, digits), ..., print.gap = 2)
     invisible(x)
   }
-

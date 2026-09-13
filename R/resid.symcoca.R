@@ -1,13 +1,15 @@
 #' Extract Model Residuals
 #'
 #' Extracts the residuals of the fitted model of a symmetric CoCA
-#'   to the response and the predictor.
+#' to the response and the predictor.
 #' @param object an object of class `"symcoca"`.
-#' @param \ldots arguments to be passed to other methods.
-#' @returns A list containing the residuals for the response and the 
-#'   predictor with the following components:
-#'   \item{Y}{residuals of the fit to the response.}
-#'   \item{X}{residuals of the fit to the predictor.}
+#' @param ... arguments to be passed to other methods.
+#' @returns A list containing the residuals for the response and the
+#' predictor with the following components:
+#'
+#' - **Y**: residuals of the fit to the response.
+#'
+#' - **X**: residuals of the fit to the predictor.
 #' @author Gavin L. Simpson
 #' @seealso [symcoca]
 #' @examples
@@ -19,11 +21,14 @@
 #' \dontshow{options(od)}
 #' @keywords multivariate
 #' @rdname resid.symcoca
+#' @name resid.symcoca
 #' @export
-"resid.symcoca" <-
-function(object, ...)
-  {
+resid.symcoca <-
+  function(object, ...) {
     retval <- object$residuals
     retval
   }
 
+#' @rdname resid.symcoca
+#' @export
+residuals.symcoca <- function(object, ...) resid.symcoca(object, ...)

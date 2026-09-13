@@ -43,19 +43,21 @@ for.}
 
 \item{digits}{the number of significant digits to use in printing}
 
-\item{object}{an object of class \code{coinertia}.}
+\item{...}{arguments passed to other functions. Currently ignored.}
 
-\item{\ldots}{arguments passed to other functions. Currently ignored.}
+\item{object, x}{an object of class \code{coinertia}.}
 }
 \value{
 A list with the following components:
-\item{U1 }{column weights of \code{X}.}
-\item{U2 }{column weights of \code{Y}.}
-\item{X1 }{rowscores of \code{X}.}
-\item{X2 }{rowscores of \code{Y}.}
-\item{lambda }{the Eigenvalues (squares of the singular values).}
-\item{n.axes }{number of axes requested.}
-\item{call }{the matched function call.}
+\itemize{
+\item \strong{U1}: column weights of \code{X}.
+\item \strong{U2}: column weights of \code{Y}.
+\item \strong{X1}: rowscores of \code{X}.
+\item \strong{X2}: rowscores of \code{Y}.
+\item \strong{lambda}: the Eigenvalues (squares of the singular values).
+\item \strong{n.axes}: number of axes requested.
+\item \strong{call}: the matched function call.
+}
 }
 \description{
 Performs a co-inertia of the triplets \eqn{(Q_1,K_1,R_0)} and

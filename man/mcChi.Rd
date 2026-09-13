@@ -16,12 +16,14 @@ be calculated.}
 }
 \value{
 A list with the following components:
-\item{Ychi }{the matrix of standardised chi-squared residuals of Y}
-\item{Kn }{the column sums (K) of Y divided by sum(K)}
+\itemize{
+\item \strong{Ychi}: the matrix of standardised chi-squared residuals of Y
+\item \strong{Kn}: the column sums (K) of Y divided by sum(K)
+}
 }
 \description{
 Scales a matrix, Y, to its standardised chi-square residuals \eqn{(o -
-    e) / \sqrt{e}}{(o - e) / sqrt(e)} (if \eqn{R_0 = R}, where R contains the row
+e) / \sqrt{e}}{(o - e) / sqrt(e)} (if \eqn{R_0 = R}, where R contains the row
 sums of matrix Y) so that further analysis can be unweighted
 }
 \details{

@@ -50,10 +50,10 @@ argument. See \link{par} for details.
 ## symmetric CoCA
 data(beetles)
 data(plants)
-     
+
 ## log transform the bettle data
 beetles <- log(beetles + 1)
-     
+
 ## fit the model
 bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
 

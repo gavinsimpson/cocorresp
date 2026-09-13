@@ -3,6 +3,7 @@
 %   R/print.summary.symcoca.R, R/summary.predcoca.R, R/summary.symcoca.R
 \name{print.summary.predcoca}
 \alias{print.summary.predcoca}
+\alias{summary-methods}
 \alias{print.summary.symcoca}
 \alias{summary.predcoca}
 \alias{summary.symcoca}
@@ -17,38 +18,30 @@
 \method{summary}{symcoca}(object, ...)
 }
 \arguments{
-\item{object}{an object of class \code{"predcoca"} or
+\item{digits}{Number of significant digits for printing.}
+
+\item{...}{arguments to be passed to other methods.}
+
+\item{object, x}{an object of class \code{"predcoca"} or
 \code{"symcoca"}. Generally the result of a call to
 \link{coca}.}
 
 \item{axes}{numeric; how many axes to summarise? The default is to
 display 6 axes or all available axes, whichever is the smaller.}
-
-\item{\ldots}{arguments to be passed to other methods.}
 }
 \value{
 A list with the some of the following components:
-\item{cocaScores}{The site and/or species scores for the axes requested.}
-\item{call}{The call used to fit the model.}
-\item{lambda}{The eigenvalues for the axes requested. Not for
-\link{predcoca.simpls}.}
-\item{namY, namX}{the names of the response and predictor either
-supplied by the user or derived from the original call.}
-\item{loadings}{a list with two components \code{loadings1} and
-\code{loadings2}, which refer to the response and the predictor
-matrices respectively. (Only for predictive CoCA models.)}
-\item{varianceExp}{a list with components \code{Yblock} and
-\code{Xblock} containing the amount of variance explained on each
-CoCA axis in the response and the predictor respectively. (Only for
-predictive CoCA models.)}
-\item{totalVar}{a list with components \code{Yblock} and \code{Xblock}
-containing the total variance in the response and the predictor data
-sets respectively}
-\item{inertia}{a list with components \code{total} and \code{residual}
-containing the total and residual inertia (variance) in the response
-and the predictor matrices of a symmetric CoCA model. (Only for
-symmetric CoCA models.)}
-\item{scaling}{the scaling used/requested. (Only for symmetric CoCA models.)}
+\itemize{
+\item \strong{cocaScores}: The site and/or species scores for the axes requested.
+\item \strong{call}: The call used to fit the model.
+\item \strong{lambda}: The eigenvalues for the axes requested. Not for \link{predcoca.simpls}.
+\item \strong{namY, namX}: the names of the response and predictor either supplied by the user or derived from the original call.
+\item \strong{loadings}: a list with two components \code{loadings1} and \code{loadings2}, which refer to the response and the predictor matrices respectively. (Only for predictive CoCA models.)
+\item \strong{varianceExp}: a list with components \code{Yblock} and \code{Xblock} containing the amount of variance explained on each CoCA axis in the response and the predictor respectively. (Only for predictive CoCA models.)
+\item \strong{totalVar}: a list with components \code{Yblock} and \code{Xblock} containing the total variance in the response and the predictor data sets respectively
+\item \strong{inertia}: a list with components \code{total} and \code{residual} containing the total and residual inertia (variance) in the response and the predictor matrices of a symmetric CoCA model. (Only for symmetric CoCA models.)
+\item \strong{scaling}: the scaling used/requested. (Only for symmetric CoCA models.)
+}
 }
 \description{
 \code{summary} methods for classes \code{"predcoca"} and

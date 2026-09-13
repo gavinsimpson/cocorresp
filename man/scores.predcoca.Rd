@@ -2,6 +2,7 @@
 % Please edit documentation in R/scores.predcoca.R, R/scores.symcoca.R
 \name{scores.predcoca}
 \alias{scores.predcoca}
+\alias{scores-methods}
 \alias{scores.symcoca}
 \title{Get Species or Site Scores from an Ordination}
 \usage{
@@ -20,30 +21,25 @@
 
 \item{choices}{numeric; the ordination axes to return.}
 
-\item{display}{partial match to access scores for \dQuote{sites}
-\dQuote{species}, \dQuote{loadings} or \dQuote{xmatrix}. The latter
+\item{display}{partial match to access scores for "sites"
+"species", "loadings" or "xmatrix". The latter
 two are only available for \link{symcoca}.}
+
+\item{...}{arguments to be passed to other methods.}
 
 \item{scaling}{logical; whether scores should be rescaled
 by the quarter root of the eigenvalues using
 \link{rescale.symcoca}.}
-
-\item{\ldots}{arguments to be passed to other methods.}
 }
 \value{
 A list with one or more components containing matrices of the
 requested scores:
-
-\item{species }{A list with two components, \code{Y} and \code{X},
-containing the species scores for the response matrix \code{Y} and
-the predictor matrix \code{X} respectively.}
-\item{sites }{A list with two components, \code{Y} and \code{X},
-containing the site scores for the response matrix \code{Y} and
-the predictor matrix \code{X} respectively.}
-\item{loadings }{A list with two components, \code{Y} and \code{X}
-containing the loadings for the response and predictor matrix. For
-\link{symcoca} only.}
-\item{xmatrix }{The X matrix. For \link{symcoca} only.}
+\itemize{
+\item \strong{species}: A list with two components, \code{Y} and \code{X}, containing the species scores for the response matrix \code{Y} and the predictor matrix \code{X} respectively.
+\item \strong{sites}: A list with two components, \code{Y} and \code{X}, containing the site scores for the response matrix \code{Y} and the predictor matrix \code{X} respectively.
+\item \strong{loadings}: A list with two components, \code{Y} and \code{X} containing the loadings for the response and predictor matrix. For \link{symcoca} only.
+\item \strong{xmatrix}: The X matrix. For \link{symcoca} only.
+}
 }
 \description{
 Function to access either species or site scores for specified axes in

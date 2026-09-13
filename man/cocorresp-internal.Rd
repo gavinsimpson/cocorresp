@@ -3,6 +3,7 @@
 %   R/symcoca.R
 \name{predcoca.eigen}
 \alias{predcoca.eigen}
+\alias{cocorresp-internal}
 \alias{predcoca.simpls}
 \alias{symcoca}
 \title{Internal cocorresp Functions}
@@ -25,7 +26,7 @@ weights are determined from \code{y} (default) or \code{x} and \code{y}
 
 \item{n.axes}{the number of CoCA axes to extract. If missing (default)
 the \code{n.axes} is \eqn{min(ncol(y), ncol(x), nrow(y), nrow(x)) -
-  1}.}
+1}.}
 
 \item{nam.dat}{an optional list with elements \code{namY} and \code{namX}
 containing the names of \code{y} and \code{x} respectively. Used to

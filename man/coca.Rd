@@ -63,7 +63,7 @@ weights are determined from \code{y} (default) or \code{x} and \code{y}
 
 \item{n.axes}{the number of CoCA axes to extract. If missing (default)
 the \code{n.axes} is \deqn{min(ncol(y), ncol(x), nrow(y), nrow(x)) -
-  1}.}
+1}.}
 
 \item{symmetric}{if \code{method} is \code{"symmetric"} then
 \code{symmetric} determines whether weights for \eqn{R_0} are
@@ -83,66 +83,31 @@ details of model specification are given below.}
 If not found in \code{data}, the variables are taken from
 \code{environment(formula)}, typically the environment from which
 \code{coca} is called.}
+
+\item{digits}{Number of significant digits for printing.}
 }
 \value{
 \code{coca} returns a list with \code{method} and \code{reg.method}
 determining the actual components returned.
-
-\item{nam.dat}{list with components \code{namY} and
-\code{namX} containing the names of the response and the
-predictor(s) respectively.}
-
-\item{call}{the matched call.}
-
-\item{method}{the CoCA method used, one of \code{"predictive"}
-or \code{"symmetric"}.}
-
-\item{scores}{the species and site scores of the fitted
-model.}
-
-\item{loadings}{the site loadings of the fitted model for the response
-and the predictor. (Predictive CoCA via SIMPLS only.)}
-
-\item{fitted}{the fitted values for the response. A list with 2
-components \code{Yhat} (the fitted values on the original scale) and
-\code{Yhat1} (the fitted values on the chi-square transformed
-scale). (Predictive CoCA via SIMPLS only.)}
-
-\item{varianceExp}{list with components \code{Yblock} and
-\code{Xblock} containing the variances in the response and
-the predictor respectively, explained by each fitted PLS
-axis. (Predictive CoCA via SIMPLS only.)}
-
-\item{totalVar}{list with components \code{Yblock} and
-\code{Xblock} containing the total variance in the response
-and the predictor respectively. (Predictive CoCA via SIMPLS only.)}
-
-\item{lambda}{the Eigenvalues of the analysis.}
-
-\item{n.axes}{the number of fitted axes}
-
-\item{Ychi}{a list containing the mean-centred chi-square matrices
-for the response (\code{Ychi1}) and the predictor
-(\code{Ychi2}). (Predictive CoCA only.)}
-
-\item{R0}{the (possibly user-supplied) row weights used in the analysis.}
-
-\item{X}{X-Matrix (symmetric CoCA only).}
-
-\item{residuals}{Residuals of a symmetric model (symmetric CoCA
-only).}
-
-\item{inertia}{list with components \code{total} and
-\code{residual} containing the total and residual inertia
-for the response and the predictor (symmetric CoCA only).}
-
-\item{rowsum}{a list with the row sums for the response
-(\code{rsum1}) and the preditor (\code{rsum2})
-(symmetric CoCA only).}
-
-\item{colsum}{a list with the column sums for the response
-(\code{csum1})and the predictor (\code{csum2})
-(symmetric CoCA only).}
+\itemize{
+\item \strong{nam.dat}: list with components \code{namY} and \code{namX} containing the names of the response and the predictor(s) respectively.
+\item \strong{call}: the matched call.
+\item \strong{method}: the CoCA method used, one of \code{"predictive"} or \code{"symmetric"}.
+\item \strong{scores}: the species and site scores of the fitted model.
+\item \strong{loadings}: the site loadings of the fitted model for the response and the predictor. (Predictive CoCA via SIMPLS only.)
+\item \strong{fitted}: the fitted values for the response. A list with 2 components \code{Yhat} (the fitted values on the original scale) and \code{Yhat1} (the fitted values on the chi-square transformed scale). (Predictive CoCA via SIMPLS only.)
+\item \strong{varianceExp}: list with components \code{Yblock} and \code{Xblock} containing the variances in the response and the predictor respectively, explained by each fitted PLS axis. (Predictive CoCA via SIMPLS only.)
+\item \strong{totalVar}: list with components \code{Yblock} and \code{Xblock} containing the total variance in the response and the predictor respectively. (Predictive CoCA via SIMPLS only.)
+\item \strong{lambda}: the Eigenvalues of the analysis.
+\item \strong{n.axes}: the number of fitted axes
+\item \strong{Ychi}: a list containing the mean-centred chi-square matrices for the response (\code{Ychi1}) and the predictor (\code{Ychi2}). (Predictive CoCA only.)
+\item \strong{R0}: the (possibly user-supplied) row weights used in the analysis.
+\item \strong{X}: X-Matrix (symmetric CoCA only).
+\item \strong{residuals}: Residuals of a symmetric model (symmetric CoCA only).
+\item \strong{inertia}: list with components \code{total} and \code{residual} containing the total and residual inertia for the response and the predictor (symmetric CoCA only).
+\item \strong{rowsum}: a list with the row sums for the response (\code{rsum1}) and the predictor (\code{rsum2}) (symmetric CoCA only).
+\item \strong{colsum}: a list with the column sums for the response (\code{csum1})and the predictor (\code{csum2}) (symmetric CoCA only).
+}
 }
 \description{
 \code{coca} is used to fit Co-Correspondence Analysis (CoCA)
@@ -225,16 +190,16 @@ crossval(bryophyte, vascular)
 
 ## 2 components again, refit
 carp.pred <- coca(y = bryophyte, x = vascular,
-                  reg.method = "eigen", n.axes = 2)
+reg.method = "eigen", n.axes = 2)
 carp.pred
 ## drawn biplot
 biplot(carp.pred)
 \dontshow{
 options(od)
 if (mpt == "not_set") {
-  Sys.unsetenv("OMP_THREAD_LIMIT")
+Sys.unsetenv("OMP_THREAD_LIMIT")
 } else {
-  Sys.setenv("OMP_THREAD_LIMIT" = mpt)
+Sys.setenv("OMP_THREAD_LIMIT" = mpt)
 }
 }
 }

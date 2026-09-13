@@ -26,8 +26,10 @@ methods. Currently not used.}
 }
 \value{
 Returns a list with one or both of the following components:
-\item{species}{rescaled species scores for the response}
-\item{sites}{rescaled species scores for the predictor}
+\itemize{
+\item \strong{species}: rescaled species scores for the response
+\item \strong{sites}: rescaled species scores for the predictor
+}
 }
 \description{
 Rescales CoCA species scores to the quarter root of the

@@ -11,7 +11,7 @@ to relate one data matrix to another data matrix. More specifically,
 CoCA maximises the weighted covariance between the weighted averaged
 species scores of one community and the weighted averaged species
 scores of another community. CoCA attempts to find patterns that are
-common to both communitities.
+common to both communities.
 }
 \details{
 The main interface function is \link{coca} which accepts a

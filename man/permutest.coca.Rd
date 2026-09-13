@@ -15,7 +15,8 @@ models}
   permutations = 99,
   n.axes = x$n.axes,
   verbose = TRUE,
-  ...
+  ...,
+  parallel = 1L
 )
 
 \method{print}{permutest.coca}(x, digits = max(3, getOption("digits") - 3), ...)
@@ -38,26 +39,31 @@ axes stated in \code{x$n.axes}.}
 \item{verbose}{if \code{TRUE}, the default, print information on the
 progress of the permutation test procedure.}
 
-\item{object}{an object of class \code{"permutest.coca"}.}
+\item{...}{arguments to be passed to other methods.}
 
-\item{\ldots}{arguments to be passed to other methods.}
+\item{parallel}{A positive integer worker count (default \code{1L}, serial), a
+caller-owned \code{\link[parallel:makeCluster]{parallel::makeCluster()}} cluster, or a function with arguments
+\code{X}, \code{FUN}, and \code{...} returning a list in input order. Counts greater than one
+create a PSOCK cluster, which is stopped on exit. Supplied clusters are never
+stopped. Optional future and futurize adapters are described in
+\code{vignette("parallel-computation")}.}
+
+\item{digits}{the number of digits to print to the R console window.}
+
+\item{object}{an object of class \code{"permutest.coca"}.}
 }
 \value{
 A list with the following components:
-\item{pval }{a vector of \emph{P}-values for each ordination axis.}
-\item{permstat }{a vector of values for the test statistic for each axis.}
-\item{total.inertia }{the total inertia in the response matrix.}
-\item{inertia }{a vector containing the \emph{residualised}
-inertia. This is the total inertia in the response \emph{after}
-removing the inertia explained by all previous axes. For the first
-CoCA axis this is, by definition, the total inertia in the
-response.}
-\item{fitax }{a vector containing the amount of inertia in the
-response matrix explained by each ordination axis.}
-\item{pcent.fit }{a vector containing the fit of each axis to the
-response as a percentage of the total inertia (variance).}
-\item{n.axes }{the number of axes in the ordination.}
-\item{call }{the matched call.}
+\itemize{
+\item \strong{pval}: a vector of \emph{P}-values for each ordination axis.
+\item \strong{permstat}: a vector of values for the test statistic for each axis.
+\item \strong{total.inertia}: the total inertia in the response matrix.
+\item \strong{inertia}: a vector containing the \emph{residualised} inertia. This is the total inertia in the response \emph{after} removing the inertia explained by all previous axes. For the first CoCA axis this is, by definition, the total inertia in the response.
+\item \strong{fitax}: a vector containing the amount of inertia in the response matrix explained by each ordination axis.
+\item \strong{pcent.fit}: a vector containing the fit of each axis to the response as a percentage of the total inertia (variance).
+\item \strong{n.axes}: the number of axes in the ordination.
+\item \strong{call}: the matched call.
+}
 }
 \description{
 A permutation test for predictive co-correspondence analysis models to
@@ -76,6 +82,16 @@ co-variables.
 
 To be precise, this approach does not test the significance of SIMPLS
 axes, but those of NIPALS-PLS axes (ter Braak and de Jong 1998).
+
+\code{permutations} can also be a \code{\link[permute:how]{permute::how()}} control object or a
+numeric matrix whose rows are permutations of \code{seq_len(nrow(x$Ychi$Ychi1))}.
+Matrix rows select residual rows directly and are reused for each axis.
+Controls generate a matrix once and use the actual number returned.
+Integer counts retain historical sampling and inverse-assignment semantics,
+with fresh permutations for each axis. Permutations are generated in the
+calling process, so worker count and scheduling do not change the RNG stream.
+Replicates run in parallel; dependent axes remain sequential.
+\code{R0} is retained for compatibility and ignored; weights are stored in \code{x}.
 }
 \note{
 Argument \code{R0} is provided for compatibility with the original
@@ -95,6 +111,7 @@ good book to hand.
 
 \examples{
 \dontshow{
+old_rng <- RNGkind()
 suppressWarnings(RNGversion("3.5.0"))
 od <- options(digits = 4)
 }
@@ -119,7 +136,7 @@ crossval(beetles, plants)
 bp.perm <- permutest(bp.pred, permutations = 25, n.axes = 2)
 bp.perm
 
-\dontshow{options(od)}
+\dontshow{options(od); do.call(RNGkind, as.list(old_rng))}
 }
 \references{
 ter Braak, C.J.F. and de Jong, S. (1998) The objective function of

@@ -2,6 +2,9 @@
 % Please edit documentation in R/coinertia.R
 \name{coinertia}
 \alias{coinertia}
+\alias{print.coinertia}
+\alias{summary.coinertia}
+\alias{print.summary.coinertia}
 \alias{coinertia.default}
 \title{Co-inertia analysis}
 \usage{
@@ -10,8 +13,10 @@ coinertia(y, ...)
 \method{coinertia}{default}(y, x, n.axes = NULL, weights = NULL, symmetric = FALSE, ...)
 }
 \arguments{
-\item{y, }{x matrices or data frames of the two data sets for which
+\item{y, x}{matrices or data frames of the two data sets for which
 axes of covariance are sought.}
+
+\item{...}{arguments passed to other functions. Currently ignored.}
 
 \item{n.axes}{numeric; the number of coinertia axes to retain.}
 
@@ -21,22 +26,18 @@ weights are chosen from the row sums of \code{y} (\code{symmetric = FALSE}) or t
 
 \item{symmetric}{logical; should a symmetric set of weights be
 used. See Details.}
-
-\item{\ldots}{arguments passed to other functions. Currently ignored.}
 }
 \value{
 An object of class \code{"coinertia"}, which is a list with the
 following components:
-
-\item{scores}{a list of ordination scores, with components
-\code{species} and \code{sites}, each of which is a list with
-components \code{Y} and \code{X} that refer to the scores for the
-input matrices \code{y} and \code{x} respectively.}
-\item{weights}{numeric vector of row weights used in the analysis.}
-\item{lambda}{numeric vector of Eigenvalues.}
-\item{n.axes}{numeric; the number of coinertia axes extracted}
-\item{symmetric}{logical; was a symmetric analysis performed?}
-\item{call}{the matched call.}
+\itemize{
+\item \strong{scores}: a list of ordination scores, with components \code{species} and \code{sites}, each of which is a list with components \code{Y} and \code{X} that refer to the scores for the input matrices \code{y} and \code{x} respectively.
+\item \strong{weights}: numeric vector of row weights used in the analysis.
+\item \strong{lambda}: numeric vector of Eigenvalues.
+\item \strong{n.axes}: numeric; the number of coinertia axes extracted
+\item \strong{symmetric}: logical; was a symmetric analysis performed?
+\item \strong{call}: the matched call.
+}
 }
 \description{
 Performs a co-inertia of the triplets \eqn{(Q_1,K_1,R_0)} and
