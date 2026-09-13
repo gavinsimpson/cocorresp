@@ -49,7 +49,7 @@ DEVELOPMENT.md and the committed tests before releasing.
 | Backend interoperability | Local integration tests pass for PSOCK, mirai clusters, future.apply, futurize, and future.mirai |
 | Restricted inference | Explicit row-index matrices, blocked controls, exhaustive enumeration and actual p-value denominator tested |
 | Missing environmental values | Complete-case score/weight/strata alignment; invalid designs rejected rather than silently changed |
-| Presentation | Installed S3 dispatch exercised; print snapshots and vdiffr biplots; returned plotting coordinates tested; site biplot PNGs inspected |
+| Presentation | Installed S3 dispatch exercised; print snapshots and opt-in vdiffr biplots in dedicated Ubuntu release-R CI; returned plotting coordinates tested; site biplot PNGs inspected |
 | Maintenance/community | Contribution/support guidance, code of conduct, release checklist, AI assistance record |
 | CI | Current upstream Actions references and inputs; OS/R matrix, coverage threshold, lint, roxygen drift, optional workers and full release job |
 | Website delivery | Bootstrap 5; methods and parallel guides; PR artifact builds; trusted branch/release deployment of `docs` |
@@ -139,3 +139,14 @@ The following remain release gates, not completed external operations:
   record it in AI-USAGE.md. No human review is implied by automated checks.
 - Collect research-use evidence and differentiation, obtain a release DOI, and
   recheck current JOSS submission requirements before preparing the paper.
+
+## Visual snapshot policy follow-up
+
+The Ubuntu R 4.1 check differed from the SVG reference only in the placement
+of the subscript in the y-axis label (0.09 SVG units); the remaining image
+and 390 other expectations agreed. Image comparisons now run only in the
+`visual-snapshots` job on Ubuntu 24.04 with release R. They are separate tests
+in `test-visual.R`, gated by `COCORRESP_VISUAL_TESTS=true`, and remain optional
+locally. Coordinate/scaling/behavior assertions stay active across the full
+check matrix. Original reviewed SVG content is retained, with failure artifacts
+available for future review. See DEVELOPMENT.md for local invocation.

@@ -146,8 +146,4 @@ test_that("plots return correct coordinates and respect scaling", {
   expect_error(draw_coca(list(), NULL, 1:2), "No scores")
   big <- list(species = matrix(seq_len(200), 100, 2))
   expect_s3_class(draw_coca(big, NULL, 1:2), "ordiplot")
-  vdiffr::expect_doppelganger("symmetric biplot", function() biplot(fit))
-  vdiffr::expect_doppelganger("predictive biplot", function() {
-    biplot(model_fixture("predictive"))
-  })
 })

@@ -5,6 +5,8 @@
 * Require R >= 4.1 and use testthat edition 3.
 * Generate help and NAMESPACE from Markdown roxygen comments.
 * Add numerical regression tests, graphical snapshots, and modern CI/site workflows.
+* Restrict image snapshot comparisons to a dedicated Ubuntu release-R CI job
+  and explicit local opt-in; retain plotting behavior tests across the full matrix.
 * Export the documented `loadings()` generic, forwarding non-CoCA objects to stats.
 * Move vegan from Depends to Imports. Attaching cocorresp no longer attaches
   vegan. Re-export its original `scores()`, `eigenvals()`, `permutest()` and
