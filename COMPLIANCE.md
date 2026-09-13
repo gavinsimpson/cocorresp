@@ -99,9 +99,9 @@ conditions under which their identities hold.
   rows. Existing dimension-dropping semantics of loadings are retained.
 - **paste:** the flagged call collapses species names with `collapse = ", "`;
   it is intentional and does not construct paths.
-- **Single-argument c():** two retained public default expressions use
-  `c(1:min(...))`. They are redundant, but preserving the exact defaults avoids
-  an unnecessary interface change.
+- **Single-argument c() (resolved after the audit):** the axis defaults in
+  `print.fitCoinertia()` and `summary.crossval()` now use `seq_len(min(...))`,
+  removing redundant concatenation and producing an empty sequence at zero.
 - **Test expectations:** numerical outputs intentionally use `expect_equal`
   with tolerances. Class-vector equality is explicitly tested with
   `expect_identical`, which is stronger than merely testing class membership.

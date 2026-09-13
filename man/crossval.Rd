@@ -22,7 +22,7 @@ crossval(
 
 \method{print}{summary.crossval}(x, digits = max(3, getOption("digits") - 3), ...)
 
-\method{summary}{crossval}(object, axes = c(1:min(6, object$n.axes)), ...)
+\method{summary}{crossval}(object, axes = seq_len(min(6, object$n.axes)), ...)
 }
 \arguments{
 \item{y}{the response species matrix.}
