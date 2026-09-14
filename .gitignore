@@ -6,3 +6,8 @@
 
 ## ignore backup files
 *~
+.Rproj.user/
+.Rcheck/
+*.tar.gz
+Rplots.pdf
+cobertura.xml

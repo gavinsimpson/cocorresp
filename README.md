@@ -17,7 +17,7 @@ formula or two community data matrices. An appropriate formula is `Y ~ ., data =
 1. `method = "predictive"` for predictive CoCA (the default), and
 2. `method = "symmetric"` for symmetric CoCA.
 
-**cocorresp** is based on original Matlab routines by C.J.F. ter Braak and A.P. Schaffers. The R port was by Gavin L. Simpson. Function `cocorresp::simpls()` is largely based on `simpls.fit()` from the **pls** package of Ron Wehrens and Bjorn-Helge Mevik.
+**cocorresp** is based on original Matlab routines by C.J.F. ter Braak and A.P. Schaffers. The R port was by Gavin L. Simpson. Function the internal `simpls()` routine is largely based on `simpls.fit()` from the **pls** package of Ron Wehrens and Bjorn-Helge Mevik.
 
 ## Installation
 
@@ -32,3 +32,22 @@ To install the development version, use the **remotes** package (you may need to
 ```r
 remotes::install_github("gavinsimpson/cocorresp")
 ```
+
+## Documentation and development
+
+Read the [package guides](https://gavinsimpson.github.io/cocorresp/articles/index.html)
+for numerical methods, examples, and reproducible parallel computation.
+The package requires R >= 4.1. See DEVELOPMENT.md for the roxygen/testthat workflow
+and CONTRIBUTING.md for bug reports and contributions.
+
+```r
+library(cocorresp)
+data(beetles)
+data(plants)
+fit <- coca(log1p(beetles), plants, n.axes = 2, quiet = TRUE)
+biplot(fit)
+```
+
+Use `citation("cocorresp")` for citation information. The package provides both
+symmetric and predictive CoCA; the numerical-methods guide explains their
+relationship and the original Matlab and pls implementations.

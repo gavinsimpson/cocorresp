@@ -1,4 +1,21 @@
+url: https://gavinsimpson.github.io/cocorresp/
 template:
-  params:
-    bootswatch: simplex
-
+  bootstrap: 5
+  bootswatch: simplex
+reference:
+  - title: Fit and evaluate models
+    contents: [coca, coinertia, crossval, permutest.coca, envfit.coca]
+  - title: Extract and summarise results
+    contents: [scores.predcoca, loadings, weights.symcoca, corAxis, rescale, fitted.symcoca, resid.symcoca, summary.predcoca]
+  - title: Visualise models
+    contents: [biplot.predcoca, plot.predcoca, plot.symcoca, points.coca, screeplot.symcoca]
+  - title: Re-exported vegan generics
+    contents: [reexports]
+  - title: Data
+    contents: [beetles, bryophyte]
+  - title: Package and algorithms
+    contents: [cocorresp-package, predcoca.eigen, coinertiaI, fitCoinertia, mcChi, scaleChi, simpls]
+articles:
+  - title: Guides
+    navbar: ~
+    contents: [cocorresp-intro, numerical-methods, parallel-computation]

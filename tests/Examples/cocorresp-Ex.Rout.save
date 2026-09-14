@@ -1,7 +1,7 @@
 
-R version 4.4.2 (2024-10-31) -- "Pile of Leaves"
-Copyright (C) 2024 The R Foundation for Statistical Computing
-Platform: aarch64-apple-darwin20
+R version 4.6.1 (2026-06-24) -- "Happy Hop"
+Copyright (C) 2026 The R Foundation for Statistical Computing
+Platform: aarch64-apple-darwin23
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
@@ -21,9 +21,13 @@ Type 'q()' to quit R.
 > source(file.path(R.home("share"), "R", "examples-header.R"))
 > options(warn = 1)
 > library('cocorresp')
-Loading required package: vegan
-Loading required package: permute
-Loading required package: lattice
+
+Attaching package: ‘cocorresp’
+
+The following object is masked from ‘package:stats’:
+
+    loadings
+
 > 
 > base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
 > base::assign(".old_wd", base::getwd(), pos = 'CheckExEnv')
@@ -53,8 +57,8 @@ Loading required package: lattice
 > 
 > ### Name: biplot-methods
 > ### Title: Biplots of co-correspondence analysis models
-> ### Aliases: biplot.symcoca biplot.predcoca
-> ### Keywords: hplot methods
+> ### Aliases: biplot-methods biplot.predcoca biplot.symcoca
+> ### Keywords: methods
 > 
 > ### ** Examples
 > 
@@ -67,9 +71,7 @@ Loading required package: lattice
 > 
 > ## fit the model
 > bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
-
-Removed some species that contained no data in: beetles, plants 
-
+Removed some species that contained no data in: beetles, plants
 > 
 > ## draw a biplot of the beetle results
 > biplot(bp.sym)
@@ -82,9 +84,7 @@ Removed some species that contained no data in: beetles, plants
 > 
 > ## predictive CoCA
 > bp.pred <- coca(beetles ~ ., data = plants)
-
-Removed some species that contained no data in: beetles, plants 
-
+Removed some species that contained no data in: beetles, plants
 > 
 > ## draw a biplot of the response
 > biplot(bp.pred)
@@ -123,8 +123,8 @@ Removed some species that contained no data in: beetles, plants
 > 
 > ### Name: coca
 > ### Title: Fit Co-Correspondence Analysis Ordination Models
-> ### Aliases: coca coca.formula coca.default print.predcoca print.symcoca
-> ### Keywords: multivariate regression models
+> ### Aliases: coca coca.default coca.formula print.predcoca print.symcoca
+> ### Keywords: models
 > 
 > ### ** Examples
 > 
@@ -140,9 +140,7 @@ Removed some species that contained no data in: beetles, plants
 > data(plants)
 > ## fit the model
 > bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
-
-Removed some species that contained no data in: beetles, plants 
-
+Removed some species that contained no data in: beetles, plants
 > bp.sym
 
 Symmetric Co-Correspondence Analysis
@@ -198,18 +196,14 @@ COCA 21 COCA 22 COCA 23 COCA 24 COCA 25 COCA 26 COCA 27 COCA 28 COCA 29
 > 
 > ## predictive CoCA using SIMPLS and formula interface
 > bp.pred <- coca(beetles ~ ., data = plants)
-
-Removed some species that contained no data in: beetles, plants 
-
+Removed some species that contained no data in: beetles, plants
 > ## should retain only the useful PLS components for a parsimonious model
 > 
 > 
 > ## agrees with the Leave-one-out cross-validation
 > ## refit the model with only 2 PLS components
 > bp.pred <- coca(beetles ~ ., data = plants, n.axes = 2)
-
-Removed some species that contained no data in: beetles, plants 
-
+Removed some species that contained no data in: beetles, plants
 > bp.pred
 
 Predictive Co-Correspondence Analysis
@@ -269,7 +263,7 @@ COCA 21 COCA 22 COCA 23 COCA 24 COCA 25 COCA 26 COCA 27 COCA 28 COCA 29
 > 
 > ## 2 components again, refit
 > carp.pred <- coca(y = bryophyte, x = vascular,
-+                   reg.method = "eigen", n.axes = 2)
++ reg.method = "eigen", n.axes = 2)
 > carp.pred
 
 Predictive Co-Correspondence Analysis
@@ -290,9 +284,9 @@ COCA 1 COCA 2
 > ## Don't show: 
 > options(od)
 > if (mpt == "not_set") {
-+   Sys.unsetenv("OMP_THREAD_LIMIT")
++ Sys.unsetenv("OMP_THREAD_LIMIT")
 + } else {
-+   Sys.setenv("OMP_THREAD_LIMIT" = mpt)
++ Sys.setenv("OMP_THREAD_LIMIT" = mpt)
 + }
 > ## End(Don't show)
 > 
@@ -306,8 +300,9 @@ COCA 1 COCA 2
 > 
 > ### Name: coinertia
 > ### Title: Co-inertia analysis
-> ### Aliases: coinertia coinertia.default
-> ### Keywords: multivariate models
+> ### Aliases: coinertia print.coinertia summary.coinertia
+> ###   print.summary.coinertia coinertia.default
+> ### Keywords: models
 > 
 > ### ** Examples
 > 
@@ -349,7 +344,7 @@ COIN25   COIN26   COIN27   COIN28   COIN29
 > 
 > ### Name: corAxis
 > ### Title: Correlation between ordination axes
-> ### Aliases: corAxis.symcoca corAxis corAxis.default
+> ### Aliases: corAxis corAxis.default corAxis.symcoca
 > ### Keywords: univar
 > 
 > ### ** Examples
@@ -366,9 +361,7 @@ COIN25   COIN26   COIN27   COIN28   COIN29
 > 
 > ## symmetric Co-CA model
 > beetles.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
-
-Removed some species that contained no data in: beetles, plants 
-
+Removed some species that contained no data in: beetles, plants
 > 
 > ## correlations between axes
 > corAxis(beetles.sym)
@@ -393,8 +386,8 @@ COCA 21 COCA 22 COCA 23 COCA 24 COCA 25 COCA 26 COCA 27 COCA 28 COCA 29
 > ### Name: crossval
 > ### Title: Cross-validation for predictive Co-Correspondence Analysis
 > ###   models
-> ### Aliases: crossval print.crossval summary.crossval
-> ###   print.summary.crossval
+> ### Aliases: crossval print.crossval print.summary.crossval
+> ###   summary.crossval
 > ### Keywords: multivariate
 > 
 > ### ** Examples
@@ -411,9 +404,7 @@ COCA 21 COCA 22 COCA 23 COCA 24 COCA 25 COCA 26 COCA 27 COCA 28 COCA 29
 > 
 > ## predictive CoCA using SIMPLS and formula interface
 > bp.pred <- coca(beetles ~ ., data = plants)
-
-Removed some species that contained no data in: beetles, plants 
-
+Removed some species that contained no data in: beetles, plants
 > ## should retain only the useful PLS components for a
 > ## parsimonious model
 > 
@@ -437,7 +428,7 @@ Removed some species that contained no data in: beetles, plants
 > ### Name: envfit.coca
 > ### Title: Fit an environmental vector or factor to a Co-CA ordination
 > ### Aliases: envfit.coca
-> ### Keywords: multivariate htest
+> ### Keywords: htest
 > 
 > ### ** Examples
 > 
@@ -450,9 +441,7 @@ Removed some species that contained no data in: beetles, plants
 > 
 > ## fit the model
 > bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
-
-Removed some species that contained no data in: beetles, plants 
-
+Removed some species that contained no data in: beetles, plants
 > 
 > ## load the environmental data
 > data(verges)
@@ -473,7 +462,7 @@ Removed some species that contained no data in: beetles, plants
 > flush(stderr()); flush(stdout())
 > 
 > ### Name: fitted.symcoca
-> ### Title: Fitted values of a Symmetric Co-Correpsondence analysis model.
+> ### Title: Fitted values of a Symmetric Co-Correspondence analysis model.
 > ### Aliases: fitted.symcoca print.fitted.symcoca
 > ### Keywords: multivariate
 > 
@@ -488,9 +477,7 @@ Removed some species that contained no data in: beetles, plants
 > 
 > ## fit the model
 > bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
-
-Removed some species that contained no data in: beetles, plants 
-
+Removed some species that contained no data in: beetles, plants
 > 
 > ## fitted values
 > bp.fit <- fitted(bp.sym)
@@ -509,7 +496,7 @@ Removed some species that contained no data in: beetles, plants
 > ### Name: loadings
 > ### Title: CoCA species loadings
 > ### Aliases: loadings lodaings.default loadings.predcoca loadings.symcoca
-> ### Keywords: methods utilities
+> ### Keywords: utilities
 > 
 > ### ** Examples
 > 
@@ -520,9 +507,7 @@ Removed some species that contained no data in: beetles, plants
 > data(plants)
 > ## fit the model
 > bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
-
-Removed some species that contained no data in: beetles, plants 
-
+Removed some species that contained no data in: beetles, plants
 > 
 > ## extract the loadings
 > lds <- loadings(bp.sym)
@@ -538,13 +523,14 @@ Removed some species that contained no data in: beetles, plants
 > ### Name: permutest.coca
 > ### Title: Permutation test for predictive co-correspondence analysis
 > ###   models
-> ### Aliases: permutest.coca print.permutest.coca summary.permutest.coca
-> ###   print.summary.permutest.coca
+> ### Aliases: permutest.coca print.permutest.coca
+> ###   print.summary.permutest.coca summary.permutest.coca
 > ### Keywords: multivariate
 > 
 > ### ** Examples
 > 
 > ## Don't show: 
+> old_rng <- RNGkind()
 > suppressWarnings(RNGversion("3.5.0"))
 > od <- options(digits = 4)
 > ## End(Don't show)
@@ -556,17 +542,17 @@ Removed some species that contained no data in: beetles, plants
 > beetles <- log(beetles + 1)
 > ## predictive CoCA using SIMPLS and formula interface
 > bp.pred <- coca(beetles ~ ., data = plants)
-
-Removed some species that contained no data in: beetles, plants 
-
+Removed some species that contained no data in: beetles, plants
 > 
 > ## should retain only the useful PLS components for a parsimonious model
 > 
 > ## permutation test
 > ## (Testing the first 2 axes & only 25 perms for speed.)
 > bp.perm <- permutest(bp.pred, permutations = 25, n.axes = 2)
-Permutations for axis: 1 - completed
-Permutations for axis: 2 - completed
+Permutations for axis: 1
+Axis 1 completed
+Permutations for axis: 2
+Axis 2 completed
 > bp.perm
 
 Permutation test for predictive co-correspondence analysis:
@@ -581,7 +567,7 @@ COCA 2  0.0966  3.5782  0.3153  7.9068    0.04
 
 > 
 > ## Don't show: 
-> options(od)
+> options(od); do.call(RNGkind, as.list(old_rng))
 > ## End(Don't show)
 > 
 > 
@@ -608,9 +594,7 @@ COCA 2  0.0966  3.5782  0.3153  7.9068    0.04
 > 
 > ## predictive CoCA using SIMPLS and formula interface
 > bp.pred <- coca(beetles ~ ., data = plants)
-
-Removed some species that contained no data in: beetles, plants 
-
+Removed some species that contained no data in: beetles, plants
 > 
 > ## draw the plot for the response scores
 > plot(bp.pred)
@@ -632,7 +616,7 @@ Removed some species that contained no data in: beetles, plants
 > ### Name: plot.symcoca
 > ### Title: Plots for symmetric co-correspondence analysis
 > ### Aliases: plot.symcoca
-> ### Keywords: hplot methods
+> ### Keywords: methods
 > 
 > ### ** Examples
 > 
@@ -645,9 +629,7 @@ Removed some species that contained no data in: beetles, plants
 > 
 > ## fit the model
 > bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
-
-Removed some species that contained no data in: beetles, plants 
-
+Removed some species that contained no data in: beetles, plants
 > 
 > ## draw a plot of the response scores
 > plot(bp.sym)
@@ -676,15 +658,13 @@ Removed some species that contained no data in: beetles, plants
 > ## symmetric CoCA
 > data(beetles)
 > data(plants)
->      
+> 
 > ## log transform the bettle data
 > beetles <- log(beetles + 1)
->      
+> 
 > ## fit the model
 > bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
-
-Removed some species that contained no data in: beetles, plants 
-
+Removed some species that contained no data in: beetles, plants
 > 
 > ## draw a plot of the response scores
 > plot(bp.sym, type = "none")
@@ -728,7 +708,7 @@ Removed some species that contained no data in: beetles, plants
 > 
 > ### Name: resid.symcoca
 > ### Title: Extract Model Residuals
-> ### Aliases: resid.symcoca
+> ### Aliases: resid.symcoca residuals.symcoca
 > ### Keywords: multivariate
 > 
 > ### ** Examples
@@ -752,10 +732,10 @@ Removed some species that contained no data in: beetles, plants
 > 
 > flush(stderr()); flush(stdout())
 > 
-> ### Name: scores-methods
+> ### Name: scores.predcoca
 > ### Title: Get Species or Site Scores from an Ordination
-> ### Aliases: scores.predcoca scores.symcoca
-> ### Keywords: multivariate methods
+> ### Aliases: scores.predcoca scores-methods scores.symcoca
+> ### Keywords: methods
 > 
 > ### ** Examples
 > 
@@ -771,18 +751,14 @@ Removed some species that contained no data in: beetles, plants
 > 
 > ## fit the model, a symmetric CoCA
 > bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
-
-Removed some species that contained no data in: beetles, plants 
-
+Removed some species that contained no data in: beetles, plants
 > 
 > ## extract the scores
 > scr <- scores(bp.sym)
 > 
 > ## predictive CoCA using SIMPLS and formula interface
 > bp.pred <- coca(beetles ~ ., data = plants)
-
-Removed some species that contained no data in: beetles, plants 
-
+Removed some species that contained no data in: beetles, plants
 > scr2 <- scores(bp.pred)
 > 
 > ## Don't show: 
@@ -800,7 +776,7 @@ Removed some species that contained no data in: beetles, plants
 > ### Name: screeplot.symcoca
 > ### Title: Screeplot for symmetric co-correspondence analysis
 > ### Aliases: screeplot.symcoca
-> ### Keywords: hplot methods
+> ### Keywords: methods
 > 
 > ### ** Examples
 > 
@@ -813,13 +789,10 @@ Removed some species that contained no data in: beetles, plants
 > 
 > ## fit the model
 > bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
-
-Removed some species that contained no data in: beetles, plants 
-
+Removed some species that contained no data in: beetles, plants
 > 
 > ## draw a screeplot of the eignevalues
 > screeplot(bp.sym)
-> 
 > 
 > 
 > 
@@ -829,10 +802,10 @@ Removed some species that contained no data in: beetles, plants
 > 
 > flush(stderr()); flush(stdout())
 > 
-> ### Name: summary-methods
-> ### Title: Summarizing Co-CA Model Fits
-> ### Aliases: summary.predcoca print.summary.predcoca summary.symcoca
-> ###   print.summary.symcoca
+> ### Name: print.summary.predcoca
+> ### Title: Summarising Co-CA Model Fits
+> ### Aliases: print.summary.predcoca summary-methods print.summary.symcoca
+> ###   summary.predcoca summary.symcoca
 > ### Keywords: multivariate
 > 
 > ### ** Examples
@@ -849,9 +822,7 @@ Removed some species that contained no data in: beetles, plants
 > 
 > ## fit the model
 > bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
-
-Removed some species that contained no data in: beetles, plants 
-
+Removed some species that contained no data in: beetles, plants
 > summary(bp.sym)
 
 Symmetric Co-Correspondence Analysis
@@ -876,9 +847,7 @@ Eigenvalues:
 > 
 > ## Predictive CoCA
 > bp.pred <- coca(beetles ~ ., data = plants)
-
-Removed some species that contained no data in: beetles, plants 
-
+Removed some species that contained no data in: beetles, plants
 > summary(bp.pred, axes = 1:2)
 
 Predictive Co-Correspondence Analysis
@@ -933,7 +902,7 @@ Cumulative:  100.000
 > ### Name: weights.symcoca
 > ### Title: Extract CoCA model weights
 > ### Aliases: weights.symcoca weights.predcoca
-> ### Keywords: methods utilities
+> ### Keywords: utilities
 > 
 > ### ** Examples
 > 
@@ -949,9 +918,7 @@ Cumulative:  100.000
 > 
 > ## fit the model
 > bp.sym <- coca(beetles ~ ., data = plants, method = "symmetric")
-
-Removed some species that contained no data in: beetles, plants 
-
+Removed some species that contained no data in: beetles, plants
 > 
 > ## weights == R[0]
 > weights(bp.sym)
@@ -970,7 +937,7 @@ Removed some species that contained no data in: beetles, plants
 > cleanEx()
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  1.665 0.063 1.739 0 0 
+Time elapsed:  1.313 0.084 1.405 0 0 
 > grDevices::dev.off()
 null device 
           1 

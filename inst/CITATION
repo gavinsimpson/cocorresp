@@ -1,6 +1,6 @@
 if(!exists("meta") || is.null(meta)) meta <- packageDescription("cocorresp")
 
-year <- sub("-.*", "", meta$Date)
+year <- "2026"
 note <- sprintf("R package version %s", meta$Version)
 
 bibentry(bibtype = "Manual",

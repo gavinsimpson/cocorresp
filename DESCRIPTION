@@ -1,11 +1,11 @@
 Package: cocorresp
 Type: Package
 Title: Co-Correspondence Analysis Methods
-Version: 0.4-6
-Date: 2025-04-04
-Depends: vegan (>= 2.5-0), R (>= 3.4.0)
-Imports: stats, graphics, utils, grDevices
-Suggests: testthat, knitr, rmarkdown, pls
+Version: 0.5.0
+Depends: R (>= 4.1.0)
+Imports: stats, graphics, utils, grDevices, parallel, permute, vegan (>= 2.5-0)
+Suggests: testthat (>= 3.3.2), roxygen2, knitr, rmarkdown, pls,
+    withr, vdiffr, future, future.apply, futurize, mirai, future.mirai
 Authors@R: c(person(c("Gavin", "L."), "Simpson",
   email = "ucfagls@gmail.com", role = c("aut", "cre", "trl"),
   comment = "R port of Matlab routines, plus additional code"),
@@ -28,3 +28,7 @@ URL: https://gavinsimpson.github.io/cocorresp/
 BugReports: https://github.com/gavinsimpson/cocorresp/issues
 VignetteBuilder: knitr
 Language: en-GB
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+Config/roxygen2/version: 8.1.0
+Config/testthat/edition: 3

@@ -38,3 +38,10 @@
 ^vignettes/articles$
 ^CRAN-SUBMISSION$
 ^docs$
+^RELEASE-CHECKLIST\.md$
+^DEVELOPMENT\.md$
+^COMPLIANCE\.md$
+^AI-USAGE\.md$
+^benchmarks$
+^air\.toml$
+^\.git$
