@@ -34,6 +34,10 @@
 #' compositions. *Ecology* **85(3)**, 834--846
 #' @author Gavin L. Simpson.
 #' @seealso [coca], [plot.default]
+#' @keywords hplot
+#' @rdname plot.predcoca
+#' @name plot.predcoca
+#' @export
 #' @examples
 #' ## predictive CoCA
 #' data(beetles)
@@ -53,10 +57,6 @@
 #' plot(bp.pred, which = "response", main = "Beetles")
 #' plot(bp.pred, which = "predictor", main = "Plants")
 #' layout(1)
-#' @keywords hplot
-#' @rdname plot.predcoca
-#' @name plot.predcoca
-#' @export
 plot.predcoca <- function(
   x,
   which = "response",

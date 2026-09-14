@@ -10,6 +10,10 @@
 #' arguments.
 #' @author Gavin L. Simpson.
 #' @seealso [coca], [screeplot], [plot.default]
+#' @keywords methods
+#' @rdname screeplot.symcoca
+#' @name screeplot.symcoca
+#' @export
 #' @examples
 #' ## symmetric CoCA
 #' data(beetles)
@@ -23,10 +27,6 @@
 #'
 #' ## draw a screeplot of the eignevalues
 #' screeplot(bp.sym)
-#' @keywords methods
-#' @rdname screeplot.symcoca
-#' @name screeplot.symcoca
-#' @export
 screeplot.symcoca <- function(x, type = "b", xlab = NULL, ylab = NULL, ...) {
   if (is.null(ylab)) {
     ylab <- "Eigenvalue"

@@ -34,6 +34,16 @@
 #' Jari Oksanen.
 #' @seealso [coca] for fitting models. [envfit][vegan::envfit] for
 #' details of the generic function and the computations performed.
+#' @keywords htest
+#' @section Warning:
+#' %   This function is experimental. The vectors fitted are unweighted
+#' %   whereas to be consistent with the [cca] method of
+#' %   [envfit] they should be weighted. I just need to work out
+#' %   the correct sets of weights to use.
+#' %
+#' @rdname envfit.coca
+#' @name envfit.coca
+#' @export
 #' @examples
 #' ## symmetric CoCA
 #' data(beetles)
@@ -55,16 +65,6 @@
 #' ## plot the response matrix and the fitted vectors
 #' biplot(bp.sym, which = "y1")
 #' plot(sol)
-#' @keywords htest
-#' @section Warning:
-#' %   This function is experimental. The vectors fitted are unweighted
-#' %   whereas to be consistent with the [cca] method of
-#' %   [envfit] they should be weighted. I just need to work out
-#' %   the correct sets of weights to use.
-#' %
-#' @rdname envfit.coca
-#' @name envfit.coca
-#' @export
 envfit.coca <- function(
   ord,
   env,

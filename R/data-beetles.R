@@ -13,12 +13,12 @@
 #' ter Braak, C.J.F and Schaffers, A.P. (2004) Co-Correspondence
 #' Analysis: a new ordination method to relate two community
 #' compositions. *Ecology* **85(3)**, 834--846
-#' @examples
-#' data(beetles)
-#' data(plants)
 #' @keywords datasets
 #' @rdname beetles
 #' @aliases beetles plants verges
 #' @name beetles
 #' @docType data
+#' @examples
+#' data(beetles)
+#' data(plants)
 "beetles"

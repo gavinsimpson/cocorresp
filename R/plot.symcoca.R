@@ -34,6 +34,10 @@
 #' compositions. *Ecology* **85(3)**, 834--846
 #' @author Gavin L. Simpson.
 #' @seealso [coca], [plot.default]
+#' @keywords methods
+#' @rdname plot.symcoca
+#' @name plot.symcoca
+#' @export
 #' @examples
 #' ## symmetric CoCA
 #' data(beetles)
@@ -53,10 +57,6 @@
 #' plot(bp.sym, which = "response", main = "Beetles")
 #' plot(bp.sym, which = "predictor", main = "Plants")
 #' layout(1)
-#' @keywords methods
-#' @rdname plot.symcoca
-#' @name plot.symcoca
-#' @export
 plot.symcoca <- function(
   x,
   which = "response",

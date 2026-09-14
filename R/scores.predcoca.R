@@ -30,6 +30,9 @@
 #' @author Gavin L. Simpson, based on Matlab code by C.J.F. ter Braak and
 #' A.P. Schaffers.
 #' @seealso [scores][vegan::scores], for further details on the method.
+#' @keywords methods
+#' @rdname scores.predcoca
+#' @export
 #' @examples
 #' \dontshow{od <- options(digits = 4)}
 #' ## load some data
@@ -50,9 +53,6 @@
 #' scr2 <- scores(bp.pred)
 #'
 #' \dontshow{options(od)}
-#' @keywords methods
-#' @rdname scores.predcoca
-#' @export
 scores.predcoca <- function(
   x,
   choices = c(1, 2),

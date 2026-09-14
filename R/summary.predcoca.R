@@ -31,6 +31,9 @@
 #' - **scaling**: the scaling used/requested. (Only for symmetric CoCA models.)
 #' @author Gavin L. Simpson
 #' @seealso The model fitting function [coca]
+#' @keywords multivariate
+#' @rdname summary.predcoca
+#' @export
 #' @examples
 #' \dontshow{od <- options(digits = 4)}
 #' ## symmetric CoCA
@@ -48,9 +51,6 @@
 #' bp.pred <- coca(beetles ~ ., data = plants)
 #' summary(bp.pred, axes = 1:2)
 #' \dontshow{options(od)}
-#' @keywords multivariate
-#' @rdname summary.predcoca
-#' @export
 summary.predcoca <- function(object, axes = NULL, ...) {
   if (missing(axes) || is.null(axes)) {
     axes <- seq_len(min(6, object$n.axes))

@@ -12,6 +12,10 @@
 #' - **X**: residuals of the fit to the predictor.
 #' @author Gavin L. Simpson
 #' @seealso [symcoca]
+#' @keywords multivariate
+#' @rdname resid.symcoca
+#' @name resid.symcoca
+#' @export
 #' @examples
 #' \dontshow{od <- options(digits = 4)}
 #' data(bryophyte)
@@ -19,10 +23,6 @@
 #' bryo.sym <- coca(bryophyte ~ ., data = vascular, method = "symmetric")
 #' eps <- resid(bryo.sym)
 #' \dontshow{options(od)}
-#' @keywords multivariate
-#' @rdname resid.symcoca
-#' @name resid.symcoca
-#' @export
 resid.symcoca <-
   function(object, ...) {
     retval <- object$residuals

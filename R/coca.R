@@ -120,6 +120,9 @@
 #'
 #' [summary.predcoca] and [summary.symcoca] for
 #' summary methods.
+#' @keywords models
+#' @rdname coca
+#' @export
 #' @examples
 #' \dontshow{
 #' od <- options(digits = 4)
@@ -189,9 +192,6 @@
 #' Sys.setenv("OMP_THREAD_LIMIT" = mpt)
 #' }
 #' }
-#' @keywords models
-#' @rdname coca
-#' @export
 coca <- function(y, ...) {
   UseMethod("coca", y)
 }

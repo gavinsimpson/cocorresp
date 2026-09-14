@@ -39,17 +39,17 @@
 #' @seealso [symcoca] for the function that calls
 #' `fitCoinertia` and [coinertiaI] for co-inertia analysis
 #' using identity matrices for \eqn{K_1}, \eqn{K_2}, and \eqn{R_0}.
+#' @keywords models
+#' @rdname coinertia
+#' @name coinertia
+#' @aliases print.coinertia summary.coinertia print.summary.coinertia
+#' @export
 #' @examples
 #' \dontshow{od <- options(digits = 4)}
 #' data(beetles, plants)
 #' coin <- coinertia(beetles, plants)
 #' coin
 #' \dontshow{options(od)}
-#' @keywords models
-#' @rdname coinertia
-#' @name coinertia
-#' @aliases print.coinertia summary.coinertia print.summary.coinertia
-#' @export
 coinertia <- function(y, ...) {
   UseMethod("coinertia")
 }

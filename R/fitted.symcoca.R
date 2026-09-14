@@ -25,6 +25,9 @@
 #' fitted values to specified axes, and the names of the returned objects
 #' need making more obvious!
 #' @seealso The model fitting function [coca]
+#' @keywords multivariate
+#' @rdname fitted.symcoca
+#' @export
 #' @examples
 #' ## symmetric CoCA
 #' data(beetles)
@@ -42,9 +45,6 @@
 #'
 #' ## fitted values for beetles only
 #' beetle.fit <- fitted(bp.sym, which = "y1")
-#' @keywords multivariate
-#' @rdname fitted.symcoca
-#' @export
 fitted.symcoca <- function(object, which = c("y1", "y2"), ...) {
   `getFitted` <- function(x, take) {
     TAKE <- ifelse(take == "Y", 1L, 2L)

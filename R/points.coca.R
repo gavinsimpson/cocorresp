@@ -21,6 +21,10 @@
 #' @author Gavin L. Simpson
 #' @seealso [plot] methods; [plot.predcoca] and
 #' [plot.symcoca].
+#' @keywords methods
+#' @rdname points.coca
+#' @name points.coca
+#' @export
 #' @examples
 #' ## symmetric CoCA
 #' data(beetles)
@@ -36,10 +40,6 @@
 #' plot(bp.sym, type = "none")
 #' points(bp.sym, display = "sites", col = "blue", pch = 16)
 #' points(bp.sym, display = "species", col = "red", pch = 3, cex = 0.8)
-#' @keywords methods
-#' @rdname points.coca
-#' @name points.coca
-#' @export
 points.coca <- function(
   x,
   display = c("sites", "species"),

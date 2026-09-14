@@ -20,6 +20,11 @@
 #' Selecting a single axis simplifies that matrix to a numeric vector.
 #' @author Gavin L. Simpson
 #' @seealso [coca] for how to fit CoCA models.
+#' @keywords utilities
+#' @rdname loadings
+#' @name loadings
+#' @aliases lodaings.default
+#' @export
 #' @examples
 #' ## symmetric CoCA
 #' data(beetles)
@@ -31,11 +36,6 @@
 #'
 #' ## extract the loadings
 #' lds <- loadings(bp.sym)
-#' @keywords utilities
-#' @rdname loadings
-#' @name loadings
-#' @aliases lodaings.default
-#' @export
 loadings <- function(x, ...) {
   UseMethod("loadings")
 }

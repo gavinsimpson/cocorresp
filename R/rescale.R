@@ -17,6 +17,9 @@
 #' @author Matlab original by C.J.F. ter Braak and A.P. Schaffers.
 #' R port by Gavin L. Simpson.
 #' @seealso [symcoca]
+#' @keywords multivariate
+#' @rdname rescale
+#' @export
 #' @examples
 #' \dontshow{od <- options(digits = 4)}
 #' data(bryophyte)
@@ -26,9 +29,6 @@
 #'
 #' \donttest{rescale(bryo.sym, axes = 1:2)}
 #' \dontshow{options(od)}
-#' @keywords multivariate
-#' @rdname rescale
-#' @export
 rescale <-
   function(object, ...) {
     UseMethod("rescale")

@@ -28,6 +28,9 @@ corAxis.default <- function(x, ...) {
 #' defaults, see [cor] for details. A more flexible version
 #' is planned that will allow arguments to be passed to `cor`.
 #' @seealso [cor], for the main analysis function.
+#' @keywords univar
+#' @rdname corAxis
+#' @export
 #' @examples
 #' \dontshow{od <- options(digits = 4)}
 #' ## load some data
@@ -43,9 +46,6 @@ corAxis.default <- function(x, ...) {
 #' ## correlations between axes
 #' corAxis(beetles.sym)
 #' \dontshow{options(od)}
-#' @keywords univar
-#' @rdname corAxis
-#' @export
 corAxis.symcoca <- function(x, axes = NULL, ...) {
   if (!inherits(x, "symcoca")) {
     stop("object must be of class \"symcoca\"")

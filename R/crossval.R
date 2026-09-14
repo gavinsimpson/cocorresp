@@ -55,6 +55,15 @@
 #' [coca] or work on the results from [coca],
 #' although that will have to be altered to store a copy of the data?
 #' @seealso The model fitting function [coca]
+#' @keywords multivariate
+#' @rdname crossval
+#' @export
+#' @param parallel A positive integer worker count (default `1L`, serial), a
+#' caller-owned [parallel::makeCluster()] cluster, or a function with arguments
+#' `X`, `FUN`, and `...` returning a list in input order. Counts greater than one
+#' create a PSOCK cluster, which is stopped on exit. Supplied clusters are never
+#' stopped. Optional future and futurize adapters are described in
+#' `vignette("parallel-computation")`.
 #' @examples
 #' \dontshow{od <- options(digits = 4)}
 #' ## load the data sets
@@ -75,15 +84,6 @@
 #' }
 #' ## so 2 axes are sufficient
 #' \dontshow{options(od)}
-#' @keywords multivariate
-#' @rdname crossval
-#' @export
-#' @param parallel A positive integer worker count (default `1L`, serial), a
-#' caller-owned [parallel::makeCluster()] cluster, or a function with arguments
-#' `X`, `FUN`, and `...` returning a list in input order. Counts greater than one
-#' create a PSOCK cluster, which is stopped on exit. Supplied clusters are never
-#' stopped. Optional future and futurize adapters are described in
-#' `vignette("parallel-computation")`.
 crossval <- function(
   y,
   x,

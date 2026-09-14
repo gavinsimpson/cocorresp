@@ -13,6 +13,10 @@
 #' @seealso [envfit.coca] uses these weights to estimate
 #' weighted correlations in ordination space. See [coca] for
 #' details on creating CoCA models.
+#' @keywords utilities
+#' @rdname weights
+#' @name weights.symcoca
+#' @export
 #' @examples
 #' \dontshow{od <- options(digits = 4)}
 #' ## symmetric CoCA
@@ -28,10 +32,6 @@
 #' ## weights == R[0]
 #' weights(bp.sym)
 #' \dontshow{options(od)}
-#' @keywords utilities
-#' @rdname weights
-#' @name weights.symcoca
-#' @export
 weights.symcoca <- function(object, ...) {
   unname(object$weights)
 }

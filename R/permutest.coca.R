@@ -74,6 +74,16 @@
 #' [crossval], for a leave-one-out cross-validation
 #' procedure, which is the preferred way to select axes in a predictive
 #' co-correspondence analysis.
+#' @keywords multivariate
+#' @section Warning:
+#' This function is **slow**. Beware setting argument
+#' `permutations` higher than the default. Determine how long it
+#' takes for the default 99 permutations to complete before going crazy
+#' and asking for thousands of permutations - you've been warned, have a
+#' good book to hand.
+#' @rdname permutest.coca
+#' @export
+#' @inheritParams crossval
 #' @examples
 #' \dontshow{
 #' old_rng <- RNGkind()
@@ -102,16 +112,6 @@
 #' bp.perm
 #'
 #' \dontshow{options(od); do.call(RNGkind, as.list(old_rng))}
-#' @keywords multivariate
-#' @section Warning:
-#' This function is **slow**. Beware setting argument
-#' `permutations` higher than the default. Determine how long it
-#' takes for the default 99 permutations to complete before going crazy
-#' and asking for thousands of permutations - you've been warned, have a
-#' good book to hand.
-#' @rdname permutest.coca
-#' @export
-#' @inheritParams crossval
 permutest.coca <- function(
   x,
   R0 = NULL,

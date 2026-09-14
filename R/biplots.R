@@ -118,6 +118,9 @@ biplot.predcoca <- function(
 #' compositions. *Ecology* **85(3)**, 834--846
 #' @author Gavin L. Simpson.
 #' @seealso [coca], [plot.default]
+#' @keywords methods
+#' @rdname biplots
+#' @export
 #' @examples
 #' ## symmetric CoCA
 #' data(beetles)
@@ -149,9 +152,6 @@ biplot.predcoca <- function(
 #' biplot(bp.pred, which = "response", main = "Beetles")
 #' biplot(bp.pred, which = "predictor", main = "Plants")
 #' layout(1)
-#' @keywords methods
-#' @rdname biplots
-#' @export
 biplot.symcoca <- function(
   x,
   which = "y1",
